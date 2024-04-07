@@ -1,5 +1,5 @@
 ---
-name: Epic template
+name: Epic
 about: Default Epic template
 title: 'EPIC: <Title>'
 labels: Epic, US
