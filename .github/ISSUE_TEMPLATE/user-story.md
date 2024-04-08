@@ -7,14 +7,14 @@ assignees: JaqiKal
 
 ---
 
-As a ***role*** I can ***capability*** so that ***received_benefit/value***
+Add a statement, following this format: "As a [role] I can [capability] so that [received_benefit/value]"
 
 #### Acceptance Criteria
-* [  ] 
-* [  ] 
+
+* [ ]
 
 #### Tasks
-* [  ]  
-* [  ] 
 
-**Belonging to:** 'EPICxx'
+* [ ]
+
+**Belonging to:** EPIC 
