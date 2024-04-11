@@ -272,7 +272,7 @@ A link to the GitHub project board can be found [here](https://github.com/users/
 | In Progress (US) | User story currently being worked on |
 | In Review | Tasks undergoing testing |
 | BUG | Newly discovered and unresolved issues |
-| Done | Completed tasks |
+| Done | Completed tasks (Epic, US and fixed bugs) |
 | Future Feature | Features planned for future enhancement beyond the minimum viable product (MVP), and not included by handover (2024-05-10)  |
 | Won't have | Ideas considered but not included in the project scope |
 
@@ -406,7 +406,8 @@ Please refer to [TESTING.md](TESTING.md) file for all testing and trouble shooti
 
 ## Deployment
 
-### Prequisites
+<details>
+<summary style="font-size: 1.2em; font-weight: bold;">Prerequisites</summary>
 
 
 - Ensure [Python](https://www.python.org/) is installed on your system.
@@ -421,6 +422,8 @@ Important points for before deployment:
 -  It is necessary to make migrations and migrate the models to the database before deployment.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*  
+
+</details>
 
 <details>
 <summary style="font-size: 1.2em; font-weight: bold;">Heroku Deployment</summary>
