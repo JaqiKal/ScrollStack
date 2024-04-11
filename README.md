@@ -150,13 +150,38 @@ Deployed website: [Link to website](#)<br>
 
 ### Application Structure
 
+ScrollStack is structured around the Model-View-Controller (MVC) pattern, which separates the application into three interconnected components. This separation helps manage complex development and enables efficient teamwork by segmenting the app into manageable parts.
+
+Frontend is built using HTML, CSS and JavaScript to create a mobile-first, responsive design. I chose Bootstrap for its comprehensive library of pre-styled components and responsive grid system, which  
+accelerated the development process and ensured a seamless, mobile-first user experience across different devices.
+
+The backend architecture is built on Python and Django, where Django simplifies the application's backend logic, manages URL routing, and ensures efficient database interactions, providing a stable and efficient backbone for the app's operations.
+
+In this project, we employ a relational database 'PostgreSQL' for its robustness, scalability, and compatibility with Django, structuring it to store user and book information in an organized manner, which optimizes data retrieval and supports complex queries efficiently.
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Backend Logic
 
+Placeholder text!
+
+```text
+- Detail the data models used, such as Book, User, Author, and Genre, explaining the relationships between them (e.g., one-to-many from Author to Book).
+- Describe how business logic is implemented in Django views and models, including user authentication, book management (CRUD operations), and permissions for different user roles.
+- If any external APIs or integrations are used (e.g., for user authentication, email services), explain their purposes and how they’re incorporated into the backend.
+```
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Programming Paradigms
+
+Placeholder text!
+
+```text
+- Object orientated programming
+- Procedural programming
+- Event-driven Programming
+```
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
@@ -607,6 +632,8 @@ Media were not used.
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
 ### Content
+
+Website content crafted by the developer for personalized, authentic information.
 
 The following documentation, blogs, tutorials and guides were used to aid development.
 - Bootstrap documentation
