@@ -1,8 +1,16 @@
-# Welcome to ScrollStack
+# Welcome to the ScrollStack
 
-Embarking on a journey through the ScrollStack, where every leaf turned is a story untold. Stay tuned as we unbind the mystery, one page at a time.
+This is your personal book register, a web application designed to transform the way you manage your personal library. Tailored for book enthusiasts, students, researchers, minimalists, and anyone in between, this platform provides a user-friendly and efficient solution for cataloging, organizing, and accessing your book collection digitally.
+
+In a world where space is a premium and the ease of accessing information is paramount, the ScrollStack stands out as a digital haven for your books. Whether you're tracking your reading habits, decluttering your physical space, or simply organizing your vast collection of literature, this platform caters to your needs. It allows for the addition, editing, categorization, and detailed viewing of each book in your personal collection.
+
+Developed with the user in mind, this application aims to enhance your reading experience, making your personal library accessible at the click of a button, anywhere, anytime. Dive into a world where managing your books is no longer a chore but a delightful experience.
+
 
 ![ScrollStack Preview](/documentation/readme-img/placeholder.webp)
+
+Developer: [JaqiKal](https://github.com/JaqiKal)<br>
+Deployed website: [Link to website](#)<br>
 
 ---
 
@@ -52,7 +60,6 @@ Embarking on a journey through the ScrollStack, where every leaf turned is a sto
     - Administration Panel
     - Logout
 - Testing
-    - Overview of Testing Strategies
     - Documented Bugs and Fixes
 - Setup and Installation
     - Prerequisites
@@ -157,19 +164,119 @@ Embarking on a journey through the ScrollStack, where every leaf turned is a sto
 
 ### Overview of Agile Methodology
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
-
-### Epics and User Stories
+Agile methodologies and principles were used when planning and creating The ScrollStack. Development was organized by focusing on the prioritization of user story or stories. The user stories are arranged on a KanBan board, which was continuously managed throughout development to enable prioritization of the workload.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
+
+<details>
+<summary style="font-size: 1.2em; font-weight: bold;">Epics and User Stories</summary>
+
+<br>
+
+For details please follow link to: [Github Project board](https://github.com/users/JaqiKal/projects/10)
+<br>
+
+**EPIC: Initial Project Planning and Documentation**
+- US: Review LO in PP4 Assessment Material
+- US: Initiate and Continuously Update README File
+- US: Structured Planning and Documentation Framework
+- US: Prioritize User Stories
+- US: Create Wireframe
+- US: Create ERD 
+
+**EPIC: Project Setup and Initial Configuration**
+- US: GitHub Repository Setup
+- US: IDE Setup
+
+**EPIC: Model Related**
+- US: Create Book Model
+- US: Implement other applicable Models, eg. Genre and Author Models
+
+**EPIC: User Authentication and Authorization**
+- US: Sign Up for an Account
+- US: Log In and Out of the Application
+- US: Reset Forgotten Password
+
+**EPIC: Book Management**
+- US: Add New Books to Collection
+- US: View List of Books
+- US: Edit Book Details
+- US: Delete a Book
+
+**EPIC: Searching and Filtering**
+
+- US: Search by Title or Author
+- US: Filter by Genre
+
+**EPIC: Profile Management**
+
+- US: Update Profile Details
+- US: Upload a Profile Picture
+
+**EPIC: View Related**
+
+- US: Develop Dashboard View
+
+**EPIC: Template Related**
+
+- US: Design Base Template
+- US: Create Error Handling Template
+
+**EPIC: Responsiveness and Accessibility**
+
+- US: Ensure Website Responsiveness
+- US: Follow Accessibility Best Practices
+
+**EPIC: User Feedback**
+
+- US: Implement Feedback and Issue Reporting Feature
+- US: Provide User Access to Documentation and Help Guides
+
+**EPIC: Testing and Quality Assurance**
+
+- US: Write Unit Tests for the Book Model
+- US: User Acceptance Testing on Mobile Devices
+- US: Manually Test User Registration and Profile Management
+- US: Perform Comprehensive Cross-Browser and Device Compatibility Testing
+
+**EPIC: Deployment, Documentation**
+
+- US: Document Deployment Process
+- US: Secure Application for Deployment
+- US: Prepare Application for Cloud Deployment
+- US: Document Design and Development Process
+
+*<span style="color: blue;">[Back to Content](#content)</span>*   
+
+</details>
 
 ### MoSCoW Prioritization
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+Labels were added to user stories to assist with prioritization of tasks. The MoSCoW system involves adding labels for MUST HAVE, SHOULD HAVE, COULD HAVE and WON'T HAVE. By labelling issues in such a way, the developer can focus on completing all the MUST HAVE tasks before moving onto tasks of lower priority, this is critical when working to a tight deadline to ensure a minimum viable product is completed in time.
+
+For details please follow link to: [Github Project board](https://github.com/users/JaqiKal/projects/10) and/or [Issues list](https://github.com/JaqiKal/ScrollStack/issues)
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 ### Project Tracking (GitHub Projects)
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+The project use a Kanban board for organization, serving as a dynamic document continually managed to effectively prioritize and organize workload. The board categorized tasks into various stages, from Backlog for items not yet started to Done for completed tasks. As development commenced on a User Story, it transitioned from Backlog to In Progress, and upon completion, both the User Story and its associated Epic were moved to Done. Additionally, unresolved bugs were tracked separately until resolved, at which point they were also moved to the Done column. Kanban methodology proved invaluable in tracking project progress through its various phases, offering flexibility to adapt to the project's unique needs.
+
+A link to the GitHub project board can be found [here](https://github.com/users/JaqiKal/projects/10).
+
+| Kanban | Description |
+|--|--|
+| Backlog (EPIC, US) | Items not yet started|
+| Ready to Start (EPIC, US) | Tasks ready for implementation |
+| In Progress (EPIC) | Epic currently being worked on |
+| In Progress (US) | User story currently being worked on |
+| In Review | Tasks undergoing testing |
+| BUG | Newly discovered and unresolved issues |
+| Done | Completed tasks |
+| Future Feature | Features planned for future enhancement beyond the minimum viable product (MVP), and not included by handover (2024-05-10)  |
+| Won't have | Ideas considered but not included in the project scope |
+
+*<span style="color: blue;">[Back to Content](#content)</span>*  
 
 ## Data Modeling and Database Design
 
@@ -223,9 +330,39 @@ Embarking on a journey through the ScrollStack, where every leaf turned is a sto
 
 ### Color Scheme
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+The site begin with #F6E84B, a luminous shade of yellow, evoking the brightness and energy of the first rays of dawn, sparking curiosity right at the top of our interface. As the gradient flows into #ff9102, a vivid orange akin to the morning sun's warm glow, it subtly encourages the user to remain engaged and interact with the content. The gradient culminates in a deep maroon (#800000), grounding the design with a sense of depth and seriousness, reflecting the solid foundation of the knowledge within.
+
+This choice of gradient not only provides a striking backdrop but also supports the user's visual flow from the top of the page to the bottom, naturally guiding them through the content. The color transition from light to dark symbolizes the user's progression from initial curiosity to deeper engagement with our application. The goal is to make this transition as smooth and natural as reading a page, ensuring that the users' experiences are both visually appealing and emotionally resonant.
+
+![Colour palette](/documentation/readme-img/colour-scheme.webp)
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
+
+### Fonts
+
+Roboto was chosen from [Google Fonts](https://fonts.google.com/specimen/Roboto?preview.text=The%20ScrollStack%20&query=roboto) as the font for this website. It is simple, easy to read and appropriate for a professional site.
+
+![font](/documentation/readme-img/roboto-400.webp)
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 ### Accessibility Features
+
+While developing the website, I've focused on its accessibility. This goal was achieved through the following methods:
+
+* Using semantic HTML.
+* Using a hover state on all buttons on the site to make it clear to the user if they are hovering over a button.
+* Choosing a sans serif font for the site - these fonts are suitable for people with dyslexia.
+* The use of aria-labelledby and attributes in the game's buttons and player sections improves the accessibility of dynamic content and interactive elements for users with screen readers.
+* The use of colors is considered for visibility.
+* No contrast errors were detected in the page;
+
+  ![x](#IMAGE)
+
+  * For more details pls see:
+    * [Wave Web Accessibility Evaulation Tool - AAA.HTML](#)
+    * [Wave Web Accessibility Evaulation Tool - BBB.HTML](#)
+    * [Wave Web Accessibility Evaulation Tool - CCC.HTML](#)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
@@ -261,18 +398,16 @@ Embarking on a journey through the ScrollStack, where every leaf turned is a sto
 
 ## Testing
 
-### Overview of Testing Strategies
-
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+Please refer to [TESTING.md](TESTING.md) file for all testing and trouble shooting carried out.
 
 ### Documented Bugs and Fixes
-
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ## Deployment
 
 ### Prequisites
+
 
 - Ensure [Python](https://www.python.org/) is installed on your system.
 - Verify that Python is installed on your system by checking its version. This can be done through a command in the terminal `python --version` or by running a small piece of Python code that outputs the version information.
@@ -287,7 +422,10 @@ Important points for before deployment:
 
 *<span style="color: blue;">[Back to Content](#content)</span>*  
 
-### Heroku Deployment
+<details>
+<summary style="font-size: 1.2em; font-weight: bold;">Heroku Deployment</summary>
+
+<br>
 
 1. **Heroku Account:**
    - Make sure you have a Heroku account. If not, sign up on the Heroku website.
@@ -359,8 +497,12 @@ Important points for before deployment:
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
-### Local Development
+</details>
 
+<details>
+<summary style="font-size: 1.2em; font-weight: bold;">Local Deployment</summary>
+
+<br>
 #### How to Fork
 
 1. Log in (or sign up) to Github.
@@ -398,6 +540,8 @@ DEVELOPMENT = True
 ``` pip3 install -r requirements.txt ```
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
+
+</details>
 
 ## Credits and Acknowledgements
 
