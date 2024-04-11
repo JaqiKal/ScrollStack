@@ -298,9 +298,30 @@ A link to the GitHub project board can be found [here](https://github.com/users/
 
 ### Current Features
 
+- Initial Project Planning and Documentation: Structured planning, README file updates, wireframing, ERD creation.
+- Project Setup and Configuration: GitHub setup, IDE configuration.
+- Model Related: Creation of Book (Optional: genre, and Author models).
+- User Authentication and Authorization: Account signup, login/logout, password reset.
+- Book Management: Adding, viewing, editing, and deleting books.
+- Searching and Filtering: Search by title or author, filter by genre.
+- Profile Management: Update profile details, upload a profile picture.
+- View Related: Development of a dashboard view.
+- Template and Design: Base template design, error handling templates.
+- Responsiveness and Accessibility: Ensuring website responsiveness, accessibility best practices.
+- User Feedback: Feedback and issue reporting, access to documentation and help guides.
+- Testing and Quality Assurance: Writing unit tests, user acceptance testing, cross-browser testing.
+- Deployment and Documentation: Documenting deployment and design/development process, securing and preparing the application for cloud deployment.
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Future Features
+
+In no particular order: 
+
+- Implement a recommendation system that suggests books based on the user's reading history, preferences, and ratings. 
+- Allow users to follow other users, share books on their digital shelves, and comment on/review books. 
+- Create partnerships and APIs to allow users to check the availability of physical copies in local libraries or bookstores, and possibly even reserve or purchase them directly through ScrollStack
+- Allow users to personalize their dashboard views with widgets or sections that matter most to them, such as recent reads, recommendations, or friend activity 
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
@@ -308,21 +329,44 @@ A link to the GitHub project board can be found [here](https://github.com/users/
 
 ### Strategy
 
+The ScrollStack project is envisioned as a digital bookshelf that provides a platform for users to manage their book collections. The strategy behind this project is to leverage Full-Stack development techniques to create a user-friendly, mobile-first MVP (Minimum Viable Product) that not only meets the basic CRUD (Create, Read, Update, Delete) functionalities for book management but also incorporates authentication, profile management, searching, filtering, and responsive design. This strategy is rooted in the Agile methodology to ensure flexibility, iterative development, and user feedback incorporation throughout the project lifecycle.
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Scope
+
+To achieve our strategy, the project's scope includes:
+
+- Developing a responsive and accessible front-end design that adheres to UX principles and accessibility guidelines.
+- Implementing CRUD functionality for book management.
+- Ensuring secure user authentication and authorization.
+- Offering searching and filtering capabilities to enhance user interaction.
+- Providing a user-friendly profile management interface.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Structure
 
+ScrollStack is structured around a series of epics and user stories that detail the development process and features to be implemented. Each epic encompasses a broad area of functionality, such as Project Setup, Model Related Development, User Authentication, and Book Management. Within these epics, user stories break down the development tasks into manageable units, ensuring a focused and user-centered approach. The application follows a logical flow to facilitate ease of use and intuitive navigation, supporting these actions through a clear, organized database and front-end design. This structure supports the Agile methodology by allowing for adaptability and iterative improvements based on user feedback and project requirements.
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Skeleton
 
+The skeleton of ScrollStack is defined through wireframes and ERDs (Entity-Relationship Diagrams) that outline the user interface and database design. Wireframes provide a visual guide for the layout of web pages, focusing on user experience and efficient navigation. ERDs detail the database schema, illustrating the relationships between different data models such as Book, Genre, and Author. This skeletal framework serves as the blueprint for developing a structured and well-organized application that meets both functional and aesthetic requirements.
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 #### Wireframes
+
+Wireframes for the ScrollStack project were created to outline the basic layout and interface elements for the core pages, including:
+
+- Home/Landing Page: Showcasing featured books and user testimonials.
+- Book List Page: Displaying all books with options to filter and search.
+- Book Detail Page: Providing detailed information about a book with options to edit or delete.
+- User Profile Page: Allowing users to view and edit their profile information.
+- Authentication Pages: Including sign-up and log-in forms.
+- Wireframes were developed to guide the visual and structural design of the application, ensuring a user-centered approach to the layout and functionality. These wireframes are the blueprint for developing a responsive and accessible web interface, adhering to the principles of mobile-first design.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
