@@ -16,6 +16,7 @@ Embarking on a journey through the ScrollStack, where every leaf turned is a sto
 - Technologies Used
     - Programming Languages
     - Frameworks and Libraries
+    - Database
     - Tools and Services
 - System Architecture
     - Application Structure
@@ -94,13 +95,47 @@ Embarking on a journey through the ScrollStack, where every leaf turned is a sto
 
 ### Programming Languages
 
+- HTML : Structure the content of our application.
+- CSS : Style the application to enhance the user interface.
+- JavaScript : Add interactivity to web pages, improving the user experience.
+- Python : Backend development 
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Frameworks and Libraries
 
+- Django - a framework for developing web applications written in Python.
+- Bootstrap - a front-end framework designed to help developers build responsive and mobile-first websites and web applications. It provides a collection of CSS and JavaScript tools for creating layouts, forms, buttons, navigation, and other interface components, as well as optional JavaScript extensions. 
+- Cloudinary - a cloud-based platform for storing and serving images
+
+*<span style="color: blue;">[Back to Content](#content)</span>*   
+
+### Database
+
+-  [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/)
+
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
 ### Tools and Services
+
+- Balsamiq Cloud:used for drawing wireframes
+- cdnjs: content delivery network
+- Code Institute Python Linter: a tool to check Python code against some of the style conventions in PEP8.
+- Coolors: used for generating the colour palette.
+- DB diagram: used for building an ER diagram.
+- Draw.io: useful for planning the application's architecture and flowcharts, especially helpful in the design phase to visualize the application flow.
+- Favicon Generator: used for generating a favicon.
+- Git: used for version control. (git add, git commit, git push)
+- Gitpod: streamlines your development process by providing a pre-configured, cloud-based development environment that's instantly ready for coding.
+- GitHub: essential for version control, allowing you to track changes, collaborate with others (if applicable), and secure online code storage.
+- Google Developer Tools: used during testing, debugging and styling.
+- Google Fonts: a catalog of free, open-source fonts. Used for typography.
+- Font Awesome: a catalog of free, open-source icons. Used for profile, heart and speech bubble icons.
+- Heroku: a platform for deploying and hosting web applications.
+- JSHint: a code validation tool used for JavaScript.
+- Markup validation Service: Used to check code ensuring that my HTML is error-free and adheres to the latest web standards.
+- PEP8: style Guide for Python Code.
+- W3C Validator: code validation tool used for HTML and CSS.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*   
 
