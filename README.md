@@ -223,75 +223,44 @@ For details please follow link to: [Github Project board](https://github.com/use
 For details please follow link to: [Github Project board](https://github.com/users/JaqiKal/projects/10)
 <br>
 
-**EPIC: Initial Project Planning and Documentation**
-- US: Review LO in PP4 Assessment Material
-- US: Initiate and Continuously Update README File
-- US: Structured Planning and Documentation Framework
-- US: Prioritize User Stories
-- US: Create Wireframe
-- US: Create ERD 
-
-**EPIC: Project Setup and Initial Configuration**
-- US: GitHub Repository Setup
-- US: IDE Setup
-
-**EPIC: Model Related**
-- US: Create Book Model
-- US: Implement other applicable Models, eg. Genre and Author Models
-
-**EPIC: User Authentication and Authorization**
-- US: Sign Up for an Account
-- US: Log In and Out of the Application
-- US: Reset Forgotten Password
-
-**EPIC: Book Management**
-- US: Add New Books to Collection
-- US: View List of Books
-- US: Edit Book Details
-- US: Delete a Book
-
-**EPIC: Searching and Filtering**
-
-- US: Search by Title or Author
-- US: Filter by Genre
-
-**EPIC: Profile Management**
-
-- US: Update Profile Details
-- US: Upload a Profile Picture
-
-**EPIC: View Related**
-
-- US: Develop Dashboard View
-
-**EPIC: Template Related**
-
-- US: Design Base Template
-- US: Create Error Handling Template
-
-**EPIC: Responsiveness and Accessibility**
-
-- US: Ensure Website Responsiveness
-- US: Follow Accessibility Best Practices
-
-**EPIC: User Feedback**
-
-- US: Implement Feedback and Issue Reporting Feature
-- US: Provide User Access to Documentation and Help Guides
-
-**EPIC: Testing and Quality Assurance**
-
-- US: Write Unit Tests for the Book Model
-- US: User Acceptance Testing on Mobile Devices
-- US: Manually Test User Registration and Profile Management
-- US: Perform Comprehensive Cross-Browser and Device Compatibility Testing
-
-**EPIC: Deployment, Documentation**
-
-- US: Document Deployment Process
-- US: Secure Application for Deployment
-- US: Prepare Application for Cloud Deployment
-- US: Document Design and Development Process
+| Epic | User Story|
+| - | - |
+| Initial Project Planning and Documentation | Review LO in PP4 Assessment Material|
+| | Initiate and Continuously Update README File |
+| | Structured Planning and Documentation Framework |
+| | Prioritize User Stories |
+| | Create Wireframe |
+| | Create ERD |
+| Project Setup and Initial Configuration | GitHub Repository Setup |
+| | IDE Setup |
+| Model Related | Create Book Model |
+| | Implement other Models (e.g., Genre, Author) |
+| User Authentication and Authorization | Sign Up for an Account |
+| | Log In and Out of the Application |
+| | Reset Forgotten Password |
+| Book Management | Add New Books to Collection |
+| | View List of Books  |
+| | Edit Book Details |
+| | Delete a Book  |
+| Searching and Filtering | Search by Title or Author |
+| | Filter by Genre |
+| Profile Management | Update Profile Details |
+| | Upload a Profile Picture |
+| View Related | Develop Dashboard View |
+| Template Related | Design Base Template |
+| | Create Error Handling Template |
+| Responsiveness and Accessibility | Ensure Website Responsiveness |
+| | Follow Accessibility Best Practices |
+| User Feedback | Implement Feedback and Issue Reporting Feature |
+| | Provide User Access to Documentation and Help Guides |
+| Testing and Quality Assurance | Write Unit Tests for the Book Model |
+| | User Acceptance Testing on Mobile Devices |
+| | Manually Test User Registration and Profile Management|
+| | Perform Comprehensive Cross-Browser and Device Compatibility Testing |
+| Deployment, Documentation | Document Deployment Process |
+| | Secure Application for Deployment |
+| | Prepare Application for Cloud Deployment |
+| | Document Design and Development Process |
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -464,19 +433,19 @@ Images used on this website have been sourced from free online resources, either
 
 While developing the website, I've focused on its accessibility. This goal was achieved through the following methods:
 
-* Using semantic HTML.
-* Using a hover state on all buttons on the site to make it clear to the user if they are hovering over a button.
-* Choosing a sans serif font for the site - these fonts are suitable for people with dyslexia.
-* The use of aria-labelledby and attributes in the game's buttons and player sections improves the accessibility of dynamic content and interactive elements for users with screen readers.
-* The use of colors is considered for visibility.
-* No contrast errors were detected in the page;
+- Using semantic HTML.
+- Using a hover state on all buttons on the site to make it clear to the user if they are hovering over a button.
+- Choosing a sans serif font for the site - these fonts are suitable for people with dyslexia.
+- The use of aria-labelledby and attributes in the game's buttons and player sections improves the accessibility of dynamic content and interactive elements for users with screen readers.
+- The use of colors is considered for visibility.
+- No contrast errors were detected in the page;
 
   ![x](#IMAGE)
 
-  * For more details pls see:
-    * [Wave Web Accessibility Evaulation Tool - AAA.HTML](#)
-    * [Wave Web Accessibility Evaulation Tool - BBB.HTML](#)
-    * [Wave Web Accessibility Evaulation Tool - CCC.HTML](#)
+    - For more details pls see:
+        - [Wave Web Accessibility Evaulation Tool - AAA.HTML](#)
+        - [Wave Web Accessibility Evaulation Tool - BBB.HTML](#)
+        - [Wave Web Accessibility Evaulation Tool - CCC.HTML](#) 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
