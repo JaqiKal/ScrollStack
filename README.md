@@ -16,135 +16,153 @@ Deployed website: [Link to website](#)<br>
 
 # Table of Contents
 
-- Introduction
-    - Project Overview
-    - Objectives
-    - Developer Goals
-    - User Goals
-- Technologies Used
-    - Programming Languages
-    - Frameworks and Libraries
-    - Database
-    - Tools and Services
-- System Architecture
-    - Application Structure
-    - Backend Logic
-    - Programming Paradigms
-- Agile Development Process
-    - Overview of Agile Methodology
-    - Epics and User Stories
-    - MoSCoW Prioritization
-    - Project Tracking (GitHub Projects)
-- Data Modeling and Database Design
-    - Entity-Relationship Diagram (ERD)
-    - Database Schema
-    - Data Flow and Architecture
-- Features
-    - Current Features
-    - Future Features
-- User Experience Design
-    - Strategy
-    - Scope
-    - Structure
-    - Skeleton
-         - Wireframes
-- Frontend Design
-    - Color Scheme
-    - Accessibility Features
-    - Responsiveness
-- Navigation and Page Layouts
-    - Landing Page
-    - Registration & Login
-    - User Profile
-    - Book Management
-    - Administration Panel
-    - Logout
-- Testing
-    - Documented Bugs and Fixes
-- Setup and Installation
-    - Prerequisites
-    - Local Development Setup
-    - Cloning and Forking Instructions
-    - Dependencies and Environment Setup
-- Deployment
-    - Prerequisites
-    - Heroku Deployment
-    - Local Deployment
-        - How to Fork
-        - How to clone
-        - Setting up your local environment
-- Credits and Acknowledgements
-    - Code
-    - Media
-    - Content
-    - Acknowledgements
+- [Introduction](#introduction)
+    - [Project Overview](#project-overview)
+    - [Objectives](#objectives)
+    - [Developer Goals](#developer-goals)
+    - [User Goals](#user-goals)
+- [Technologies Used](#technologies-used)
+    - [Programming Languages](#programming-languages)
+    - [Frameworks and Libraries](#frameworks-and-libraries)
+    - [Database](#database)
+    - <a href="#tools-services">Tools and Services</a>
+- [System Architecture](#system-architecture)
+    - [Application Structure](#application-structure)
+    - [Backend Logic](#backend-logic)
+    - [Programming Paradigms](#programming-paradigms)
+- [Agile Development Process](#agile-development-process)
+    - [Overview of Agile Methodology](#overview-of-agile-methodology)
+    - <a href="#epics-and-user-stories">Epics and User Stories</a>
+    - [MoSCoW Prioritization](#moscow-prioritization)
+    - [Project Tracking (GitHub Projects)](#project-tracking-github-projects)
+- [Data Modeling and Database Design](#data-modeling-and-database-design)
+    - [Entity-Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
+    - [Database Schema](#database-schema)
+    - [Data Flow and Architecture](#data-flow-and-architecture)
+- [Features](#features)
+    - [Current Features](#current-features)
+    - [Future Features](#future-features)
+- [User Experience Design](#user-experience-design)
+    - [Strategy](#strategy)
+    - [Scope](#scope)
+    - [Structure](#structure)
+    - [Skeleton](#skeleton)
+- [Frontend Design](#frontend-design)
+    - [Wireframes](#wireframes)
+    - [Color Scheme](#color-scheme)
+    - [Fonts](#fonts)
+    - [Imagery](#imagery)
+    - [Accessibility Features](#accessibility-features)
+    - [Responsiveness](#responsiveness)
+- [Navigation and Page Layouts](#navigation-and-page-layouts)
+    - [Landing Page](#landing-page)
+    - [Registration & Login](#registration--login)
+    - [User Profile](#user-profile)
+    - [Book Management](#book-management)
+    - [Administration Panel](#administration-panel)
+    - [Logout](#logout)
+- [Testing](#testing)
+    - [Documented Bugs and Fixes](#documented-bugs-and-fixes)
+- [Setup and Installation](#setup-and-installation)
+    - [Prerequisites](#prerequisites)
+    - [Local Development Setup](#local-development-setup)
+    - [Cloning and Forking Instructions](#cloning-and-forking-instructions)
+    - [Dependencies and Environment Setup](#dependencies-and-environment-setup)
+- [Deployment](#deployment)
+    - <a href="#prerequisites">Prerequisites</a>
+    - <a href="#heroku-deployment">Heroku Deployment</a>
+    - <a href="#local-deployment">Local Deployment</a>
+        - [How to Fork](#how-to-fork)
+        - [How to clone](#how-to-clone)
+        - [Setting up your local environment](#setting-up-your-local-environment)
+- [Credits and Acknowledgements](#credits-and-acknowledgements)
+    - [Code](#code)
+    - [Media](#media)
+    - [Content](#content)
+    - [Acknowledgements](#acknowledgements)
+
 
 
 ## Introduction
 
 ### Project Overview
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Objectives
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Developer Goals
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### User Goals
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Technologies Used
 
 ### Programming Languages
 
-- HTML : Structure the content of our application.
-- CSS : Style the application to enhance the user interface.
-- JavaScript : Add interactivity to web pages, improving the user experience.
-- Python : Backend development 
+- [HTML](https://en.wikipedia.org/wiki/HTML) - Structure the content of our application.
+- [CSS](https://en.wikipedia.org/wiki/CSS) - Style the application to enhance the user interface.
+- [JavaScript](https://sv.wikipedia.org/wiki/Javascript) - Add interactivity to web pages, improving the user experience.
+- [Python](https://www.python.org) - is used as the back-end programming language.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Frameworks and Libraries
 
-- Django - a framework for developing web applications written in Python.
-- Bootstrap - a front-end framework designed to help developers build responsive and mobile-first websites and web applications. It provides a collection of CSS and JavaScript tools for creating layouts, forms, buttons, navigation, and other interface components, as well as optional JavaScript extensions. 
-- Cloudinary - a cloud-based platform for storing and serving images
+- [Django](https://www.djangoproject.com/) - a framework for developing web applications written in Python.
+- [Bootstrap](https://getbootstrap.com/) - a front-end framework designed to help developers build responsive and mobile-first websites and web applications. It provides a collection of CSS and JavaScript tools for creating layouts, forms, buttons, navigation, and other interface components, as well as optional JavaScript extensions. 
+- [Cloudinary](https://cloudinary.com/) - a cloud-based platform for storing and serving images
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Database
 
 -  [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/)
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
-### Tools and Services
+<details id="tools-services">
+<summary style="font-size: 1.2em; font-weight: bold;">Tools and Services</summary>
 
-- Balsamiq Cloud:used for drawing wireframes
+<br>
+
+- [Am I Responsive?](http://ami.responsivedesign.is/) - To show the website image on a range of devices.
+- [ASPOSE](https://products.aspose.app/pdf/sv/conversion/jpg-to-webp#): Used to convert image to WEBP.
+- [Balsamiq](https://balsamiq.com/) - Used to create wireframes.
+- [Birme](https://www.birme.net/) - To resize images and change to webp format.
 - cdnjs: content delivery network
-- Code Institute Python Linter: a tool to check Python code against some of the style conventions in PEP8.
-- Coolors: used for generating the colour palette.
+- [Code Institute Python Linter](https://pep8ci.herokuapp.com/): A tool to check Python code against some of the style conventions in [PEP8](https://peps.python.org/pep-0008/).
+- [Coolors](https://coolors.co/) - Used to create the colour scheme palette.
+- [CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) - Used to check code ensuring that my CSS is error-free and adheres to the latest web standards.
 - DB diagram: used for building an ER diagram.
+- [DevTools](https://developer.chrome.com/docs/devtools) -  help in edit pages on-the-fly and diagnose problems quickly.
+- [Diffchecker - text](https://www.diffchecker.com/text-compare/) - used to check code snippets
 - Draw.io: useful for planning the application's architecture and flowcharts, especially helpful in the design phase to visualize the application flow.
-- Favicon Generator: used for generating a favicon.
-- Git: used for version control. (git add, git commit, git push)
-- Gitpod: streamlines your development process by providing a pre-configured, cloud-based development environment that's instantly ready for coding.
-- GitHub: essential for version control, allowing you to track changes, collaborate with others (if applicable), and secure online code storage.
-- Google Developer Tools: used during testing, debugging and styling.
-- Google Fonts: a catalog of free, open-source fonts. Used for typography.
-- Font Awesome: a catalog of free, open-source icons. Used for profile, heart and speech bubble icons.
-- Heroku: a platform for deploying and hosting web applications.
+- [Draw.io](https://www.drawio.com/)- Useful for planning the application's architecture and flowcharts, especially helpful in the design phase to visualize the application flow.
+- [Favicon.io](https://favicon.io/) - To create favicon.
+- [Font Awesome](https://fontawesome.com/) - For the iconography on the website.
+- [Git](https://git-scm.com/) - For version control.
+- [Gitpod](https://gitpod.io) Streamlines your development process by providing a pre-configured, cloud-based development environment that's instantly ready for coding.
+- [Github](https://github.com/) - essential for version control, allowing you to track changes, collaborate with others (if applicable), and secure online code storage.
+- [Google Dev Tools](https://developers.google.com/web/tools) - used during testing, debugging and styling.
+- [Google Fonts](https://fonts.google.com/) - a catalog of free, open-source fonts. Used for typography.
+- [Heroku](https://www.heroku.com)- A platform for deploying and hosting web applications. 
 - JSHint: a code validation tool used for JavaScript.
-- Markup validation Service: Used to check code ensuring that my HTML is error-free and adheres to the latest web standards.
-- PEP8: style Guide for Python Code.
-- W3C Validator: code validation tool used for HTML and CSS.
+- [Markup Validation Service](https://validator.w3.org/) - Used to check code ensuring that my HTML is error-free and adheres to the latest web standards.
+- [PEP8](https://peps.python.org/pep-0008/)- Style Guide for Python Code.
+- [Shields.io](https://shields.io/) - To add badges to the README.
+- [Tiny PNG](https://tinypng.com/) - To compress images.
+- [Wave](https://wave.webaim.org) - WAVE® is a suite of evaluation tools that helps authors make their web content more accessible to individuals with disabilities.
+- [Web Disability Sim](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) - a google chrome extension that allows you to view your site as people with accessibility needs would see it.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
+
+</details>
 
 ## System Architecture
 
@@ -159,7 +177,7 @@ The backend architecture is built on Python and Django, where Django simplifies 
 
 In this project, we employ a relational database 'PostgreSQL' for its robustness, scalability, and compatibility with Django, structuring it to store user and book information in an organized manner, which optimizes data retrieval and supports complex queries efficiently.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Backend Logic
 
@@ -171,7 +189,8 @@ Placeholder text!
 - If any external APIs or integrations are used (e.g., for user authentication, email services), explain their purposes and how they’re incorporated into the backend.
 ```
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
+
 
 ### Programming Paradigms
 
@@ -183,7 +202,7 @@ Placeholder text!
 - Event-driven Programming
 ```
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Agile Development Process
 
@@ -191,9 +210,12 @@ Placeholder text!
 
 Agile methodologies and principles were used when planning and creating The ScrollStack. Development was organized by focusing on the prioritization of user story or stories. The user stories are arranged on a KanBan board, which was continuously managed throughout development to enable prioritization of the workload.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+For details please follow link to: [Github Project board](https://github.com/users/JaqiKal/projects/10)
 
-<details>
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
+
+<details id="epics-and-user-stories">
 <summary style="font-size: 1.2em; font-weight: bold;">Epics and User Stories</summary>
 
 <br>
@@ -271,7 +293,7 @@ For details please follow link to: [Github Project board](https://github.com/use
 - US: Prepare Application for Cloud Deployment
 - US: Document Design and Development Process
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 </details>
 
@@ -281,13 +303,13 @@ Labels were added to user stories to assist with prioritization of tasks. The Mo
 
 For details please follow link to: [Github Project board](https://github.com/users/JaqiKal/projects/10) and/or [Issues list](https://github.com/JaqiKal/ScrollStack/issues)
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Project Tracking (GitHub Projects)
 
 The project use a Kanban board for organization, serving as a dynamic document continually managed to effectively prioritize and organize workload. The board categorized tasks into various stages, from Backlog for items not yet started to Done for completed tasks. As development commenced on a User Story, it transitioned from Backlog to In Progress, and upon completion, both the User Story and its associated Epic were moved to Done. Additionally, unresolved bugs were tracked separately until resolved, at which point they were also moved to the Done column. Kanban methodology proved invaluable in tracking project progress through its various phases, offering flexibility to adapt to the project's unique needs.
 
-A link to the GitHub project board can be found [here](https://github.com/users/JaqiKal/projects/10).
+For details please follow link to: [GitHub Project board](https://github.com/users/JaqiKal/projects/10).
 
 | Kanban | Description |
 |--|--|
@@ -301,23 +323,42 @@ A link to the GitHub project board can be found [here](https://github.com/users/
 | Future Feature | Features planned for future enhancement beyond the minimum viable product (MVP), and not included by handover (2024-05-10)  |
 | Won't have | Ideas considered but not included in the project scope |
 
-*<span style="color: blue;">[Back to Content](#content)</span>*  
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Data Modeling and Database Design
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
-
 ### Entity-Relationship Diagram (ERD)
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+This diagram serves as a quick reference to understand the database's structure at a glance.
+
+Placeholder text!
+```text
+- Include a simplified ERD img
+- Briefly describe the key entities, their attributes, and the types of relationships.
+```
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Database Schema
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+For ScrollStack, we've adopted PostgreSQL for its advanced capabilities and flexibility in handling our dataset. This relational database supports essential features for our digital bookshelf, including book CRUD operations. The structure features entities like Book and User, with a one-to-many relationship from User to Books indicating ownership. Data integrity is enforced through constraints, such as foreign keys and NOT NULL, ensuring reliability and well-organized data that underpins ScrollStack's seamless functionality.
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Data Flow and Architecture
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+ScrollStack leverages the MVC (Model-View-Controller) architecture to optimize the flow of data between the user interface and the database, ensuring a dynamic and responsive experience. Here's how it works:
+
+When a user performs an action, such as adding a book, the request is handled by the Controller. It then interfaces with the Model to perform database operations. Upon successful database update, the Model signals the Controller, which instructs the View to update the display accordingly—showing the latest book list without needing a page reload.
+
+This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asynchronous data updates that enhance user interaction. Middleware plays a critical role in routing requests, authentication, and overall data management. The MVC framework, together with AJAX and middleware<sup>2)</sup>, allows ScrollStack to provide quick and seamless updates to the user interface, facilitating a better user experience and streamlined maintenance.
+
+<sup>1)</sup>AJAX is built into the web development environment through JavaScript and does not require external installation. It's readily available for use in creating dynamic, interactive web applications."
+
+ <sup>2)</sup>Middleware in the context of web development acts as a bridge between the client and server, managing requests and responses, and performing various tasks such as authentication, authorization, routing, session management, error handling, data processing, logging, monitoring, and CORS (Cross-Origin Resource Sharing) management.
+
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Features
 
@@ -337,7 +378,7 @@ A link to the GitHub project board can be found [here](https://github.com/users/
 - Testing and Quality Assurance: Writing unit tests, user acceptance testing, cross-browser testing.
 - Deployment and Documentation: Documenting deployment and design/development process, securing and preparing the application for cloud deployment.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Future Features
 
@@ -348,7 +389,7 @@ In no particular order:
 - Create partnerships and APIs to allow users to check the availability of physical copies in local libraries or bookstores, and possibly even reserve or purchase them directly through ScrollStack
 - Allow users to personalize their dashboard views with widgets or sections that matter most to them, such as recent reads, recommendations, or friend activity 
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## User Experience Design
 
@@ -356,7 +397,7 @@ In no particular order:
 
 The ScrollStack project is envisioned as a digital bookshelf that provides a platform for users to manage their book collections. The strategy behind this project is to leverage Full-Stack development techniques to create a user-friendly, mobile-first MVP (Minimum Viable Product) that not only meets the basic CRUD (Create, Read, Update, Delete) functionalities for book management but also incorporates authentication, profile management, searching, filtering, and responsive design. This strategy is rooted in the Agile methodology to ensure flexibility, iterative development, and user feedback incorporation throughout the project lifecycle.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Scope
 
@@ -368,35 +409,33 @@ To achieve our strategy, the project's scope includes:
 - Offering searching and filtering capabilities to enhance user interaction.
 - Providing a user-friendly profile management interface.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Structure
 
 ScrollStack is structured around a series of epics and user stories that detail the development process and features to be implemented. Each epic encompasses a broad area of functionality, such as Project Setup, Model Related Development, User Authentication, and Book Management. Within these epics, user stories break down the development tasks into manageable units, ensuring a focused and user-centered approach. The application follows a logical flow to facilitate ease of use and intuitive navigation, supporting these actions through a clear, organized database and front-end design. This structure supports the Agile methodology by allowing for adaptability and iterative improvements based on user feedback and project requirements.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Skeleton
 
 The skeleton of ScrollStack is defined through wireframes and ERDs (Entity-Relationship Diagrams) that outline the user interface and database design. Wireframes provide a visual guide for the layout of web pages, focusing on user experience and efficient navigation. ERDs detail the database schema, illustrating the relationships between different data models such as Book, Genre, and Author. This skeletal framework serves as the blueprint for developing a structured and well-organized application that meets both functional and aesthetic requirements.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
-#### Wireframes
+## Frontend Design
 
-Wireframes for the ScrollStack project were created to outline the basic layout and interface elements for the core pages, including:
+### Wireframes
+
+Wireframes for the ScrollStack project were created to outline the basic layout and interface elements for the core pages. These wireframes are the blueprint for developing a responsive and accessible web interface, adhering to the principles of mobile-first design.
 
 - Home/Landing Page: Showcasing featured books and user testimonials.
 - Book List Page: Displaying all books with options to filter and search.
 - Book Detail Page: Providing detailed information about a book with options to edit or delete.
 - User Profile Page: Allowing users to view and edit their profile information.
 - Authentication Pages: Including sign-up and log-in forms.
-- Wireframes were developed to guide the visual and structural design of the application, ensuring a user-centered approach to the layout and functionality. These wireframes are the blueprint for developing a responsive and accessible web interface, adhering to the principles of mobile-first design.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
-
-## Frontend Design
-
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 ### Color Scheme
 
 The site begin with #F6E84B, a luminous shade of yellow, evoking the brightness and energy of the first rays of dawn, sparking curiosity right at the top of our interface. As the gradient flows into #ff9102, a vivid orange akin to the morning sun's warm glow, it subtly encourages the user to remain engaged and interact with the content. The gradient culminates in a deep maroon (#800000), grounding the design with a sense of depth and seriousness, reflecting the solid foundation of the knowledge within.
@@ -405,7 +444,7 @@ This choice of gradient not only provides a striking backdrop but also supports 
 
 ![Colour palette](/documentation/readme-img/colour-scheme.webp)
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Fonts
 
@@ -413,7 +452,13 @@ Roboto was chosen from [Google Fonts](https://fonts.google.com/specimen/Roboto?p
 
 ![font](/documentation/readme-img/roboto-400.webp)
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
+
+### Imagery
+
+Images used on this website have been sourced from free online resources, either generated by AI technology or obtained from Wikimedia Commons. Each image has been carefully selected to enhance the content and provide a visually engaging experience for our visitors.
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*  
 
 ### Accessibility Features
 
@@ -433,37 +478,39 @@ While developing the website, I've focused on its accessibility. This goal was a
     * [Wave Web Accessibility Evaulation Tool - BBB.HTML](#)
     * [Wave Web Accessibility Evaulation Tool - CCC.HTML](#)
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Responsiveness
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+The website shown on a variety of screen sizes ![x](https://ui.dev/amiresponsive?url=https://github.com/JaqiKal/ScrollStack)
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Navigation and Page Layouts
 
 ### Landing Page
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Registration & Login
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### User Profile
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Book Management
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Administration Panel
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Logout
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Testing
 
@@ -471,11 +518,11 @@ Please refer to [TESTING.md](TESTING.md) file for all testing and trouble shooti
 
 ### Documented Bugs and Fixes
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Deployment
 
-<details>
+<details id="prerequisites">
 <summary style="font-size: 1.2em; font-weight: bold;">Prerequisites</summary>
 
 
@@ -490,11 +537,11 @@ Important points for before deployment:
 -  In settings.py, set 'DEBUG = False' to prevent verbose error pages and to prevent Django serving static files itself instead of relying on Cloudinary.
 -  It is necessary to make migrations and migrate the models to the database before deployment.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*  
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 </details>
 
-<details>
+<details id="heroku-deployment">
 <summary style="font-size: 1.2em; font-weight: bold;">Heroku Deployment</summary>
 
 <br>
@@ -526,7 +573,7 @@ Important points for before deployment:
    - From the new app choose **Settings**, goto section 'Config Vars' click **Reveal Config Vars**, 
    
     - Config Vars for development of this project:
-        - DATABASE_URL will be added automaticaly
+        - DATABASE_URL will be added automatically
         - SECRET_KEY - the django secret key can be generated here.
         - PORT = 8000
         - DISABLE_COLLECTSTATIC = 1
@@ -567,11 +614,11 @@ Important points for before deployment:
     - Click "Deploy branch" wait for the app to be built. Once this is done, a message should appear letting us know that the app was successfully deployed. 
     - Click the button "View" to see the app.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*   
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 </details>
 
-<details>
+<details id="local-deployment>
 <summary style="font-size: 1.2em; font-weight: bold;">Local Deployment</summary>
 
 <br>
@@ -611,7 +658,7 @@ DEVELOPMENT = True
 3. Run command
 ``` pip3 install -r requirements.txt ```
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 </details>
 
@@ -623,13 +670,13 @@ DEVELOPMENT = True
 T.B.D.!
 ```
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Media
 
 Media were not used.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Content
 
@@ -640,7 +687,7 @@ The following documentation, blogs, tutorials and guides were used to aid develo
 - [Django documentation](https://docs.djangoproject.com/en/5.0/)
 - x
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Acknowledgements
 
@@ -653,4 +700,4 @@ I would like to thank!
 - My mentor [Jubril Akolade](https://github.com/jubrillionaire/)
 - My immediate and extended family, as well as my friends, who support and cheer me on!
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
