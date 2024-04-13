@@ -362,59 +362,22 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 
 ### Current Features
 
-#### Initial Project Planning and Documentation
-Structured planning, README file updates, wireframing, ERD creation. This foundational work supports our Agile methodology.
-- [Epic: Initial Project Planning and Documentation](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59010157)
-
-#### Project Setup and Configuration
-GitHub setup, IDE configuration. Essential for maintaining version control and a consistent development environment.
-- [Epic: Project Setup and Initial Configuration](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59019974)
-
-#### Model Development
-Creation of Book. Directly implements the data model aspect of our application, facilitating CRUD operations.
-- [Epic: Model Development](https://github.com/users/JaqiKal/projects/10?pane=issue&itemId=59021536)
-
-#### User Authentication and Authorization
-Account signup, login/logout, password reset. Fundamental for user management and security.
-- [Epic: User Authentication and Authorization](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021508)
-
-#### Book Management
-Adding, viewing, editing, and deleting books. Core functionalities that make our platform robust for personal library management.
-- [Epic: Book Management](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021465)
-
-#### Searching and Filtering
-Search by title or author, filter by genre. Enhances user experience by simplifying access to content.
-- [Epic: Searching and Filtering](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021734)
-
-#### Profile Management
-Update profile details, upload a profile picture. Personalizes user interaction.
-- [Epic: Profile Management](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021853)
-
-#### View Related
-Development of a dashboard view. Provides a central place for user interactions and book collections management.
-- [Epic: View Related](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022193)
-
-#### Templates 
-Base template design, error handling templates. Ensures a consistent and error-free user interface.
-- [Epic: Templates](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022305)
-
-#### Responsiveness and Accessibility
-Ensuring website responsiveness and accessibility best practices. Vital for accessibility on various devices.
-- [Epic: Responsiveness and Accessibility](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022614)
-
-#### User Feedback
-Feedback and issue reporting, access to documentation and help guides. Enhances user engagement and provides support.
-- [Epic: User Feedback](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023356)
-
-#### Testing and Quality Assurance
-Writing unit tests, user acceptance testing, cross-browser testing. Critical for ensuring the application's reliability and performance.
-- [Epic: Testing and Quality Assurance](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023612)
-
-#### Deployment and Documentation
-Documenting deployment and design/development process, securing and preparing the application for cloud deployment. Key to successful deployment.
-- [Epic: Deployment and Documentation](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023961)
-
-
+| Feature | Description | Epic|
+|--|--|--|
+| Initial Project Planning and Documentation | Structured planning, README file updates, wireframing, ERD creation. This foundational work supports our Agile methodology. | [Epic#1](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59010157) |
+| Project Setup and Configuration | GitHub setup, IDE configuration. Essential for maintaining version control and a consistent development environment. | [Epic#2](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59019974) |
+| Model Development | Creation of Book. Directly implements the data model aspect of our application, facilitating CRUD operations. | [Epic#3](https://github.com/users/JaqiKal/projects/10?pane=issue&itemId=59021536) |
+| User Authentication and Authorization | Account signup, login/logout, password reset. Fundamental for user management and security. | [Epic#4](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021508) |
+| Book Management | Adding, viewing, editing, and deleting books. Core functionalities that make our platform robust for personal library management. | [Epic#5](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021465)  |
+| Searching and Filtering | Search by title or author, filter by genre. Enhances user experience by simplifying access to content. | [Epic#6](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021734) |
+| Profile Management | Update profile details, upload a profile picture. Personalizes user interaction. | [Epic#7](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021853) |
+| View Related | Development of a dashboard view. Provides a central place for user interactions and book collections management. | [Epic#8](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022193) |
+| Templates | Base template design, error handling templates. Ensures a consistent and error-free user interface. | [Epic#9](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022305) |
+| Responsiveness and Accessibility | Ensuring website responsiveness and accessibility best practices. Vital for accessibility on various devices. | [Epic#10](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022614) |
+| User Feedback | Feedback and issue reporting, access to documentation and help guides. Enhances user engagement and provides support. | [Epic#11](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023356) |
+| Testing and Quality Assurance | Writing unit tests, user acceptance testing, cross-browser testing. Critical for ensuring the application's reliability and performance. | [Epic#12](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023612) |
+| Deployment and Documentation | Documenting deployment and design/development process, securing and preparing the application for cloud deployment. Key to successful deployment. | [Epic#13](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023961) |
+ 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Future Features
