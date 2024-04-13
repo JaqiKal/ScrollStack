@@ -314,11 +314,25 @@ For details please follow link to: [GitHub Project board](https://github.com/use
 
 This diagram serves as a quick reference to understand the database's structure at a glance. It provides a clear visual representation of the key entities, their attributes, and the types of relationships among them.
 
-Placeholder text!
-```text
-- Include a simplified ERD img
-- Briefly describe the key entities, their attributes, and the types of relationships.
-```
+**Relationships**
+
+- User to Book
+    - **One to Many**: A `User` can have multiple `Books`, but each `Book` is associated with exactly one `User`.
+        - This is represented by the crow's foot notation at the `Book` end of the connector, and a single line at the `User` end.
+
+- Book to Genre
+    - **Many to One**: Each `Book` is associated with exactly one `Genre`, but a `Genre` can include many `Books`.
+        - The line has a crow's foot at the `Book` end, pointing towards the `Genre`, indicating the many side of the relationship.
+
+- Book to Author (through BookAuthor)
+    - **Many to Many**: A `Book` can have multiple `Authors`, and an `Author` can write multiple `Books`. This is represented by a join table, `BookAuthor`.
+        - Since ERD diagrams typically do not directly show Many-to-Many relationships without a join table, the diagram shows two One-to-Many relationships instead: 
+            - One from `Book` to `BookAuthor`
+            - One from `Author` to `BookAuthor`
+        - Each of these is depicted with a crow's foot at the `BookAuthor` end of the connectors.
+
+
+![ERD](/documentation/readme-img/erd-scroll-stack-transp.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
