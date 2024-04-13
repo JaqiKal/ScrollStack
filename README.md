@@ -1,10 +1,13 @@
 # Welcome to the ScrollStack
 
-This is your personal book register, a web application designed to transform the way you manage your personal library. Tailored for book enthusiasts, students, researchers, minimalists, and anyone in between, this platform provides a user-friendly and efficient solution for cataloging, organizing, and accessing your book collection digitally.
+Ever wished your personal library could be as organized and accessible as your favorite bookstore? 
+Welcome to ScrollStack, where your digital bookshelf comes to life, effortlessly organized and accessible from anywhere at any time.
 
-In a world where space is a premium and the ease of accessing information is paramount, the ScrollStack stands out as a digital haven for your books. Whether you're tracking your reading habits, decluttering your physical space, or simply organizing your vast collection of literature, this platform caters to your needs. It allows for the addition, editing, categorization, and detailed viewing of each book in your personal collection.
+This is a web application designed to transform the way users manage their personal libraries. Tailored for book enthusiasts, students, researchers, minimalists, and anyone in between, it provides a user-friendly and efficient solution for cataloging, organizing, and accessing book collections digitally.
 
-Developed with the user in mind, this application aims to enhance your reading experience, making your personal library accessible at the click of a button, anywhere, anytime. Dive into a world where managing your books is no longer a chore but a delightful experience.
+In a world where space is a premium and the ease of accessing information is paramount. The ScrollStack stands out as a digital haven for books. Whether users are tracking their reading habits,decluttering their physical space, or simply organizing their vast collection of literature. This platform caters to their needs. It allows for the addition, editing, categorization, and detailed viewing of each book in their personal collection.
+
+Developed with the user in mind, this application aims to enhance the reading experience, making personal libraries accessible at the click of a button, anywhere, anytime. Dive into a world where managing books is no longer a chore but a delightful experience.
 
 
 ![ScrollStack Preview](/documentation/readme-img/placeholder.webp)
@@ -87,17 +90,25 @@ Deployed website: [Link to website](#)<br>
 
 ### Project Overview
 
+ScrollStack is a Full-Stack application that redefines personal library management. Using advanced web technologies, it enable users to maintain an organized digital bookshelf, accessible anywhere, anytime.
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Objectives
+
+The primary objective is to provide an intuitive, responsive platform that simplifies book management. This digital solution aims to meet the needs of readers by offering functionalities like book categorization and easy access to a vast literature collection.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Developer Goals
 
+As developers, the goal is to craft a robust, scalable application using the Django framework. This project demonstrates their proficiency in Full-Stack development, emphasizing clean, maintainable code and efficient database usage.
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### User Goals
+
+For its users, ScrollStack aims to be a reliable, user-friendly tool that makes book management a pleasure rather than a chore. It caters to readers seeking a minimalist approach to organize and access their books with ease.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -105,24 +116,24 @@ Deployed website: [Link to website](#)<br>
 
 ### Programming Languages
 
-- [HTML](https://en.wikipedia.org/wiki/HTML) - Structure the content of our application.
-- [CSS](https://en.wikipedia.org/wiki/CSS) - Style the application to enhance the user interface.
-- [JavaScript](https://sv.wikipedia.org/wiki/Javascript) - Add interactivity to web pages, improving the user experience.
-- [Python](https://www.python.org) - is used as the back-end programming language.
+- [HTML](https://en.wikipedia.org/wiki/HTML) - is used to structure the content of the application.
+- [CSS](https://en.wikipedia.org/wiki/CSS) - is applied to style the application, enhancing the user interface..
+- [JavaScript](https://sv.wikipedia.org/wiki/Javascript) - adds interactivity to web pages, improving the user experience.
+- [Python](https://www.python.org) - serves as the back-end programming language.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Frameworks and Libraries
 
-- [Django](https://www.djangoproject.com/) - a framework for developing web applications written in Python.
-- [Bootstrap](https://getbootstrap.com/) - a front-end framework designed to help developers build responsive and mobile-first websites and web applications. It provides a collection of CSS and JavaScript tools for creating layouts, forms, buttons, navigation, and other interface components, as well as optional JavaScript extensions. 
-- [Cloudinary](https://cloudinary.com/) - a cloud-based platform for storing and serving images
+- [Django](https://www.djangoproject.com/) - a framework for developing web applications written in Python, structures the back-end functionality.
+- [Bootstrap](https://getbootstrap.com/) - a front-end framework, is used to help developers build responsive and mobile-first websites and web applications. It provides a collection of CSS and JavaScript tools for creating layouts, forms, buttons, navigation, and other interface components. 
+- [Cloudinary](https://cloudinary.com/) -  cloud-based platform, is used for storing and serving images, enhancing media management in the application.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Database
 
--  [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/)
+-  [PostgreSQL](https://dbs.ci-dbs.net/) - provided by the Code Institute, is employed as the database system for its robustness and compatibility with Django.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -170,12 +181,11 @@ Deployed website: [Link to website](#)<br>
 
 ScrollStack is structured around the Model-View-Controller (MVC) pattern, which separates the application into three interconnected components. This separation helps manage complex development and enables efficient teamwork by segmenting the app into manageable parts.
 
-Frontend is built using HTML, CSS and JavaScript to create a mobile-first, responsive design. I chose Bootstrap for its comprehensive library of pre-styled components and responsive grid system, which  
-accelerated the development process and ensured a seamless, mobile-first user experience across different devices.
+The frontend is built using HTML, CSS and JavaScript to create a mobile-first, responsive design. Bootstrap is chosen for its comprehensive library of pre-styled components and responsive grid system, which accelerated the development process and ensured a seamless, mobile-first user experience across different devices.
 
-The backend architecture is built on Python and Django, where Django simplifies the application's backend logic, manages URL routing, and ensures efficient database interactions, providing a stable and efficient backbone for the app's operations.
+The backend architecture is built on Python and Django. Where Django simplifies the application's backend logic, manages URL routing, and ensures efficient database interactions. Providing a stable and efficient backbone for the app's operations.
 
-In this project, we employ a relational database 'PostgreSQL' for its robustness, scalability, and compatibility with Django, structuring it to store user and book information in an organized manner, which optimizes data retrieval and supports complex queries efficiently.
+In this project, a relational database 'PostgreSQL' is employed for its robustness, scalability, and compatibility with Django. Structuring it to store user and book information in an organized manner. Which optimizes data retrieval and supports complex queries efficiently.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -197,6 +207,7 @@ Placeholder text!
 Placeholder text!
 
 ```text
+The application utilizes various programming paradigms including:
 - Object orientated programming
 - Procedural programming
 - Event-driven Programming
@@ -208,10 +219,13 @@ Placeholder text!
 
 ### Overview of Agile Methodology
 
-Agile methodologies and principles were used when planning and creating The ScrollStack. Development was organized by focusing on the prioritization of user story or stories. The user stories are arranged on a KanBan board, which was continuously managed throughout development to enable prioritization of the workload.
+Agile methodologies and principles guide the planning and creation of ScrollStack. While not adhering strictly to traditional Agile methodologies, such as scheduled sprints or scrums. The development process is inspired by Agile principles, focusing on flexibility, continuous improvement, and rapid adaptation to change. I don't use sprints as my project benefits more from focusing directly on larger goals and milestones, which are already well-defined with clear start and end dates. The approach is straightforward, development of features in a logical sequence, addressing core functionalities first before expanding to more complex features.
+
+When encountering bugs or issues, rather than halting development, these are recorded as bug issues and added to the backlog. This allows to continue progressing in other areas while periodically revisiting and prioritizing the backlog based on severity and impact. This method ensures that development momentum is maintained while systematically addressing and resolving issues.
+
+Feedback from users are actively sought and analyzed to identify areas for improvement, ensuring that the product continuously evolves to meet the needs and expectations of its users effectively.
 
 For details please follow link to: [Github Project board](https://github.com/users/JaqiKal/projects/10)
-
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -268,7 +282,7 @@ For details please follow link to: [Github Project board](https://github.com/use
 
 ### MoSCoW Prioritization
 
-Labels were added to user stories to assist with prioritization of tasks. The MoSCoW system involves adding labels for MUST HAVE, SHOULD HAVE, COULD HAVE and WON'T HAVE. By labelling issues in such a way, the developer can focus on completing all the MUST HAVE tasks before moving onto tasks of lower priority, this is critical when working to a tight deadline to ensure a minimum viable product is completed in time.
+Labels were added to user stories to assist with prioritization of tasks. The MoSCoW system involves adding labels for MUST HAVE, SHOULD HAVE, COULD HAVE and WON'T HAVE. This method assists in ensuring that essential features are completed first, optimizing resource allocation and meeting critical deadlines.
 
 For details please follow link to: [Github Project board](https://github.com/users/JaqiKal/projects/10) and/or [Issues list](https://github.com/JaqiKal/ScrollStack/issues)
 
@@ -276,7 +290,7 @@ For details please follow link to: [Github Project board](https://github.com/use
 
 ### Project Tracking (GitHub Projects)
 
-The project use a Kanban board for organization, serving as a dynamic document continually managed to effectively prioritize and organize workload. The board categorized tasks into various stages, from Backlog for items not yet started to Done for completed tasks. As development commenced on a User Story, it transitioned from Backlog to In Progress, and upon completion, both the User Story and its associated Epic were moved to Done. Additionally, unresolved bugs were tracked separately until resolved, at which point they were also moved to the Done column. Kanban methodology proved invaluable in tracking project progress through its various phases, offering flexibility to adapt to the project's unique needs.
+ScrollStack employs a Kanban board for project tracking, organizing tasks into categories such as Backlog, In Progress, and Done. This dynamic document is continually managed to prioritize and organize the workload effectively, ensuring a flexible and responsive development process.
 
 For details please follow link to: [GitHub Project board](https://github.com/users/JaqiKal/projects/10).
 
@@ -298,7 +312,7 @@ For details please follow link to: [GitHub Project board](https://github.com/use
 
 ### Entity-Relationship Diagram (ERD)
 
-This diagram serves as a quick reference to understand the database's structure at a glance.
+This diagram serves as a quick reference to understand the database's structure at a glance. It provides a clear visual representation of the key entities, their attributes, and the types of relationships among them.
 
 Placeholder text!
 ```text
@@ -310,15 +324,17 @@ Placeholder text!
 
 ### Database Schema
 
-For ScrollStack, we've adopted PostgreSQL for its advanced capabilities and flexibility in handling our dataset. This relational database supports essential features for our digital bookshelf, including book CRUD operations. The structure features entities like Book and User, with a one-to-many relationship from User to Books indicating ownership. Data integrity is enforced through constraints, such as foreign keys and NOT NULL, ensuring reliability and well-organized data that underpins ScrollStack's seamless functionality.
+For ScrollStack, PostgreSQL is adopted for its advanced capabilities and flexibility in handling datasets. This relational database supports essential features for our digital bookshelf, including book CRUD operations. The structure features entities like Book and User, with a one-to-many relationship from User to Books indicating ownership. Data integrity is enforced through constraints, such as foreign keys and NOT NULL, ensuring reliability and well-organized data that underpins ScrollStack's seamless functionality.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Data Flow and Architecture
 
-ScrollStack leverages the MVC (Model-View-Controller) architecture to optimize the flow of data between the user interface and the database, ensuring a dynamic and responsive experience. Here's how it works:
+ScrollStack leverages the MVC (Model-View-Controller) architecture to optimize the flow of data between the user interface and the database, ensuring a dynamic and responsive experience. The process works as follows:
 
-When a user performs an action, such as adding a book, the request is handled by the Controller. It then interfaces with the Model to perform database operations. Upon successful database update, the Model signals the Controller, which instructs the View to update the display accordingly—showing the latest book list without needing a page reload.
+- When a user performs an action, such as adding a book, the request is handled by the Controller. 
+- The Controller then interfaces with the Model to perform database operations. 
+- Upon successful database update, the Model signals the Controller, which instructs the View to update the display accordingly—showing the latest book list without needing a page reload.
 
 This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asynchronous data updates that enhance user interaction. Middleware plays a critical role in routing requests, authentication, and overall data management. The MVC framework, together with AJAX and middleware<sup>2)</sup>, allows ScrollStack to provide quick and seamless updates to the user interface, facilitating a better user experience and streamlined maintenance.
 
@@ -326,26 +342,64 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 
  <sup>2)</sup>Middleware in the context of web development acts as a bridge between the client and server, managing requests and responses, and performing various tasks such as authentication, authorization, routing, session management, error handling, data processing, logging, monitoring, and CORS (Cross-Origin Resource Sharing) management.
 
-
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Features
 
 ### Current Features
 
-- Initial Project Planning and Documentation: Structured planning, README file updates, wireframing, ERD creation.
-- Project Setup and Configuration: GitHub setup, IDE configuration.
-- Model Related: Creation of Book (Optional: genre, and Author models).
-- User Authentication and Authorization: Account signup, login/logout, password reset.
-- Book Management: Adding, viewing, editing, and deleting books.
-- Searching and Filtering: Search by title or author, filter by genre.
-- Profile Management: Update profile details, upload a profile picture.
-- View Related: Development of a dashboard view.
-- Template and Design: Base template design, error handling templates.
-- Responsiveness and Accessibility: Ensuring website responsiveness, accessibility best practices.
-- User Feedback: Feedback and issue reporting, access to documentation and help guides.
-- Testing and Quality Assurance: Writing unit tests, user acceptance testing, cross-browser testing.
-- Deployment and Documentation: Documenting deployment and design/development process, securing and preparing the application for cloud deployment.
+#### Initial Project Planning and Documentation
+Structured planning, README file updates, wireframing, ERD creation. This foundational work supports our Agile methodology.
+- [Epic: Initial Project Planning and Documentation](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59010157)
+
+#### Project Setup and Configuration
+GitHub setup, IDE configuration. Essential for maintaining version control and a consistent development environment.
+- [Epic: Project Setup and Initial Configuration](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59019974)
+
+#### Model Development
+Creation of Book. Directly implements the data model aspect of our application, facilitating CRUD operations.
+- [Epic: Model Development](https://github.com/users/JaqiKal/projects/10?pane=issue&itemId=59021536)
+
+#### User Authentication and Authorization
+Account signup, login/logout, password reset. Fundamental for user management and security.
+- [Epic: User Authentication and Authorization](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021508)
+
+#### Book Management
+Adding, viewing, editing, and deleting books. Core functionalities that make our platform robust for personal library management.
+- [Epic: Book Management](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021465)
+
+#### Searching and Filtering
+Search by title or author, filter by genre. Enhances user experience by simplifying access to content.
+- [Epic: Searching and Filtering](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021734)
+
+#### Profile Management
+Update profile details, upload a profile picture. Personalizes user interaction.
+- [Epic: Profile Management](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021853)
+
+#### View Related
+Development of a dashboard view. Provides a central place for user interactions and book collections management.
+- [Epic: View Related](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022193)
+
+#### Templates 
+Base template design, error handling templates. Ensures a consistent and error-free user interface.
+- [Epic: Templates](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022305)
+
+#### Responsiveness and Accessibility
+Ensuring website responsiveness and accessibility best practices. Vital for accessibility on various devices.
+- [Epic: Responsiveness and Accessibility](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022614)
+
+#### User Feedback
+Feedback and issue reporting, access to documentation and help guides. Enhances user engagement and provides support.
+- [Epic: User Feedback](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023356)
+
+#### Testing and Quality Assurance
+Writing unit tests, user acceptance testing, cross-browser testing. Critical for ensuring the application's reliability and performance.
+- [Epic: Testing and Quality Assurance](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023612)
+
+#### Deployment and Documentation
+Documenting deployment and design/development process, securing and preparing the application for cloud deployment. Key to successful deployment.
+- [Epic: Deployment and Documentation](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023961)
+
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -355,8 +409,10 @@ In no particular order:
 
 - Implement a recommendation system that suggests books based on the user's reading history, preferences, and ratings. 
 - Allow users to follow other users, share books on their digital shelves, and comment on/review books. 
-- Create partnerships and APIs to allow users to check the availability of physical copies in local libraries or bookstores, and possibly even reserve or purchase them directly through ScrollStack
-- Allow users to personalize their dashboard views with widgets or sections that matter most to them, such as recent reads, recommendations, or friend activity 
+- Create partnerships and APIs to allow users to check the availability of physical copies in local libraries or bookstores, and possibly even reserve or purchase them directly through ScrollStack.
+- Allow users to personalize their dashboard views with widgets or sections that matter most to them, such as recent reads, recommendations, or friend activity .
+- Integrate features to track users' reading habits, such as time spent reading, pages read per session, and completion dates for books. 
+- Implement functionality for users to mark their current reading status for each book (e.g., not started, in progress, completed) and save their progress by page number or chapter.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -364,7 +420,7 @@ In no particular order:
 
 ### Strategy
 
-The ScrollStack project is envisioned as a digital bookshelf that provides a platform for users to manage their book collections. The strategy behind this project is to leverage Full-Stack development techniques to create a user-friendly, mobile-first MVP (Minimum Viable Product) that not only meets the basic CRUD (Create, Read, Update, Delete) functionalities for book management but also incorporates authentication, profile management, searching, filtering, and responsive design. This strategy is rooted in the Agile methodology to ensure flexibility, iterative development, and user feedback incorporation throughout the project lifecycle.
+The ScrollStack project is envisioned as a digital bookshelf that provides a platform for users to manage their book collections. The strategy behind this project is to leverage Full-Stack development techniques to create a user-friendly, mobile-first MVP (Minimum Viable Product) that meets the basic CRUD (Create, Read, Update, Delete) functionalities for book management. It also incorporates authentication, profile management and responsive design. This strategy is rooted in the Agile methodology to ensure flexibility, iterative development, and user feedback incorporation throughout the project lifecycle.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -382,13 +438,13 @@ To achieve our strategy, the project's scope includes:
 
 ### Structure
 
-ScrollStack is structured around a series of epics and user stories that detail the development process and features to be implemented. Each epic encompasses a broad area of functionality, such as Project Setup, Model Related Development, User Authentication, and Book Management. Within these epics, user stories break down the development tasks into manageable units, ensuring a focused and user-centered approach. The application follows a logical flow to facilitate ease of use and intuitive navigation, supporting these actions through a clear, organized database and front-end design. This structure supports the Agile methodology by allowing for adaptability and iterative improvements based on user feedback and project requirements.
+ScrollStack is structured around a series of epics and user stories that detail the development process and features to be implemented. Each epic encompasses a broad area of functionality, such as Project Setup, Model Related Development, User Authentication, and Book Management. Within these epics, user stories break down the development tasks into manageable units, ensuring a focused and user-centered approach. The application follows a logical flow to facilitate ease of use and intuitive navigation, supporting these actions through a clear, organized database and front-end design.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Skeleton
 
-The skeleton of ScrollStack is defined through wireframes and ERDs (Entity-Relationship Diagrams) that outline the user interface and database design. Wireframes provide a visual guide for the layout of web pages, focusing on user experience and efficient navigation. ERDs detail the database schema, illustrating the relationships between different data models such as Book, Genre, and Author. This skeletal framework serves as the blueprint for developing a structured and well-organized application that meets both functional and aesthetic requirements.
+The skeleton of ScrollStack is defined through wireframes and Entity-Relationship Diagrams (ERDs) that outline the user interface and database design. Wireframes provide a visual guide for the layout of web pages, focusing on user experience and efficient navigation. ERDs detail the database schema, illustrating the relationships between different data models such as Book, Genre, and Author. This skeletal framework serves as the blueprint for developing a structured and well-organized application that meets both functional and aesthetic requirements.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -407,7 +463,7 @@ Wireframes for the ScrollStack project were created to outline the basic layout 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 ### Color Scheme
 
-The site begin with #F6E84B, a luminous shade of yellow, evoking the brightness and energy of the first rays of dawn, sparking curiosity right at the top of our interface. As the gradient flows into #ff9102, a vivid orange akin to the morning sun's warm glow, it subtly encourages the user to remain engaged and interact with the content. The gradient culminates in a deep maroon (#800000), grounding the design with a sense of depth and seriousness, reflecting the solid foundation of the knowledge within.
+The color scheme uses a gradient starting with #F6E84B, a luminous shade of yellow, evoking the brightness and energy of the first rays of dawn, sparking curiosity right at the top of our interface. As the gradient flows into #ff9102, a vivid orange akin to the morning sun's warm glow, it subtly encourages the user to remain engaged and interact with the content. The gradient culminates in a deep maroon (#800000), grounding the design with a sense of depth and seriousness, reflecting the solid foundation of the knowledge within.
 
 This choice of gradient not only provides a striking backdrop but also supports the user's visual flow from the top of the page to the bottom, naturally guiding them through the content. The color transition from light to dark symbolizes the user's progression from initial curiosity to deeper engagement with our application. The goal is to make this transition as smooth and natural as reading a page, ensuring that the users' experiences are both visually appealing and emotionally resonant.
 
@@ -417,7 +473,7 @@ This choice of gradient not only provides a striking backdrop but also supports 
 
 ### Fonts
 
-Roboto was chosen from [Google Fonts](https://fonts.google.com/specimen/Roboto?preview.text=The%20ScrollStack%20&query=roboto) as the font for this website. It is simple, easy to read and appropriate for a professional site.
+Roboto sourced from [Google Fonts](https://fonts.google.com/specimen/Roboto?preview.text=The%20ScrollStack%20&query=roboto) is chosen for its readability and professional appearance, suitable for a diverse audience.
 
 ![font](/documentation/readme-img/roboto-400.webp)
 
@@ -425,20 +481,13 @@ Roboto was chosen from [Google Fonts](https://fonts.google.com/specimen/Roboto?p
 
 ### Imagery
 
-Images used on this website have been sourced from free online resources, either generated by AI technology or obtained from Wikimedia Commons. Each image has been carefully selected to enhance the content and provide a visually engaging experience for our visitors.
+Images on the site includes AI-generated images and those sourced from Wikimedia Commons, selected to enhance the content and provide a visually engaging experience for users.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*  
 
 ### Accessibility Features
 
-While developing the website, I've focused on its accessibility. This goal was achieved through the following methods:
-
-- Using semantic HTML.
-- Using a hover state on all buttons on the site to make it clear to the user if they are hovering over a button.
-- Choosing a sans serif font for the site - these fonts are suitable for people with dyslexia.
-- The use of aria-labelledby and attributes in the game's buttons and player sections improves the accessibility of dynamic content and interactive elements for users with screen readers.
-- The use of colors is considered for visibility.
-- No contrast errors were detected in the page;
+Accessibility is a priority, achieved through semantic HTML, appropriate use of colors, and responsive design features. These elements ensure the website is accessible to users with various disabilities.
 
   ![x](#IMAGE)
 
@@ -451,7 +500,7 @@ While developing the website, I've focused on its accessibility. This goal was a
 
 ### Responsiveness
 
-The website shown on a variety of screen sizes ![x](https://ui.dev/amiresponsive?url=https://github.com/JaqiKal/ScrollStack)
+The website's design is responsive, tested across multiple devices to ensure a consistent and user-friendly experience regardless of device size. ![x](https://ui.dev/amiresponsive?url=https://github.com/JaqiKal/ScrollStack)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -459,31 +508,45 @@ The website shown on a variety of screen sizes ![x](https://ui.dev/amiresponsive
 
 ### Landing Page
 
+The landing page is designed to immediately engage users providing a welcoming and informative introduction to ScrollStack.
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Registration & Login
+
+This facilitate user entry, offering straightforward forms for registration and login, ensuring secure access to user accounts.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### User Profile
 
+The user profile page allows users to view and edit their profile information, enhancing user personalization and interaction with the platform.
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Book Management
+
+This section provides functionalities for adding, viewing, editing, and deleting books. It serves as the core interface for personal library management.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Administration Panel
 
+The administration panel is accessible to users with administrative privileges, enabling them to manage application settings and user accounts efficiently.
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Logout
+
+The logout functionality is clearly accessible, ensuring users can securely exit their accounts with ease.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Testing
 
-Please refer to [TESTING.md](TESTING.md) file for all testing and trouble shooting carried out.
+This section of the README details all testing activities and documents any bugs encountered during development, along with their resolutions. It ensures transparency and ongoing improvement of the application
+
+Please refer to [TESTING.md](TESTING.md) for details.
 
 ### Documented Bugs and Fixes
 
@@ -494,6 +557,7 @@ Please refer to [TESTING.md](TESTING.md) file for all testing and trouble shooti
 <details id="prerequisites">
 <summary style="font-size: 1.2em; font-weight: bold;">Prerequisites</summary>
 
+Ensure that Python and pip (Python's package installer) are installed on your system. These tools are necessary for setting up the local development environment. The process works as follows:
 
 - Ensure [Python](https://www.python.org/) is installed on your system.
 - Verify that Python is installed on your system by checking its version. This can be done through a command in the terminal `python --version` or by running a small piece of Python code that outputs the version information.
@@ -643,13 +707,15 @@ T.B.D.!
 
 ### Media
 
-Media were not used.
-
+Placeholder text!
+```text
+Acknowledgements for media used, including images and icons, specify the sources and the contributions they make to the aesthetic and function of the application.
+```
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Content
 
-Website content crafted by the developer for personalized, authentic information.
+The content throughout ScrollStack is crafted to ensure clarity and user engagement. Website content crafted by the developer for personalized, authentic information. 
 
 The following documentation, blogs, tutorials and guides were used to aid development.
 - Bootstrap documentation
