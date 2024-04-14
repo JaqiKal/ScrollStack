@@ -332,7 +332,7 @@ This diagram serves as a quick reference to understand the database's structure 
         - Each of these is depicted with a crow's foot at the `BookAuthor` end of the connectors.
 
 
-![ERD](/documentation/readme-img/erd-scroll-stack.webp)
+![ERD](/documentation/readme-img/erd-scroll-stack-transp.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
