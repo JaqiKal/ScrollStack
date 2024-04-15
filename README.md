@@ -508,7 +508,8 @@ The skeleton of ScrollStack is defined through wireframes and Entity-Relationshi
 
 ## Frontend Design
 
-### Wireframes
+<details id="wireframes">
+<summary style="font-size: 1.2em; font-weight: bold;">Wireframes</summary>
 
 Wireframes for the ScrollStack project were created to outline the basic layout and interface elements for the core pages. These wireframes are the blueprint for developing a responsive and accessible web interface, adhering to the principles of mobile-first design.
 
@@ -547,8 +548,10 @@ Wireframes for the ScrollStack project were created to outline the basic layout 
 ![x](/documentation/wireframes/wireframe-error.webp)
 
 
-
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
+
+</details><br>
+
 ### Color Scheme
 
 The color scheme uses a gradient starting with #F6E84B, a luminous shade of yellow, evoking the brightness and energy of the first rays of dawn, sparking curiosity right at the top of our interface. As the gradient flows into #ff9102, a vivid orange akin to the morning sun's warm glow, it subtly encourages the user to remain engaged and interact with the content. The gradient culminates in a deep maroon (#800000), grounding the design with a sense of depth and seriousness, reflecting the solid foundation of the knowledge within.
@@ -701,10 +704,11 @@ Important points for before deployment:
 
 </details>
 
-<details id="local-deployment>
+<details id="local-deployment">
 <summary style="font-size: 1.2em; font-weight: bold;">Local Deployment</summary>
 
 <br>
+
 #### How to Fork
 
 1. Log in (or sign up) to Github.
