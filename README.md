@@ -10,7 +10,7 @@ In a world where space is a premium and the ease of accessing information is par
 Developed with the user in mind, this application aims to enhance the reading experience, making personal libraries accessible at the click of a button, anywhere, anytime. Dive into a world where managing books is no longer a chore but a delightful experience.
 
 
-![ScrollStack Preview](/documentation/readme-img/placeholder.webp)
+![ScrollStack Preview](/documentation/readme-img/)
 
 Developer: [JaqiKal](https://github.com/JaqiKal)<br>
 Deployed website: [Link to website](#)<br>
@@ -24,6 +24,7 @@ Deployed website: [Link to website](#)<br>
     - [Objectives](#objectives)
     - [Developer Goals](#developer-goals)
     - [User Goals](#user-goals)
+- [Learning Outcomes and Skill Development](#learning-outcomes-and-skill-development)
 - [Technologies Used](#technologies-used)
     - [Programming Languages](#programming-languages)
     - [Frameworks and Libraries](#frameworks-and-libraries)
@@ -35,7 +36,7 @@ Deployed website: [Link to website](#)<br>
     - [Programming Paradigms](#programming-paradigms)
 - [Agile Development Process](#agile-development-process)
     - [Overview of Agile Methodology](#overview-of-agile-methodology)
-    - <a href="#epics-and-user-stories">Epics and User Stories</a>
+    - <a href="#overview-of-agile-methodology">Epics and User Stories</a>
     - [MoSCoW Prioritization](#moscow-prioritization)
     - [Project Tracking (GitHub Projects)](#project-tracking-github-projects)
 - [Data Modeling and Database Design](#data-modeling-and-database-design)
@@ -112,6 +113,21 @@ For its users, ScrollStack aims to be a reliable, user-friendly tool that makes 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
+## Learning Outcomes and Skill Development
+
+The fundamental ambition of this project is to enhance my knowledge in contemporary web development through the practical application of the Django framework. 
+The objectives are multifaceted:
+
+- To comprehend  the principles of Full-Stack development and demonstrate the ability to create a feature-rich web application from the ground up.
+- To enhance my proficiency in front-end technologies, ensuring the creation of an intuitive and responsive user interface that adheres to the principles of user-centered design.
+- To refine my back-end development skills, especially with respect to database design and management, user authentication, and server-side logic.
+- To understand the principles of Agile development methodology, allowing for a flexible design process that can adapt to user feedback and changing requirements.
+
+The competencies developed through this project are intended not just to satisfy the criteria for a successful course completion, but to lay a robust foundation for future endeavors in the field of web development.
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*
+
+
 ## Technologies Used
 
 ### Programming Languages
@@ -128,6 +144,16 @@ For its users, ScrollStack aims to be a reliable, user-friendly tool that makes 
 - [Django](https://www.djangoproject.com/) - a framework for developing web applications written in Python, structures the back-end functionality.
 - [Bootstrap](https://getbootstrap.com/) - a front-end framework, is used to help developers build responsive and mobile-first websites and web applications. It provides a collection of CSS and JavaScript tools for creating layouts, forms, buttons, navigation, and other interface components. 
 - [Cloudinary](https://cloudinary.com/) -  cloud-based platform, is used for storing and serving images, enhancing media management in the application.
+- [os](https://www.geeksforgeeks.org/os-module-python-examples/?ref=lbp) - The OS module in Python provides functions for interacting with the operating system.
+- [datetime](https://docs.python.org/3/library/datetime.html) - supplies classes to work with date and time
+- [psycopg2](https://pypi.org/project/psycopg2/) PostgreSQL database adapter for the Python programming language
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - enables the ability to represent their database settings via a string
+- [gunicorn](https://gunicorn.org/) - handles HTML rendering, authentication, administration, and backend logic
+- [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) - allows web app to serve its own static files
+- [django-Allauth](https://docs.allauth.org/en/latest/) - addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - controls the rendering behavior of Django forms
+- [crispy-bootstrap](https://pypi.org/project/crispy-bootstrap5/) - enables crispy forms to use bootstrap for styling
+- [Pillow](https://pypi.org/project/pillow/) image resizing, rotation and transformation
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -159,11 +185,12 @@ For its users, ScrollStack aims to be a reliable, user-friendly tool that makes 
 - [Font Awesome](https://fontawesome.com/) - For the iconography on the website.
 - [Git](https://git-scm.com/) - For version control.
 - [Gitpod](https://gitpod.io) Streamlines your development process by providing a pre-configured, cloud-based development environment that's instantly ready for coding.
-- [Github](https://github.com/) - essential for version control, allowing you to track changes, collaborate with others (if applicable), and secure online code storage.
+- [Github](https://github.com/) - Essential for version control, allowing you to track changes, collaborate with others (if applicable), and secure online code storage.
 - [Google Dev Tools](https://developers.google.com/web/tools) - used during testing, debugging and styling.
-- [Google Fonts](https://fonts.google.com/) - a catalog of free, open-source fonts. Used for typography.
+- [Google Fonts](https://fonts.google.com/) - A catalog of free, open-source fonts. Used for typography.
 - [Heroku](https://www.heroku.com)- A platform for deploying and hosting web applications. 
-- JSHint: a code validation tool used for JavaScript.
+- [Look](https:www.looka.com)  - For the logo and symbol
+- [Lucidchart](https://www.lucidchart.com) - Used for ERD (entity relationship diagram) 
 - [Markup Validation Service](https://validator.w3.org/) - Used to check code ensuring that my HTML is error-free and adheres to the latest web standards.
 - [PEP8](https://peps.python.org/pep-0008/)- Style Guide for Python Code.
 - [Shields.io](https://shields.io/) - To add badges to the README.
@@ -280,6 +307,10 @@ For details please follow link to: [Github Project board](https://github.com/use
 
 </details>
 
+<br>
+
+*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
+
 ### MoSCoW Prioritization
 
 Labels were added to user stories to assist with prioritization of tasks. The MoSCoW system involves adding labels for MUST HAVE, SHOULD HAVE, COULD HAVE and WON'T HAVE. This method assists in ensuring that essential features are completed first, optimizing resource allocation and meeting critical deadlines.
@@ -312,24 +343,32 @@ For details please follow link to: [GitHub Project board](https://github.com/use
 
 ### Entity-Relationship Diagram (ERD)
 
-This diagram serves as a quick reference to understand the database's structure at a glance. It provides a clear visual representation of the key entities, their attributes, and the types of relationships among them.
+The Entity-Relationship Diagram (ERD) provides a visual representation of the database's structure. It helps in planning and illustrating the SQL tables and the relationships between them. The ERD is an essential part of the database design that shows the entities, their attributes, and the types of relationships among the entities.
 
 **Relationships**
 
-- User to Book
+- AdminPanel_Django to User_Django_AllAuth
+    - **Many to One**: The AdminPanel_Django entity records actions taken within the Django admin panel, such as log entries or administrative changes. Each log or action entry is associated with exactly one user from the User_Django_AllAuth entity, which holds the authentication and authorization information.
+    - In the ERD, this relationship is indicated by a line with a crow's foot at the AdminPanel_Django end, pointing towards the User_Django_AllAuth, showing that each action is tied to a single user, while a user can have many logged actions.
+
+- User_Django_AllAuth to Book
     - **One to Many**: A `User` can have multiple `Books`, but each `Book` is associated with exactly one `User`.
-        - This is represented by the crow's foot notation at the `Book` end of the connector, and a single line at the `User` end.
+    - This is represented by the crow's foot notation at the `Book` end of the connector, and a single line at the `User_Django_AllAuth` end.
 
 - Book to Genre
-    - **Many to One**: Each `Book` is associated with exactly one `Genre`, but a `Genre` can include many `Books`.
-        - The line has a crow's foot at the `Book` end, pointing towards the `Genre`, indicating the many side of the relationship.
+    - **Many to One**: Each `Book` is associated with exactly one `Genre`, but a `Genre` can include many `Books`.  
+    - The line has a crow's foot at the `Book` end, pointing towards the `Genre`, indicating the many side of the relationship.
 
 - Book to Author (through BookAuthor)
     - **Many to Many**: A `Book` can have multiple `Authors`, and an `Author` can write multiple `Books`. This is represented by a join table, `BookAuthor`.
-        - Since ERD diagrams typically do not directly show Many-to-Many relationships without a join table, the diagram shows two One-to-Many relationships instead: 
-            - One from `Book` to `BookAuthor`
-            - One from `Author` to `BookAuthor`
-        - Each of these is depicted with a crow's foot at the `BookAuthor` end of the connectors.
+    - Since ERD diagrams typically do not directly show Many-to-Many relationships without a join table, the diagram shows two One-to-Many relationships instead: 
+        - One from `Book` to `BookAuthor`
+        - One from `Author` to `BookAuthor`
+    - Each of these is depicted with a crow's foot at the `BookAuthor` end of the connectors.
+
+**Permissions and Roles**
+
+The is_superuser field within the User_Django_AllAuth entity indicates whether a user is a superuser. Superusers are granted all permissions across the application without explicitly assigning them. This allows them to perform any operation in the Django admin panel and access all data. Regular users, lacking the is_superuser flag, are restricted to actions within their scope, typically only able to manipulate their own data as defined by the application's permission logic.
 
 
 ![ERD](/documentation/readme-img/erd-scroll-stack-transp.webp)
@@ -338,7 +377,7 @@ This diagram serves as a quick reference to understand the database's structure 
 
 ### Database Schema
 
-For ScrollStack, PostgreSQL is adopted for its advanced capabilities and flexibility in handling datasets. This relational database supports essential features for our digital bookshelf, including book CRUD operations. The structure features entities like Book and User, with a one-to-many relationship from User to Books indicating ownership. Data integrity is enforced through constraints, such as foreign keys and NOT NULL, ensuring reliability and well-organized data that underpins ScrollStack's seamless functionality.
+For ScrollStack, PostgreSQL is adopted for its advanced capabilities and flexibility in handling datasets, it is a PostgreSQL provided by Code Institute. This relational database supports essential features for our digital bookshelf, including book CRUD operations. The structure features entities like Book and User, with a one-to-many relationship from User to Books indicating ownership. Data integrity is enforced through constraints, such as foreign keys and NOT NULL, ensuring reliability and well-organized data that underpins ScrollStack's seamless functionality. 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -431,11 +470,41 @@ The skeleton of ScrollStack is defined through wireframes and Entity-Relationshi
 
 Wireframes for the ScrollStack project were created to outline the basic layout and interface elements for the core pages. These wireframes are the blueprint for developing a responsive and accessible web interface, adhering to the principles of mobile-first design.
 
-- Home/Landing Page: Showcasing featured books and user testimonials.
-- Book List Page: Displaying all books with options to filter and search.
-- Book Detail Page: Providing detailed information about a book with options to edit or delete.
+- Landing Page: Simple start page, user can register or login
+
+![x](/documentation/wireframes/wireframe-landing.webp)
+
+- Home Page and Book List and detail Page: Displaying all books with options to search. Providing detailed information about a book with options to edit or delete
+
+![x](/documentation/wireframes/wireframe-detail.webp)
+
+- Add book page: A form 
+
+![x](/documentation/wireframes/wireframe-create.webp)
+
+- Edit book page: A form 
+
+![x](/documentation/wireframes/wireframe-update.webp)
+
+- Contact Page:  A form where one can send feed-back.
+
+![x](/documentation/wireframes/wireframe-contact.webp)
+
 - User Profile Page: Allowing users to view and edit their profile information.
+
+![x]()
+
 - Authentication Pages: Including sign-up and log-in forms.
+
+![x](/documentation/wireframes/wireframe-register.webp)
+
+![x](/documentation/wireframes/wireframe-login.webp)
+
+- Error page:  Page not found, Page forbidden, Server error
+
+![x](/documentation/wireframes/wireframe-error.webp)
+
+
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 ### Color Scheme
@@ -695,9 +764,14 @@ Acknowledgements for media used, including images and icons, specify the sources
 The content throughout ScrollStack is crafted to ensure clarity and user engagement. Website content crafted by the developer for personalized, authentic information. 
 
 The following documentation, blogs, tutorials and guides were used to aid development.
-- Bootstrap documentation
+
+Placeholder text !
+
+```text
+- [Bootstrap documentation](https://getbootstrap.com/)
 - [Django documentation](https://docs.djangoproject.com/en/5.0/)
-- x
+- [Stack Overflow](https://stackoverflow.com/)
+```
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
