@@ -596,7 +596,7 @@ The website's design is responsive, tested across multiple devices to ensure a c
 
 This section of the README details all testing activities and documents any bugs encountered during development, along with their resolutions. It ensures transparency and ongoing improvement of the application
 
-Please refer to [TESTING.md](TESTING.md) for details.
+Please refer to [TESTING.md](/TESTING.md) for details.
 
 ### Documented Bugs and Fixes
 
