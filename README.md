@@ -58,13 +58,6 @@ Deployed website: [Link to website](#)<br>
     - [Imagery](#imagery)
     - [Accessibility Features](#accessibility-features)
     - [Responsiveness](#responsiveness)
-- [Navigation and Page Layouts](#navigation-and-page-layouts)
-    - [Landing Page](#landing-page)
-    - [Registration & Login](#registration--login)
-    - [User Profile](#user-profile)
-    - [Book Management](#book-management)
-    - [Administration Panel](#administration-panel)
-    - [Logout](#logout)
 - [Testing](#testing)
     - [Documented Bugs and Fixes](#documented-bugs-and-fixes)
 - [Setup and Installation](#setup-and-installation)
@@ -401,22 +394,71 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 
 ### Current Features
 
-| Feature | Description | Epic|
-|--|--|--|
-| Initial Project Planning and Documentation | Structured planning, README file updates, wireframing, ERD creation. This foundational work supports our Agile methodology. | [Epic#1](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59010157) |
-| Project Setup and Configuration | GitHub setup, IDE configuration. Essential for maintaining version control and a consistent development environment. | [Epic#2](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59019974) |
-| Model Development | Creation of Book. Directly implements the data model aspect of our application, facilitating CRUD operations. | [Epic#3](https://github.com/users/JaqiKal/projects/10?pane=issue&itemId=59021536) |
-| User Authentication and Authorization | Account signup, login/logout, password reset. Fundamental for user management and security. | [Epic#4](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021508) |
-| Book Management | Adding, viewing, editing, and deleting books. Core functionalities that make our platform robust for personal library management. | [Epic#5](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021465)  |
-| Searching and Filtering | Search by title or author, filter by genre. Enhances user experience by simplifying access to content. | [Epic#6](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021734) |
-| Profile Management | Update profile details, upload a profile picture. Personalizes user interaction. | [Epic#7](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59021853) |
-| View Related | Development of a dashboard view. Provides a central place for user interactions and book collections management. | [Epic#8](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022193) |
-| Templates | Base template design, error handling templates. Ensures a consistent and error-free user interface. | [Epic#9](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022305) |
-| Responsiveness and Accessibility | Ensuring website responsiveness and accessibility best practices. Vital for accessibility on various devices. | [Epic#10](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59022614) |
-| User Feedback | Feedback and issue reporting, access to documentation and help guides. Enhances user engagement and provides support. | [Epic#11](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023356) |
-| Testing and Quality Assurance | Writing unit tests, user acceptance testing, cross-browser testing. Critical for ensuring the application's reliability and performance. | [Epic#12](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023612) |
-| Deployment and Documentation | Documenting deployment and design/development process, securing and preparing the application for cloud deployment. Key to successful deployment. | [Epic#13](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=59023961) |
- 
+#### Navigation 
+
+![x]()
+
+
+- The navigation bar is consistent across all pages, with slight modifications based on the context of the user's session status (e.g., whether the user is logged in or not). 
+    - For Non-Logged-In Users: Landing Page/Logo, Contact, Register, Login
+    - For Logged-In Users: Landing Page/Logo, My Books, Add Book, Contact, Logout
+
+- Common elements across all pages
+    - Logo/Home: Clicking this should always take the user back to the landing page.
+    - Contact: Link to the contact page where users can find ways to reach out or get support.
+
+- Dynamic Elements Based on User State
+    - Register/Login: Visible only when the user is not logged in. These should redirect to their respective pages for authentication.
+    - Logout: Visible only when the user is logged in, allowing users to log out of the application.
+
+- Specific to Logged-in Users
+    - My Books: Leads to the book details page where users can view all their books. This should be visible only when the user is logged in.
+    - Add Book: Link to the Add page where users can fill out the form to add a new book. Visible only for logged-in users. 
+
+- Error Pages: Navigation is simple. Only the Home, Contact are included and depending on user status, Login or Logout options. 
+
+#### Landing Page
+
+![x]()
+
+#### User account pages
+
+![x]()
+
+The Django templates for SignUp, Login, and Logout have been customized and styled to align with the overall aesthetic of the application.
+- Register allows users to create a new account. After clicking to establish their account, users are redirected to 'Add a book'. 
+- Login in grants users access to their content. If a user doesn't have an account yet, an active link on the Login page allows them to navigate to the Register page.
+- Logout process is handled through a simple logout button or link in the navigation menu. When clicked, this button triggers the logout functionality, and then redirects the user to the landing page.
+
+#### Books List and Details page
+This page serves as the digital equivalent of a user's personal bookshelf or library.
+- Responsive Book Cards: Each book is displayed on a responsive card that adjusts to screen size.
+- CRUD Operations: Options to add, update, and delete books are integrated into each card.
+- Form Navigation: Adding or updating a book redirects the user to a form page, streamlining list management.
+- Deletion Confirmation: A confirmation pop-up ensures intentional deletions. Confirming deletion redirects the user to the landing page.
+
+![x]()
+
+#### Contact page
+This page offers a straightforward method for users to contact the site owner.
+- Upon submitting feedback, users will receive a confirmation message, acknowledging their input.
+
+![x]()
+
+#### Error page
+The site features error handling for Error 403 (Forbidden Page View), Error 404 (Page Not Found), and Error 500 (Internal Server Error). When one of these errors occurs, a custom message specific to the error is displayed, offering the user an option to navigate back.
+
+![x]()
+
+#### Footer
+
+- Links to social media; Facebook, Youtube and Instagram
+- Hovering over the icons, will change their color respectively to their original color
+- Clicking on them, will open the respective site in a new tab
+
+![x]()
+
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Future Features
@@ -547,44 +589,6 @@ Accessibility is a priority, achieved through semantic HTML, appropriate use of 
 ### Responsiveness
 
 The website's design is responsive, tested across multiple devices to ensure a consistent and user-friendly experience regardless of device size. ![x](https://ui.dev/amiresponsive?url=https://github.com/JaqiKal/ScrollStack)
-
-*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
-
-## Navigation and Page Layouts
-
-### Landing Page
-
-The landing page is designed to immediately engage users providing a welcoming and informative introduction to ScrollStack.
-
-*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
-
-### Registration & Login
-
-This facilitate user entry, offering straightforward forms for registration and login, ensuring secure access to user accounts.
-
-*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
-
-### User Profile
-
-The user profile page allows users to view and edit their profile information, enhancing user personalization and interaction with the platform.
-
-*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
-
-### Book Management
-
-This section provides functionalities for adding, viewing, editing, and deleting books. It serves as the core interface for personal library management.
-
-*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
-
-### Administration Panel
-
-The administration panel is accessible to users with administrative privileges, enabling them to manage application settings and user accounts efficiently.
-
-*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
-
-### Logout
-
-The logout functionality is clearly accessible, ensuring users can securely exit their accounts with ease.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
