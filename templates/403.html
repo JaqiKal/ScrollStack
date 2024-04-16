@@ -1,0 +1,19 @@
+{# Extends the base layout from 'base.html' #}
+{% extends "base.html" %}
+
+{# Loads Django's static files tag for accessing CSS, JS, or images #}
+{% load static %}
+
+{# This block is where the main content of the page is defined. #}
+{% block content %}
+
+{# Display the error message. #}
+<div class="container">
+    <h1>Error 403: Forbidden</h1>
+    <p>You do not have the necessary permissions to access this resource. Please ensure you are logged in with the
+        appropriate credentials.</p>
+
+    {# Link to allow the user to return to the home page #}
+    <a class="text-url" href="{% url 'home' %}">Return to home</a>
+</div>
+{% endblock %}
