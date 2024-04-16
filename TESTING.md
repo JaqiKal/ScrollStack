@@ -145,6 +145,11 @@ xx
 
 ### KNOWN issue 
 
-None identified
+#### Gitpod IDE
+Three notifications suggest that specific VS Code extensions are either installed or recommended in the workspace but are not listed in the .gitpod.yml file. To address these notifications and ensure consistent synchronization of these extensions across various setups, the extensions should be included under the vscode.extensions section of the .gitpod.yml file.
+
+Tutor support has indicated that these notifications can be safely ignored as they merely warn that the three extensions are installed but not synchronized.
+
+![x](/documentation/testing-img/ext-error.webp)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
