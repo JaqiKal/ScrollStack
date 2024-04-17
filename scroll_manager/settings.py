@@ -10,17 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-# Import 
-from pathlib import Path
+# Import
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
-from dotenv import load_dotenv
-
 # Load environment variables from .env file
 load_dotenv()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -98,6 +97,11 @@ WSGI_APPLICATION = 'scroll_manager.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com"
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
