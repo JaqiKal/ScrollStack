@@ -79,6 +79,9 @@ class Book(models.Model):
     Model representing a book. Each book has a title, publication year, ISBN,
     and is linked to a genre and an owner (user). Slugs are used to create
     friendly URL paths.
+
+    'verbose_name' - Django Built-in Field Validation, amended from
+    https://www.geeksforgeeks.org/verbose_name-django-built-in-field-validation/
     """
     title = models.CharField(
         max_length=255,
@@ -118,3 +121,25 @@ class Book(models.Model):
             # Generate slug from book title if not provided
             self.slug = slugify(self.title)
         super(Book, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+
+class BookAuthor(models.Model):
+    """
+    Model representing the many-to-many relationship between Books and Authors.
+    This is a bridge table that allows for the association of multiple authors
+    with a single book and vice versa.
+    """
+    book = models.ForeignKey(
+        Book, on_delete=models.CASCADE,
+        related_name='book_authors',
+        help_text="Select the book associated with an author"
+    )
+    author = models.ForeignKey(
+        Author, on_delete=models.CASCADE,
+        related_name='book_authors',
+        help_text="Select the author associated with a book"
+    )
+
