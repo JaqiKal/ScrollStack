@@ -72,3 +72,49 @@ class Author(models.Model):
             full_name += f" {self.middle_name}"
         full_name += f" {self.last_name}"
         return full_name.strip()
+
+
+class Book(models.Model):
+    """
+    Model representing a book. Each book has a title, publication year, ISBN,
+    and is linked to a genre and an owner (user). Slugs are used to create
+    friendly URL paths.
+    """
+    title = models.CharField(
+        max_length=255,
+        verbose_name="Book Title",
+        help_text="Enter the title of the book"
+    )
+    slug = models.SlugField(
+        unique=True, blank=True,
+        help_text="Enter a URL-friendly name"
+    )
+    publication_year = models.IntegerField(
+        verbose_name="Publication Year",
+        help_text="Enter the year the book was published"
+    )
+    isbn = models.CharField(
+        max_length=13, unique=True,
+        verbose_name="ISBN",
+        help_text="Enter the ISBN number of the book"
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name='books',
+        help_text="Select the owner of the book"
+    )
+    genre = models.ForeignKey(
+        Genre, on_delete=models.CASCADE,
+        related_name='books',
+        help_text="Select the genre of the book"
+    )
+    added_at = models.DateField(
+        auto_now_add=True,
+        verbose_name="Date Added",
+    )
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            # Generate slug from book title if not provided
+            self.slug = slugify(self.title)
+        super(Book, self).save(*args, **kwargs)
