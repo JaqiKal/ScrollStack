@@ -10,6 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
+
+# Import 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,9 +30,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rf=w1u+u7&$h4lu)!pw0spa&uol)!0=6^f!*gjh4@#3f4jh2ax'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT'
 
-ALLOWED_HOSTS = ['8000-jaqikal-scrollstack-8s2whh434pd.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['8000-jaqikal-scrollstack-8s2whh434pd.ws-eu110.gitpod.io'
+                ,'.herokuapp.com']
 
 
 # Application definition
