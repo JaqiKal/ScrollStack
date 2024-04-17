@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
+# Amended: https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/
+from django.core.validators import RegexValidator
 
 
 class Genre(models.Model):
@@ -24,3 +26,49 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Author(models.Model):
+    """
+    Model representing an author. Authors have first, middle (optional),
+    and last names. Each author could potentially write multiple books.
+
+    'verbose_name' - Django Built-in Field Validation, amended from
+    https://www.geeksforgeeks.org/verbose_name-django-built-in-field-validation/
+    """
+    # Validator for names, allowing only alphabetic characters
+    # and basic punctuation
+    name_validator = RegexValidator(
+        regex=r'^[a-zA-Z,.\s-]+$',
+        message="""Names must contain only letters,
+        spaces, commas, periods, or hyphens."""
+    )
+
+    first_name = models.CharField(
+        max_length=100,
+        validators=[name_validator],
+        verbose_name="First Name",
+        help_text="Enter the author's first name"
+    )
+    middle_name = models.CharField(
+        max_length=100,
+        validators=[name_validator],
+        verbose_name="Middle Name",
+        help_text="Enter the author's middle name or initial",
+        blank=True,  # Makes the field optional
+        null=True
+    )
+    last_name = models.CharField(
+        max_length=100,
+        validators=[name_validator],
+        verbose_name="Last Name",
+        help_text="Enter the author's last name"
+    )
+
+    def __str__(self):
+        # Constructs a full name with components that are present
+        full_name = f"{self.first_name}"
+        if self.middle_name:
+            full_name += f" {self.middle_name}"
+        full_name += f" {self.last_name}"
+        return full_name.strip()
