@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from scroll_core import views as index_views
 from about import views as about_views
+from scroll_core.views import dashboard
 
 
 urlpatterns = [
-     # Authentication URLs provided by allauth
+    # Dashboard URLs
+    path('dashboard/', dashboard, name='dashboard'),
+    # Authentication URLs provided by allauth
     path('accounts/', include('allauth.urls')),
     # About app URLs
     path('about/', about_views.about, name='about'),
