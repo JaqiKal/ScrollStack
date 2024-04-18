@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
-# Amended: https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/
+# Amended: Incorporating RegexValidator for input validation as demonstrated
+# in the provided reference:
+# https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/
 from django.core.validators import RegexValidator
 
 
@@ -24,6 +26,8 @@ class Genre(models.Model):
         help_text="Enter a description for this genre"
     )
 
+    # Returns the name of the genre when the object is printed,
+    # enhancing readability in admin panels.
     def __str__(self):
         return self.name
 
@@ -55,8 +59,8 @@ class Author(models.Model):
         validators=[name_validator],
         verbose_name="Middle Name",
         help_text="Enter the author's middle name or initial",
-        blank=True,  # Makes the field optional
-        null=True
+        blank=True,  # Optional field.
+        null=True  # Allows storing null in the database for middle name.
     )
     last_name = models.CharField(
         max_length=100,
@@ -65,8 +69,15 @@ class Author(models.Model):
         help_text="Enter the author's last name"
     )
 
+    def get_books(self):
+        """
+        This method returns a list of Book objects associated with this author.
+        """
+        return [book_author.book for book_author in self.book_authors.all()]
+
     def __str__(self):
-        # Constructs a full name with components that are present
+        # Construct full name by concatenating first,
+        # middle (if exists), & last names.
         full_name = f"{self.first_name}"
         if self.middle_name:
             full_name += f" {self.middle_name}"
@@ -90,14 +101,21 @@ class Book(models.Model):
     )
     slug = models.SlugField(
         unique=True, blank=True,
-        help_text="Enter a URL-friendly name"
+        help_text="A URL-friendly name is entered automatically on save"
     )
     publication_year = models.IntegerField(
         verbose_name="Publication Year",
         help_text="Enter the year the book was published"
     )
+
+    # Validator for ISBN to ensure format correctness.
+    isbn_validator = RegexValidator(
+        regex=r'^[\d-]+$',
+        message="ISBN must only contain numbers and hyphens."
+    )
     isbn = models.CharField(
         max_length=13, unique=True,
+        validators=[isbn_validator],
         verbose_name="ISBN",
         help_text="Enter the ISBN number of the book"
     )
@@ -118,9 +136,15 @@ class Book(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            # Generate slug from book title if not provided
+            # Automatically generate slug from book title if not provided
             self.slug = slugify(self.title)
         super(Book, self).save(*args, **kwargs)
+
+    def get_authors(self):
+        """
+        This method returns a list of Author objects associated with this book.
+        """
+        return [book_author.author for book_author in self.book_authors.all()]
 
     def __str__(self):
         return self.title
@@ -142,4 +166,3 @@ class BookAuthor(models.Model):
         related_name='book_authors',
         help_text="Select the author associated with a book"
     )
-
