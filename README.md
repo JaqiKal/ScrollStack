@@ -781,6 +781,7 @@ Placeholder text !
 - [Django documentation](https://docs.djangoproject.com/en/5.0/)
 - [Stack Overflow](https://stackoverflow.com/)
 ```
+[django-allauth](https://docs.allauth.org/en/latest/installation/quickstart.html)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 

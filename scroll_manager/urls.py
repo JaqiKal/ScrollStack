@@ -21,7 +21,12 @@ from about import views as about_views
 
 
 urlpatterns = [
+     # Authentication URLs provided by allauth
+    path('accounts/', include('allauth.urls')),
+    # About app URLs
     path('about/', about_views.about, name='about'),
+    # Index URLs
     path('hello/', index_views.index, name='hello'),
+    # Admin URLs
     path('admin/', admin.site.urls),
 ]
