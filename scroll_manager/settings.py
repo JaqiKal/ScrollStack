@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 # Import
-import os
 from pathlib import Path
-from dotenv import load_dotenv
-
+import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+
+from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
@@ -33,10 +33,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jaqikal-scrollstack-8s2whh434pd.ws-eu110.gitpod.io'
-                ,'.herokuapp.com']
+ALLOWED_HOSTS = ['8000-jaqikal-scrollstack-5swovgh53o4.ws-eu110.gitpod.io'
+                ,'.herokuapp.com' # Allows any subdomain of herokuapp.com for Heroku deployments
+                ,'127.0.0.1'      # Allows localhost by IP
+                ,'.gitpod.io'     # Allows any subdomain of gitpod.io
+                ]
+
+
 
 
 # Application definition
@@ -101,6 +106,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.gitpod.io",
     "https://*.herokuapp.com"
+    "http://127.0.0.1:8000"
 ]
 
 # Password validation
