@@ -133,6 +133,11 @@ class Book(models.Model):
         auto_now_add=True,
         verbose_name="Date Added",
     )
+    description = models.TextField(
+        verbose_name="Description",
+        help_text="Enter a brief description of the book",
+        blank=True  # Optional: make this field not required
+    )
 
     def save(self, *args, **kwargs):
         if not self.slug:
