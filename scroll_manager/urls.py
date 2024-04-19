@@ -23,19 +23,24 @@ from scroll_core.views import dashboard
 
 urlpatterns = [
 
-    
-    # Dashboard URL using a function view from scroll_core app
-    path('dashboard/', dashboard, name='dashboard'),
+    # Admin site URLs, provides a web-based interface
+    # for managing the site.
+    path('admin/', admin.site.urls),
 
-    # Authentication URLs provided by django-allauth
-    path('accounts/', include('allauth.urls')),
-
-    # About page URL using a function view from the about app
+    # About page URL, uses a function view from the
+    # about app to display the about page.
     path('about/', about_views.about, name='about'),
 
-    # Simple test URL to check the setup, uses the 'hello' view function
+    # Authentication URLs, incl URLs provided by
+    # django-allauth for user authentication.
+    path('accounts/', include('allauth.urls')),
+
+    # Dashboard URL, uses a function view from the
+    # scroll_core app to display the dashboard.
+    path('dashboard/', dashboard, name='dashboard'),
+
+    # Simple test URL, basic URL to check the setup,
+    # using the 'hello' view function.
     path('hello/', index_views.index, name='hello'),
 
-    # Admin site URLs
-    path('admin/', admin.site.urls),
 ]
