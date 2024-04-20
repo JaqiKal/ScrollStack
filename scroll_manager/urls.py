@@ -27,6 +27,13 @@ urlpatterns = [
     # for managing the site.
     path('admin/', admin.site.urls),
 
+    # Include scroll_core URLs
+    path('', include('scroll_core.urls')),
+
+    # Simple test URL, basic URL to check the setup,
+    # using the 'hello' view function.
+    # path('hello/', index_views.index, name='hello'),
+
     # About page URL, uses a function view from the
     # about app to display the about page.
     # path('about/', about_views.about, name='about'),
@@ -38,9 +45,5 @@ urlpatterns = [
     # Dashboard URL, uses a function view from the
     # scroll_core app to display the dashboard.
     path('dashboard/', dashboard, name='dashboard'),
-
-    # Simple test URL, basic URL to check the setup,
-    # using the 'hello' view function.
-    path('hello/', index_views.index, name='hello'),
 
 ]
