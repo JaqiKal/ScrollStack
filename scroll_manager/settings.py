@@ -61,8 +61,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.instagram',
+    
+    # user app
     'scroll_core',
- #   'about',
 ]
 
 SITE_ID = 1

@@ -6,7 +6,6 @@ from django.http import HttpResponse
 def index(request):
     """ Render the landing page """
     return render(request, 'index.html')
-    # return HttpResponse("Hello World!")
 
 
 def dashboard(request):

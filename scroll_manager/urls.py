@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from scroll_core import views as index_views
-# from about import views as about_views
 from scroll_core.views import dashboard
 
 
@@ -29,14 +28,6 @@ urlpatterns = [
 
     # Include scroll_core URLs
     path('', include('scroll_core.urls')),
-
-    # Simple test URL, basic URL to check the setup,
-    # using the 'hello' view function.
-    # path('hello/', index_views.index, name='hello'),
-
-    # About page URL, uses a function view from the
-    # about app to display the about page.
-    # path('about/', about_views.about, name='about'),
 
     # Authentication URLs, incl URLs provided by
     # django-allauth for user authentication.
