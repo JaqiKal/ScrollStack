@@ -1,3 +1,4 @@
+<!-- templates/base.html -->
 {% load static %}
 
 <!doctype html>
@@ -29,57 +30,15 @@
 
 <body>
     <header>
-        <!-- Fixed Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'dashboard' %}">
-                    <img src="{% static 'images/placeholder.webp' %}" alt="ScrollStack" height="30">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedScrollStack" aria-controls="navbarSupportedScrollStack"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedScrollStack">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% include 'includes/header.html' %}
     </header>
 
     {% block content %}
     <!-- Content of other pages goes here -->
     {% endblock %}
 
-    <!-- Footer -->
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container text-center">
-            <p>Follow us on our Social media</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
-                        aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                        aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-            </ul>
-        </div>
+    <footer>
+        {% include 'includes/footer.html' %}
     </footer>
     <!-- Font Awesome kit -->
     <script src="https://kit.fontawesome.com/9df7bb9731.js" crossorigin="anonymous"></script>

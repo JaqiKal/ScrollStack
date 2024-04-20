@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from scroll_core import views as index_views
-from about import views as about_views
+# from about import views as about_views
 from scroll_core.views import dashboard
 
 
@@ -29,7 +29,7 @@ urlpatterns = [
 
     # About page URL, uses a function view from the
     # about app to display the about page.
-    path('about/', about_views.about, name='about'),
+    # path('about/', about_views.about, name='about'),
 
     # Authentication URLs, incl URLs provided by
     # django-allauth for user authentication.

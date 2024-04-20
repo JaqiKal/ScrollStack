@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.instagram',
     'scroll_core',
-    'about',
+ #   'about',
 ]
 
 SITE_ID = 1
@@ -87,7 +87,6 @@ ROOT_URLCONF = 'scroll_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-       # 'DIRS': [TEMPLATES_DIR],
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
