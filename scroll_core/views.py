@@ -6,4 +6,4 @@ def index(request):
     return HttpResponse("Hello World!")
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'dashboard/main.html')
