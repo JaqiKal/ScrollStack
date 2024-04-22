@@ -1,0 +1,190 @@
+/* static/css/base.css */
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Noto+Sans:ital,wdth,wght@0,87.5,100..900;1,87.5,100..900&family=Open+Sans&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+
+/* Variables */
+:root {
+    /** Fonts */
+    --main-font: 'Open Sans', sans-serif;
+    --title: 'Poppins', sans-serif;
+    --handwriting: 'Courgette', cursive;
+
+    /** Colors */
+    --clr-background: #3f006a0f;
+    --clr-blue: #0d6efd;
+    --clr-black: #000;
+    --clr-off-white: #f6f6f6;
+    --clr-white: #fff;
+    --clr-orange: #ffc107;
+    --clr-heading: #800000;
+    
+
+    /* Utils */
+    --small-box-shadow: 3px -1px 7px 0 #17023a61;
+    --border: 1px solid #17023a61;
+}
+
+
+/* Global Style */
+/* Help in achieving consistent layout across different browsers */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--main-font);
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--title);
+    color: var(--clr-heading);
+    
+}
+
+
+
+.hidden-heading {
+    display: none;
+}
+
+
+/* Header */
+.navbar {
+    background: #ff9102;
+    background: -moz-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
+    background: -webkit-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
+    background: linear-gradient(to bottom, #F6E84B 0%, #ff9102 0%, #800000 100%);
+    box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
+
+}
+
+.navbar-light .navbar-brand {
+    color: #01300c;
+}
+
+.navbar-brand {
+    color: rgba(128, 0, 0, 1);
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+
+.nav-item {
+    color: rgba(128, 0, 0, 1);
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1.3rem;
+}
+
+.nav-link:hover {
+    color: #01300c;
+}
+
+
+/* Main */
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Adjust or add to your existing CSS */
+.hero.jumbotron {
+    background-image: url('/static/images/hero.webp');
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Full viewport height */
+    height: 100vh;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    /* Aligns items horizontally center */
+    justify-content: center;
+    /* Centers items vertically */
+    align-items: center;
+    /* Adds padding around the content */
+    padding: 10px;
+
+}
+
+/* Footer adjustments */
+footer .social-media-icon {
+    /* Removes bullet points */
+    list-style: none;
+    /* Removes padding that might cause alignment issues */
+    padding: 0;
+    /* Ensures there's no extra space outside the list */
+    margin: 0;
+
+}
+
+footer .social-media-icon li {
+    /* Adds horizontal padding between icons */
+    padding: 0 10px;
+
+}
+
+
+footer .social-media-icon li a {
+    /* Adjusts the size of the icons */
+    font-size: 50px;
+    /* Example: changing the color to the one defined in :root */
+    color: var(--blue);
+
+}
+
+
+/* Header */
+.navbar {
+    background-color: var(--clr-orange);
+    box-shadow: var(--small-box-shadow);
+}
+
+a.nav-link {
+    color: var(--clr-black);
+}
+
+img.logo {
+    width: 3rem;
+
+}
+
+.active {
+    border-bottom: 2px solid var(--clr-blue);
+    font-weight: 500;
+}
+
+.form {
+    width: 100%;
+    margin: 3% auto;
+    box-shadow: var(--small-box-shadow);
+    border-radius: 5px;
+
+}

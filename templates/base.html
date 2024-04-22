@@ -1,51 +1,64 @@
 <!-- templates/base.html -->
 {% load static %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A website to share reviews about books.">
-    <meta name="keywords" content="books, reviews, reading, reviewing books">
-    <!-- Title -->
-    <title>ScrollStack - My Book Registry</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A website to share reviews about books." />
+    <meta name="keywords" content="books, reviews, reading, reviewing books" />
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-</head>
-
-<body>
-    <header>
-        {% include 'includes/header.html' %}
-    </header>
-    
-    
-    <h1>Base template H1 utanför block content</h1>
-    
-    {% block content %}
-    <h2>Welcome to Base template H1 innanför block content för att detta ska funka behövs tydligen en h1 utanför?!</h2>
-    <!-- Content of other pages goes here -->
+    {% block extra_css %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static '/css/base.css' %}" />
     {% endblock %}
 
-    <footer>
-        {% include 'includes/footer.html' %}
-    </footer>
-    <!-- Font Awesome kit -->
-    <script src="https://kit.fontawesome.com/9df7bb9731.js" crossorigin="anonymous"></script>
-</body>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
+
+    <!-- Title -->
+    <title>ScrollStack - My Book Registry</title>
+  </head>
+
+  <body>
+    {% include 'includes/header.html' %}
+
+    <main>
+      {% block content %}
+        <!-- Hero Section -->
+        <section class="hero jumbotron jumbotron-fluid">
+          <h2 class="hidden-heading">Hero section</h2>
+          <div class="overlay">
+            <div class="container text-center">
+              <h1 class="display-4">Welcome to ScrollStack</h1>
+              <h2 class="lead-a">Your friendly shelf organizer!</h2>
+              <p class="lead-b">Keep track of what you want to read and what you have read.</p>
+              <a href="#" class="btn btn-primary">Register</a>
+              <a href="#" class="btn btn-secondary">Log In</a>
+            </div>
+            <div class="container text-center">
+              <h2 class="display-2">Discover</h2>
+              <p>ScrollStack is more than just a book registry; it's a journey through the pages of your favorite tales.</p>
+              <p>Embark on an adventure of literary exploration.</p>
+            </div>
+          </div>
+        </section>
+      {% endblock %}
+    </main>
+
+    <footer>{% include 'includes/footer.html' %}</footer>
+
+    <!-- Bootstrap JS -->
+    {% block onload_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {% endblock %}
+  </body>
 </html>

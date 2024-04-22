@@ -60,5 +60,8 @@
       "Wireframes",
       "wireframing",
       "wsgi"
-   ]
+   ],
+   "[django-html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+   }
 }
