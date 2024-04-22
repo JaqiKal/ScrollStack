@@ -1,35 +1,18 @@
 <!-- templates/includes/footer.html -->
 
+
+
 {% load static %}
 
 <footer>
-    <div class="container-fluid">
-      <div class="row align-items-center">
-       <!-- Social media icons -->
-        <div>
-          <ul class="social-media-icon d-flex justify-content-center ps-0">
-            <li>
-              <a href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener"
-                aria-label="Link to our facebook page(opens in a new tab)">
-                <i class="fa-brands fa-square-facebook px-3"></i></a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener"
-                aria-label="Link to our instagram page(opens in a new tab)">
-                <i class="fa-brands fa-square-instagram px-3"></i></a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/"
-                target="_blank"
-                rel="noopener"
-                aria-label="Link to our youtube page(opens in a new tab)">
-                <i class="fa-brands fa-square-youtube px-3"></i></a>
-            </li>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- Social media icons-->
+    <a href="" target="_blank" rel="noopener" aria-label="Linked - Opens in a new tab">
+        <img src="{% static '/icons/linkedin-square-icon-46.webp' %}" alt="LinkedIn Icon" class="social-icon">
+    </a>
+    <a href="" target="_blank" rel="noopener" aria-label="Instagram - Opens in new tab">
+        <img src="{% static '/icons/black-instagram-icon-46.webp' %}" alt="Instagram Icon" class="social-icon" />
+    </a>
+    <a href="" target="_blank" rel="noopener" aria-label="YouTube - Opens in new tab">
+        <img src="{% static '/icons/youtube-icon-46.webp' %}" alt="YouTube Icon" class="social-icon" />
+    </a>
+</footer>
