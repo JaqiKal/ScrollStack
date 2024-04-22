@@ -5,7 +5,7 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     """ Render the landing page """
-    return render(request, 'index.html')
+    return render(request, 'base.html')
 
 
 def dashboard(request):

@@ -18,7 +18,7 @@
     --clr-white: #fff;
     --clr-orange: #ffc107;
     --clr-heading: #800000;
-    
+
 
     /* Utils */
     --small-box-shadow: 3px -1px 7px 0 #17023a61;
@@ -35,6 +35,7 @@
     margin: 0;
     padding: 0;
 }
+
 html,
 body {
     height: 100%;
@@ -52,22 +53,19 @@ h5,
 h6 {
     font-family: var(--title);
     color: var(--clr-heading);
-    
+
 }
-
-
 
 .hidden-heading {
     display: none;
 }
-
 
 /* Header */
 .navbar {
     background: #ff9102;
     background: -moz-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
     background: -webkit-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
-    background: linear-gradient(to bottom, #F6E84B 0%, #ff9102 0%, #800000 100%);
+    background: linear-gradient(to, bottom, #F6E84B 0%, #ff9102 0%, #800000 100%);
     box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
 
 }
@@ -131,8 +129,23 @@ footer {
     align-items: center;
     /* Adds padding around the content */
     padding: 10px;
+    /*box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);*/
+    color: rgba(128, 0, 0, 1);
+    background: #ff9102;
+    /* Fallback color if gradients are not supported */
+    background: -moz-linear-gradient(top, #800000 0%, #ff9102 100%, #F6E84B 100%);
+    /* For Firefox 3.6 to 15 */
+    background: -webkit-linear-gradient(top, #800000 0%, #ff9102 100%, #F6E84B 100%);
+    /* For Safari 5.1 to 6.0 */
+    background: linear-gradient(to bottom, #800000 0%, #ff9102 100%, #F6E84B 100%);
 
 }
+
+/* Ensuring the div around the icons is transparent and does not affect the visibility of the footer's gradient */
+footer div {
+    background-color: transparent;  /* Make the background of the div transparent */
+}
+
 
 /* Footer adjustments */
 footer .social-media-icon {
@@ -142,6 +155,8 @@ footer .social-media-icon {
     padding: 0;
     /* Ensures there's no extra space outside the list */
     margin: 0;
+    display: flex;
+    justify-content: center;  /* Center the icons in the footer */
 
 }
 
@@ -151,15 +166,18 @@ footer .social-media-icon li {
 
 }
 
-
 footer .social-media-icon li a {
     /* Adjusts the size of the icons */
-    font-size: 50px;
+    font-size: 2rem;
     /* Example: changing the color to the one defined in :root */
     color: var(--blue);
 
 }
 
+/* Ensure all text and icons in the footer have high contrast for readability */
+footer, footer a {
+    color: rgba(128, 0, 0, 1);  /* Deep red color for text and icons */
+}
 
 /* Header */
 .navbar {
