@@ -28,7 +28,10 @@ urlpatterns = [
 
     # Include scroll_core URLs
     path('', include('scroll_core.urls')),
-
+    
+    # Include scroll_home URLs, handel the root
+    path('home/', include('scroll_home.urls')),
+    
     # Authentication URLs, incl URLs provided by
     # django-allauth for user authentication.
     path('accounts/', include('allauth.urls')),

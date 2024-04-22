@@ -1,3 +1,8 @@
-from django.shortcuts import render
+# scroll_home/views.py
+from django.views.generic import TemplateView
 
-# Create your views here.
+
+class Index(TemplateView):
+    template_name = 'home/index.html'
+    
+    

@@ -32,8 +32,12 @@
     <header>
         {% include 'includes/header.html' %}
     </header>
-
+    
+    
+    <h1>Base template H1 utanför block content</h1>
+    
     {% block content %}
+    <h2>Welcome to Base template H1 innanför block content för att detta ska funka behövs tydligen en h1 utanför?!</h2>
     <!-- Content of other pages goes here -->
     {% endblock %}
 
