@@ -186,9 +186,10 @@ The competencies developed through this project are intended not just to satisfy
 - [Lucidchart](https://www.lucidchart.com) - Used for ERD (entity relationship diagram) 
 - [Markup Validation Service](https://validator.w3.org/) - Used to check code ensuring that my HTML is error-free and adheres to the latest web standards.
 - [PEP8](https://peps.python.org/pep-0008/)- Style Guide for Python Code.
-- [PostgreSQL](https://www.postgresql.org/) - Is a powerful, open source object-relational database system
+- [PostgreSQL](https://www.postgresql.org/) - Is a powerful, open source object-relational database system.
 - [Shields.io](https://shields.io/) - To add badges to the README.
 - [Tiny PNG](https://tinypng.com/) - To compress images.
+- [UXwing](https://uxwing.com/) - Provider of free icons free for commercial use.
 - [Wave](https://wave.webaim.org) - WAVE® is a suite of evaluation tools that helps authors make their web content more accessible to individuals with disabilities.
 - [Web Disability Sim](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) - a google chrome extension that allows you to view your site as people with accessibility needs would see it.
 
