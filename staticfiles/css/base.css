@@ -60,6 +60,8 @@ h6 {
     display: none;
 }
 
+
+
 /* Header */
 
 .navbar {
@@ -168,7 +170,12 @@ main {
     color: rgb(0, 0, 0);
     box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
     font-size: 1.6rem;
+}
 
+.custom-btn {
+    width: 150px;
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-primary {
@@ -199,11 +206,11 @@ footer {
 .social-icon {
     height: 2rem;
     margin: 2rem;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     /* Smooth transition for transform and opacity changes */
-    opacity: 0.8;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     /* Slightly transparent by default */
-    fill: #800000;
+
+
 }
 
 /* Hover styles for the social icons */

@@ -762,10 +762,9 @@ T.B.D.!
 
 ### Media
 
-Placeholder text!
-```text
-Acknowledgements for media used, including images and icons, specify the sources and the contributions they make to the aesthetic and function of the application.
-```
+This project uses third-party assets that require attribution:
+- The site logo is provided by [Vecteezy](https://www.vecteezy.com/free-vector/open-book). The [image](https://www.vecteezy.com/vector-art/4911390-book-icon-template-black-color-editable-book-icon-symbol-flat-vector-illustration-for-graphic-and-web-design) itself. These vectors are used under the terms of their license which requires public attribution. For more details on the licensing, please visit the provider's website.
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Content
