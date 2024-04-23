@@ -60,6 +60,8 @@ h6 {
     display: none;
 }
 
+
+
 /* Header */
 
 .navbar {
@@ -168,7 +170,12 @@ main {
     color: rgb(0, 0, 0);
     box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
     font-size: 1.6rem;
+}
 
+.custom-btn {
+    width: 150px;
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-primary {
