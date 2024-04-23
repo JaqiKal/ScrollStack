@@ -50,8 +50,6 @@ ALLOWED_HOSTS = ['8000-jaqikal-scrollstack-5swovgh53o4.ws-eu110.gitpod.io'
                 ]
 
 
-
-
 # Application definition 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -69,6 +67,10 @@ INSTALLED_APPS = [
     # user app
     'scroll_core',
     'scroll_home',
+
+    # Other
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 SITE_ID = 1
@@ -92,19 +94,17 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+
 ROOT_URLCONF = 'scroll_manager.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # for templates. Here, it's set to the 'templates' 
-            # directory at the root of the project.
             os.path.join(BASE_DIR, 'templates'),
-            # A subdirectory within the 'templates' directory dedicated 
-            # to 'allauth' templates. This allows for customizing authentication 
-            # templates provided by 'django-allauth' without altering the 
-            # package's default templates.
             os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
         'APP_DIRS': True,
@@ -115,9 +115,14 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            "builtins": [
+                "crispy_forms.templatetags.crispy_forms_tags",
+                "crispy_forms.templatetags.crispy_forms_field"
+            ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'scroll_manager.wsgi.application'
 
