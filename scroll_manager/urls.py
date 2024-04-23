@@ -1,3 +1,5 @@
+# scroll_manager/urls.property
+
 """
 URL configuration for scroll_manager project.
 
