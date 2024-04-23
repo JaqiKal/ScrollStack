@@ -32,17 +32,15 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
 }
 
 html,
 body {
-    height: 100 vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: var(--main-font);
-
 }
 
 h1,
@@ -52,34 +50,28 @@ h4,
 h5,
 h6 {
     font-family: var(--title);
-    color: var(--clr-heading);
-
+    color: var(--clr-heading)
 }
 
 .hidden-heading {
     display: none;
 }
 
-
-
 /* Header */
 
-.navbar {
+.custom-navbar {
     background: #ff9102;
     background: -moz-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
     background: -webkit-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
     background: linear-gradient(to, bottom, #F6E84B 0%, #ff9102 0%, #800000 100%);
     box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
-}
-
-a.nav-link {
-    color: var(--clr-black);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 img.logo {
-    margin: 20px;
-    width: 5.5rem;
-
+    margin: 20px 20px 0 20px;
+    width: 5rem;
 }
 
 .navbar-brand {
@@ -89,7 +81,7 @@ img.logo {
 }
 
 .nav-link {
-    font-size: 1.3rem;
+    font-size: 2rem;
 }
 
 .nav-link:hover {
@@ -108,7 +100,6 @@ main {
     background-image: url('/static/images/hero.webp');
     background-size: cover;
     background-position: center;
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,36 +111,24 @@ main {
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hero .container {
-    position: relative;
-    top: 55%;
-    transform: translateY(-50%);
     border-radius: 2em;
     padding: 1em;
     box-shadow: 1px 1px 32px 7px rgb(93, 3, 3);
 }
 
-
 .text-center {
-    background-color: rgba(255, 222, 173, 0.75);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    padding: 24.5em, 24.5em;
+    background-color: rgba(255, 222, 173, 0.90);
 }
 
 /* Jumbotron style */
 .jumbotron .display-4 {
     font-weight: bold;
     font-size: 3rem;
+    font-family: courgette;
     color: rgba(128, 0, 0, 1);
 }
 
@@ -169,7 +148,7 @@ main {
     border-radius: 20px;
     color: rgb(0, 0, 0);
     box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
-    font-size: 1.6rem;
+    font-size: xx-large;
 }
 
 .custom-btn {
@@ -220,55 +199,3 @@ footer {
     opacity: 1;
     /* Full opacity on hover */
 }
-
-/****************** Media Queries ******************/
-
-/* Extra small devices (phones, 200px and down) */
-@media only screen and (max-width: 200px) {}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .social-icons li {
-        flex-basis: 50%;
-        /* Each icon takes half of the container width */
-        text-align: center;
-        /* Centers the icons when they wrap */
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .navbar {
-        height: 64px;
-    }
-
-    .navbar-brand {
-        font-size: 4rem;
-    }
-
-    .btn {
-        margin: 1em;
-        font-size: 1.8rem;
-    }
-
-    footer {
-        height: 99px;
-    }
-
-    /* Icon style */
-    .text-reset {
-        font-size: 3rem;
-        padding: 0 3rem;
-        margin-top: 1rem;
-    }
-
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
