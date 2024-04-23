@@ -10,16 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-# Import
-from pathlib import Path
+# Import standard libraries
 import os
-import dj_database_url
+from pathlib import Path
+
+# Load environment variables from .env file using dotenv if available
+from dotenv import load_dotenv
+load_dotenv()
+
+
+# Import `env.py` if it exists for additional environment variables
+# This is typically used in development environments
 if os.path.isfile('env.py'):
     import env
 
-from dotenv import load_dotenv
-# Load environment variables from .env file
-load_dotenv()
+# Import database URL handling library after environment variables are set up
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,10 +63,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    # Optional -- requires install using `django-allauth[socialacocunt]`.
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.instagram',
     
     # user app
     'scroll_core',
@@ -67,8 +72,11 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 LOGIN_REDIRECT_URL = '/dashboard/'
+
 LOGOUT_REDIRECT_URL = '/'
 
 
@@ -89,7 +97,16 @@ ROOT_URLCONF = 'scroll_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            # for templates. Here, it's set to the 'templates' 
+            # directory at the root of the project.
+            os.path.join(BASE_DIR, 'templates'),
+            # A subdirectory within the 'templates' directory dedicated 
+            # to 'allauth' templates. This allows for customizing authentication 
+            # templates provided by 'django-allauth' without altering the 
+            # package's default templates.
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,10 +154,12 @@ AUTHENTICATION_BACKENDS = [
 # all auth settings
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 
 # Password validation
