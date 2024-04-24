@@ -8,47 +8,46 @@
 <header>
   {% with request.resolver_match.url_name as url_name %}
   <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
-    <div class="container-fluid ">
+    <div class="container-fluid">
       <!-- Logo -->
-      <a class="navbar-brand" href="#"><img src="{% static 'images/logo.webp'%}" alt="Site Logo" class="logo"
-          width="50"></a>
+      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.webp' %}" alt="Site Logo"
+          class="logo" width="50"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <!-- Navigation items -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2">
-          <li class="nav-item">
-            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" aria-current="page"
-              href="{% url 'home' %}">Home</a>
-          </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'dashboard' %}">My library</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'accounts_logout' %}active{% endif %}"
-              href="/accounts/logout/">Logout</a>
+            <a class="nav-link {% if url_name == 'account_logout' %}active{% endif %}"
+              href="{% url 'account_logout' %}">Logout</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'accounts_signup' %}active{% endif %}"
-              href="/accounts/signup/">Register</a>
+            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'accounts_login' %}active{% endif %}"
-              href=" /accounts/login/">Login</a>
+            <a class="nav-link {% if url_name == 'account_login' %}active{% endif %}"
+              href="{% url 'account_login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if url_name == 'account_signup' %}active{% endif %}"
+              href="{% url 'account_signup' %}">Register</a>
           </li>
           {% endif %}
         </ul>
-
-        <!-- Form for search bar -->
+        {% if request.user.is_authenticated %}
+        <!-- Form for search bar, only visible when authenticated -->
         <form class="d-flex" role="search">
           <input class="form-control me-2 custom-form" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success custom-search-btn" type="submit">Search</button>
         </form>
+        {% endif %}
       </div>
     </div>
   </nav>
