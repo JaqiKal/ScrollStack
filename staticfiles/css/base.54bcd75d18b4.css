@@ -112,7 +112,7 @@ main {
 
 /* Adjust or add to your existing CSS */
 .hero.jumbotron {
-    background-image: url('/static/images/hero.webp');
+    background-image: url("/static/images/hero.f80aadf7d0f8.webp");
     background-size: cover;
     background-position: center;
     display: flex;

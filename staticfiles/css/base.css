@@ -21,7 +21,7 @@
 
 
     /* Utils */
-    --small-box-shadow: 3px -1px 7px 0 #17023a61;
+    --box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
     --border: 1px solid #17023a61;
 }
 
@@ -41,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--main-font);
+    background-color: #ff9102;
 }
 
 h1,
@@ -70,12 +71,12 @@ h6 {
 }
 
 img.logo {
-    margin: 20px 20px 0 20px;
+    margin: 0px;
     width: 5rem;
 }
 
 .active {
-    border-bottom: 2px solid var(--clr-blue);
+    border-bottom: 3px solid var(--clr-heading);
     font-weight: 500;
 }
 
@@ -135,7 +136,7 @@ main {
 }
 
 .text-center {
-    background-color: rgba(255, 222, 173, 0.90);
+    background-color: #ffdeade6;
 }
 
 /* Jumbotron style */
@@ -158,30 +159,53 @@ main {
 }
 
 .btn {
-    margin: 1em;
+    margin: 0.5em;
     border-radius: 20px;
     color: rgb(0, 0, 0);
-    box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
-    font-size: xx-large;
-}
-
-.custom-btn {
+    box-shadow: var(--box-shadow);
+    font-size: large;
     width: 150px;
     display: inline-block;
     text-align: center;
 }
 
-.btn-primary {
-    background-color: #1a92be;
-    border-color: #1a92be;
+.custom-btn-primary {
+    border-color: #007bff;
+    background-color: #007bff6b;
 }
 
-.btn-secondary {
-    background-color: #15d40b;
+.custom-btn-secondary {
     border-color: #15d40b;
+    background-color: #77d372;
 }
 
+/* Signup, Login and Logout page */
 
+.custom-container {
+    width: 100%;
+    margin: 3% auto;
+    background-color: #ffdeade6;
+    border-radius: 10px;
+    border: 1px solid var(--clr-heading);
+    box-shadow: var(--box-shadow);
+    padding-top: 10px;
+}
+
+.custom-btn-auth {
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    border-color: #007bff;
+    background-color: #007bff6b;
+}
+
+.custom-btn-auth-secondary {
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    border-color: #15d40b;
+    background-color: #77d372;
+}
 
 /* Footer */
 
