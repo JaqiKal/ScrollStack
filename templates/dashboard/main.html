@@ -1,9 +1,38 @@
-<!-- templates/dashboard/main.html -->
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <h1>Welcome to Your Dashboard</h1>
-    <p>This is where you will manage your books.</p>
+<div class="container mt-3">
+    <h1>My Library Dashboard!</h1>
+    <p>Explore your collection, add new finds, or dive back into old favorites. Start by browsing or
+        updating your reading list! <br>"You can never get a cup of tea large enough or a book long enough to suit me."
+        - C.S. Lewis"</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
+        {% for book in books %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
+                    style="height: 180px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text">
+                        {% for author in book.get_authors %}
+                        {{ author.full_name }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                        No authors listed
+                        {% endfor %}
+                    </p>
+                    <p class="card-text"><small class="text-muted">{{ book.genre.name }}</small></p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col">
+            <p>No books found.</p>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,42 @@
+<!-- templates/dashboard/main.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Your Dashboard</h1>
+    <p>This is where you will manage your books.</p>
+
+    <div class="container mt-3">
+        <h2>Your Books</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cover</th>
+                    <th>Title</th>
+                    <th>Authors</th>
+                    <th>Genre</th>
+                    <th>Added At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td><img src="{{ book.cover_image.url }}" alt="{{ book.title }}" style="width: 50px; height: auto;">
+                    </td>
+                    <td>{{ book.title }}</td>
+                    <td>
+                        {% for author in book.get_authors %}
+                        {{ author.first_name }} {{ author.last_name }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                        No authors listed
+                        {% endfor %}
+                    </td>
+                    <td>{{ book.genre.name }}</td>
+                    <td>{{ book.added_at|date:"Y-m-d" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
