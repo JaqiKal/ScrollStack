@@ -770,18 +770,16 @@ This project uses third-party assets that require attribution:
 
 ### Content
 
-The content throughout ScrollStack is crafted to ensure clarity and user engagement. Website content crafted by the developer for personalized, authentic information. 
+Throughout the development of ScrollStack, a variety of resources have been utilized to ensure the platform is robust, user-friendly, and engaging. Below is a list of key documentation, blogs, tutorials, and guides that have been instrumental in crafting the features and functionality of ScrollStack:
 
-The following documentation, blogs, tutorials and guides were used to aid development.
+- **Bootstrap**: Extensively used for styling and responsive design, making the site accessible on a variety of devices - [Bootstrap documentation](https://getbootstrap.com/).
+- **Django**: As the backbone of our platform, Django's comprehensive documentation has been crucial for backend development - [Django documentation](https://docs.djangoproject.com/en/5.0/).
+- **django-allauth**: Implemented for authentication processes; setup guidance was followed from both the official documentation and additional tutorials provided by Code Institute's PP4 blog walkthrough - [django-allauth](https://docs.allauth.org/en/latest/installation/quickstart.html) - 
+- **django-richtextfield**: Integrated into the book model to enhance content creation with rich text capabilities - [django-richtextfield](https://pypi.org/project/django-richtextfield/).
+- **Sources of inspiration and guidance**:
+    - The Django Recipe Sharing Tutorial series by Dee Mc - [Django Recipe Sharing Tutorial series](https://www.youtube.com/@IonaFrisbee).
+    - [Django Tutorial](https://youtu.be/n-FTlQ7Djqc?si=Hfm94TiD4vbWolwj) by Net Ninja.
 
-Placeholder text !
-
-```text
-- [Bootstrap documentation](https://getbootstrap.com/)
-- [Django documentation](https://docs.djangoproject.com/en/5.0/)
-- [Stack Overflow](https://stackoverflow.com/)
-```
-[django-allauth](https://docs.allauth.org/en/latest/installation/quickstart.html)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 

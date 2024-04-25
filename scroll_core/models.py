@@ -91,6 +91,7 @@ class Book(models.Model):
     Model representing a book. Each book has a title, publication year, ISBN,
     and is linked to a genre and an owner (user). Slugs are used to create
     friendly URL paths.
+    Inspired by Dee Mc videos, se README for credit.
 
     'verbose_name' - Django Built-in Field Validation, amended from
     https://www.geeksforgeeks.org/verbose_name-django-built-in-field-validation/
@@ -115,7 +116,7 @@ class Book(models.Model):
         message="ISBN must only contain numbers and hyphens."
     )
     isbn = models.CharField(
-        max_length=13, unique=True,
+        max_length=17, unique=True,
         validators=[isbn_validator],
         verbose_name="ISBN",
         help_text="Enter the ISBN number of the book"
@@ -133,6 +134,7 @@ class Book(models.Model):
     added_at = models.DateField(
         auto_now_add=True,
         verbose_name="Date Added",
+        null=True
     )
     description = RichTextField(
         verbose_name="Description",
