@@ -5,6 +5,7 @@ from django.utils.text import slugify
 # in the provided reference:
 # https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/
 from django.core.validators import RegexValidator
+from djrichtextfield.models import RichTextField
 
 
 class Genre(models.Model):
@@ -133,7 +134,7 @@ class Book(models.Model):
         auto_now_add=True,
         verbose_name="Date Added",
     )
-    description = models.TextField(
+    description = RichTextField(
         verbose_name="Description",
         help_text="Enter a brief description of the book",
         blank=True  # Optional: make this field not required

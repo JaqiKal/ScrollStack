@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Genre, Author, Book, BookAuthor
+from .models import Genre, Author, Book, BookAuthor, RichTextField
+from djrichtextfield.widgets import RichTextWidget
 
 
 class BookAdmin(admin.ModelAdmin):
@@ -7,6 +8,9 @@ class BookAdmin(admin.ModelAdmin):
                     'isbn', 'description')
     search_fields = ('title', 'isbn')
     prepopulated_fields = {'slug': ('title',)}
+    formfield_overrides = {
+        RichTextField: {'widget': RichTextWidget()},
+    }
 
 
 class AuthorAdmin(admin.ModelAdmin):

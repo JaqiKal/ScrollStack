@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     # Other
     'crispy_forms',
     'crispy_bootstrap5',
+    'djrichtextfield',
 ]
 
 SITE_ID = 1
@@ -98,6 +99,21 @@ MIDDLEWARE = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
+# Amended from https://pypi.org/project/django-richtextfield/
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.ckeditor.com/4.16.2/standard/ckeditor.js'],
+    'init_template': 'djrichtextfield/init/ckeditor.js',
+    'settings': {
+        'toolbar': [
+            ['Format', 'Bold', 'Italic', 'Underline'],
+            ['Undo', 'Redo'],
+            ['Link', 'Unlink'],
+            ['NumberedList', 'BulletedList'],
+            ['Source']
+        ],
+        'format_tags': 'p;h1;h2;h3;h4;h5;h6;pre;address;div',
+    }
+}
 
 ROOT_URLCONF = 'scroll_manager.urls'
 
