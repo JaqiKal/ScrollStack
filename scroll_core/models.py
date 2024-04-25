@@ -148,13 +148,12 @@ class Book(models.Model):
         force_format="WEBP",
         blank=False,
         null=True,
-        default='static/images/default-book-200.webp'
     )
     image_alt = models.CharField(
         max_length=255, 
         null=False, 
         blank=False,
-        default='Book cover'
+        default='Book cover',
     )
    
     def save(self, *args, **kwargs):
