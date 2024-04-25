@@ -54,10 +54,6 @@ h6 {
     color: var(--clr-heading)
 }
 
-.hidden-heading {
-    display: none;
-}
-
 /* Header */
 
 .custom-navbar {
