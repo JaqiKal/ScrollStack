@@ -4,9 +4,11 @@ from django.urls import path, include
 from .views import index, dashboard, BookListView 
 
 urlpatterns = [
-    path('', index, name='index'),
+   
+    path('books/', BookListView.as_view(), name='book-list'),
     path('dashboard/', dashboard, name='dashboard'),
-    path('books/', BookListView.as_view(), name='book-list'), 
     path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('', index, name='index'),
+
 
 ]

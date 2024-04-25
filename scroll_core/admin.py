@@ -3,26 +3,25 @@ from .models import Genre, Author, Book, BookAuthor, RichTextField
 from djrichtextfield.widgets import RichTextWidget
 
 
+
+@admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'genre', 'publication_year',
-                    'isbn', 'description')
+                    'isbn', 'description', 'image')
+    list_filter = ("genre",)
     search_fields = ('title', 'isbn')
     prepopulated_fields = {'slug': ('title',)}
     formfield_overrides = {
         RichTextField: {'widget': RichTextWidget()},
     }
 
-
+@admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'middle_name', 'last_name')
 
-
+@admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
-# Register models with custom admin configurations
-admin.site.register(Genre, GenreAdmin)
-admin.site.register(Author, AuthorAdmin)
-admin.site.register(Book, BookAdmin)
 admin.site.register(BookAuthor)  # No admin customization is needed here

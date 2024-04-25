@@ -6,7 +6,7 @@ from django.utils.text import slugify
 # https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/
 from django.core.validators import RegexValidator
 from djrichtextfield.models import RichTextField
-
+from django_resized  import ResizedImageField
 
 class Genre(models.Model):
     """
@@ -141,12 +141,28 @@ class Book(models.Model):
         help_text="Enter a brief description of the book",
         blank=True  # Optional: make this field not required
     )
-
+    image = ResizedImageField(
+        size=[400, None],
+        quality=75,
+        upload_to="scroll_core/",
+        force_format="WEBP",
+        blank=False,
+        null=True,
+        default='static/images/default-book-200.webp'
+    )
+    image_alt = models.CharField(
+        max_length=255, 
+        null=False, 
+        blank=False,
+        default='Book cover'
+    )
+   
     def save(self, *args, **kwargs):
         if not self.slug:
             # Automatically generate slug from book title if not provided
             self.slug = slugify(self.title)
         super(Book, self).save(*args, **kwargs)
+
 
     def get_authors(self):
         """
