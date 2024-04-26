@@ -40,6 +40,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--main-font);
+    background: #ff9102;
 }
 
 h1,

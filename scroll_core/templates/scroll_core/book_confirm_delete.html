@@ -1,0 +1,22 @@
+<!-- root/scroll_core/templates/scroll_core/book_confirm_delete.html-->
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Delete book" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4 custom-container">
+    <div class="row">
+        <h1 class="visually-hidden">This is the Delete book confirmation page</h1>
+        <h2>{% trans "Delete book" %}</h2>
+        <br>
+        <form class="form p-2" method="post">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <p>Are you sure you want to delete "{{ object }}". This action cannot be undone!</p>
+            <input type="submit" class="btn btn-primary" value="Confirm">
+            <!-- Cancel Button -->
+            <a href="{% url 'book-list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+        {% endblock %}

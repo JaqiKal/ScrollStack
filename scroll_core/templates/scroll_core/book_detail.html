@@ -1,4 +1,4 @@
-<!-- scroll_core/templates/scroll_core/book_detail.html -->
+<!-- scroll_core/templates/scroll_core/book_detail.html - deleting -->
 {% extends "base.html" %}
 
 {% block content %}
@@ -7,7 +7,7 @@
         <h1>Book Details</h1>
         <div class="row">
             <div class="col">
-                <div class="card border border-warning">
+                <div class="card border border-danger shadow-lg p-3 mb-5 rounded">
                     <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
                         style="height: 300px; object-fit: cover;">
                     <div class="card-body">
@@ -21,9 +21,10 @@
             </div>
         </div>
         <div class="btn-group mt-3" role="group" aria-label="Book actions">
-            <a href="{% url 'add_book' %}" class="btn btn-primary">Add</a>
-            <a href="{% url 'edit_book' book.id %}" class="btn btn-secondary">Edit</a>
-            <a href="{% url 'delete_book' book.id %}" class="btn btn-secondary">Delete</a>
+            <a href="{% url 'book-create' %}" class="btn btn-primary">Add</a>
+            <a href="{% url 'book-update' pk=book.id %}"
+                class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2 custom-btn-secondary">Edit</a>
+            <a href="{% url 'book-delete' pk=book.id %}" class="btn btn-sm btn-secondary mb-2 mb-lg-0">Delete</a>
         </div>
     </div>
 </main>
