@@ -146,7 +146,7 @@ class Book(models.Model):
         quality=75,
         upload_to="scroll_core/",
         force_format="WEBP",
-        blank=False,
+        blank=True,
         null=True,
     )
     image_alt = models.CharField(
