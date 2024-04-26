@@ -2,16 +2,16 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}{% trans "Log In" %}{% endblock %}
 
 {% block content %}
 
 <div class="container mt-4 custom-container">
     <div class="row">
-        <h1 class="visually-hidden">This is the Sign in / Log in Page</h1>
-        <h2>{% trans "Sign In" %}</h2>
+        <h1 class="visually-hidden">This is the Log in Page</h1>
+        <h2>{% trans "Log In" %}</h2>
         <p>{% blocktrans %}Welcome back to the book register | ScrollStack. To leave a comment, please log in.
-            If you have not created an account yet, then please <a class="link" href="{{ signup_url }}">sign up</a>
+            If you have not created an account yet, then please <a class="link" href="{{ signup_url }}">Sign Up</a>
             first.{% endblocktrans %}</p>
         <br>
         <form class=" form p-2 login" method="POST" action="{% url 'account_login' %}">
@@ -20,7 +20,7 @@
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans "Sign In" %}</button>
+            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans "Log In" %}</button>
         </form>
     </div>
 </div>

@@ -8,8 +8,8 @@
 
 <div class="container mt-4 custom-container">
     <div class="row">
-        <h1 class="visually-hidden">This is the Sign up / Register Page</h1>
-        <h2>{% trans "Register" %}</h2>
+        <h1 class="visually-hidden">This is the Sign up Page</h1>
+        <h2>{% trans "Sign Up" %}</h2>
         <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Log in</a>.{% endblocktrans %}
         </p>
         <br>
@@ -19,7 +19,7 @@
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans "Register" %}
+            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans "Sign up" %}
                 &raquo;</button>
         </form>
     </div>

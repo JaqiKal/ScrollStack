@@ -11,7 +11,7 @@ from .models import Book
 # Class-based view for listing books
 class BookListView(ListView):
     model = Book
-    template_name = 'dashboard/book_list.html'
+    template_name = 'scroll_core/book_list.html'
     context_object_name = 'books'
     paginate_by = 5
 
@@ -28,11 +28,3 @@ class BookListView(ListView):
 def index(request):
     """ Render the landing page """
     return render(request, 'base.html')
-
-
-def dashboard(request):
-    """ Fetch the books associated with the logged-in user"""
-    user_books = Book.objects.filter(
-        user=request.user
-    ).prefetch_related('book_authors__author')
-    return render(request, 'dashboard/main.html', {'books': user_books})

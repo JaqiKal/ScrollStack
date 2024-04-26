@@ -19,7 +19,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from scroll_core import views as index_views
-from scroll_core.views import dashboard
 
 
 urlpatterns = [
@@ -30,16 +29,12 @@ urlpatterns = [
 
     # Include scroll_core URLs
     path('', include('scroll_core.urls')),
-    
+
     # Include scroll_home URLs, handel the root
     path('home/', include('scroll_home.urls')),
-    
+
     # Authentication URLs, incl URLs provided by
     # django-allauth for user authentication.
     path('accounts/', include('allauth.urls')),
-
-    # Dashboard URL, uses a function view from the
-    # scroll_core app to display the dashboard.
-    path('dashboard/', dashboard, name='dashboard'),
 
 ]
