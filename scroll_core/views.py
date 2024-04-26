@@ -22,9 +22,8 @@ class BookListView(ListView):
         """
         return Book.objects.filter(user=self.request.user)
 
-# Create your views here
 
-
+# Simple function-based view for the index page
 def index(request):
     """ Render the landing page """
     return render(request, 'base.html')
