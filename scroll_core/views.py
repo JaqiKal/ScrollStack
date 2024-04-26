@@ -3,7 +3,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Import the ListView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 # The Book model is imported
 from .models import Book
 
@@ -22,6 +22,10 @@ class BookListView(ListView):
         """
         return Book.objects.filter(user=self.request.user)
 
+class BookDetailView(DetailView):
+    model = Book
+    template_name = 'scroll_core/book_detail.html'
+    context_object_name = 'book'
 
 # Simple function-based view for the index page
 def index(request):

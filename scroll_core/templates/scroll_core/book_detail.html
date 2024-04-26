@@ -1,2 +1,30 @@
 <!-- scroll_core/templates/scroll_core/book_detail.html -->
-<h1>Book Detail View</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<main class="book-detail">
+    <div class="container mt-3">
+        <h1>Book Details</h1>
+        <div class="row">
+            <div class="col">
+                <div class="card border border-warning">
+                    <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
+                        style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                        <p class="card-text">{{ book.description }}</p>
+                        <p class="card-text"><small class="text-muted">Genre: {{ book.genre.name }}</small></p>
+                        <p class="card-text"><small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group mt-3" role="group" aria-label="Book actions">
+            <a href="{% url 'add_book' %}" class="btn btn-primary">Add</a>
+            <a href="{% url 'edit_book' book.id %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'delete_book' book.id %}" class="btn btn-secondary">Delete</a>
+        </div>
+    </div>
+</main>
+{% endblock %}
