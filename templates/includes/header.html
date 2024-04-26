@@ -1,11 +1,9 @@
 <!-- templates/includes/header.html -->
 {% load static %}
 
-<!-- debug -->
-<div>Authenticated: {{ request.user.is_authenticated }}</div>
-<div>Username: {{ request.user.username }}</div>
 
-<header>
+<header class="sticky-top">
+  <!-- Header sticks to top of screen at all times -->
   {% with request.resolver_match.url_name as url_name %}
   <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
     <div class="container-fluid">
@@ -49,7 +47,7 @@
         <!-- Form for search bar, only visible when authenticated -->
         <form class="d-flex" role="search">
           <input class="form-control me-2 custom-form" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success custom-search-btn" type="submit">Search</button>
+          <button class="btn btn-outline-success custom-form" type="submit">Search</button>
         </form>
         {% endif %}
       </div>

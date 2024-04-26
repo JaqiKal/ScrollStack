@@ -13,7 +13,7 @@ class BookListView(ListView):
     model = Book
     template_name = 'scroll_core/book_list.html'
     context_object_name = 'books'
-    paginate_by = 5
+    paginate_by = 4
 
     def get_queryset(self):
         """
