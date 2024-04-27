@@ -1,0 +1,19 @@
+<!-- scroll_core/templates/scroll_core/book_edit.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Edit Book{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="p-2 form">
+        <h1 class="text-center">Add Book</h1>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy }}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-2">Edit book</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

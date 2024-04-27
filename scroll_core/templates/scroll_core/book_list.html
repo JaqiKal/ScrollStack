@@ -1,5 +1,6 @@
 <!-- scroll_core/templates/scroll_core/book_list.html -->
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <main class="book-li">
@@ -9,22 +10,24 @@
             updating your reading list! <br>"You can never get a cup of tea large enough or a book long enough to suit
             me."
             - C.S. Lewis"</p>
+
+        <!-- Book list, one card per book -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
             {% for book in books %}
             <div class="col">
-                <div class="card h-100 border border-danger shadow-lg p-3 mb-5 rounded">
+                <div class="card h-100 border border-danger p-3 mb-5">
                     <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
                         style="height: 200px; object-fit: cover;">
                     <div class="card-body">
 
-                        <h5 class="card-title">{{ book.title }}</h5>
-                        <p class="card-text">
+                        <h2 class="card-title">{{ book.title }}</h2>
+                        <h3 class="card-subtitle mb-2 text-muted">
                             {% for author in book.get_authors %}
                             {{ author.full_name }}{% if not forloop.last %}, {% endif %}
                             {% empty %}
                             No authors listed
                             {% endfor %}
-                        </p>
+                        </h3>
                         <p class="card-text"><small class="text-muted">{{ book.genre.name }}</small></p>
                         <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
                     </div>
@@ -34,7 +37,7 @@
                         <a href="{% url 'book-update' pk=book.id %}"
                             class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2 custom-btn-secondary">Edit</a>
                         <a href="{% url 'book-delete' pk=book.id %}"
-                            class="btn btn-sm btn-secondary mb-2 mb-lg-0">Delete</a>
+                            class="btn btn-sm btn-danger mb-2 mb-lg-0">Delete</a>
                     </div>
                 </div>
             </div>
@@ -44,6 +47,8 @@
             </div>
             {% endfor %}
         </div>
+
+        <!-- Pagination -->
         <div class="pagination">
             <span class="step-links">
                 {% if page_obj.has_previous %}

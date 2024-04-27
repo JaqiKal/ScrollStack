@@ -14,9 +14,11 @@
     --clr-background: #3f006a0f;
     --clr-blue: #0d6efd;
     --clr-black: #000;
-    --clr-off-white: #f6f6f6;
     --clr-white: #fff;
+    --clr-off-white: #f6f6f6;
+    --clr-lg-grey: #e0dddd;
     --clr-dark-red: #800000;
+    --clr-beige: #ffdeade6;
 
 
     /* Utils */
@@ -135,7 +137,7 @@ main {
 }
 
 .text-center {
-    background-color: #ffdeade6;
+    background-color: var(--clr-beige);
 }
 
 /* Jumbotron style */
@@ -168,7 +170,7 @@ main {
     text-align: center;
 }
 
-.custom-btn-prim {
+.custom-btn-primary {
     border-color: #007bff;
     background-color: #007bff6b;
 }
@@ -184,7 +186,7 @@ main {
 .custom-container {
     width: 100%;
     margin: 3% auto;
-    background-color: #ffdeade6;
+    background-color: var(--clr-beige);
     border-radius: 10px;
     border: 1px solid var(--clr-dark-red);
     box-shadow: var(--box-shadow);
@@ -207,6 +209,19 @@ main {
     background-color: #77d372;
 }
 
+/* Book list & Details */
+
+.card {
+    height: 90%;
+    background: var(--clr-beige);
+    border-radius: 15px;
+    border: 1px solid var(--clr-dark-red);
+    box-shadow: var(--box-shadow);
+}
+
+.card-body {
+    background: var(--clr-off-white);
+}
 
 
 /* Footer */

@@ -18,7 +18,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from scroll_core import views as index_views
+from django.conf.urls import handler403, handler404, handler500
+from django.http import HttpResponseNotFound, HttpResponseServerError, HttpResponseForbidden
+from django.shortcuts import render 
 
 
 urlpatterns = [
@@ -37,4 +39,22 @@ urlpatterns = [
     # django-allauth for user authentication.
     path('accounts/', include('allauth.urls')),
 
+    path('djrichtextfield/', include('djrichtextfield.urls')),
+
+
+
 ]
+
+def custom_404(request, exception):
+    return HttpResponseNotFound(render(request, 'errors/404.html', {}, status=404))
+
+def custom_500(request):
+    return HttpResponseServerError(render(request, 'errors/500.html', {}, status=500))
+
+def custom_403(request, exception):
+    return HttpResponseForbidden(render(request, 'errors/403.html', {}, status=403))
+
+# Linking the custom error handlers
+handler403 = custom_403
+handler404 = custom_404
+handler500 = custom_500

@@ -13,6 +13,5 @@ urlpatterns = [
     path('books/<int:pk>/edit/', BookUpdateView.as_view(), name='book-update'),
     path('books/<int:pk>/delete/', BookDeleteView.as_view(), name='book-delete'),
     path('djrichtextfield/', include('djrichtextfield.urls')),
- 
 
 ]

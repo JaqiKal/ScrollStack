@@ -1,5 +1,6 @@
 <!-- scroll_core/templates/scroll_core/book_detail.html - deleting -->
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <main class="book-detail">
@@ -7,25 +8,30 @@
         <h1>Book Details</h1>
         <div class="row">
             <div class="col">
-                <div class="card border border-danger shadow-lg p-3 mb-5 rounded">
+                <div class="card border border-danger">
                     <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
                         style="height: 300px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ book.title }}</h5>
+                        <h2 class="card-title">{{ book.title }}</h2>
                         <p class="card-text">{{ book.description }}</p>
                         <p class="card-text"><small class="text-muted">Genre: {{ book.genre.name }}</small></p>
-                        <p class="card-text"><small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
+                        <p class="card-text custom-addat">
+                            <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="btn-group mt-3" role="group" aria-label="Book actions">
-            <a href="{% url 'book-create' %}" class="btn btn-primary">Add</a>
+
+
+        <div class="card-footer d-flex flex-column flex-lg-row justify-content-center align-items-center">
+            <a href="{% url 'book-detail' pk=book.id %}"
+                class="btn btn-sm btn-primary mb-2 mb-lg-0 me-lg-2 custom-btn-primary">View</a>
             <a href="{% url 'book-update' pk=book.id %}"
                 class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2 custom-btn-secondary">Edit</a>
-            <a href="{% url 'book-delete' pk=book.id %}" class="btn btn-sm btn-secondary mb-2 mb-lg-0">Delete</a>
+            <a href="{% url 'book-delete' pk=book.id %}" class="btn btn-sm btn-danger mb-2 mb-lg-0">Delete</a>
         </div>
+    </div>
     </div>
 </main>
 {% endblock %}

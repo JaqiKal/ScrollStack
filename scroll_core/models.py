@@ -12,10 +12,8 @@ class Genre(models.Model):
     """
     Model representing a genre category. Each genre has a name and
     a description which describes what the genre encompasses.
-
     'verbose_name' - Django Built-in Field Validation, amended from
     https://www.geeksforgeeks.org/verbose_name-django-built-in-field-validation/
-    Present in all the models where applicable.
     """
     name = models.CharField(
         max_length=100,
@@ -37,7 +35,6 @@ class Author(models.Model):
     """
     Model representing an author. Authors have first, middle (optional),
     and last names. Each author could potentially write multiple books.
-
     'verbose_name' - Django Built-in Field Validation, amended from
     https://www.geeksforgeeks.org/verbose_name-django-built-in-field-validation/
     """
@@ -92,7 +89,6 @@ class Book(models.Model):
     and is linked to a genre and an owner (user). Slugs are used to create
     friendly URL paths.
     Inspired by Dee Mc videos, se README for credit.
-
     'verbose_name' - Django Built-in Field Validation, amended from
     https://www.geeksforgeeks.org/verbose_name-django-built-in-field-validation/
     """
@@ -139,7 +135,7 @@ class Book(models.Model):
     description = RichTextField(
         verbose_name="Description",
         help_text="Enter a brief description of the book",
-        blank=True  # Optional: make this field not required
+        blank=True,  # Optional: make this field not required
     )
     image = ResizedImageField(
         size=[400, None],
