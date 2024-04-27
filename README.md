@@ -753,14 +753,6 @@ DEVELOPMENT = True
 
 ## Credits and Acknowledgements
 
-### Code
-
-```txt
-T.B.D.!
-```
-
-*<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
-
 ### Media
 
 This project uses third-party assets that require attribution:
@@ -779,6 +771,7 @@ Throughout the development of ScrollStack, a variety of resources have been util
 - **Sources of inspiration and guidance**:
     - The Django Recipe Sharing Tutorial series by Dee Mc - [Django Recipe Sharing Tutorial series](https://www.youtube.com/@IonaFrisbee).
     - [Django Tutorial](https://youtu.be/n-FTlQ7Djqc?si=Hfm94TiD4vbWolwj) by Net Ninja.
+- **Style Hamburger toggler**: [Animated Custom Hamburger Icon in Navbar in bootstrap 5 (with a gradient)](https://youtu.be/_MrShB9fh7U?si=LwtGrpmBCzN_YJvM)
 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
