@@ -771,7 +771,7 @@ Throughout the development of ScrollStack, a variety of resources have been util
 - **Sources of inspiration and guidance**:
     - The Django Recipe Sharing Tutorial series by Dee Mc - [Django Recipe Sharing Tutorial series](https://www.youtube.com/@IonaFrisbee).
     - [Django Tutorial](https://youtu.be/n-FTlQ7Djqc?si=Hfm94TiD4vbWolwj) by Net Ninja.
-- **Style Hamburger toggler**: [Animated Custom Hamburger Icon in Navbar in bootstrap 5 (with a gradient)](https://youtu.be/_MrShB9fh7U?si=LwtGrpmBCzN_YJvM)
+- **Style Hamburger toggler**: [Change Hamburger-Icon, by richards](https://forum.bootstrapstudio.io/t/change-hamburger-icon/8990/2?fbclid=IwAR17UiU_5vC8sNPMZ6ZOLTAfHd5jDoKYJcOY2QogODhdRuw42l2XpcmjHTA)
 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
