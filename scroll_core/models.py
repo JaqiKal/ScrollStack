@@ -6,7 +6,8 @@ from django.utils.text import slugify
 # https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/
 from django.core.validators import RegexValidator
 from djrichtextfield.models import RichTextField
-from django_resized  import ResizedImageField
+from django_resized import ResizedImageField
+
 
 class Genre(models.Model):
     """
@@ -56,7 +57,7 @@ class Author(models.Model):
         max_length=100,
         validators=[name_validator],
         verbose_name="Middle Name",
-        help_text="Optional: enter the author's middle name or initial",
+        help_text="Optional: Enter the author's middle name or initial",
         blank=True,  # Optional field.
         null=True  # Allows storing null in the database for middle name.
     )
@@ -97,6 +98,10 @@ class Book(models.Model):
         verbose_name="Book Title",
         help_text="Enter the title of the book"
     )
+
+    class Meta:
+        ordering = ['title']  # Orders by title alphabetically by default
+
     slug = models.SlugField(
         unique=True, blank=True,
         help_text="A URL-friendly name is entered automatically on save"
@@ -146,17 +151,16 @@ class Book(models.Model):
         null=True,
     )
     image_alt = models.CharField(
-        max_length=255, 
-        null=False, 
+        max_length=255,
+        null=False,
         default='Book cover',
     )
-   
+
     def save(self, *args, **kwargs):
         if not self.slug:
             # Automatically generate slug from book title if not provided
             self.slug = slugify(self.title)
         super(Book, self).save(*args, **kwargs)
-
 
     def get_authors(self):
         """
