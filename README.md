@@ -766,10 +766,19 @@ Throughout the development of ScrollStack, a variety of resources have been util
 
 - **Bootstrap**: Extensively used for styling and responsive design, making the site accessible on a variety of devices - [Bootstrap documentation](https://getbootstrap.com/).
 - **Django**: As the backbone of our platform, Django's comprehensive documentation has been crucial for backend development - [Django documentation](https://docs.djangoproject.com/en/5.0/).
+- **MDN Server-side website programming**:(https://developer.mozilla.org/en-US/docs/Learn/Server-side) -  how to set up a development environment, and how to start using it to create your own web applications.
 - **django-allauth**: Implemented for authentication processes; setup guidance was followed from both the official documentation and additional tutorials provided by Code Institute's PP4 blog walkthrough - [django-allauth](https://docs.allauth.org/en/latest/installation/quickstart.html) - 
 - **django-richtextfield**: Integrated into the book model to enhance content creation with rich text capabilities - [django-richtextfield](https://pypi.org/project/django-richtextfield/).
-- [**Django Meta options**](https://docs.djangoproject.com/en/5.0/topics/db/models/#meta-options)  
-- **Sources of inspiration and guidance**:
+- **Inspiration for Forms**: In ScrollStack, the BookForm utilizes Django's form and Meta options to efficiently manage book data, ensuring fields are defined for user input and Meta class attributes are properly configured.
+    - [125. Form To Add Books in Django](https://youtu.be/StOth98gHHw?si=Asy57HYhEwZIX5yy)
+    - [126. 125. Form To Add Books Part -2](https://youtu.be/z98z_8ihqew?si=4j2ElUhSVi86NCDG)
+    - [Django Tutorial Part 9: Working with forms](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)
+    - [django doc, working with forms](https://docs.djangoproject.com/en/5.0/topics/forms/)
+    - [Building Django forms with django-crispy-forms](https://youtu.be/MZwKoi0wu2Q?si=jOYV4S3nGU1oCu7c)
+    - [Style Django Forms With Bootstrap - Django Blog #5](https://youtu.be/6-XXvUENY_8?si=m-Ck3ucJ20ReV1Sp)
+    - [Django Meta options](https://docs.djangoproject.com/en/5.0/topics/db/models/#meta-options)  
+    - [Override the save() method in Django ModelForm to create or update](https://stackoverflow.com/questions/45923410/override-the-save-method-in-django-modelform-to-create-or-update)
+- **Sources of inspiration and guidance in general**:
     - The Django Recipe Sharing Tutorial series by Dee Mc - [Django Recipe Sharing Tutorial series](https://www.youtube.com/@IonaFrisbee).
     - [Django Tutorial](https://youtu.be/n-FTlQ7Djqc?si=Hfm94TiD4vbWolwj) by Net Ninja.
 - **Style Hamburger toggler**: [Change Hamburger-Icon, by richards](https://forum.bootstrapstudio.io/t/change-hamburger-icon/8990/2?fbclid=IwAR17UiU_5vC8sNPMZ6ZOLTAfHd5jDoKYJcOY2QogODhdRuw42l2XpcmjHTA)
