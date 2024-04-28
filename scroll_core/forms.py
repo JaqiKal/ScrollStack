@@ -26,7 +26,7 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = [
             'title', 'author_first_name', 'author_middle_name', 'author_last_name', 
-            'genre', 'publication_year', 'isbn', 'description', 'image', 'image_alt'
+            'genre', 'publication_year', 'isbn', 'description', 'image'
         ]
         widgets = {
             'description': RichTextWidget(attrs={"rows": 5}),
@@ -38,6 +38,5 @@ class BookForm(forms.ModelForm):
             'publication_year': 'Publication Year',
             'description': 'Description',
             'image': 'Book Cover Image',
-            'image_alt': 'Image Alt Text',
         }
 
