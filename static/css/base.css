@@ -137,6 +137,10 @@ img.logo {
     transform: rotate(-90deg) translateX(7px);
 }
 
+.username {
+    font-family: 'Courgette', cursive;
+
+}
 
 /* Search form */
 .custom-form {
