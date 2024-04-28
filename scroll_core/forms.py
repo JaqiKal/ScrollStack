@@ -1,4 +1,6 @@
 # scroll_core/forms.py
+# Inspired by various sources, please see README
+# Credits&Acknowledgement/Content
 
 from django import forms
 from djrichtextfield.widgets import RichTextWidget
@@ -62,16 +64,19 @@ class BookForm(forms.ModelForm):
                 self.fields['author_first_name'].initial = author.first_name
                 self.fields['author_middle_name'].initial = author.middle_name
                 self.fields['author_last_name'].initial = author.last_name
-                self.initial['author_id'] = author.id 
-
+                self.initial['author_id'] = author.id
 
     def save(self, commit=True):
         """
         Save the form instance and handle the creation or linking
         of the author. Avoid duplicate author entries and ensure author
         details are updated if necessary.
+        amended from :
+
+        -
         """
-        # Save the Book instance as usual but do not commit yet if specified so.
+        # Save the Book instance as usual but do not commit yet
+        # if specified so.
         book = super(BookForm, self).save(commit=False)
 
         # Handle author creation, remove any leading or trailing whitespace
@@ -82,7 +87,8 @@ class BookForm(forms.ModelForm):
         if first_name and last_name:
             # Find existing author or create a new one
             author, created = Author.objects.update_or_create(
-                id=self.initial.get('author_id'),  # Using the initial ID if available
+                # Using the initial ID if available
+                id=self.initial.get('author_id'),
                 defaults={
                     'first_name': first_name,
                     'middle_name': middle_name if middle_name else None,
@@ -96,7 +102,9 @@ class BookForm(forms.ModelForm):
                 self.save_m2m()  # Save many-to-many fields
 
             # Check if book-author link already exists to avoid duplicate link
-            if not BookAuthor.objects.filter(book=book, author=author).exists():
+            if not BookAuthor.objects.filter(
+                book=book, author=author
+                    ).exists():
                 BookAuthor.objects.create(book=book, author=author)
 
         else:
