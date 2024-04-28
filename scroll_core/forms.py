@@ -2,18 +2,34 @@
 
 from django import forms
 from djrichtextfield.widgets import RichTextWidget
-from .models import Book
+from .models import Book, Author
 
 class BookForm(forms.ModelForm):
-    """
-    A form for creating or updating a book.
-    """
+    # Explicitly define author fields if not inheriting directly from an Author model
+    author_first_name = forms.CharField(
+        max_length=100, 
+        required=False, 
+        help_text="Enter the author's first name"  # Help text directly defined here
+    )
+    author_middle_name = forms.CharField(
+        max_length=100, 
+        required=False, 
+        help_text="Optional: enter the author's middle name or initial"  # Help text directly defined here
+    )
+    author_last_name = forms.CharField(
+        max_length=100, 
+        required=False, 
+        help_text="Enter the author's last name"  # Help text directly defined here
+    )
+
     class Meta:
         model = Book
-        fields = ['title', 'genre', 'publication_year', 'isbn', 'description', 'image', 'image_alt']
+        fields = [
+            'title', 'author_first_name', 'author_middle_name', 'author_last_name', 
+            'genre', 'publication_year', 'isbn', 'description', 'image', 'image_alt'
+        ]
         widgets = {
             'description': RichTextWidget(attrs={"rows": 5}),
-            'image_alt': forms.TextInput(attrs={"placeholder": "Describe the image here"}),
         }
         labels = {
             'title': 'Book Title',
@@ -24,3 +40,4 @@ class BookForm(forms.ModelForm):
             'image': 'Book Cover Image',
             'image_alt': 'Image Alt Text',
         }
+

@@ -56,7 +56,7 @@ class Author(models.Model):
         max_length=100,
         validators=[name_validator],
         verbose_name="Middle Name",
-        help_text="Enter the author's middle name or initial",
+        help_text="Optional: enter the author's middle name or initial",
         blank=True,  # Optional field.
         null=True  # Allows storing null in the database for middle name.
     )
@@ -148,7 +148,6 @@ class Book(models.Model):
     image_alt = models.CharField(
         max_length=255, 
         null=False, 
-        blank=False,
         default='Book cover',
     )
    

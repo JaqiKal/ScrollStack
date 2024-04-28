@@ -768,6 +768,7 @@ Throughout the development of ScrollStack, a variety of resources have been util
 - **Django**: As the backbone of our platform, Django's comprehensive documentation has been crucial for backend development - [Django documentation](https://docs.djangoproject.com/en/5.0/).
 - **django-allauth**: Implemented for authentication processes; setup guidance was followed from both the official documentation and additional tutorials provided by Code Institute's PP4 blog walkthrough - [django-allauth](https://docs.allauth.org/en/latest/installation/quickstart.html) - 
 - **django-richtextfield**: Integrated into the book model to enhance content creation with rich text capabilities - [django-richtextfield](https://pypi.org/project/django-richtextfield/).
+- [**Django Meta options**](https://docs.djangoproject.com/en/5.0/topics/db/models/#meta-options)  
 - **Sources of inspiration and guidance**:
     - The Django Recipe Sharing Tutorial series by Dee Mc - [Django Recipe Sharing Tutorial series](https://www.youtube.com/@IonaFrisbee).
     - [Django Tutorial](https://youtu.be/n-FTlQ7Djqc?si=Hfm94TiD4vbWolwj) by Net Ninja.
