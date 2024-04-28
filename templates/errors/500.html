@@ -1,19 +1,13 @@
 <!-- templates/errors/500.html -->
-
 {% extends "base.html" %}
-
 {% load static %}
 
-
 {% block content %}
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="text-center p-4 shadow-lg rounded">
+        <h1>Error 500: Internal Server Error</h1>
+        <p>Something went wrong on our end. Please try again later or contact support if the problem persists.</p>
 
-{# Display the error message. #}
-<div class="container">
-    <h1>Error 500: Internal Server Error</h1>
-    <p>Something went wrong on our end. Please try again later or contact support if the problem persists.</p>
-
-    {# Link to allow the user to return to the home page #}
-    <a class="text-url" href="{% url 'home' %}">Return to
-        home</a>
-</div>
-{% endblock %}
+        <a href="{% url 'home' %}" class="btn btn-success btn-sm mt-2">Return to Home</a>
+    </div>
+    {% endblock %}

@@ -72,6 +72,10 @@ class Book(models.Model):
         verbose_name='Book Title',
         help_text='Enter the title of the book'
     )
+
+    class Meta:
+        ordering = ['title'] # Orders by title alphabetically by default
+
     slug = models.SlugField(
         unique=True, blank=True,
         help_text='A URL-friendly name is entered automatically on save'

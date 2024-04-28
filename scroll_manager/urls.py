@@ -19,8 +19,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler403, handler404, handler500
-from django.http import HttpResponseNotFound, HttpResponseServerError, HttpResponseForbidden
 from django.shortcuts import render 
+# from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseServerError
+# from django.core.exceptions import PermissionDenied
+
+
+# Define a simple view that intentionally raises a 404 error
+# def test_404(request):
+   # raise Http404("Test 404 Page Not Found")
+
+# Define a simple view that intentionally raises a 403 error
+# def test_403(request):
+  #  raise PermissionDenied("Test 403 Permission Denied")
+
+# Define a simple view that intentionally raises a 500 error
+def test_500(request):
+    raise Exception("Test 500 Internal Server Error")
 
 
 urlpatterns = [
@@ -41,20 +55,13 @@ urlpatterns = [
 
     path('djrichtextfield/', include('djrichtextfield.urls')),
 
-
+   # path('test-403/', test_403, name='test-403'),
+   # path('test-404/', test_404, name='test-404'),
+   # path('test-500/', test_500, name='test-500'),
 
 ]
 
-def custom_404(request, exception):
-    return HttpResponseNotFound(render(request, 'errors/404.html', {}, status=404))
-
-def custom_500(request):
-    return HttpResponseServerError(render(request, 'errors/500.html', {}, status=500))
-
-def custom_403(request, exception):
-    return HttpResponseForbidden(render(request, 'errors/403.html', {}, status=403))
-
-# Linking the custom error handlers
-handler403 = custom_403
-handler404 = custom_404
-handler500 = custom_500
+# Setting custom error handlers
+# handler403 = 'scroll_core.views.custom_403'
+# handler404 = 'scroll_core.views.custom_404'
+# handler500 = 'scroll_core.views.custom_500'

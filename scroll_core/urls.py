@@ -15,3 +15,4 @@ urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
 
 ]
+

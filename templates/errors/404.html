@@ -1,19 +1,13 @@
 <!-- templates/errors/404.html -->
-
 {% extends "base.html" %}
-
 {% load static %}
 
-
 {% block content %}
-
-{# Display the error message. #}
-<div class="container">
-    <h1>Error 404: Not Found</h1>
-    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-
-    {# Link to allow the user to return to the home page #}
-    <a class="text-url" href="{% url 'home' %}">Return to
-        home</a>
-</div>
-{% endblock %}
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="text-center p-4 shadow-lg rounded">
+        <h1>Error 404: Not Found</h1>
+        <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+        </p>
+        <a href="{% url 'home' %}" class="btn btn-success btn-sm mt-2">Return to Home</a>
+    </div>
+    {% endblock %}

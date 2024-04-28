@@ -1,17 +1,14 @@
 <!-- templates/errors/403.html -->
-{# Extends the base layout from 'base.html' #}
 {% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-
-{# Display the error message. #}
-<div class="container">
-    <h1>Error 403: Forbidden</h1>
-    <p>You do not have the necessary permissions to access this resource. Please ensure you are logged in with the
-        appropriate credentials.</p>
-
-    {# Link to allow the user to return to the home page #}
-    <a class="text-url" href="{% url 'home' %}">Return to home</a>
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="text-center p-4 shadow-lg rounded">
+        <h1>Error 403: Forbidden</h1>
+        <p>You do not have the necessary permissions to access this resource. Please ensure you are logged in with the
+            appropriate credentials.</p>
+        <a href="{% url 'home' %}" class="btn btn-success btn-sm mt-2">Return to Home</a>
+    </div>
 </div>
 {% endblock %}

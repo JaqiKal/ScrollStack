@@ -9,12 +9,13 @@
  */
 
 // jshint esversion: 6
+
 document.addEventListener('DOMContentLoaded', function () {
     const alerts = document.querySelectorAll('.alert');
     alerts.forEach(alert => {
         setTimeout(() => {
             const bsAlert = new bootstrap.Alert(alert);
             bsAlert.close();
-        }, 3500); // Close alert after n seconds
+        }, 2500); // Close alert after n seconds
     });
 });

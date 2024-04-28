@@ -1,7 +1,8 @@
 # scroll_core/views.py
-
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
+# from django.http import HttpResponseNotFound, HttpResponseServerError, HttpResponseForbidden
+
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
@@ -99,3 +100,19 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         # Ensure users can only delete their books
         return self.request.user.books.all()
+
+
+
+#def custom_403(request, exception):
+ #   """Custom view to handle 403 Forbidden errors."""
+  #  return HttpResponseForbidden(render(request, 'errors/403.html'))
+
+#def custom_404(request, exception):
+ #   """Custom view to handle 404 Not Found errors."""
+  #  return HttpResponseNotFound(render(request, 'errors/404.html'))
+
+#def custom_500(request):
+ #   """Custom view to handle 500 Internal Server errors."""
+  #  return HttpResponseServerError(render(request, 'errors/500.html'))
+
+
