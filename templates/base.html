@@ -36,8 +36,21 @@
 <body>
   {% include 'includes/header.html' %}
 
+  <!-- Display messages to the user -->
+  {% if messages %}
+  <div class="alert-messages">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <main>
     {% block content %}
+
     <!-- Hero Section -->
     <section class="hero jumbotron jumbotron-fluid">
       <h2 class="visually-hidden">Hero section</h2>
@@ -61,6 +74,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
     integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  {% endblock %}
+
+  <!-- Custom JS -->
+  {% block scripts %}
+  <script src="{% static 'js/auto-dismiss-alerts.js' %}"></script>
   {% endblock %}
 </body>
 

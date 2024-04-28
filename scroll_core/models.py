@@ -7,6 +7,8 @@ from django.utils.text import slugify
 from django.core.validators import RegexValidator
 from djrichtextfield.models import RichTextField
 from django_resized import ResizedImageField
+import cloudinary.models
+
 
 
 class Genre(models.Model):

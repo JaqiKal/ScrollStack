@@ -27,6 +27,7 @@ class BookListView(ListView):
         """
         return Book.objects.filter(user=self.request.user)
 
+
 # Class-based view for listing single book
 class BookDetailView(DetailView):
 
@@ -41,6 +42,8 @@ def index(request):
     return render(request, 'base.html')
 
 #  A view for creating a new book.
+
+
 class BookCreateView(LoginRequiredMixin, CreateView):
     """
     A view for creating a new book. Requires users to be authenticated.
@@ -62,6 +65,8 @@ class BookCreateView(LoginRequiredMixin, CreateView):
         return response
 
 # A view for updating a book.
+
+
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     """
     A view for updating an existing book. Requires users to be authenticated.
@@ -73,7 +78,14 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'scroll_core/book_form.html'
     success_url = reverse_lazy('book-list')
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Book updated successfully!")
+        return response
+
 # A view for deleting a book.
+
+
 class BookDeleteView(LoginRequiredMixin, DeleteView):
     """
     A view for deleting a book. Requires users to be authenticated.
