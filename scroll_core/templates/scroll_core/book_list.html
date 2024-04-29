@@ -5,8 +5,8 @@
 <main class="book-li">
     <div class="container mt-3 mb-5">
         <h1>My Library Dashboard!</h1>
-        <p>Explore your collection, add new finds, or dive back into old favorites. Start by browsing or
-            updating your reading list! <br>"You can never get a cup of tea large enough or a book long enough to suit
+        <p>Explore your collection, add new finds, or dive back into old favorites.
+            <br>"You can never get a cup of tea large enough or a book long enough to suit
             me."
             - C.S. Lewis"</p>
 
@@ -78,15 +78,21 @@
                             <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
                         </div>
                         <!-- This is the clickable area of the entire card, including the footer section for actions -->
-                        <div
+
+
+                        <!--div
+                                          <button onclick="location.href='{% url 'book-detail' pk=book.id %}'"
+                                              class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2">View</button>
                             class="card-footer d-flex flex-column flex-lg-row justify-content-center align-items-center">
                             <button onclick="location.href='{% url 'book-update' pk=book.id %}'"
                                 class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2">Edit</button>
                             <button onclick="location.href='{% url 'book-delete' pk=book.id %}'"
                                 class="btn btn-sm btn-danger">Delete</button>
                         </div>
+                    -->
                     </div>
                 </a>
+
             </div>
             {% empty %}
             <div class="col">
