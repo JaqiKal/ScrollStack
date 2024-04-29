@@ -150,6 +150,8 @@ class Book(models.Model):
             self.slug = slugify(self.title)
         super(Book, self).save(*args, **kwargs)
     
+    def get_authors(self):
+        return [book_author.author for book_author in self.book_authors.all()]
 
     def soft_delete(self):
         self.deleted_at = timezone.now()
