@@ -245,8 +245,13 @@ main {
 
 /* Book_list page */
 
+.p-list {
+    margin-bottom: 1.5rem;
+}
+
 .card.custom-recent-card {
-    margin-top: 0.5em;
+    margin-top: 0.8rem;
+    border: 0px;
 }
 
 .btn.custom-recent-btn {
