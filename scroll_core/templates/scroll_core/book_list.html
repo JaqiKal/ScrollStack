@@ -5,18 +5,18 @@
 <main class="book-li">
     <div class="container mt-3 mb-5">
         <h1>My Library Dashboard!</h1>
-        <p>Explore your collection, add new finds, or dive back into old favorites.
-            <br>"You can never get a cup of tea large enough or a book long enough to suit
+        <p>Explore your collection, add new finds, or dive back into old favorites. Start by browsing or
+            updating your reading list! <br>"You can never get a cup of tea large enough or a book long enough to suit
             me."
             - C.S. Lewis"</p>
 
         <!-- Collapsible Recent Activity Section -->
         <button class="btn custom-recent-btn btn-link btn-sm btn-block text-left" type="button" data-toggle="collapse"
-            data-target="#recentActivity" aria-expanded="false" aria-controls="recentActivity">
+            data-target="#recentActivity" aria-expanded="false" aria-controls="recentActivity" aria-expanded="false">
             Recent Activity
         </button>
-        <div id="recentActivity" class="collapse show">
-            <div class="card-body">
+        <div id="recentActivity" class="collapse" aria-labelledby="headingRecentActivity">
+            <div class="card-body mt-3 mb-3 border rounded">
                 <ul>
                     {% for book in recent_books %}
                     <li>
@@ -51,7 +51,7 @@
             </nav>
         </div>
 
-        <!-- Book List -->
+        <!-- Book List cards -->
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 px-3">
             {% for book in books %}
             <div class="col">
@@ -78,21 +78,16 @@
                             <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
                         </div>
                         <!-- This is the clickable area of the entire card, including the footer section for actions -->
+                        <div class="card-footer d-flex justify-content-center align-items-center">
 
-
-                        <!--div
-                                          <button onclick="location.href='{% url 'book-detail' pk=book.id %}'"
-                                              class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2">View</button>
-                            class="card-footer d-flex flex-column flex-lg-row justify-content-center align-items-center">
                             <button onclick="location.href='{% url 'book-update' pk=book.id %}'"
-                                class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2">Edit</button>
+                                class="btn btn-sm btn-secondary me-2 text-decoration-none">Edit</button>
+
                             <button onclick="location.href='{% url 'book-delete' pk=book.id %}'"
-                                class="btn btn-sm btn-danger">Delete</button>
+                                class="btn btn-sm btn-danger text-decoration-none">Delete</button>
                         </div>
-                    -->
                     </div>
                 </a>
-
             </div>
             {% empty %}
             <div class="col">

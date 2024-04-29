@@ -316,6 +316,11 @@ main {
 
 }
 
+
+.card-footer .btn {
+    text-decoration: none
+}
+
 /* Signup, Login and Logout page */
 
 .custom-container {
