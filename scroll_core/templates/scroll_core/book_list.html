@@ -12,7 +12,7 @@
 
         <!-- Collapsible Recent Activity Section -->
         <button class="btn custom-recent-btn btn-link btn-sm btn-block text-left" type="button" data-toggle="collapse"
-            data-target="#recentActivity" aria-expanded="true" aria-controls="recentActivity">
+            data-target="#recentActivity" aria-expanded="false" aria-controls="recentActivity">
             Recent Activity
         </button>
         <div id="recentActivity" class="collapse show">
@@ -57,8 +57,14 @@
             <div class="col">
                 <a href="{% url 'book-detail' pk=book.id %}" class="card-link" tabindex="0">
                     <div class="card h-100 border border-danger p-3 mb-8">
-                        <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
-                            style="height: 120px; object-fit: cover;">
+
+                        {% if book.image and "placeholder" not in book.image.url %}
+                        <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                        {% else %}
+                        <img src="{% static 'images/default-book-cover.webp' %}" alt="Default book cover">
+                        {% endif %}
+
+
                         <div class="card-body">
                             <p class="card-title"><strong>{{ book.title }}</strong></p>
                             <p class="card-subtitle mb-1 text-muted">

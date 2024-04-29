@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.core.validators import RegexValidator
 from djrichtextfield.models import RichTextField
 from django_resized import ResizedImageField
+from cloudinary.models import CloudinaryField
 
 class Genre(models.Model):
     """
@@ -124,12 +125,18 @@ class Book(models.Model):
         help_text='Enter a brief description of the book',
         blank=True
     )
+   
+  #  image = CloudinaryField(
+  #      'image', 
+  #      default='https://asset.cloudinary.com/dsbcjtatz/ddeba64fcd3d98104e7c29d4f2a66e5d'
+  #  )
+    
+
     image = ResizedImageField(
         size=[400, None],
         quality=75,
-        upload_to='images/',
+        upload_to='scroll_core/',
         force_format='WEBP',
-        default='images/default-book-200.webp',
         blank=True,
         null=True,
     )
