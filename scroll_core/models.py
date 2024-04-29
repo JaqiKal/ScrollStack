@@ -126,12 +126,6 @@ class Book(models.Model):
         blank=True
     )
    
-  #  image = CloudinaryField(
-  #      'image', 
-  #      default='https://asset.cloudinary.com/dsbcjtatz/ddeba64fcd3d98104e7c29d4f2a66e5d'
-  #  )
-    
-
     image = ResizedImageField(
         size=[400, None],
         quality=75,
@@ -140,6 +134,7 @@ class Book(models.Model):
         blank=True,
         null=True,
     )
+    
     image_alt = models.CharField(
         max_length=255,
         default='Book cover',
