@@ -243,6 +243,53 @@ main {
 }
 
 
+/* Book_list page */
+
+.card.custom-recent-card {
+    margin-top: 0.5em;
+}
+
+.btn.custom-recent-btn {
+    border: 1px solid #800000;
+    background: var(--clr-beige);
+    border: 0px;
+}
+
+.btn.custom-recent-btn.btn-link {
+    text-decoration: none;
+    color: var(--clr-dark-red);
+    margin: 0.2em;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    font-size: smaller;
+    font-weight: bold;
+    width: 130px;
+
+}
+
+.card-header .btn-link:hover {
+    color: #007bff;
+}
+
+.card-body ul {
+    /* Removes bullet points from the list */
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-body li {
+    padding: 8px 0;
+    /* Adds a separator line between items */
+    border-bottom: 1px solid #ccc;
+
+}
+
+.card-body li:last-child {
+    /* Removes the bottom border from the last item */
+    border-bottom: none;
+
+}
+
 /* Signup, Login and Logout page */
 
 .custom-container {

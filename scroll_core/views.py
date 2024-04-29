@@ -9,6 +9,7 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.utils import timezone
 from .models import Book
 from .forms import BookForm
 
@@ -20,6 +21,23 @@ class BookListView(ListView):
     model = Book
     context_object_name = 'books'
     paginate_by = 12
+
+
+    def get_context_data(self, **kwargs):
+        """
+        Enhance the base context data with the 'recent_books' key that includes recent activity.
+        This activity tracks updates and additions of books within the last 7 days.
+        It fetches the top 10 most recently updated books for the current logged-in user.
+        """
+        context = super().get_context_data(**kwargs)
+        recent_activity_timeframe = timezone.now() - timezone.timedelta(days=7)
+        context['recent_books'] = Book.objects.filter(
+            user=self.request.user,
+            updated_at__gte=recent_activity_timeframe
+        ).order_by('-updated_at')[:10]
+        return context
+
+
     def get_queryset(self):
         """
         This method is overridden to filter the books
@@ -102,8 +120,8 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         return self.request.user.books.all()
 
 
-
-#def custom_403(request, exception):
+# To manually test Error pages
+# def custom_403(request, exception):
  #   """Custom view to handle 403 Forbidden errors."""
   #  return HttpResponseForbidden(render(request, 'errors/403.html'))
 

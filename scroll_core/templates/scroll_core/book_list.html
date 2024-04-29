@@ -10,80 +10,105 @@
             updating your reading list! <br>"You can never get a cup of tea large enough or a book long enough to suit
             me."
             - C.S. Lewis"</p>
-        <!-- Top Pagination -->
-        <div class="pagination-top" style="display: flex; justify-content: flex-end;">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
 
-                <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
+        <!-- Collapsible Recent Activity Section -->
 
-                {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                {% endif %}
-            </span>
+
+        <button class="btn custom-recent-btn btn-link btn-sm btn-block text-left" type="button" data-toggle="collapse"
+            data-target="#recentActivity" aria-expanded="true" aria-controls="recentActivity" style="margin-bottom: 0;">
+            Recent Activity
+        </button>
+        <div class="card custom-recent-card"></div>
+
+        <div id="recentActivity" class="collapse show">
+            <div class="card-body">
+                <ul>
+                    {% for book in recent_books %}
+                    <li>
+                        {{ book.title }} ({{ book.author.name }}) - Last updated on
+                        {{ book.updated_at|date:"Y-m-d H:i" }}
+                    </li>
+                    {% empty %}
+                    <li>No recent activity.</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
+    </div>
 
-        <!-- Book list, one card per book -->
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-            {% for book in books %}
-            <div class="col">
-                <div class="card h-100 border border-danger p-3 mb-8">
-                    <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
-                        style="height: 120px; object-fit: cover;">
-                    <div class="card-body">
+    <!-- Top Pagination -->
+    <div class="pagination-top" style="display: flex; justify-content: flex-end;">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
 
-                        <p class="card-title"><strong>{{ book.title }}</strong></p>
-                        <p class="card-subtitle mb-1 text-muted">
-                            {% for author in book.get_authors %}
-                            {{ author.full_name }}{% if not forloop.last %}, {% endif %}
-                            {% empty %}
-                            No authors listed
-                            {% endfor %}
-                        </p>
-                        <p class="card-text"><small class="text-muted">{{ book.genre.name }}</small></p>
-                        <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
-                    </div>
-                    <div class="card-footer d-flex flex-column flex-lg-row justify-content-center align-items-center">
-                        <a href="{% url 'book-detail' pk=book.id %}"
-                            class="btn btn-sm btn-primary mb-2 mb-lg-0 me-lg-2 custom-btn-primary">View</a>
-                        <a href="{% url 'book-update' pk=book.id %}"
-                            class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2 custom-btn-secondary">Edit</a>
-                        <a href="{% url 'book-delete' pk=book.id %}"
-                            class="btn btn-sm btn-danger mb-2 mb-lg-0">Delete</a>
-                    </div>
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <!-- Book list, one card per book -->
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        {% for book in books %}
+        <div class="col">
+            <div class="card h-100 border border-danger p-3 mb-8">
+                <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
+                    style="height: 120px; object-fit: cover;">
+                <div class="card-body">
+
+                    <p class="card-title"><strong>{{ book.title }}</strong></p>
+                    <p class="card-subtitle mb-1 text-muted">
+                        {% for author in book.get_authors %}
+                        {{ author.full_name }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                        No authors listed
+                        {% endfor %}
+                    </p>
+                    <p class="card-text"><small class="text-muted">{{ book.genre.name }}</small></p>
+                    <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
+                </div>
+                <div class="card-footer d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                    <a href="{% url 'book-detail' pk=book.id %}"
+                        class="btn btn-sm btn-primary mb-2 mb-lg-0 me-lg-2 custom-btn-primary">View</a>
+                    <a href="{% url 'book-update' pk=book.id %}"
+                        class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2 custom-btn-secondary">Edit</a>
+                    <a href="{% url 'book-delete' pk=book.id %}" class="btn btn-sm btn-danger mb-2 mb-lg-0">Delete</a>
                 </div>
             </div>
-            {% empty %}
-            <div class="col">
-                <p>No books found.</p>
-            </div>
-            {% endfor %}
         </div>
+        {% empty %}
+        <div class="col">
+            <p>No books found.</p>
+        </div>
+        {% endfor %}
+    </div>
 
-        <!-- Bottom Pagination (existing) -->
-        <div class="pagination">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
+    <!-- Bottom Pagination (existing) -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
 
-                <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-
-                {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                {% endif %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
             </span>
-        </div>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
     </div>
 </main>
 {% endblock %}

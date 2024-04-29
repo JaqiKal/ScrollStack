@@ -109,6 +109,16 @@ class Book(models.Model):
         verbose_name='Date Added',
         null=True
     )
+    updated_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Date Updated',
+        null=True
+    )
+    deleted_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Date Deleted',
+        null=True
+    )
     description = RichTextField(
         verbose_name='Description',
         help_text='Enter a brief description of the book',
@@ -132,6 +142,11 @@ class Book(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super(Book, self).save(*args, **kwargs)
+    
+
+    def soft_delete(self):
+        self.deleted_at = timezone.now()
+        self.save()
 
     def __str__(self):
         return self.title
