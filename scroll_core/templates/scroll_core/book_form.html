@@ -17,7 +17,7 @@
             changes, click the 'Cancel' button.{% endblocktrans %}</p>
 
         <br>
-        <form class="form p-2" method="post">
+        <form class="form p-2" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit" class="btn btn-primary custom-btn-secondary">{% trans "Save" %}</button>
