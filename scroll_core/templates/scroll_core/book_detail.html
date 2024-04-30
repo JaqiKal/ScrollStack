@@ -17,10 +17,21 @@
                     {% endif %}
                     <div class="card-body">
                         <h2 class="card-title">{{ book.title }}</h2>
+                        <p class="card-text"><strong>Author:</strong>
+                            {% for author in book.get_authors %}
+                            {{ author.first_name }}
+                            {{ author.middle_name|default:"" }}
+                            {{ author.last_name }}
+                            {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="card-text"><small class="text-muted">
+                                <strong>Genre:</strong> {{ book.genre.name }}</small>
+                        </p>
                         <p class="card-text">{{ book.description }}</p>
-                        <p class="card-text"><small class="text-muted">Genre: {{ book.genre.name }}</small></p>
                         <p class="card-text custom-addat">
-                            <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
+                            <small class="text-muted"><strong>Added on:</strong>
+                                {{ book.added_at|date:"Y-m-d" }}</small>
                         </p>
                     </div>
                 </div>
