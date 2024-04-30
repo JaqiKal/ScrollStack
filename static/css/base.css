@@ -317,9 +317,14 @@ main {
 }
 
 
-.card-footer .btn {
-    text-decoration: none
+.custom-btn-secondary {
+    text-decoration: none;
+    border-color: #15d40b;
+    background-color: #77d372;
 }
+
+
+
 
 /* Book-detail page */
 
