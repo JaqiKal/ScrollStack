@@ -21,8 +21,18 @@
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit" class="btn btn-primary custom-btn-secondary">{% trans "Save" %}</button>
-            <!-- Cancel Button -->
-            <a href="{% url 'book-detail' %}" class="btn btn-secondary custom-btn-primary">{% trans "Cancel" %}</a>
+
+            <!-- Conditionally render the Cancel button URL based on the presence of an object. If the object exists
+                (e.g., during edit), the button redirects to the book-detail page of the object. If no object is present
+                (e.g., during creation), the button redirects to the book-list page. 
+            -->
+            {% if object %}
+            <a href="{% url 'book-detail' pk=object.pk %}"
+                class="btn btn-secondary custom-btn-primary">{% trans "Cancel" %}</a>
+            {% else %}
+            <a href="{% url 'book-list' %}" class="btn btn-secondary custom-btn-primary">{% trans "Cancel" %}</a>
+            {% endif %}
+
         </form>
     </div>
 </div>

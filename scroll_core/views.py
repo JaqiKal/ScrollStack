@@ -84,9 +84,7 @@ class BookCreateView(LoginRequiredMixin, CreateView):
         response = super(BookCreateView, self).form_valid(form)
         # Set the success message.
         messages.success(self.request, "Book added successfully!")
-        # ensure the form is processed correctly with any additional
-        # functionality provided by the parent class.
-        return super().form_valid(form)
+        return response
         
     def get_success_url(self):
         """ 
