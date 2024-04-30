@@ -329,7 +329,7 @@ main {
 }
 
 
-/* Signup, Login and Logout page */
+/* Signup, Login, Logout page, pw reset, reset done */
 
 .custom-container {
     width: 100%;
@@ -356,6 +356,29 @@ main {
     border-color: #15d40b;
     background-color: #77d372;
 }
+
+.form {
+    width: 100%;
+    /* Adjust width as needed */
+}
+
+.custom-container {
+    text-align: center;
+    /* Centers text in the container */
+}
+
+.custom-p-reset {
+    background: var(--clr-orange);
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.btn-signup {
+    margin: auto;
+    /* Centers the button within the form */
+    display: block;
+}
+
 
 /* Book list & Details */
 
