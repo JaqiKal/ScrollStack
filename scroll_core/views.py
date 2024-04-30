@@ -29,7 +29,7 @@ class BookListView(ListView):
     model = Book
     template_name = 'scroll_core/book_list.html'
     context_object_name = 'books'
-    paginate_by = 12
+    paginate_by = 8
 
 
     def get_context_data(self, **kwargs):
