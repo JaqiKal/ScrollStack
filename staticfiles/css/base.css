@@ -19,6 +19,8 @@
     --clr-lg-grey: #e0dddd;
     --clr-dark-red: #800000;
     --clr-beige: #ffdeade6;
+    --clr-orange: #ff9102;
+    ;
 
 
     /* Utils */
@@ -57,7 +59,7 @@ h6 {
 
 /* Header */
 .custom-navbar {
-    background: #ff9102;
+    background: var(--clr-orange);
     background: -moz-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
     background: -webkit-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
     background: linear-gradient(to, bottom, #F6E84B 0%, #ff9102 0%, #800000 100%);
@@ -76,18 +78,78 @@ img.logo {
     font-weight: 500;
 }
 
+/* Hamburger icon bars to X */
+/* Copied https://youtu.be/_MrShB9fh7U */
+
+.navbar-toggler {
+    color: var(--clr-dark-red);
+}
+
+.navbar-toggler-icon {
+    background-image: none !important;
+    background-color: var(--clr-dark-red);
+    height: 3px;
+    width: 25px;
+    margin: 10px 0;
+    position: relative;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::before {
+    display: block;
+    background-color: var(--clr-dark-red);
+    height: 3px;
+    content: "";
+    position: relative;
+    top: -7px;
+    transition: all 0.15s ease-out;
+    /*taken down to hide quicker*/
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::after {
+    display: block;
+    background-color: var(--clr-dark-red);
+    height: 3px;
+    content: "";
+    position: relative;
+    top: 4px;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-dark .navbar-toggler-icon,
+.navbar-dark .navbar-toggler-icon::before,
+.navbar-dark .navbar-toggler-icon::after {
+    background-color: var(--bs-gray-100);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    transform: rotate(-90deg) translateX(7px);
+}
+
+.username {
+    font-family: 'Courgette', cursive;
+
+}
+
 /* Search form */
 .custom-form {
-    width: 100%;
-    margin: 3% auto;
-    box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
-    border-radius: 5px;
-    background-color: var(--clr-off-white);
+    background-color: var(--clr-orange);
 }
 
 .custom-search-btn {
     border-color: #800000;
-    background-color: #ff9102;
+    background-color: var(--clr-orange);
 }
 
 .navbar-brand {
@@ -170,14 +232,100 @@ main {
     text-align: center;
 }
 
-.custom-btn-prim {
+.custom-btn-primary {
     border-color: #007bff;
-    background-color: #007bff6b;
+    background-color: #007bffb0;
 }
+
+
 
 .custom-btn-secondary {
     border-color: #15d40b;
     background-color: #77d372;
+}
+
+
+/* Book_list page */
+
+.p-list {
+    margin-bottom: 1.5rem;
+}
+
+.card.custom-recent-card {
+    margin-top: 0.8rem;
+    border: 0px;
+}
+
+.btn.custom-recent-btn {
+    border: 1px solid #800000;
+    background: var(--clr-beige);
+    border: 0px;
+}
+
+.btn.custom-recent-btn.btn-link {
+    text-decoration: none;
+    color: var(--clr-dark-red);
+    margin: 0.2em;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    font-size: smaller;
+    font-weight: bold;
+    width: 130px;
+
+}
+
+.card-header .btn-link:hover {
+    color: #007bff;
+}
+
+
+.card-link .card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    /* Ensures smooth transitions for hover effects */
+}
+
+.card-link:hover .card,
+.card-link:focus .card {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Shadow effect for depth */
+    transform: scale(1.05);
+    /* Slightly enlarges the card */
+    text-decoration: none;
+    /* Ensures no text decoration */
+}
+
+.card-link:focus .card {
+    outline: none;
+    /* Improves focus style without the default outline */
+}
+
+.card-body ul {
+    /* Removes bullet points from the list */
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-body li {
+    padding: 8px 0;
+    /* Adds a separator line between items */
+    border-bottom: 1px solid #ccc;
+
+}
+
+.card-body li:last-child {
+    /* Removes the bottom border from the last item */
+    border-bottom: none;
+
+}
+
+
+
+
+/* Book-detail page */
+
+.card .custom-card-detail {
+    box-shadow: var(--box-shadow);
+
 }
 
 
@@ -223,6 +371,9 @@ main {
     background: var(--clr-off-white);
 }
 
+#custom-error {
+    border: 1px solid var(--clr-dark-red);
+}
 
 /* Footer */
 
