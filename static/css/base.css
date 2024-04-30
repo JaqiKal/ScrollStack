@@ -234,7 +234,7 @@ main {
 
 .custom-btn-primary {
     border-color: #007bff;
-    background-color: #007bff6b;
+    background-color: #007bffb0;
 }
 
 .custom-btn-secondary {
@@ -320,6 +320,14 @@ main {
 .card-footer .btn {
     text-decoration: none
 }
+
+/* Book-detail page */
+
+.card .custom-card-detail {
+    box-shadow: var(--box-shadow);
+
+}
+
 
 /* Signup, Login and Logout page */
 

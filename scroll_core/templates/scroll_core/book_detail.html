@@ -8,8 +8,8 @@
         <h1>Book Details</h1>
         <div class="row">
             <div class="col">
-                <div class="card border border-danger">
-                    <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}"
+                <div class="card border border-danger custom-card-detail">
+                    <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}"
                         style="height: 300px; object-fit: cover;">
                     <div class="card-body">
                         <h2 class="card-title">{{ book.title }}</h2>
@@ -23,8 +23,8 @@
             </div>
         </div>
         <div class="card-footer d-flex flex-column flex-lg-row justify-content-center align-items-center">
-            <a href="{% url 'book-detail' pk=book.id %}"
-                class="btn btn-sm btn-primary mb-2 mb-lg-0 me-lg-2 custom-btn-primary">View</a>
+            <a href="{% url 'book-list' %}" class="btn btn-sm btn-primary mb-2 mb-lg-0 me-lg-2 custom-btn-primary">Back
+                to List</a>
             <a href="{% url 'book-update' pk=book.id %}"
                 class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2 custom-btn-secondary">Edit</a>
             <a href="{% url 'book-delete' pk=book.id %}" class="btn btn-sm btn-danger mb-2 mb-lg-0">Delete</a>
