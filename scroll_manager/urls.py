@@ -7,19 +7,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler403, handler404, handler500
 from django.shortcuts import render 
-# from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseServerError
-# from django.core.exceptions import PermissionDenied
+from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseServerError
+from django.core.exceptions import PermissionDenied
 
 
-# Define a simple view that intentionally raises a 404 error
+
+# Test: Define a simple view that intentionally raises a 404 error
 # def test_404(request):
    # raise Http404("Test 404 Page Not Found")
 
-# Define a simple view that intentionally raises a 403 error
+# Test: Define a simple view that intentionally raises a 403 error
 # def test_403(request):
   #  raise PermissionDenied("Test 403 Permission Denied")
 
-# Define a simple view that intentionally raises a 500 error
+# Test: Define a simple view that intentionally raises a 500 error
 def test_500(request):
     raise Exception("Test 500 Internal Server Error")
 
@@ -49,6 +50,6 @@ urlpatterns = [
 ]
 
 # Setting custom error handlers
-# handler403 = 'scroll_core.views.custom_403'
-# handler404 = 'scroll_core.views.custom_404'
-# handler500 = 'scroll_core.views.custom_500'
+handler403 = 'scroll_core.views.custom_403'
+handler404 = 'scroll_core.views.custom_404'
+handler500 = 'scroll_core.views.custom_500'
