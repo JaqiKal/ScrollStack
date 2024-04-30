@@ -127,7 +127,8 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth')
         ],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
+        
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
