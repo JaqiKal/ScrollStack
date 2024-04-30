@@ -237,6 +237,8 @@ main {
     background-color: #007bffb0;
 }
 
+
+
 .custom-btn-secondary {
     border-color: #15d40b;
     background-color: #77d372;
@@ -314,13 +316,6 @@ main {
     /* Removes the bottom border from the last item */
     border-bottom: none;
 
-}
-
-
-.custom-btn-secondary {
-    text-decoration: none;
-    border-color: #15d40b;
-    background-color: #77d372;
 }
 
 

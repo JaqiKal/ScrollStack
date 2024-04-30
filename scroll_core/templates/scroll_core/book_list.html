@@ -79,12 +79,8 @@
                         </div>
                         <!-- This is the clickable area of the entire card, including the footer section for actions -->
                         <div class="card-footer d-flex justify-content-center align-items-center">
-
                             <button onclick="location.href='{% url 'book-update' pk=book.id %}'"
-                                class="btn btn-sm btn-secondary me-2 text-decoration-none">Edit</button>
-
-                            <button onclick="location.href='{% url 'book-delete' pk=book.id %}'"
-                                class="btn btn-sm btn-danger text-decoration-none">Delete</button>
+                                class="btn btn-sm btn-secondary me-2 custom-btn-secondary">View</button>
                         </div>
                     </div>
                 </a>
