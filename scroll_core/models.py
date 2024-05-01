@@ -82,7 +82,7 @@ class Book(models.Model):
         ordering = ['title'] # Orders by title alphabetically by default
 
     slug = models.SlugField(
-        unique=True, blank=True,
+        unique=False, blank=False,
         help_text='A URL-friendly name is entered automatically on save'
     )
     publication_year = models.IntegerField(
@@ -138,14 +138,6 @@ class Book(models.Model):
         blank=True
     )
    
-   # image = ResizedImageField(
-   #     size=[400, None],
-   #      quality=75,
-   #      upload_to='scroll_core/',
-   #      force_format='WEBP',
-   #      blank=True,
-   #      null=True,
-   #  )
 
     image = CloudinaryField(
         'image',
@@ -159,7 +151,7 @@ class Book(models.Model):
             'format': 'webp',
             'quality': "auto:good"
         },
-        allowed_formats=['webp', 'jpg', 'jpeg'], 
+        allowed_formats=['webp', 'jpg', 'jpeg', 'png'], 
     )
 
 
@@ -213,7 +205,7 @@ class Profile(models.Model):
             'format': 'webp',
             'quality': "auto:good"
         },
-        allowed_formats=['webp', 'jpg', 'jpeg'], 
+        allowed_formats=['webp', 'jpg', 'jpeg', 'png'], 
 
     )
     bio = models.TextField()
