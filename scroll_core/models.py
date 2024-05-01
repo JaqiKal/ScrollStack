@@ -5,6 +5,8 @@ from django.core.validators import RegexValidator
 from djrichtextfield.models import RichTextField
 from django_resized import ResizedImageField
 from cloudinary.models import CloudinaryField
+from django.core.validators import MaxValueValidator, MinValueValidator
+from datetime import datetime
 
 class Genre(models.Model):
     """
@@ -52,7 +54,8 @@ class Author(models.Model):
         max_length=100,
         validators=[name_validator],
         verbose_name='Last Name',
-        help_text='Enter the author\'s last name'
+        help_text='Enter the author\'s last name',
+        blank=False # Not optional
     )
 
     def __str__(self):
@@ -82,8 +85,16 @@ class Book(models.Model):
         help_text='A URL-friendly name is entered automatically on save'
     )
     publication_year = models.IntegerField(
+        validators=[
+            # Ensures the year is not in the future
+            MaxValueValidator(datetime.now().year),  
+            # Ensures the year has at least four digits
+            MinValueValidator(1000)  
+        ],
         verbose_name='Publication Year',
-        help_text='Enter the year the book was published'
+        help_text='Enter the year the book was published, must be a four-digit year',
+        null=True,
+        blank=True
     )
     isbn_validator = RegexValidator(
         regex=r'^[\d-]+$',

@@ -25,7 +25,7 @@ class BookForm(forms.ModelForm):
     )
     author_last_name = forms.CharField(
         max_length=100,
-        required=False,
+        required=True,
         help_text="Enter the author's last name"
     )
 
