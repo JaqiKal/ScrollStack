@@ -57,6 +57,18 @@ h6 {
     color: var(--clr-dark-red)
 }
 
+/* This targets all FontAwesome icons */
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+    font-size: 1rem;
+    color: rgb(2, 91, 120);
+
+}
+
 /* Header */
 .custom-navbar {
     background: var(--clr-orange);
@@ -159,11 +171,12 @@ img.logo {
 }
 
 .nav-link {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin: 0px 16px;
 }
 
 .nav-link:hover {
-    color: #01300c;
+    color: rgb(2, 91, 120);
 }
 
 

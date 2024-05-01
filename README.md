@@ -778,10 +778,11 @@ Throughout the development of ScrollStack, a variety of resources have been util
     - [Style Django Forms With Bootstrap - Django Blog #5](https://youtu.be/6-XXvUENY_8?si=m-Ck3ucJ20ReV1Sp)
     - [Django Meta options](https://docs.djangoproject.com/en/5.0/topics/db/models/#meta-options)  
     - [Override the save() method in Django ModelForm to create or update](https://stackoverflow.com/questions/45923410/override-the-save-method-in-django-modelform-to-create-or-update)
+- **Style Hamburger toggler**: [Change Hamburger-Icon, by richards](https://forum.bootstrapstudio.io/t/change-hamburger-icon/8990/2?fbclid=IwAR17UiU_5vC8sNPMZ6ZOLTAfHd5jDoKYJcOY2QogODhdRuw42l2XpcmjHTA)
+- **User profile setup:** is amended from: [Django - User Profile](https://dev.to/earthcomfy/django-user-profile-3hik)
 - **Sources of inspiration and guidance in general**:
     - The Django Recipe Sharing Tutorial series by Dee Mc - [Django Recipe Sharing Tutorial series](https://www.youtube.com/@IonaFrisbee).
     - [Django Tutorial](https://youtu.be/n-FTlQ7Djqc?si=Hfm94TiD4vbWolwj) by Net Ninja.
-- **Style Hamburger toggler**: [Change Hamburger-Icon, by richards](https://forum.bootstrapstudio.io/t/change-hamburger-icon/8990/2?fbclid=IwAR17UiU_5vC8sNPMZ6ZOLTAfHd5jDoKYJcOY2QogODhdRuw42l2XpcmjHTA)
 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   

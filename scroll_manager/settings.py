@@ -23,10 +23,14 @@ if os.path.isfile('env.py'):
 # Import database URL handling library after environment variables are set up
 import dj_database_url
 
+
 # Cloudinary imports
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -234,7 +238,8 @@ STATIC_ROOT = os.path.join(
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
-# Media
+
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

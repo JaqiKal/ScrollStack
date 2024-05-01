@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.core.validators import RegexValidator
 from djrichtextfield.models import RichTextField
-from django_resized import ResizedImageField
+# from django_resized import ResizedImageField
 from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import datetime
@@ -138,15 +138,32 @@ class Book(models.Model):
         blank=True
     )
    
-    image = ResizedImageField(
-        size=[400, None],
-        quality=75,
-        upload_to='scroll_core/',
-        force_format='WEBP',
-        blank=True,
-        null=True,
+   # image = ResizedImageField(
+   #     size=[400, None],
+   #      quality=75,
+   #      upload_to='scroll_core/',
+   #      force_format='WEBP',
+   #      blank=True,
+   #      null=True,
+   #  )
+
+    image = CloudinaryField(
+        'image',
+        default='https://res.cloudinary.com/dsbcjtatz/image/upload/v1714578907/scroll_core/book_cover_images/default-book-cover_t2lyio.webp',
+        # Profile images are stored
+        folder='scroll_core/book_cover_images',  
+        transformation={
+            'width': 150,
+            'height': 225,
+            'crop': 'fill',
+            'format': 'webp',
+            'quality': "auto:good"
+        },
+        allowed_formats=['webp', 'jpg', 'jpeg'], 
     )
-    
+
+
+
     image_alt = models.CharField(
         max_length=255,
         default='Book cover',
@@ -184,7 +201,21 @@ class BookAuthor(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    avatar = models.ImageField(default='default.jpg', upload_to='profile_images')
+    avatar = CloudinaryField(
+        'image',
+        default='https://res.cloudinary.com/dsbcjtatz/image/upload/v1714579934/scroll_core/user_profile_image/default-profile-image_qscipu.webp',
+        # Profile images are stored
+        folder='scroll_core/user_profile_images',  
+        transformation={
+            'width': 200,
+            'height': 200,
+            'crop': 'fill',
+            'format': 'webp',
+            'quality': "auto:good"
+        },
+        allowed_formats=['webp', 'jpg', 'jpeg'], 
+
+    )
     bio = models.TextField()
 
     def __str__(self):
