@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Genre, Author, Book, BookAuthor, RichTextField
 from djrichtextfield.widgets import RichTextWidget
+from .models import Profile
 
 
 
@@ -25,3 +26,5 @@ class GenreAdmin(admin.ModelAdmin):
 
 
 admin.site.register(BookAuthor)  # No admin customization is needed here
+
+admin.site.register(Profile)

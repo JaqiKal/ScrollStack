@@ -1,7 +1,7 @@
 # scroll_core/views.py
 from django.shortcuts import render
 from django.http import (
-    HttpResponse, HttpResponseRedirect, HttpResponseForbidden, 
+    HttpResponse, HttpResponseRedirect, HttpResponseForbidden,
     HttpResponseNotFound, HttpResponseServerError
 )
 from django.views.generic import (
@@ -12,7 +12,9 @@ from django.contrib import messages
 from django.utils import timezone
 from .models import Book
 from .forms import BookForm
-from django.urls import reverse, reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from .models import Profile
 
 
 
@@ -31,12 +33,13 @@ class BookListView(ListView):
     context_object_name = 'books'
     paginate_by = 8
 
-
     def get_context_data(self, **kwargs):
         """
-        Enhance the base context data with the 'recent_books' key that includes recent activity.
-        This activity tracks updates and additions of books within the last 7 days.
-        It fetches the top 10 most recently updated books for the current logged-in user.
+        Enhance the base context data with the 'recent_books'
+        key that includes recent activity.
+        This activity tracks updates and additions of books
+        within the last 7 days. It fetches the top 10 most recently
+        updated books for the current logged-in user.
         """
         context = super().get_context_data(**kwargs)
         recent_activity_timeframe = timezone.now() - timezone.timedelta(days=7)
@@ -45,7 +48,6 @@ class BookListView(ListView):
             updated_at__gte=recent_activity_timeframe
         ).order_by('-updated_at')[:10]
         return context
-
 
     def get_queryset(self):
         """
@@ -74,7 +76,7 @@ class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
     form_class = BookForm
     template_name = 'scroll_core/book_form.html'
-    
+
     def form_valid(self, form):
         """
         This will be called when the form is valid and
@@ -85,12 +87,13 @@ class BookCreateView(LoginRequiredMixin, CreateView):
         # Set the success message.
         messages.success(self.request, "Book added successfully!")
         return response
-        
+
     def get_success_url(self):
-        """ 
+        """
         Redirect to the book's detail page.
         """
         return reverse_lazy('book-detail', kwargs={'pk': self.object.pk})
+
 
 # A view for updating a book.
 class BookUpdateView(LoginRequiredMixin, UpdateView):
@@ -105,15 +108,14 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_queryset(self):
         """
-        This method ensures that only the books owned by 
+        This method ensures that only the books owned by
         the logged-in user can be updated.
         """
         return self.request.user.books.all()
 
-
     def form_valid(self, form):
         """
-        This will be called when the form is valid and restricts 
+        This will be called when the form is valid and restricts
         updates to user-owned books
         """
         # Set the success message.
@@ -123,10 +125,11 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        """ 
+        """
         Redirect to the book's detail page.
         """
         return reverse_lazy('book-detail', kwargs={'pk': self.object.pk})
+
 
 # A view for deleting a book.
 class BookDeleteView(LoginRequiredMixin, DeleteView):
@@ -142,7 +145,7 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         """
-        This method ensures that only the books owned by 
+        This method ensures that only the books owned by
         the logged-in user can be deleted.
         """
         return self.request.user.books.all()
@@ -156,22 +159,27 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         messages.success(request, "Book deleted successfully!")
         # Continue with the deletion process.
         return super(
-            BookDeleteView, self).delete(request, *args, **kwargs
-        )
+            BookDeleteView, self).delete(request, *args, **kwargs)
 
+
+# Profile view
+@login_required
+def profile(request):
+    user_profile = Profile.objects.get(user=request.user)
+    return render(request, 'scroll_core/profile.html', {'profile': user_profile})
 
 
 # Error pages
 def custom_403(request, exception):
-   """Custom view to handle 403 Forbidden errors."""
-   return HttpResponseForbidden(render(request, 'errors/403.html'))
+    """Custom view to handle 403 Forbidden errors."""
+    return HttpResponseForbidden(render(request, 'errors/403.html'))
+
 
 def custom_404(request, exception):
-   """Custom view to handle 404 Not Found errors."""
-   return HttpResponseNotFound(render(request, 'errors/404.html'))
+    """Custom view to handle 404 Not Found errors."""
+    return HttpResponseNotFound(render(request, 'errors/404.html'))
+
 
 def custom_500(request):
-   """Custom view to handle 500 Internal Server errors."""
-   return HttpResponseServerError(render(request, 'errors/500.html'))
-
-
+    """Custom view to handle 500 Internal Server errors."""
+    return HttpResponseServerError(render(request, 'errors/500.html'))

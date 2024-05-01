@@ -9,7 +9,9 @@ from django.conf.urls import handler403, handler404, handler500
 from django.shortcuts import render 
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseServerError
 from django.core.exceptions import PermissionDenied
-
+# 2 files below serve media files during development, Testing
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 # Test: Define a simple view that intentionally raises a 404 error
@@ -48,6 +50,14 @@ urlpatterns = [
    # path('test-500/', test_500, name='test-500'),
 
 ]
+
+
+# Testing and debugging
+# add files in the media root folder and django will 
+# serve them from the media url
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 # Setting custom error handlers
 handler403 = 'scroll_core.views.custom_403'

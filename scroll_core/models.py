@@ -7,6 +7,7 @@ from django_resized import ResizedImageField
 from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import datetime
+from django.contrib.auth.models import User
 
 class Genre(models.Model):
     """
@@ -177,3 +178,14 @@ class BookAuthor(models.Model):
         related_name='book_authors',
         help_text='Select the author associated with a book'
     )
+
+
+# Extending User Model Using a One-To-One Link
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    avatar = models.ImageField(default='default.jpg', upload_to='profile_images')
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.user.username

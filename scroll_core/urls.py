@@ -2,7 +2,7 @@
 
 from django.urls import path, include
 from .views import index, BookListView, BookDetailView, BookCreateView, BookUpdateView, BookDeleteView
-
+from .views import profile
 
 urlpatterns = [
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('books/<int:pk>/edit/', BookUpdateView.as_view(), name='book-update'),
     path('books/<int:pk>/delete/', BookDeleteView.as_view(), name='book-delete'),
     path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('profile/', profile, name='users-profile'),
 
 ]
 
