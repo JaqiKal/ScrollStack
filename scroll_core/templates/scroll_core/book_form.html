@@ -2,12 +2,13 @@
 
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n crispy_forms_tags %}
+
 
 {% block head_title %}{% trans "Add or Edit book details" %}{% endblock %}
 
 {% block content %}
-<div class="container mt-4 custom-container">
+<div class="container mt-4 left custom-form-container">
     <div class="row">
         <h1 class="visually-hidden">Add/Edit Form</h1>
         <h2>{% trans "Add or Edit book details" %}</h2>

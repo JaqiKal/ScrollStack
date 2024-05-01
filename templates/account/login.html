@@ -5,32 +5,23 @@
 {% block head_title %}{% trans "Log In" %}{% endblock %}
 
 {% block content %}
+
 <div class="container mt-4 custom-container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <!-- Centers the form on the x-axis with a max width -->
-            <h1 class="visually-hidden">This is the Log in Page</h1>
-            <h2>{% trans "Log In" %}</h2>
-            <p class="my-4">Welcome back to the book register | ScrollStack. To leave a comment, please log in.
-                If you have not created an account yet, then please <a href="{{ signup_url }}">Sign Up</a> first.</p>
-            <form class="form p-2 login" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                <div class="mb-3 text-start">
-                    <label for="username" class="form-label">{% trans "Username or email:" %}</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="mb-3 text-start">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">
-                        <label class="form-check-label" for="remember_me">{% trans "Remember Me" %}</label>
-                    </div>
-                </div>
-                <div class="m-2 text-start">
-                    <a href="{% url 'account_reset_password' %}" class="">{% trans "Forgot your password?" %}</a>
-                </div>
-                <button type="submit" class="btn btn-primary mt-4">{% trans "Log In" %}</button>
-            </form>
-        </div>
+    <div class="row">
+        <h1 class="visually-hidden">This is the Log in Page</h1>
+        <h2>{% trans "Log In" %}</h2>
+        <p>{% blocktrans %}Welcome back to the book register | ScrollStack. To leave a comment, please log in.
+            If you have not created an account yet, then please <a class="link" href="{{ signup_url }}">Sign Up</a>
+            first.{% endblocktrans %}</p>
+        <br>
+        <form class="form p-2 login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans "Log In" %}</button>
+        </form>
     </div>
 </div>
 {% endblock %}

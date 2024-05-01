@@ -6,20 +6,20 @@
 
 {% block content %}
 <div class="container mt-4 custom-container">
-    <div class="row">
-        <h1 class="visually-hidden">This is the Log out Page</h1>
 
-        <h2>{% trans "Log Out" %}</h2>
-        <p>{% trans 'Are you sure you want to log out?' %}</p>
-        <br>
-        <form method="post" action="{% url 'account_logout' %}">
-            {% csrf_token %}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans 'Log Out' %}</button>
-            <a href="{% url 'book-list' %}" class="btn btn-secondary custom-btn-auth-secondary">Cancel</a>
-        </form>
-    </div>
+    <h1 class="visually-hidden">This is the Log out Page</h1>
+
+    <h2>{% trans "Log Out" %}</h2>
+    <p>{% trans 'Are you sure you want to log out?' %}</p>
+    <br>
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans 'Log Out' %}</button>
+        <a href="{% url 'book-list' %}" class="btn btn-secondary custom-btn-auth-secondary">Cancel</a>
+    </form>
+</div>
 </div>
 {% endblock %}

@@ -48,6 +48,19 @@ class BookForm(forms.ModelForm):
             'image': 'Book Cover Image',
         }
 
+    def clean_isbn(self):
+        isbn = self.cleaned_data.get('isbn', '').strip()
+        # Remove hyphens from ISBN for validation
+        isbn_digits = isbn.replace('-', '')
+
+        # Check if the ISBN digits are only numeric and 10 or 13 digits long
+        if not isbn_digits.isdigit() or len(isbn_digits) not in [10, 13]:
+            raise forms.ValidationError(
+                "Enter a valid ISBN number. ISBN should be 10 or 13 digits long."
+            )
+        return isbn  # Return the original ISBN with hyphens
+
+
     def __init__(self, *args, **kwargs):
         """
         Initialize the form; if editing an existing book,

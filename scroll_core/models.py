@@ -90,7 +90,7 @@ class Book(models.Model):
         message='ISBN must only contain numbers and hyphens.'
     )
     isbn = models.CharField(
-        max_length=17, unique=True,
+        max_length=14, unique=True,
         validators=[isbn_validator],
         verbose_name='ISBN',
         help_text='Enter the ISBN number of the book'

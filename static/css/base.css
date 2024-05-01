@@ -332,8 +332,6 @@ main {
 /* Signup, Login, Logout page, pw reset, reset done */
 
 .custom-container {
-    width: 100%;
-    margin: 3% auto;
     background-color: var(--clr-beige);
     border-radius: 10px;
     border: 1px solid var(--clr-dark-red);
