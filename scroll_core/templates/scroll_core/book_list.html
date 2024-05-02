@@ -11,8 +11,9 @@
             - C.S. Lewis"</p>
 
         <!-- Collapsible Recent Activity Section -->
-        <button class="btn custom-recent-btn btn-link btn-sm btn-block text-left" type="button" data-toggle="collapse"
-            data-target="#recentActivity" aria-expanded="false" aria-controls="recentActivity" aria-expanded="false">
+        <button class="btn custom-recent-btn btn-link btn-sm btn-block text-left" type="button"
+            data-bs-toggle="collapse" data-bs-target="#recentActivity" aria-expanded="false"
+            aria-controls="recentActivity">
             Recent Activity
         </button>
         <div id="recentActivity" class="collapse" aria-labelledby="headingRecentActivity">
@@ -77,11 +78,7 @@
                             <p class="card-text"><small class="text-muted">{{ book.genre.name }}</small></p>
                             <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
                         </div>
-                        <!-- This is the clickable area of the entire card, including the footer section for actions -->
-                        <div class="card-footer d-flex justify-content-center align-items-center">
-                            <button onclick="location.href='{% url 'book-update' pk=book.id %}'"
-                                class="btn btn-sm btn-secondary me-2 custom-btn-secondary">View</button>
-                        </div>
+
                     </div>
                 </a>
             </div>
@@ -99,7 +96,8 @@
                     {% if page_obj.has_previous %}
                     <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
                     <li class="page-item"><a class="page-link"
-                            href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                            href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
                     {% endif %}
                     <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of
                             {{ page_obj.paginator.num_pages }}</span></li>

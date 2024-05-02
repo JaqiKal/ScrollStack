@@ -264,11 +264,6 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.card.custom-recent-card {
-    margin-top: 0.8rem;
-    border: 0px;
-}
-
 .btn.custom-recent-btn {
     border: 1px solid #800000;
     background: var(--clr-beige);
@@ -287,30 +282,26 @@ main {
 
 }
 
-.card-header .btn-link:hover {
-    color: #007bff;
+.card.custom-recent-card {
+    margin-top: 0.8rem;
+    border: 0px;
 }
 
 
 .card-link .card {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
     /* Ensures smooth transitions for hover effects */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+
 }
 
 .card-link:hover .card,
 .card-link:focus .card {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     /* Shadow effect for depth */
-    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     /* Slightly enlarges the card */
-    text-decoration: none;
-    /* Ensures no text decoration */
+    transform: scale(1.05);
 }
 
-.card-link:focus .card {
-    outline: none;
-    /* Improves focus style without the default outline */
-}
 
 .card-body ul {
     /* Removes bullet points from the list */
@@ -336,7 +327,7 @@ main {
 
 /* Book-detail page */
 
-.card .custom-card-detail {
+.custom-card-detail {
     box-shadow: var(--box-shadow);
 
 }

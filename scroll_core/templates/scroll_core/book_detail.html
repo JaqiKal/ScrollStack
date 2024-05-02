@@ -1,4 +1,3 @@
-<!-- scroll_core/templates/scroll_core/book_detail.html - deleting -->
 {% extends "base.html" %}
 {% load static %}
 
@@ -7,15 +6,15 @@
     <div class="container mt-3">
         <h1>Book Details</h1>
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-md-8 col-lg-6 mx-auto">
                 <div class="card border border-danger custom-card-detail">
                     {% if book.image and book.image.url %}
-                    <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                    <img src="{{ book.image.url }}" alt="{{ book.title }}" class="img-fluid">
                     {% else %}
-                    <img src="{% static 'images/default-book-cover.webp' %}" alt="{{ book.title }}"
-                        style="height: 300px; object-fit: cover;">
+                    <img src="{% static 'images/default-book-cover.webp' %}" alt="{{ book.title }}" class="img-fluid"
+                        style="object-fit: cover;">
                     {% endif %}
-                    <div class="card-body">
+                    <div class="card-body p-4">
                         <h2 class="card-title">{{ book.title }}</h2>
                         <p class="card-text"><strong>Author:</strong>
                             {% for author in book.get_authors %}
@@ -33,18 +32,22 @@
                             <small class="text-muted"><strong>Added on:</strong>
                                 {{ book.added_at|date:"Y-m-d" }}</small>
                         </p>
+                        <!-- Dropdown menu instead of buttons -->
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Actions
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="{% url 'book-list' %}">Back to List</a></li>
+                                <li><a class="dropdown-item" href="{% url 'book-update' pk=book.id %}">Edit</a></li>
+                                <li><a class="dropdown-item" href="{% url 'book-delete' pk=book.id %}">Delete</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card-footer d-flex flex-column flex-lg-row justify-content-center align-items-center">
-            <a href="{% url 'book-list' %}" class="btn btn-sm btn-primary mb-2 mb-lg-0 me-lg-2 custom-btn-primary">Back
-                to List</a>
-            <a href="{% url 'book-update' pk=book.id %}"
-                class="btn btn-sm btn-secondary mb-2 mb-lg-0 me-lg-2 custom-btn-secondary">Edit</a>
-            <a href="{% url 'book-delete' pk=book.id %}" class="btn btn-sm btn-danger mb-2 mb-lg-0">Delete</a>
-        </div>
-    </div>
     </div>
 </main>
 {% endblock %}
