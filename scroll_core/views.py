@@ -165,21 +165,37 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
 # Profile view
 @login_required
 def profile(request):
-    user_profile = Profile.objects.get(user=request.user)
+    """
+    Display the user's profile page.
+
+    Retrieves the profile for the logged-in user and displays it. 
+    If the profile does not exist, the user is shown a 404 error page, 
+    indicating the profile was not found.
+    """
+    # Retrieve the user's profile or return a 404 error if not found
+    user_profile = get_object_or_404(Profile, user=request.user)
+    # Render the profile page with the user's profile data
     return render(request, 'scroll_core/profile.html', {'profile': user_profile})
 
-
-# Error pages
+# Custom Error pages
 def custom_403(request, exception):
-    """Custom view to handle 403 Forbidden errors."""
-    return HttpResponseForbidden(render(request, 'errors/403.html'))
-
+    """Custom view to handle 403 Forbidden errors"""
+    # Render the template
+    html_content = render(request, 'errors/403.html', status=403)
+    # Wrap the rendered content with HttpResponseForbidden
+    return HttpResponseForbidden(html_content)
 
 def custom_404(request, exception):
     """Custom view to handle 404 Not Found errors."""
-    return HttpResponseNotFound(render(request, 'errors/404.html'))
-
+    # Render the template
+    html_content = render(request, 'errors/404.html', status=404)
+    # Wrap the rendered content with HttpResponseNotFound
+    return HttpResponseNotFound(html_content)
 
 def custom_500(request):
     """Custom view to handle 500 Internal Server errors."""
-    return HttpResponseServerError(render(request, 'errors/500.html'))
+    # Render the template
+    html_content = render(request, 'errors/500.html', status=500)
+    # Wrap the rendered content with HttpResponseServerError
+    return HttpResponseServerError(html_content)
+
