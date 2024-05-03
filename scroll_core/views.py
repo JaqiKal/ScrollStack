@@ -15,6 +15,9 @@ from .forms import BookForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from .models import Profile
+from .forms import SearchForm
+from django.db.models import Q 
+
 
 
 
@@ -42,6 +45,7 @@ class BookListView(ListView):
         updated books for the current logged-in user.
         """
         context = super().get_context_data(**kwargs)
+        context['form'] = SearchForm()
         recent_activity_timeframe = timezone.now() - timezone.timedelta(days=7)
         context['recent_books'] = Book.objects.filter(
             user=self.request.user,
@@ -51,10 +55,24 @@ class BookListView(ListView):
 
     def get_queryset(self):
         """
-        This method is overridden to filter the books
-        by the logged-in user
+        Retrieve a queryset of books based on the presence of a 'query' parameter 
+        in the GET request.
+        If the 'query' parameter exists, filter books by the title that contains 
+        this query, constrained to books owned by the current user. 
+        If the 'query' parameter does not exist,return all books owned by the user.
+        Returns: A Django QuerySet of Book instances that matches the search criteria
+        or all books owned by the user if no search criteria are provided.
         """
-        return Book.objects.filter(user=self.request.user)
+        query = self.request.GET.get('query')
+        if query:
+            return Book.objects.filter(
+                Q(title__icontains=query) |
+                Q(book_authors__author__last_name__icontains=query),
+                user=self.request.user
+            ).distinct()
+        return Book.objects.filter(
+            user=self.request.user
+        )
 
 
 # Class-based view for listing single book
@@ -160,6 +178,7 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         # Continue with the deletion process.
         return super(
             BookDeleteView, self).delete(request, *args, **kwargs)
+
 
 
 # Profile view

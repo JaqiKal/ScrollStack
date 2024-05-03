@@ -59,13 +59,6 @@ class Author(models.Model):
         blank=False # Not optional
     )
 
-    # def __str__(self):
-    #     full_name = f'{self.first_name}'
-    #     if self.middle_name:
-    #         full_name += f' {self.middle_name}'
-    #     full_name += f' {self.last_name}'
-    #     return full_name.strip()
-
     def __str__(self):
         parts = [self.first_name, self.middle_name, self.last_name]
         full_name = " ".join(part for part in parts if part)

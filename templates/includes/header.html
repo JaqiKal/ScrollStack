@@ -44,7 +44,8 @@
               href="{% url 'account_logout' %}">Logout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link username" href="#"><i class="fas fa-user"></i> {{ user.username }}</a>
+            <a class="nav-link username" href="{% url 'book-list' %}"><i class="fas fa-user"></i>
+              {{ user.username }}</a>
           </li>
 
           {% else %}
@@ -66,11 +67,7 @@
           {% endif %}
         </ul>
         {% if request.user.is_authenticated %}
-        <!-- Form for search bar, only visible when authenticated -->
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success custom-form" type="submit">Search</button>
-        </form>
+        <!-- keeping as placeholder-->
         {% endif %}
       </div>
     </div>
