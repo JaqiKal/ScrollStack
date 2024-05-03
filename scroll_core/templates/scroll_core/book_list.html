@@ -12,26 +12,33 @@
                 Lewis"</p>
 
             <!-- Collapsible Recent Activity Section -->
+            <h2 class="visually-hidden-focusable" id="headingRecentActivity">Recent Activity</h2>
             <button class="btn custom-recent-btn btn-link btn-sm btn-block text-left" type="button"
                 data-bs-toggle="collapse" data-bs-target="#recentActivity" aria-expanded="false"
                 aria-controls="recentActivity">
                 Recent Activity
             </button>
+
             <div id="recentActivity" class="collapse" aria-labelledby="headingRecentActivity">
                 <div class="card-body mt-3 mb-3 border rounded">
                     <ul>
                         {% for book in recent_books %}
                         <li>
-                            {{ book.title }} ({{ book.author.name }}) - Last updated on
-                            {{ book.updated_at|date:"Y-m-d H:i" }}
+                            {{ book.title }} - by
+                            {% for author in book.get_authors%}
+                            {{ author.first_name }} {{ author.last_name}} {% if not forloop.last %}, {% endif %}
+                            {% empty %}
+                            No authors listed
+                            {% endfor %}
+                            - Last updated on {{ book.updated_at|date:"Y-m-d H:i" }}
                         </li>
                         {% empty %}
                         <li>No recent activity.</li>
                         {% endfor %}
                     </ul>
                 </div>
-            </div>
 
+            </div>
             <!-- Pagination Controls -->
             <div class="pagination-top d-flex justify-content-end mb-3">
                 <nav aria-label="Page navigation">
