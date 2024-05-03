@@ -57,6 +57,20 @@ h6 {
     color: var(--clr-dark-red)
 }
 
+
+
+/* This targets all FontAwesome icons */
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+    font-size: 1rem;
+    color: rgb(42, 2, 2);
+
+}
+
 /* Header */
 .custom-navbar {
     background: var(--clr-orange);
@@ -159,11 +173,12 @@ img.logo {
 }
 
 .nav-link {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin: 0px 16px;
 }
 
 .nav-link:hover {
-    color: #01300c;
+    color: rgb(2, 91, 120);
 }
 
 
@@ -171,6 +186,11 @@ img.logo {
 
 main {
     flex: 1 0 auto;
+}
+
+.custom-p-base {
+    color: var(--clr-dark-red);
+    font-family: var(--main-font);
 }
 
 /* Adjust or add to your existing CSS */
@@ -251,11 +271,6 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.card.custom-recent-card {
-    margin-top: 0.8rem;
-    border: 0px;
-}
-
 .btn.custom-recent-btn {
     border: 1px solid #800000;
     background: var(--clr-beige);
@@ -274,30 +289,35 @@ main {
 
 }
 
-.card-header .btn-link:hover {
-    color: #007bff;
+.card.custom-recent-card {
+    margin-top: 0.8rem;
+    border: 0px;
 }
 
+.card-body {
+    border-radius: 15px;
+
+}
+
+.card-link {
+    cursor: pointer;
+    text-decoration: none;
+}
 
 .card-link .card {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
     /* Ensures smooth transitions for hover effects */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+
 }
 
 .card-link:hover .card,
 .card-link:focus .card {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     /* Shadow effect for depth */
-    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     /* Slightly enlarges the card */
-    text-decoration: none;
-    /* Ensures no text decoration */
+    transform: scale(1.05);
 }
 
-.card-link:focus .card {
-    outline: none;
-    /* Improves focus style without the default outline */
-}
 
 .card-body ul {
     /* Removes bullet points from the list */
@@ -318,13 +338,24 @@ main {
 
 }
 
+.custom-list-img {
+    object-fit: cover;
+    width: 100%;
+    /* This maintains aspect ratio */
+    height: auto;
+    margin: 0.5rem 0;
 
+}
 
 
 /* Book-detail page */
 
-.card .custom-card-detail {
-    box-shadow: var(--box-shadow);
+.custom-detail-img {
+    object-fit: cover;
+    width: 50%;
+    /* This maintains aspect ratio */
+    height: auto;
+    margin-top: 0.5rem;
 
 }
 
@@ -381,10 +412,9 @@ main {
 /* Book list & Details */
 
 .card {
-    height: 90%;
+    height: 100%;
     background: var(--clr-beige);
     border-radius: 15px;
-    border: 1px solid var(--clr-dark-red);
     box-shadow: var(--box-shadow);
 }
 
@@ -394,6 +424,26 @@ main {
 
 #custom-error {
     border: 1px solid var(--clr-dark-red);
+}
+
+
+/* Guide page */
+
+.custom-guide {
+    box-shadow: var(--box-shadow);
+    border: 1px solid #800000;
+    background: var(--clr-beige);
+    border-radius: 15px;
+    margin-top: 1.5rem;
+}
+
+.custom-guide .text-center {
+    aling
+}
+
+.custom-guide li {
+    padding-left: 1rem;
+    margin: 1rem 0;
 }
 
 /* Footer */
