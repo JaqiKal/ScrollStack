@@ -9,12 +9,14 @@
             <div class="col-12 col-md-8 col-lg-6 mx-auto">
                 <div class="card border border-danger custom-card-detail">
                     {% if book.image and book.image.url %}
-                    <img src="{{ book.image.url }}" alt="{{ book.title }}" class="img-fluid">
+                    <img src="{{ book.image.url }}" alt="{{ book.title }}" class="img-fluid mx-auto custom-detail-img">
+
+
                     {% else %}
-                    <img src="{% static 'images/default-book-cover.webp' %}" alt="{{ book.title }}" class="img-fluid"
-                        style="object-fit: cover;">
+                    <img src="{% static 'images/default-book-cover.webp' %}" alt="{{ book.title }}"
+                        class="img-fluid mx-auto custom-detail-img">
                     {% endif %}
-                    <div class="card-body p-4">
+                    <div class="card-body m-2 p-4">
                         <h2 class="card-title">{{ book.title }}</h2>
                         <p class="card-text"><strong>Author:</strong>
                             {% for author in book.get_authors %}
@@ -33,16 +35,20 @@
                                 {{ book.added_at|date:"Y-m-d" }}</small>
                         </p>
                         <!-- Dropdown menu instead of buttons -->
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Actions
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="{% url 'book-list' %}">Back to List</a></li>
-                                <li><a class="dropdown-item" href="{% url 'book-update' pk=book.id %}">Edit</a></li>
-                                <li><a class="dropdown-item" href="{% url 'book-delete' pk=book.id %}">Delete</a></li>
-                            </ul>
+                        <div class="d-flex justify-content-center align-items-center mt-3">
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary custom-btn-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Actions
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="{% url 'book-list' %}">Back to List</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'book-update' pk=book.id %}">Edit</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'book-delete' pk=book.id %}">Delete</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

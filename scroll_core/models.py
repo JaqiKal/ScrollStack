@@ -59,12 +59,18 @@ class Author(models.Model):
         blank=False # Not optional
     )
 
+    # def __str__(self):
+    #     full_name = f'{self.first_name}'
+    #     if self.middle_name:
+    #         full_name += f' {self.middle_name}'
+    #     full_name += f' {self.last_name}'
+    #     return full_name.strip()
+
     def __str__(self):
-        full_name = f'{self.first_name}'
-        if self.middle_name:
-            full_name += f' {self.middle_name}'
-        full_name += f' {self.last_name}'
-        return full_name.strip()
+        parts = [self.first_name, self.middle_name, self.last_name]
+        full_name = " ".join(part for part in parts if part)
+        return full_name or "Unnamed Author"
+
 
 class Book(models.Model):
     """
@@ -82,7 +88,8 @@ class Book(models.Model):
         ordering = ['title'] # Orders by title alphabetically by default
 
     slug = models.SlugField(
-        unique=False, blank=False,
+        max_length=255,
+        unique=True, blank=False,
         help_text='A URL-friendly name is entered automatically on save'
     )
     publication_year = models.IntegerField(

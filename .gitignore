@@ -10,4 +10,5 @@ cloudinary_python.txt
 .env
 .venv
 scroll_core/books_data.json
-
+env
+venv

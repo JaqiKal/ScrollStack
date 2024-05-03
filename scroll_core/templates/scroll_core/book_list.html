@@ -60,9 +60,10 @@
                     <div class="card h-100 border border-danger p-3 mb-8">
 
                         {% if book.image and "placeholder" not in book.image.url %}
-                        <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                        <img src="{{ book.image.url }}" alt="{{ book.title }}" class="custom-list-img">
                         {% else %}
-                        <img src="{% static 'images/default-book-cover.webp' %}" alt="Default book cover">
+                        <img src="{% static 'images/default-book-cover.webp' %}" alt="Default book cover"
+                            class="custom-list-img">
                         {% endif %}
 
 

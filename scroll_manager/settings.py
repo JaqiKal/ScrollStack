@@ -10,10 +10,6 @@ Django settings for scroll_manager project.
 import os
 from pathlib import Path
 
-# Load environment variables from .env file using dotenv if available
-from dotenv import load_dotenv
-load_dotenv()
-
 
 # Import `env.py` if it exists for additional environment variables
 # This is typically used in development environments
@@ -28,8 +24,6 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

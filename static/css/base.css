@@ -287,6 +287,10 @@ main {
     border: 0px;
 }
 
+.card-body {
+    border-radius: 15px;
+
+}
 
 .card-link .card {
     /* Ensures smooth transitions for hover effects */
@@ -322,13 +326,24 @@ main {
 
 }
 
+.custom-list-img {
+    object-fit: cover;
+    width: 100%;
+    /* This maintains aspect ratio */
+    height: auto;
+    margin: 0.5rem 0;
 
+}
 
 
 /* Book-detail page */
 
-.custom-card-detail {
-    box-shadow: var(--box-shadow);
+.custom-detail-img {
+    object-fit: cover;
+    width: 50%;
+    /* This maintains aspect ratio */
+    height: auto;
+    margin-top: 0.5rem;
 
 }
 
@@ -385,10 +400,9 @@ main {
 /* Book list & Details */
 
 .card {
-    height: 90%;
+    height: 100%;
     background: var(--clr-beige);
     border-radius: 15px;
-    border: 1px solid var(--clr-dark-red);
     box-shadow: var(--box-shadow);
 }
 
