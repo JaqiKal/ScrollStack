@@ -57,10 +57,7 @@ h6 {
     color: var(--clr-dark-red)
 }
 
-p {
-    color: var(--clr-dark-red);
-    font-family: var(--main-font);
-}
+
 
 /* This targets all FontAwesome icons */
 .fa,
@@ -191,6 +188,11 @@ main {
     flex: 1 0 auto;
 }
 
+.custom-p-base {
+    color: var(--clr-dark-red);
+    font-family: var(--main-font);
+}
+
 /* Adjust or add to your existing CSS */
 .hero.jumbotron {
     background-image: url('/static/images/hero.webp');
@@ -295,6 +297,11 @@ main {
 .card-body {
     border-radius: 15px;
 
+}
+
+.card-link {
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .card-link .card {
