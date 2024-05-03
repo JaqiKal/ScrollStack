@@ -206,7 +206,7 @@ class Profile(models.Model):
         # Profile images are stored
         folder='scroll_core/user_profile_images',  
         transformation={
-            'width': 200,
+            'width': 150,
             'height': 200,
             'crop': 'fill',
             'format': 'webp',
