@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-3 my-4">
+    <div class="row justify-content-center">
+        <!-- Centering the column -->
+        <div class="col-md-8">
+            <!-- Adjust the size as per your design requirements -->
+            <div class="guide-container py-3 custom-guide">
+                <h2 class="d-flex flex-column align-items-center">Guide</h2> <!-- Centered text for the title -->
+                <ul>
+                    <li><strong>Add New Books:</strong> Easily add books to your collection with details like title,
+                        author, and
+                        publication year.</li>
+                    <li><strong>Manage Your Collection:</strong> View, update, or remove books as your collection
+                        evolves.</li>
+                    <li><strong>Search and Filter:</strong> Quickly find books in your collection by title, author, or
+                        genre.
+                    </li>
+                    <li><strong>Personalize Your Profile:</strong> Update your profile details and upload a profile
+                        picture to
+                        customize your account.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -44,6 +44,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 
     path('djrichtextfield/', include('djrichtextfield.urls')),
+    
 
    # path('test-403/', test_403, name='test-403'),
    # path('test-404/', test_404, name='test-404'),

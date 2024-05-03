@@ -199,3 +199,6 @@ def custom_500(request):
     # Wrap the rendered content with HttpResponseServerError
     return HttpResponseServerError(html_content)
 
+# Help page
+def guide(request):
+    return render(request, 'scroll_core/guide.html')

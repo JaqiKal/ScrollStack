@@ -57,6 +57,11 @@ h6 {
     color: var(--clr-dark-red)
 }
 
+p {
+    color: var(--clr-dark-red);
+    font-family: var(--main-font);
+}
+
 /* This targets all FontAwesome icons */
 .fa,
 .fas,
@@ -412,6 +417,26 @@ main {
 
 #custom-error {
     border: 1px solid var(--clr-dark-red);
+}
+
+
+/* Guide page */
+
+.custom-guide {
+    box-shadow: var(--box-shadow);
+    border: 1px solid #800000;
+    background: var(--clr-beige);
+    border-radius: 15px;
+    margin-top: 1.5rem;
+}
+
+.custom-guide .text-center {
+    aling
+}
+
+.custom-guide li {
+    padding-left: 1rem;
+    margin: 1rem 0;
 }
 
 /* Footer */
