@@ -2,140 +2,146 @@
 {% load static %}
 
 {% block content %}
+<style>
+    /* CSS to hide the search label */
+    label[for="id_query"] {
+        display: none;
+    }
+</style>
 <main class="book-li">
     <div class="container mt-3 mb-5">
         <h1>My Library!</h1>
         <p>Explore your collection, add new finds, or dive back into old favorites. Start by browsing or
             updating your reading list!
-            <P class="fst-italic pb-3"> You can never get a cup of tea large enough or a book long enough to suit me." -
-                C.S. Lewis"</p>
+            <p class="fst-italic pb-3">"You can never get a cup of tea large enough or a book long enough to suit me." -
+                C.S. Lewis</p>
 
-            <!-- Search Form -->
-            <form method="get" action="">
-                {{ form.as_p }}
-                <button type="submit">Search</button>
-            </form>
-            <a href="{% url 'book-list' %}" class="btn btn-info">Reset View</a>
+            <div class="row">
+                <!-- Collapsible Recent Activity Section -->
+                <div class="col-lg-8 mb-3">
+                    <h2 class="visually-hidden-focusable" id="headingRecentActivity">Recent Activity</h2>
+                    <button class="btn btn-link btn-sm text-left" id="custom-recent-btn" type=" button"
+                        data-bs-toggle="collapse" data-bs-target="#recentActivity" aria-expanded="false"
+                        aria-controls="recentActivity">
+                        Recent Activity
+                    </button>
 
-            <hr>
-
-
-
-
-
-
-            <!-- Collapsible Recent Activity Section -->
-            <div>
-                <h2 class="visually-hidden-focusable" id="headingRecentActivity">Recent Activity</h2>
-                <button class="btn custom-recent-btn btn-link btn-sm btn-block text-left" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#recentActivity" aria-expanded="false"
-                    aria-controls="recentActivity">
-                    Recent Activity
-                </button>
-
-                <div id="recentActivity" class="collapse" aria-labelledby="headingRecentActivity">
-                    <div class="card-body mt-3 mb-3 border rounded">
-                        <ul>
-                            {% for book in recent_books %}
-                            <li>
-                                {{ book.title }} - by
-                                {% for author in book.get_authors%}
-                                {{ author.first_name }} {{ author.last_name}} {% if not forloop.last %}, {% endif %}
+                    <div id="recentActivity" class="collapse" aria-labelledby="headingRecentActivity">
+                        <div class="card-body mt-3 mb-3 border rounded">
+                            <ul>
+                                {% for book in recent_books %}
+                                <li>
+                                    {{ book.title }} - by
+                                    {% for author in book.get_authors %}
+                                    {{ author.first_name }} {{ author.last_name }}{% if not forloop.last %}, {% endif %}
+                                    {% empty %}
+                                    No authors listed
+                                    {% endfor %}
+                                    - Last updated on {{ book.updated_at|date:"Y-m-d H:i" }}
+                                </li>
                                 {% empty %}
-                                No authors listed
+                                <li>No recent activity.</li>
                                 {% endfor %}
-                                - Last updated on {{ book.updated_at|date:"Y-m-d H:i" }}
-                            </li>
-                            {% empty %}
-                            <li>No recent activity.</li>
-                            {% endfor %}
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!-- Pagination Controls -->
-                <div class="pagination-top d-flex justify-content-end mb-3">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            {% if page_obj.has_previous %}
-                            <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-                            {% endif %}
-                            <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of
-                                    {{ page_obj.paginator.num_pages }}</span></li>
-                            {% if page_obj.has_next %}
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ page_obj.next_page_number }}">Next</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-                            </li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </div>
 
-                <!-- Book List cards -->
-                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 px-3">
-                    {% for book in books %}
-                    <div class="col">
-                        <a href="{% url 'book-detail' pk=book.id %}" class="card-link" tabindex="0">
-                            <div class="card h-100 border border-danger p-3 mb-8">
-
-                                {% if book.image and "placeholder" not in book.image.url %}
-                                <img src="{{ book.image.url }}" alt="{{ book.title }}" class="custom-list-img">
-                                {% else %}
-                                <img src="{% static 'images/default-book-cover.webp' %}" alt="Default book cover"
-                                    class="custom-list-img">
-                                {% endif %}
-
-
-                                <div class="card-body">
-                                    <p class="card-title"><strong>{{ book.title }}</strong></p>
-                                    <p class="card-subtitle mb-1 text-muted">
-                                        {% for author in book.get_authors %}
-                                        {{ author.full_name }}{% if not forloop.last %}, {% endif %}
-                                        {% empty %}
-                                        No authors listed
-                                        {% endfor %}
-                                    </p>
-                                    <p class="card-text"><small class="text-muted">{{ book.genre.name }}</small></p>
-                                    <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
-                                </div>
-
-                            </div>
-                        </a>
-                    </div>
-                    {% empty %}
-                    <div class="col">
-                        <p>No books found.</p>
-                    </div>
-                    {% endfor %}
-                </div>
-
-                <!-- Repeat Pagination Controls at Bottom -->
-                <div class="pagination-bottom mt-3">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center">
-                            {% if page_obj.has_previous %}
-                            <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ page_obj.previous_page_number }}">Previous</a>
-                            </li>
-                            {% endif %}
-                            <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of
-                                    {{ page_obj.paginator.num_pages }}</span></li>
-                            {% if page_obj.has_next %}
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ page_obj.next_page_number }}">Next</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-                            </li>
-                            {% endif %}
-                        </ul>
-                    </nav>
+                <!-- Search Form -->
+                <div class="col-lg-6">
+                    <form class="d-flex align-items-center gap-2" id="book-list-search-form" method="get" action="">
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <a href="{% url 'book-list' %}" class="btn btn-info">Reset View</a>
+                    </form>
                 </div>
             </div>
+
+
+
+            <!-- Pagination Controls -->
+            <div class="pagination-top d-flex justify-content-end mb-3">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                        {% endif %}
+                        <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of
+                                {{ page_obj.paginator.num_pages }}</span></li>
+                        {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                        </li>
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Book List cards -->
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 px-3">
+                {% for book in books %}
+                <div class="col">
+                    <a href="{% url 'book-detail' pk=book.id %}" class="card-link" tabindex="0">
+                        <div class="card h-100 border border-danger p-3 mb-8">
+
+                            {% if book.image and "placeholder" not in book.image.url %}
+                            <img src="{{ book.image.url }}" alt="{{ book.title }}" class="custom-list-img">
+                            {% else %}
+                            <img src="{% static 'images/default-book-cover.webp' %}" alt="Default book cover"
+                                class="custom-list-img">
+                            {% endif %}
+
+
+                            <div class="card-body">
+                                <p class="card-title"><strong>{{ book.title }}</strong></p>
+                                <p class="card-subtitle mb-1 text-muted">
+                                    {% for author in book.get_authors %}
+                                    {{ author.full_name }}{% if not forloop.last %}, {% endif %}
+                                    {% empty %}
+                                    No authors listed
+                                    {% endfor %}
+                                </p>
+                                <p class="card-text"><small class="text-muted">{{ book.genre.name }}</small></p>
+                                <small class="text-muted">Added on {{ book.added_at|date:"Y-m-d" }}</small>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                {% empty %}
+                <div class="col">
+                    <p>No books found.</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Repeat Pagination Controls at Bottom -->
+            <div class="pagination-bottom mt-3">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of
+                                {{ page_obj.paginator.num_pages }}</span></li>
+                        {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                        </li>
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+    </div>
+    </div>
 </main>
 {% endblock %}
