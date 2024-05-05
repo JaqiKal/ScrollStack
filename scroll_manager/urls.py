@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler403, handler404, handler500
 from scroll_core.views import custom_403, custom_404, custom_500
-S
+
 urlpatterns = [
 
     # Admin site URLs, provides a web-based interface
@@ -17,7 +17,7 @@ urlpatterns = [
     # Include app URLs
     path('', include('scroll_core.urls')),
     path('home/', include('scroll_home.urls')),
-    path('accounts/', include('allauth.urls')),S
+    path('accounts/', include('allauth.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
    
 ]

@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import (
     HttpResponseForbidden,
-    HttpResponseNotFound, HttpResponseServerError
+    HttpResponseNotFound, HttpResponseServerError, Http404
 )
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -14,6 +14,8 @@ from .forms import BookForm
 from django.urls import reverse_lazy
 from .forms import SearchForm
 from django.db.models import Q 
+from django.utils import timezone
+
 
 
 
@@ -79,6 +81,28 @@ class BookDetailView(DetailView):
     context_object_name = 'book'
 
 
+    def get_queryset(self):
+        """
+        Ensure only the owner of the book can access its details.
+        """
+        queryset = super().get_queryset()
+        if self.request.user.is_authenticated:
+            return queryset.filter(user=self.request.user)
+        else:
+            raise Http404("You don't have permisssion to view this book")
+
+
+    def get_object(self, queryset=None):
+        """
+        Override get_object to handle a case where a book doesn't belong to the user.
+        """
+        obj =  super().get_object(queryset=queryset)
+        if obj.user != self.request.user:
+            raise Http404("You don't have permisssion to view this book")
+        return obj
+
+
+
 #  A view for creating a new book.
 class BookCreateView(LoginRequiredMixin, CreateView):
     """
@@ -126,6 +150,15 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
         the logged-in user can be updated.
         """
         return self.request.user.books.all()
+    
+    def get_object(self, queryset=None):
+        """
+        Override get_object to handle a case where a book doesn't belong to the user.
+        """
+        obj = super().get_object(queryset=queryset)
+        if obj.user != self.request.user:
+            raise Http404("You don't have permission to edit this book.")
+        return obj
 
     def form_valid(self, form):
         """
@@ -163,6 +196,15 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         the logged-in user can be deleted.
         """
         return self.request.user.books.all()
+    
+    def get_object(self, queryset=None):
+        """
+        Override get_object to handle a case where a book doesn't belong to the user.
+        """
+        obj = super().get_object(queryset=queryset)
+        if obj.user != self.request.user:
+            raise Http404("You don't have permission to delete this book.")
+        return obj
 
     def delete(self, request, *args, **kwargs):
         """
@@ -171,7 +213,7 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         """
         # Set the success message.
         messages.success(request, "Book deleted successfully!")
-        # Continue with the deletion process.
+        # Continue with the deletion process.S
         return super(
             BookDeleteView, self).delete(request, *args, **kwargs)
 
