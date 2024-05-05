@@ -12,7 +12,7 @@ from django.contrib import messages
 from django.utils import timezone
 from .models import Book
 from .forms import BookForm
-from django.contrib.auth.decorators import login_required
+#from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from .models import Profile
 from .forms import SearchForm
@@ -29,7 +29,7 @@ def index(request):
 
 
 # Class-based view for listing multiple books
-class BookListView(ListView):
+class BookListView(LoginRequiredMixin, ListView):
 
     model = Book
     template_name = 'scroll_core/book_list.html'
@@ -182,19 +182,19 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
 
 
 # Profile view
-@login_required
-def profile(request):
-    """
-    Display the user's profile page.
+#@login_required
+#def profile(request):
+#    """
+#    Display the user's profile page.
 
-    Retrieves the profile for the logged-in user and displays it. 
-    If the profile does not exist, the user is shown a 404 error page, 
-    indicating the profile was not found.
-    """
+    #Retrieves the profile for the logged-in user and displays it. 
+    #If the profile does not exist, the user is shown a 404 error page, 
+    #indicating the profile was not found.
+    #"""
     # Retrieve the user's profile or return a 404 error if not found
-    user_profile = get_object_or_404(Profile, user=request.user)
+    #user_profile = get_object_or_404(Profile, user=request.user)
     # Render the profile page with the user's profile data
-    return render(request, 'scroll_core/profile.html', {'profile': user_profile})
+    #return render(request, 'scroll_core/profile.html', {'profile': user_profile})
 
 # Custom Error pages
 def custom_403(request, exception):

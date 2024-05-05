@@ -157,7 +157,7 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 |ERR-002|Custom 404 Error Page - localhost|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|PASS|localhost|
 |ERR-003|Custom 500 Error Page - localhost|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|PASS|localhost|
 |ERR-004|Custom 403 Error Page - production|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|---|production|
-|ERR-005|Custom 404 Error Page - production|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|---|production|
+|ERR-005|Custom 404 Error Page - production|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|PASS|production|
 |ERR-006|Custom 500 Error Page - production|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|---|production|
 
 ### User Interaction Test (UIA)
