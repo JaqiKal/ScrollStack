@@ -79,6 +79,11 @@ class Book(models.Model):
 
     class Meta:
         ordering = ['title'] # Orders by title alphabetically by default
+        # Test 403
+        permissions = [
+            ("view_all_books", "Can view all books"),
+            ("edit_books", "Can edit books"),
+        ]
 
     slug = models.SlugField(
         max_length=255,

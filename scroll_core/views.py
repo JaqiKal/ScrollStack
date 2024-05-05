@@ -12,7 +12,8 @@ from django.contrib import messages
 from django.utils import timezone
 from .models import Book
 from .forms import BookForm
-#from django.contrib.auth.decorators import login_required
+# login_req used to test 403
+from django.contrib.auth.decorators import login_required, permission_required
 from django.urls import reverse_lazy
 from .models import Profile
 from .forms import SearchForm
@@ -224,3 +225,13 @@ def test_403(request):
 def test_500(request):
     """Simulate a 500 error for testing purposes."""
     raise Exception("Test 500 Internal Server Error")
+
+# test 403
+@login_required
+@permission_required('scroll-core.edit_books', raise_exception=True)
+def restricted_edit_books(request):
+    """
+    View that allows editing of books only to users with edit_books permission.
+    """
+    return render(request, 'scroll_core/restricted_edit_books.html')
+
