@@ -366,7 +366,7 @@ The Entity-Relationship Diagram (ERD) provides a visual representation of the da
 The is_superuser field within the User_Django_AllAuth entity indicates whether a user is a superuser. Superusers are granted all permissions across the application without explicitly assigning them. This allows them to perform any operation in the Django admin panel and access all data. Regular users, lacking the is_superuser flag, are restricted to actions within their scope, typically only able to manipulate their own data as defined by the application's permission logic.
 
 
-![ERD](/documentation/readme-img/erd-scroll-stack-transp.webp)
+![ERD](/documentation/images/readme/erd-scroll-stack-transp.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -407,7 +407,7 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 
 - Common elements across all pages
     - Logo/Home: Clicking this should always take the user back to the landing page.
-    - Contact: Link to the contact page where users can find ways to reach out or get support.
+
 
 - Dynamic Elements Based on User State
     - Register/Login: Visible only when the user is not logged in. These should redirect to their respective pages for authentication.
@@ -517,37 +517,29 @@ Wireframes for the ScrollStack project were created to outline the basic layout 
 
 - Landing Page: Simple start page, user can register or login
 
-![x](/documentation/wireframes/wireframe-landing.webp)
+![x](/documentation/images/wireframes/wireframe-landing.webp)
 
 - Home Page and Book List and detail Page: Displaying all books with options to search. Providing detailed information about a book with options to edit or delete
 
-![x](/documentation/wireframes/wireframe-detail.webp)
+![x](/documentation/images/wireframes/wireframe-detail.webp)
 
 - Add book page: A form 
 
-![x](/documentation/wireframes/wireframe-create.webp)
+![x](/documentation/images/wireframes/wireframe-create.webp)
 
 - Edit book page: A form 
 
-![x](/documentation/wireframes/wireframe-update.webp)
-
-- Contact Page:  A form where one can send feed-back.
-
-![x](/documentation/wireframes/wireframe-contact.webp)
-
-- User Profile Page: Allowing users to view and edit their profile information.
-
-![x]()
+![x](/documentation/images/wireframes/wireframe-update.webp)
 
 - Authentication Pages: Including sign-up and log-in forms.
 
-![x](/documentation/wireframes/wireframe-register.webp)
+![x](/documentation/images/wireframes/wireframe-register.webp)
 
-![x](/documentation/wireframes/wireframe-login.webp)
+![x](/documentation/images/wireframes/wireframe-login.webp)
 
 - Error page:  Page not found, Page forbidden, Server error
 
-![x](/documentation/wireframes/wireframe-error.webp)
+![x](/documentation/images/wireframes/wireframe-error.webp)
 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
@@ -560,7 +552,7 @@ The color scheme uses a gradient starting with #F6E84B, a luminous shade of yell
 
 This choice of gradient not only provides a striking backdrop but also supports the user's visual flow from the top of the page to the bottom, naturally guiding them through the content. The color transition from light to dark symbolizes the user's progression from initial curiosity to deeper engagement with our application. The goal is to make this transition as smooth and natural as reading a page, ensuring that the users' experiences are both visually appealing and emotionally resonant.
 
-![Colour palette](/documentation/readme-img/colour-scheme.webp)
+![Colour palette](/documentation/images/readme/colour-scheme.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -568,7 +560,7 @@ This choice of gradient not only provides a striking backdrop but also supports 
 
 Roboto sourced from [Google Fonts](https://fonts.google.com/specimen/Roboto?preview.text=The%20ScrollStack%20&query=roboto) is chosen for its readability and professional appearance, suitable for a diverse audience.
 
-![font](/documentation/readme-img/roboto-400.webp)
+![font](/documentation/images/readme/roboto-400.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 

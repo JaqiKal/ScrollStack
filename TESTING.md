@@ -105,11 +105,6 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 | TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
 |---|---|---|---|---|---|
 
-### Input validation Test (IPU)
-
-| TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
-|---|---|---|---|---|---|
-
 ### Error Handling (ERR)
 
 #### Manual steps to render error page on local host and in production
@@ -245,7 +240,7 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
       ```
   4. Push your changes to the Heroku repository to ensure the new error page is available in production.
   5. Ensure DEBUG is set to False in the Heroku environment variables.
-  6. Visit the deployed Heroku app URL with the /idontextist/ path to trigger a 404 error and see the custom error page.
+  6. Visit the deployed Heroku app URL with the /idontexist/ path to trigger a 404 error and see the custom error page.
 
     ![x](/documentation/images/testing/error-404-production.webp) 
 
@@ -266,23 +261,14 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 | TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
 |---|---|---|---|---|---|
-|ERR-001|Custom 403 Error Page - localhost|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|PASS|localhost|
-|ERR-002|Custom 404 Error Page - localhost|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|PASS|localhost|
-|ERR-003|Custom 500 Error Page - localhost|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|PASS|localhost|
-|ERR-004|Custom 403 Error Page - production|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|PASS|production|
-|ERR-005|Custom 404 Error Page - production|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|PASS|production|
-|ERR-006|Custom 500 Error Page - production|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|PASS|production|
-
-### User Interaction Test (UIA)
-
-| TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
-|---|---|---|---|---|---|
+|ERR-001|Custom 403 Error Page - localhost|Display the custom 403.html page with error message|Visit http: localhost/test-403|PASS|localhost|S
+|ERR-002|Custom 404 Error Page - localhost|Display the custom 404.html page with error message|Visit http: localhost/non-existent|PASS|localhost|
+|ERR-003|Custom 500 Error Page - localhost|Display the custom 500.html page with error message|Visit http: localhost/test-500|PASS|localhost|
+|ERR-004|Custom 403 Error Page - production|Display the custom 403.html page with error message|Visit heroku.../restricted-edit-books|PASS|production|
+|ERR-005|Custom 404 Error Page - production|Display the custom 404.html page with error message|Visit heroku...//idontexist|PASS|production|
+|ERR-006|Custom 500 Error Page - production|Display the custom 500.html page with error message|Visit heroku...//test-500|PASS|production|
 
 
-### Integration Test (ITC)
-
-| TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
-|---|---|---|---|---|---|
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
