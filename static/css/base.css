@@ -22,15 +22,13 @@
     --clr-orange: #ff9102;
     ;
 
-
-    /* Utils */
-    --box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
-    --border: 1px solid #17023a61;
 }
 
 
 /* Global Style */
 /* Help in achieving consistent layout across different browsers */
+
+
 *,
 *::before,
 *::after {
@@ -353,6 +351,53 @@ main {
     margin: 0.5rem 0;
 
 }
+
+
+/*  SEARCH */
+
+#book-list-search-form {
+    margin: auto;
+}
+
+.book-li {
+    margin-top: 20px;
+}
+
+.pagination-top,
+.pagination-bottom {
+    margin-top: 10px;
+}
+
+.custom-btn-primary {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.custom-btn-primary:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.custom-list-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
 
 
 /* Book-detail page */

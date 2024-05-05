@@ -7,9 +7,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler403, handler404, handler500
 from scroll_core.views import custom_403, custom_404, custom_500
-from scroll_core.views import test_403, test_500
-# test 403
-from scroll_core.views import restricted_edit_books
+from scroll_core.views import test_500
+
 
 urlpatterns = [
 
@@ -23,9 +22,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
     # Test Error pages
-    path('test-403/', test_403),
     path('test-500/', test_500),
-    path('restricted-edit-books/', restricted_edit_books, name='restricted-edit-books'),
+   
 ]
 
 

@@ -12,14 +12,10 @@ from django.contrib import messages
 from django.utils import timezone
 from .models import Book
 from .forms import BookForm
-# login_req used to test 403
-from django.contrib.auth.decorators import login_required, permission_required
 from django.urls import reverse_lazy
-from .models import Profile
 from .forms import SearchForm
 from django.db.models import Q 
-# Test error 403
-from django.core.exceptions import PermissionDenied
+
 
 
 
@@ -181,22 +177,6 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
             BookDeleteView, self).delete(request, *args, **kwargs)
 
 
-
-# Profile view
-#@login_required
-#def profile(request):
-#    """
-#    Display the user's profile page.
-
-    #Retrieves the profile for the logged-in user and displays it. 
-    #If the profile does not exist, the user is shown a 404 error page, 
-    #indicating the profile was not found.
-    #"""
-    # Retrieve the user's profile or return a 404 error if not found
-    #user_profile = get_object_or_404(Profile, user=request.user)
-    # Render the profile page with the user's profile data
-    #return render(request, 'scroll_core/profile.html', {'profile': user_profile})
-
 # Custom Error pages
 def custom_403(request, exception):
     """Custom view to handle 403 Forbidden errors"""
@@ -218,20 +198,8 @@ def guide(request):
     return render(request, 'scroll_core/guide.html')
 
 #Test Error page
-def test_403(request):
-    """Simulate a 403 error for testing purposes."""
-    raise PermissionDenied("Test 403 Permission Denied")
-
 def test_500(request):
     """Simulate a 500 error for testing purposes."""
     raise Exception("Test 500 Internal Server Error")
 
-# test 403
-@login_required
-@permission_required('scroll-core.edit_books', raise_exception=True)
-def restricted_edit_books(request):
-    """
-    View that allows editing of books only to users with edit_books permission.
-    """
-    return render(request, 'scroll_core/restricted_edit_books.html')
 

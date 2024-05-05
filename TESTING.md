@@ -117,7 +117,7 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 **Note:** If the project is set up to collect static files in a production-like environment (i.e., DEBUG = False), missing static files might cause warnings or errors that can affect the rendering of the error pages.
 
 <details>
-  <summary>Manual test case to simulate error in local host</summary><br>
+  <summary>Local host environment</summary><br>
 
 - Manual steps to simulate error 403 in local host:
 
@@ -150,6 +150,81 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
   8. Verify that the custom 500.html template is displayed with the error message: "Error 500: Internal Server Error.".
 
 </details>
+
+
+<details>
+  <summary>Production environment</summary><br>
+
+- Manual steps to simulate error 403 in production: 
+
+  1. Add permissions to Book model
+
+  ```text
+  class Book(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Book Title’)
+
+    # Other fields...
+
+  class Meta:
+        ordering = ['title'] # Orders by title alphabetically by default
+        
+        permissions = [
+            ("view_all_books", "Can view all books"),
+            ("edit_books", "Can edit books"),
+        ]
+
+    # Other fields...
+  ```
+
+  2.   Create a view requiring specific permissions.
+
+  ```text
+    # Other fields...
+
+  from django.contrib.auth.decorators import login_required, permission_required
+
+     # Other fields...
+
+  @login_required
+  @permission_required('scroll_core.edit_books', raise_exception=True)
+  def restricted_edit_books(request):
+      """
+      View that allows editing of books only to users with edit_books permission.
+      """
+      return render(request, 'scroll_core/restricted_edit_books.html')
+
+    # Other fields...
+  ```
+
+  3. Add the new view to your URLs.
+
+    ```text
+    # Other fields...
+
+    urlpatterns = [
+          
+          # Other paths...
+          
+          path('restricted-edit-books/', views.restricted_edit_books, name='restricted-edit-books’),
+    ]
+    ```
+
+  4. Access the Django Admin Panel in Heroku.
+  5. Log in with your admin credentials.
+  6. Assign the edit_books permission to some users/groups, in this case the superuser have all permissions required.
+  7. Edit another User: Check the box for Can edit books, save changes.
+  8. Provoke a 403 error by visiting https://scrollstack-af4b226be9f2.herokuapp.com/restricted-edit-books/
+  9. ensure the custom 403 error page is rendered.
+  ![x](/documentation/images/error-403-production.webp) 
+
+
+- Manual steps to simulate error 404 in local host:
+
+- Manual steps to simulate error 500 in local host:
+
+
+<br></details>
+
 
 | TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
 |---|---|---|---|---|---|

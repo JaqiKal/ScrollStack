@@ -3,7 +3,6 @@ from django.db import models
 from django.utils.text import slugify
 from django.core.validators import RegexValidator
 from djrichtextfield.models import RichTextField
-# from django_resized import ResizedImageField
 from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import datetime
@@ -79,11 +78,6 @@ class Book(models.Model):
 
     class Meta:
         ordering = ['title'] # Orders by title alphabetically by default
-        # Test 403
-        permissions = [
-            ("view_all_books", "Can view all books"),
-            ("edit_books", "Can edit books"),
-        ]
 
     slug = models.SlugField(
         max_length=255,
