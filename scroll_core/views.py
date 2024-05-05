@@ -9,7 +9,6 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.utils import timezone
 from .models import Book
 from .forms import BookForm
 from django.urls import reverse_lazy
@@ -196,10 +195,5 @@ def custom_500(request):
 # Help/Guide page
 def guide(request):
     return render(request, 'scroll_core/guide.html')
-
-#Test Error page
-def test_500(request):
-    """Simulate a 500 error for testing purposes."""
-    raise Exception("Test 500 Internal Server Error")
 
 

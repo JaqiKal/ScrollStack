@@ -208,20 +208,58 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
           path('restricted-edit-books/', views.restricted_edit_books, name='restricted-edit-books’),
     ]
     ```
-
   4. Access the Django Admin Panel in Heroku.
   5. Log in with your admin credentials.
   6. Assign the edit_books permission to some users/groups, in this case the superuser have all permissions required.
   7. Edit another User: Check the box for Can edit books, save changes.
   8. Provoke a 403 error by visiting https://scrollstack-af4b226be9f2.herokuapp.com/restricted-edit-books/
   9. ensure the custom 403 error page is rendered.
-  ![x](/documentation/images/error-403-production.webp) 
+  
+    ![x](/documentation/images/testing/error-403-production.webp) 
 
 
-- Manual steps to simulate error 404 in local host:
+- Manual steps to simulate error 404 in in production
 
-- Manual steps to simulate error 500 in local host:
+  1. Make sure the 404.html template exists in the templates/errors directory and is properly formatted.
+  2. Ensure you have the custom_404 error handler defined in scroll_core/views.py.
+      ```text
+      from django.http import HttpResponseNotFound
 
+      def custom_404(request, exception):
+          """Custom view to handle 404 Not Found errors."""
+          html_content = render(request, 'errors/404.html', status=404)
+          return HttpResponseNotFound(html_content)
+        ```
+  3. In scroll_manager/urls.py, set the custom error handler for 404.
+      ```text
+      from scroll_core.views import custom_404
+
+      urlpatterns = [
+
+        # Path fields...
+
+      ]
+
+      # Setting custom error handlers
+      handler404 = 'scroll_core.views.custom_404'
+      ```
+  4. Push your changes to the Heroku repository to ensure the new error page is available in production.
+  5. Ensure DEBUG is set to False in the Heroku environment variables.
+  6. Visit the deployed Heroku app URL with the /idontextist/ path to trigger a 404 error and see the custom error page.
+
+    ![x](/documentation/images/testing/error-404-production.webp) 
+
+- Manual steps to simulate error 500 in production
+
+  1. Make sure the 500.html template exists in the templates/errors directory and is properly formatted.
+  2. In scroll_core/views.py, create a test_500 function that raises an exception to simulate a server error.
+  3. In scroll_manager/urls.py, add the test_500 view.
+  4. Ensure you have the custom_500 error handler defined in scroll_core/views.py.
+  5. Push your changes to the Heroku repository to ensure the new error page is available in production.
+  6. Ensure DEBUG is set to False in the Heroku environment variables.
+  7. Visit the deployed Heroku app URL with the /test-500/ path to trigger a 500 error and see the custom error page.
+
+    ![x](/documentation/images/testing/error-500-production.webp) 
 
 <br></details>
 
@@ -231,9 +269,9 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 |ERR-001|Custom 403 Error Page - localhost|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|PASS|localhost|
 |ERR-002|Custom 404 Error Page - localhost|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|PASS|localhost|
 |ERR-003|Custom 500 Error Page - localhost|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|PASS|localhost|
-|ERR-004|Custom 403 Error Page - production|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|---|production|
+|ERR-004|Custom 403 Error Page - production|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|PASS|production|
 |ERR-005|Custom 404 Error Page - production|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|PASS|production|
-|ERR-006|Custom 500 Error Page - production|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|---|production|
+|ERR-006|Custom 500 Error Page - production|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|PASS|production|
 
 ### User Interaction Test (UIA)
 
