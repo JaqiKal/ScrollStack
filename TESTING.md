@@ -112,8 +112,53 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 ### Error Handling (ERR)
 
+#### Manual steps to render error page on local host and in production
+
+**Note:** If the project is set up to collect static files in a production-like environment (i.e., DEBUG = False), missing static files might cause warnings or errors that can affect the rendering of the error pages.
+
+<details>
+  <summary>Manual test case to simulate error in local host</summary><br>
+
+- Manual steps to simulate error 403 in local host:
+
+  1. Ensure the 403.html template exists in the templates/errors directory properly formatted.
+  2. In scroll_core/views.py, create a test_403 function that raises a PermissionDenied.
+  3. In scroll_manager/urls.py, Add URL pattern 'test_403' for testing view.
+  4. In scroll_core/views.py, add a custom_403 function to return the 403 error page.
+  5. In settings.py set DEBUG = True
+  6. Visit localhost and add /test-403 to the end of the www url path.
+  7. Verify that the custom 403.html template is displayed with the error message: "Error 403: Forbidden".
+
+- Manual steps to simulate error 404 in local host:
+
+  1. Ensure the 404.html template exists in the templates/errors directory properly formatted.
+  2. In scroll_core/views.py, create a custom_404 function that returns a '404' response.
+  3. In scroll_manager/urls.py, add the custom error handler for 404
+  4. In settings.py set DEBUG = False
+  5. Visit localhost and add a non-existent path such as /non-existent to the end of the www url path.
+  6. Verify that the custom 404.html template is displayed with the error message: "Error 404: Not Found".
+
+- Manual steps to simulate error 500 in local host:
+
+  1. Ensure the 500.html template exists in the templates/errors directory properly formatted.
+  2. In scroll_core/views.py, create a test_500 function that raises an exception to simulate a server error.
+  3. In scroll_core/views.py, add a custom_500 error handler that returns a 500 response.
+  4. In scroll_manager/urls.py, add the test_500 view.
+  5. In scroll_manager/urls.py, add the custom_500 error handler.
+  6. In settings.py set DEBUG = False
+  7. Visit localhost and add /test-500 to the end of the www url path.
+  8. Verify that the custom 500.html template is displayed with the error message: "Error 500: Internal Server Error.".
+
+</details>
+
 | TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
 |---|---|---|---|---|---|
+|ERR-001|Custom 403 Error Page - localhost|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|PASS|localhost|
+|ERR-002|Custom 404 Error Page - localhost|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|PASS|localhost|
+|ERR-003|Custom 500 Error Page - localhost|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|PASS|localhost|
+|ERR-004|Custom 403 Error Page - production|Display the custom 403.html page with error message|Visit http://localhost:8000/test-403|---|production|
+|ERR-005|Custom 404 Error Page - production|Display the custom 404.html page with error message|Visit http://localhost:8000/test-404|---|production|
+|ERR-006|Custom 500 Error Page - production|Display the custom 500.html page with error message|Visit http://localhost:8000/test-500|---|production|
 
 ### User Interaction Test (UIA)
 

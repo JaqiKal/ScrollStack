@@ -138,7 +138,6 @@ class Book(models.Model):
         blank=True
     )
    
-
     image = CloudinaryField(
         'image',
         default='https://res.cloudinary.com/dsbcjtatz/image/upload/v1714578907/scroll_core/book_cover_images/default-book-cover_t2lyio.webp',
@@ -153,7 +152,6 @@ class Book(models.Model):
         },
         allowed_formats=['webp', 'jpg', 'jpeg', 'png'], 
     )
-
 
 
     image_alt = models.CharField(

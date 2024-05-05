@@ -1,7 +1,7 @@
 # scroll_core/views.py
 from django.shortcuts import render
 from django.http import (
-    HttpResponse, HttpResponseRedirect, HttpResponseForbidden,
+    HttpResponseForbidden,
     HttpResponseNotFound, HttpResponseServerError
 )
 from django.views.generic import (
@@ -17,8 +17,8 @@ from django.urls import reverse_lazy
 from .models import Profile
 from .forms import SearchForm
 from django.db.models import Q 
-
-
+# Test error 403
+from django.core.exceptions import PermissionDenied
 
 
 
@@ -199,25 +199,28 @@ def profile(request):
 # Custom Error pages
 def custom_403(request, exception):
     """Custom view to handle 403 Forbidden errors"""
-    # Render the template
     html_content = render(request, 'errors/403.html', status=403)
-    # Wrap the rendered content with HttpResponseForbidden
     return HttpResponseForbidden(html_content)
 
 def custom_404(request, exception):
     """Custom view to handle 404 Not Found errors."""
-    # Render the template
     html_content = render(request, 'errors/404.html', status=404)
-    # Wrap the rendered content with HttpResponseNotFound
     return HttpResponseNotFound(html_content)
 
 def custom_500(request):
     """Custom view to handle 500 Internal Server errors."""
-    # Render the template
     html_content = render(request, 'errors/500.html', status=500)
-    # Wrap the rendered content with HttpResponseServerError
     return HttpResponseServerError(html_content)
 
-# Help page
+# Help/Guide page
 def guide(request):
     return render(request, 'scroll_core/guide.html')
+
+#Test Error page
+def test_403(request):
+    """Simulate a 403 error for testing purposes."""
+    raise PermissionDenied("Test 403 Permission Denied")
+
+def test_500(request):
+    """Simulate a 500 error for testing purposes."""
+    raise Exception("Test 500 Internal Server Error")

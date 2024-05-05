@@ -40,7 +40,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
@@ -48,7 +48,7 @@ ALLOWED_HOSTS = [
     '8000-jaqikal-scrollstack-5swovgh53o4.ws-eu110.gitpod.io',
     '.herokuapp.com', # Allows any subdomain of herokuapp.com for Heroku deployments
     '127.0.0.1',      # Allows localhost by IP
-    '.gitpod.io'     # Allows any subdomain of gitpod.io
+    '.gitpod.io'      # Allows any subdomain of gitpod.io
 ]
 
 
