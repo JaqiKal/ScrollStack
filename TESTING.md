@@ -100,12 +100,22 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 |  Goals | Expected Outcome | Testing Performed | Result |
 | :--- | :--- | :--- | :--- |
 
-### Normal Test Case (NRM)
+### **Normal Functionality Tests (NRM)**
 
 | TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
 |---|---|---|---|---|---|
+|NRM-001|Sign Up | Register a new user account successfully | Fill out and submit the sign-up form | | Valid credentials |
+|NRM-002|Login | Login to an existing user account | Fill out and submit the login form | | Valid credentials |
+|NRM-003|Logout | Successfully log out of the application | Click "Logout" in the navbar | | |
+|NRM-004|Reset Forgotten Password | Receive a reset password email | Submit the forgotten password form | | |
+|NRM-005|Add Book | Add a new book to the user's collection | Fill out and submit the "Add Book" form | | Valid book details |
+|NRM-006|Edit Book | Update the details of an existing book | Fill out and submit the "Edit Book" form | | Valid book details |
+|NRM-007|Delete Book | Remove a book from the user's collection | Confirm the book deletion on the "Confirm Delete" page | | Confirm dialog |
+|NRM-008|Search Books | Find books by title or author | Enter a query and submit the search form | | Matching results |
+|NRM-009|View Book List | Display a list of all the user's books | Visit "My Library" page | | All books shown |
+|NRM-010|View Book Details | Display the details of a specific book | Visit the book details page | | Correct book data |
 
-### Error Handling (ERR)
+### **Error Handling Tests (ERR)**
 
 #### Manual steps to render error page on local host and in production
 
@@ -268,6 +278,42 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 |ERR-005|Custom 404 Error Page - production|Display the custom 404.html page with error message|Visit heroku...//idontexist|PASS|production|
 |ERR-006|Custom 500 Error Page - production|Display the custom 500.html page with error message|Visit heroku...//test-500|PASS|production|
 
+
+### **Integration Tests**
+
+| TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
+|---|---|---|---|---|---|
+|INT-001|User Profile Management | Update and upload a new profile picture successfully | Fill out and submit the "Edit Profile" form | | Updated profile picture |
+|INT-002|Genre Filtering | Filter books by selecting a genre | Select a genre from the filter dropdown | | Only books matching the genre |
+|INT-003|Feedback Feature | Send user feedback via form | Fill out and submit the feedback form | | Confirmation message |
+|INT-004|Guide Access | Access the guide for book management | Visit the "Guide" page | | Guide page content |
+
+### **Robustness Tests**
+
+| TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
+|---|---|---|---|---|---|
+|ROB-001|Duplicate Book | Prevent adding a duplicate book | Attempt to add a book with an existing ISBN | | Validation error |
+|ROB-002|Invalid ISBN | Prevent adding a book with an invalid ISBN | Attempt to add a book with an invalid ISBN | | Validation error |
+|ROB-003|Blank Fields | Prevent form submission with blank required fields | Submit forms with missing data | | Validation error |
+|ROB-004|Unauthorized Book Edit | Prevent unauthorized book editing | Attempt to edit a book not owned by the user | | Custom 403 page |
+|ROB-005|Unauthorized Book Deletion | Prevent unauthorized book deletion | Attempt to delete a book not owned by the user | | Custom 403 page |
+|ROB-006|Invalid Profile Image | Prevent uploading an unsupported image format | Attempt to upload a non-image file as the profile picture | | Validation error |
+
+### **Accessibility Tests**
+
+| TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
+|---|---|---|---|---|---|
+|ACC-001|Keyboard Navigation | Navigate the website using only the keyboard | Use tab and enter keys to navigate | | Smooth navigation |
+|ACC-002|Screen Reader Compatibility | Ensure compatibility with screen readers | Use a screen reader to browse the site | | All content read properly |
+|ACC-003|Color Contrast | Verify sufficient color contrast | Use color contrast tools | | Meets WCAG guidelines |
+
+### **Responsive Design Tests**
+
+| TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
+|---|---|---|---|---|---|
+|RESP-001|Mobile Navigation | Ensure proper display and navigation on mobile devices | Browse the site on mobile devices | | Mobile-first design |
+|RESP-002|Tablet Navigation | Ensure proper display and navigation on tablet devices | Browse the site on tablets | | Consistent behavior |
+|RESP-003|Desktop Navigation | Ensure proper display and navigation on desktop devices | Browse the site on desktop | | Consistent behavior |
 
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
