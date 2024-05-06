@@ -240,7 +240,12 @@ class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
         messages.success(self.request, "Password changed successfully!")
         return redirect('account_reset_password_done')
     
-    
+    def form_invalid(self, form):
+        """
+        Handles form validation failure.
+        """
+        messages.error(self.request, "Password reset failed. Please try again")
+        return super().form_invalid(form)
 
 
 
