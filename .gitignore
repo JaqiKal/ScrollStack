@@ -13,3 +13,4 @@ scroll_core/books_data.json
 env
 venv
 .fullDB.json
+.debug.log
