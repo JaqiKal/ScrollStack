@@ -218,24 +218,38 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
             BookDeleteView, self).delete(request, *args, **kwargs)
 
 
+# Error page helpers
+def get_redirect_url(request):
+    if request.user.is_authenticated:
+        return 'book-list'
+    return 'home'
+
+
 # Custom Error pages
 def custom_403(request, exception):
     """Custom view to handle 403 Forbidden errors"""
-    html_content = render(request, 'errors/403.html', status=403)
-    return HttpResponseForbidden(html_content)
+    context = {
+        'redirect_url': get_redirect_url(request)
+    }
+    return render(request, 'errors/403.html', context, status=403)
+
 
 def custom_404(request, exception):
     """Custom view to handle 404 Not Found errors."""
-    html_content = render(request, 'errors/404.html', status=404)
-    return HttpResponseNotFound(html_content)
+    context = {
+        'redirect_url': get_redirect_url(request)
+    }
+    return render(request, 'errors/404.html', context, status=404)
+
 
 def custom_500(request):
     """Custom view to handle 500 Internal Server errors."""
-    html_content = render(request, 'errors/500.html', status=500)
-    return HttpResponseServerError(html_content)
+    context = {
+        'redirect_url': get_redirect_url(request)
+    }
+    return render(request, 'errors/500.html', context, status=500)
+
 
 # Help/Guide page
 def guide(request):
     return render(request, 'scroll_core/guide.html')
-
-

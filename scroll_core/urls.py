@@ -16,5 +16,6 @@ urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path('guide/', guide, name='guide'),
 
+
 ]
 
