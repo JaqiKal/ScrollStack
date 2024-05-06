@@ -9,6 +9,9 @@ from django.conf.urls import handler403, handler404, handler500
 from scroll_core.views import custom_403, custom_404, custom_500
 from scroll_core.views import CustomPasswordResetFromKeyView
 
+
+
+
 urlpatterns = [
 
     # Admin site URLs, provides a web-based interface
@@ -19,11 +22,10 @@ urlpatterns = [
     path('', include('scroll_core.urls')),
     path('home/', include('scroll_home.urls')),
     path('accounts/password/reset/key/<uidb36>-<key>/', CustomPasswordResetFromKeyView.as_view(), name='account_reset_password_from_key'),
-    path('accounts/password/reset/done/', include('allauth.urls'), name='account_reset_password_done'),
     path('accounts/', include('allauth.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
-   
-]
+   ]
+
 
 # Setting custom error handlers
 handler403 = 'scroll_core.views.custom_403'
