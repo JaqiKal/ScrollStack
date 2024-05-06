@@ -231,6 +231,17 @@ class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
         context['uidb36'] = self.kwargs.get('uidb36')
         context['token'] = self.kwargs.get('key')
         return context
+    
+    def form_valid(self, form):
+        """
+        Handles form validation and password reset success.
+        """
+        response = super().form_valid(form)
+        messages.success(self.request, "Password changed successfully!")
+        return redirect('account_reset_password_done')
+    
+    
+
 
 
 

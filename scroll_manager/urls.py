@@ -19,6 +19,7 @@ urlpatterns = [
     path('', include('scroll_core.urls')),
     path('home/', include('scroll_home.urls')),
     path('accounts/password/reset/key/<uidb36>-<key>/', CustomPasswordResetFromKeyView.as_view(), name='account_reset_password_from_key'),
+    path('accounts/password/reset/done/', include('allauth.urls'), name='account_reset_password_done'),
     path('accounts/', include('allauth.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
    
