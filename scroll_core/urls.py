@@ -2,7 +2,7 @@
 
 from django.urls import path, include
 from .views import (index, BookListView, BookDetailView, BookCreateView, 
-                    BookUpdateView, BookDeleteView, guide, show_sent_emails)
+                    BookUpdateView, BookDeleteView, guide)
 
 
 urlpatterns = [
@@ -15,7 +15,6 @@ urlpatterns = [
     path('books/<int:pk>/delete/', BookDeleteView.as_view(), name='book-delete'),
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path('guide/', guide, name='guide'),
-    path('show-emails/', show_sent_emails, name="show_sent_emails"),
 
 
 ]
