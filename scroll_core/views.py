@@ -16,6 +16,7 @@ from .forms import SearchForm
 from django.db.models import Q 
 from django.utils import timezone
 from allauth.account.views import PasswordResetFromKeyView
+import logging
 
 
 
@@ -231,6 +232,7 @@ class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
         context = super().get_context_data(**kwargs)
         context['uidb36'] = self.kwargs.get('uidb36')
         context['token'] = self.kwargs.get('key')
+        logger.debug("Context data: %s", context)
         return context
     
     def form_valid(self, form):
@@ -239,12 +241,14 @@ class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
         """
         response = super().form_valid(form)
         messages.success(self.request, "Password changed successfully!")
+        logger.info("Password reset successfully for user: %s", self.request.user)
         return redirect('account_reset_password_done')
     
     def form_invalid(self, form):
         """
         Handles form validation failure.
         """
+        logger.warning("Form is invalid: %s", form.errors)
         messages.error(self.request, "Password reset failed. Please try again")
         return super().form_invalid(form)
 
