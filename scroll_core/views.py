@@ -15,6 +15,8 @@ from django.urls import reverse_lazy
 from .forms import SearchForm
 from django.db.models import Q 
 from django.utils import timezone
+from allauth.account.views import PasswordResetFromKeyView
+
 
 
 
@@ -217,6 +219,19 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         # Continue with the deletion process.S
         return super(
             BookDeleteView, self).delete(request, *args, **kwargs)
+
+    
+class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
+    """
+    Extends PasswordResetFromKeyView to add 'uidb36' and 'token'
+    to the context, ensuring they are available in the template.
+    """    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['uidb36'] = self.kwargs.get('uidb36')
+        context['token'] = self.kwargs.get('key')
+        return context
+
 
 
 # Error page helpers
