@@ -15,6 +15,8 @@ from django.urls import reverse_lazy
 from .forms import SearchForm
 from django.db.models import Q 
 from django.utils import timezone
+from pathlib import Path
+import os
 
 
 
@@ -216,6 +218,42 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         # Continue with the deletion process.S
         return super(
             BookDeleteView, self).delete(request, *args, **kwargs)
+
+# A view to show sent email
+def show_sent_emails(request):
+    base_dir = Path(__file__).resolve().parent.parent / "scroll_manager" / "sent_emails"
+    log_files = [f for f in os.listdir(base_dir) if f.endswith(".log")]
+
+
+    emails = []
+    if log_files:
+        # Sort log files by their last modification time in descending order
+        sorted_files= sorted(log_files, key=lambda f: (base_dir / f).stat().st_mtime,reverse=True)
+        most_recent_log = sorted_files[0]
+
+        # Read the content of the most recent log file
+        log_file_path =  base_dir / most_recent_log
+        with open(log_file_path, "r") as file:
+            content = file.read()
+            emails.append({"filename": most_recent_log, 'content': content})
+
+    context = {"emails": emails}
+    return render(request, "scroll_core/show_emails.html", context)
+
+
+
+
+
+#    emails = []
+#    for log_file in log_files:
+#        log_file_path = base_dir / log_file
+#        with open(log_file_path, "r") as file:
+#            content = file.read()
+#            emails.append({"filename": log_file, "content": content})
+
+#    context = {"emails": emails}
+#    return render(request, "scroll_core/show_emails.html", context)
+
 
 
 # Error page helpers

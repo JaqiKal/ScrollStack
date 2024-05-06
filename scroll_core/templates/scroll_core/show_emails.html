@@ -1,0 +1,22 @@
+<!-- scroll_core/templates/scroll_core/show_emails.html -->
+{% extends "base.html" %}
+{% block title %}Sent Emails{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h1>Sent Emails</h1>
+                <p><strong>This page simulates an email sent to you. Within, you'll find instructions to reset your
+                        password.</strong></p>
+            </div>
+            {% for email in emails%}
+            <div class="card my-3" style="max-height: 500px; overflow-y: auto;">
+                <div class="card-body">
+                    <h2 class="card-title">{{ email.filename }}</h2>
+                    <pre class="card-text">{{ email.content }}</pre>
+                </div>
+            </div>
+            {% endfor %}
+            {% endblock %}

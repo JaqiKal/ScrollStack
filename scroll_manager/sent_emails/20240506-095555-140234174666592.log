@@ -1,0 +1,24 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: [example.com] Password Reset Email
+From: webmaster@localhost
+To: jaqika@gmauil.com
+Date: Mon, 06 May 2024 09:55:55 -0000
+Message-ID: <171498935538.12754.3387696989218207147@localhost>
+
+Hello from example.com!
+
+You are receiving this email because you or someone else has requested a
+password for your user account. However, we do not have any record of a user
+with email jaqika@gmauil.com in our database.
+
+This mail can be safely ignored if you did not request a password reset.
+
+If it was you, you can sign up for an account using the link below.
+
+http://8080-jaqikal-scrollstack-mlrf0igql3r.ws-eu111.gitpod.io/accounts/signup/
+
+Thank you for using example.com!
+example.com
+-------------------------------------------------------------------------------

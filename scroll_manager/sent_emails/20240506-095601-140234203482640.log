@@ -1,0 +1,21 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: [example.com] Password Reset Email
+From: webmaster@localhost
+To: jaqika@gmail.com
+Date: Mon, 06 May 2024 09:56:01 -0000
+Message-ID: <171498936164.12754.1969542443441870656@localhost>
+
+Hello from example.com!
+
+You're receiving this email because you or someone else has requested a password reset for your user account.
+It can be safely ignored if you did not request a password reset. Click the link below to reset your password.
+
+http://8080-jaqikal-scrollstack-mlrf0igql3r.ws-eu111.gitpod.io/accounts/password/reset/key/2-c6lnld-f36169e41a0ebf507dbf172240ebea0e/
+
+In case you forgot, your username is adminscroll.
+
+Thank you for using example.com!
+example.com
+-------------------------------------------------------------------------------
