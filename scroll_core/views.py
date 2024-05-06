@@ -220,7 +220,8 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         return super(
             BookDeleteView, self).delete(request, *args, **kwargs)
 
-    
+
+logger = logging.getLogger(__name__)
 class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
     """
     Extends PasswordResetFromKeyView to add 'uidb36' and 'token'
