@@ -771,7 +771,7 @@ Throughout the development of ScrollStack, a variety of resources have been util
     - [Django Meta options](https://docs.djangoproject.com/en/5.0/topics/db/models/#meta-options)  
     - [Override the save() method in Django ModelForm to create or update](https://stackoverflow.com/questions/45923410/override-the-save-method-in-django-modelform-to-create-or-update)
 - **Style Hamburger toggler**: [Change Hamburger-Icon, by richards](https://forum.bootstrapstudio.io/t/change-hamburger-icon/8990/2?fbclid=IwAR17UiU_5vC8sNPMZ6ZOLTAfHd5jDoKYJcOY2QogODhdRuw42l2XpcmjHTA)
-- **User profile setup:** is amended from: [Django - User Profile](https://dev.to/earthcomfy/django-user-profile-3hik)
+- **Add book statistics**: [Djangocentral](https://djangocentral.com/how-to-create-custom-context-processors-in-django/) - A context processor is a Python function that accepts an HTTP request and returns a dictionary for use in templates. It makes data like user information and site settings available globally to all templates.
 - **Sources of inspiration and guidance in general**:
     - The Django Recipe Sharing Tutorial series by Dee Mc - [Django Recipe Sharing Tutorial series](https://www.youtube.com/@IonaFrisbee).
     - [Django Tutorial](https://youtu.be/n-FTlQ7Djqc?si=Hfm94TiD4vbWolwj) by Net Ninja.
