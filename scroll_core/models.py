@@ -81,7 +81,7 @@ class Book(models.Model):
 
     slug = models.SlugField(
         max_length=255,
-        unique=True, blank=False,
+        unique=True, blank=True,
         help_text='A URL-friendly name is entered automatically on save'
     )
     publication_year = models.IntegerField(
@@ -104,7 +104,7 @@ class Book(models.Model):
         max_length=14, unique=True,
         validators=[isbn_validator],
         verbose_name='ISBN',
-        help_text='Enter the ISBN number of the book'
+        help_text='Enter the ISBN number of the book 10 or 13 digits and hyphen (format: nnn-n...)'
     )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
@@ -159,8 +159,22 @@ class Book(models.Model):
     )
 
     def save(self, *args, **kwargs):
+        """ ensure saved slug is unique """
         if not self.slug:
             self.slug = slugify(self.title)
+
+        queryset = Book.objects.filter(slug=self.slug)
+        if self.pk:
+            queryset = queryset.exclude(pk=self.pk)
+
+        if queryset.exists():
+            base_slug = self.slug
+            i = 1
+            while queryset.exists():
+                self.slug = f"{base_slug}-{i}"
+                queryset = Book.objects.filter(slug=self.slug)
+                i += 1
+
         super(Book, self).save(*args, **kwargs)
     
     def get_authors(self):
