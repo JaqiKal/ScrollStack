@@ -13,7 +13,7 @@ from .models import Book
 from .forms import BookForm
 from django.urls import reverse_lazy
 from .forms import BookSearchForm
-from django.db.models import Q 
+from django.db.models import Q
 from django.utils import timezone
 from allauth.account.views import PasswordResetFromKeyView
 
@@ -48,29 +48,36 @@ class BookListView(LoginRequiredMixin, ListView):
             user=self.request.user,
             updated_at__gte=recent_activity_timeframe
         ).order_by('-updated_at')[:10]
+        query = self.request.GET.get('query', '')
+        context['query'] = query
         return context
 
     def get_queryset(self):
         """
-        Retrieve a queryset of books based on the presence of a 'query' parameter 
-        in the GET request.
-        If the 'query' parameter exists, filter books by the title that contains 
-        this query, constrained to books owned by the current user. 
-        If the 'query' parameter does not exist, return all books owned by the user.
-        Returns: A Django QuerySet of Book instances that matches the search criteria
-        or all books owned by the user if no search criteria are provided.
+        Retrieve a queryset of books based on the presence of a 'query'
+        parameter in the GET request. If the 'query' parameter exists,
+        filter books by the title that contains this query, constrained to
+        books owned by the current user. If the 'query' parameter does 
+        not exist, return all books owned by the user.
+        Returns: A Django QuerySet of Book instances that matches the
+        search criteria or all books owned by the user if no search
+        criteria are provided.
         """
         form = BookSearchForm(self.request.GET or None)
-        if form.is_valid():
+        search_button_clicked = 'search_button' in self.request.GET
+
+        if search_button_clicked and form.is_valid():
             query = form.cleaned_data['query']
             return Book.objects.filter(
                 Q(title__icontains=query) |
                 Q(book_authors__author__last_name__icontains=query),
                 user=self.request.user
             ).distinct()
-        return Book.objects.filter(
-            user=self.request.user
-        )
+        elif search_button_clicked and not form.is_valid():
+            messages.error(self.request, "Search field cannot be empty.")
+            return Book.objects.none()
+
+        return Book.objects.filter(user=self.request.user)
 
 
 # Class-based view for listing single book
@@ -79,7 +86,6 @@ class BookDetailView(DetailView):
     model = Book
     template_name = 'scroll_core/book_detail.html'
     context_object_name = 'book'
-
 
     def get_queryset(self):
         """
@@ -91,16 +97,15 @@ class BookDetailView(DetailView):
         else:
             raise Http404("You don't have permission to view this book")
 
-
     def get_object(self, queryset=None):
         """
-        Override get_object to handle a case where a book doesn't belong to the user.
+        Override get_object to handle a case where a book doesn't
+        belong to the user.
         """
         obj = super().get_object(queryset=queryset)
         if obj.user != self.request.user:
             raise Http404("You don't have permission to view this book")
         return obj
-
 
 
 #  A view for creating a new book.
@@ -150,10 +155,11 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
         the logged-in user can be updated.
         """
         return self.request.user.books.all()
-    
+
     def get_object(self, queryset=None):
         """
-        Override get_object to handle a case where a book doesn't belong to the user.
+        Override get_object to handle a case where a book doesn't
+        belong to the user.
         """
         obj = super().get_object(queryset=queryset)
         if obj.user != self.request.user:
@@ -196,10 +202,11 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         the logged-in user can be deleted.
         """
         return self.request.user.books.all()
-    
+
     def get_object(self, queryset=None):
         """
-        Override get_object to handle a case where a book doesn't belong to the user.
+        Override get_object to handle a case where a book doesn't
+        belong to the user.
         """
         obj = super().get_object(queryset=queryset)
         if obj.user != self.request.user:
@@ -218,19 +225,18 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
             BookDeleteView, self).delete(request, *args, **kwargs)
 
 
-
 # PW reset
 class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
     """
     Extends PasswordResetFromKeyView to add 'uidb36' and 'token'
     to the context, ensuring they are available in the template.
-    """    
+    """
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['uidb36'] = self.kwargs.get('uidb36')
         context['token'] = self.kwargs.get('key')
         return context
-    
+
     def form_valid(self, form):
         """
         Handles form validation and password reset success.
@@ -238,15 +244,13 @@ class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
         response = super().form_valid(form)
         messages.success(self.request, "Password changed successfully!")
         return redirect('account_reset_password_done')
-    
+
     def form_invalid(self, form):
         """
         Handles form validation failure.
         """
         messages.error(self.request, "Password reset failed. Please try again")
         return super().form_invalid(form)
-
-
 
 
 # Error page helpers

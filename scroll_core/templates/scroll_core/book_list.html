@@ -45,10 +45,13 @@
             <form class="row flex-column flex-md-row g-1 g-md-2 justify-content-start align-items-center mb-3"
                 id="book-list-search-form" method="get" action="">
                 {% csrf_token %}
+                <!-- Hidden field to detect search button click, The hidden field search_button helps differentiate between
+                     search and pagination requests. Errors are shown only when search_button is present in the GET request. -->
+                <input type="hidden" name="search_button" value="true">
                 <!-- Search Input Field with Fixed Width -->
                 <div class="col-12 col-md-4 col-lg-3">
                     {{ form.query }}
-                    {% if form.query.errors %}
+                    {% if request.GET.search_button and form.query.errors %}
                     <div class="text-danger small mt-2">{{ form.query.errors }}</div>
                     {% endif %}
                 </div>
@@ -57,7 +60,8 @@
                 <div class="col-12 col-md-1 col-lg-1 d-none d-md-block d-xl-none"></div>
                 <!-- Search Button -->
                 <div class="col-12 col-md-5 col-lg-4 col-xl-2 d-flex gap-2">
-                    <button type="submit" class="btn btn-primary custom-btn-secondary fixed-btn-width">Search</button>
+                    <button type="submit" name="search"
+                        class="btn btn-primary custom-btn-secondary fixed-btn-width">Search</button>
 
                     <a href="{% url 'book-list' %}" class="btn btn-info custom-btn-primary fixed-btn-width">Reset</a>
                 </div>
