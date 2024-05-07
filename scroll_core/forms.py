@@ -8,6 +8,24 @@ from .models import Book, Author, BookAuthor
 from .models import Genre
 
 
+
+class AuthorForm(forms.ModelForm):
+    class Meta:
+        model = Author
+        fields = ['first_name', 'middle_name', 'last_name']
+        labels = {
+            'first_name': 'First Name',
+            'middle_name': 'Middle Name',
+            'last_name': 'Last Name'
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        cleaned_data['first_name'] = cleaned_data.get('first_name', '').strip()
+        cleaned_data['middle_name'] = cleaned_data.get('middle_name', '').strip()
+        cleaned_data['last_name'] = cleaned_data.get('last_name', '').strip()
+        return cleaned_data
+
 class BookForm(forms.ModelForm):
     """
     Form for creating or updating books with author details.
@@ -30,7 +48,9 @@ class BookForm(forms.ModelForm):
         help_text="Enter the author's last name"
     )
     remove_image = forms.BooleanField(
-        required=False, initial=False, label='Remove Current Cover Image'
+        required=False,
+        initial=False,
+        label='Remove Current Cover Image'
     )
 
     class Meta:
@@ -52,6 +72,22 @@ class BookForm(forms.ModelForm):
             'image': 'Upload New Book Cover',
         }
 
+
+    def clean(self):
+        """
+        Override the clean method to strip leading/trailing spaces 
+        from the book title, author fields, and description.
+        """
+        cleaned_data = super().clean()
+        cleaned_data['title'] = cleaned_data.get('title', '').strip()
+        cleaned_data['author_first_name'] = cleaned_data.get('author_first_name', '').strip()
+        cleaned_data['author_middle_name'] = cleaned_data.get('author_middle_name', '').strip()
+        cleaned_data['author_last_name'] = cleaned_data.get('author_last_name', '').strip()
+        cleaned_data['description'] = cleaned_data.get('description', '').strip()
+        return cleaned_data
+
+
+
     def clean_isbn(self):
         isbn = self.cleaned_data.get('isbn', '').strip()
         # Remove hyphens from ISBN for validation
@@ -72,9 +108,6 @@ class BookForm(forms.ModelForm):
         """
         super(BookForm, self).__init__(*args, **kwargs)
         if self.instance.pk:
-            """
-            Set initial author fields if editing an existing book.
-            """
             authors = self.instance.get_authors()
             if authors:
                 author = authors[0]  # Assuming only one author for simplicity
@@ -135,7 +168,9 @@ class BookForm(forms.ModelForm):
 
 
 class BookSearchForm(forms.Form):
-    # A form field for searching books by title & author
+    """
+    A form field for searching books by title & author
+    """
     query = forms.CharField(
         required=True,
         widget=forms.TextInput(
