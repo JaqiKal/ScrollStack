@@ -136,7 +136,7 @@ class BookSearchForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Search by title or author',
+                'placeholder': 'Search by title or author last-name',
             }
         )
     )
