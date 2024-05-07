@@ -174,8 +174,6 @@ img.logo {
 }
 
 /* Animated line toggle button */
-
-/* Toggle Button Alignment */
 .align-toggle {
     display: flex;
     align-items: center;
@@ -361,8 +359,13 @@ main {
     background: linear-gradient(to right, #991d00 0%, #ff8c00 25%, #ffd700 50%, #ff8c00 75%, #991d00 100%);
     margin: 10px 0;
     background-size: 200% 100%;
-    animation: flame-animation 30s ease-in-out infinite;
+    animation: flame-animation 25s ease-in-out;
 }
+
+.animate {
+    animation: flame-animation 25s ease-in-out infinite;
+}
+
 
 @keyframes flame-animation {
     0% {

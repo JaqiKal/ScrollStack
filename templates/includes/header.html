@@ -51,7 +51,7 @@
           <!-- Toggle on/off button for animation -->
           <li class="nav-item align-toggle">
             <label class="toggle">
-              <input type="checkbox" id="animation-toggle">
+              <input type="checkbox" id="animation-toggle" {% if user.is_authenticated %}checked{% endif %}>
               <span class="slider"></span>
             </label>
           </li>
@@ -74,8 +74,6 @@
           </li>
           {% endif %}
         </ul>
-        <!-- Link the JavaScript file -->
-        <script src="{% static 'js/toggle-animated-line.js' %}"></script>
       </div>
     </div>
   </nav>
