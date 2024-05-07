@@ -12,7 +12,7 @@ from django.contrib import messages
 from .models import Book
 from .forms import BookForm
 from django.urls import reverse_lazy
-from .forms import SearchForm
+from .forms import BookSearchForm
 from django.db.models import Q 
 from django.utils import timezone
 from allauth.account.views import PasswordResetFromKeyView
@@ -47,7 +47,8 @@ class BookListView(LoginRequiredMixin, ListView):
         updated books for the current logged-in user.
         """
         context = super().get_context_data(**kwargs)
-        context['form'] = SearchForm()
+
+        context['form'] = BookSearchForm()
         recent_activity_timeframe = timezone.now() - timezone.timedelta(days=7)
         context['recent_books'] = Book.objects.filter(
             user=self.request.user,
@@ -61,7 +62,7 @@ class BookListView(LoginRequiredMixin, ListView):
         in the GET request.
         If the 'query' parameter exists, filter books by the title that contains 
         this query, constrained to books owned by the current user. 
-        If the 'query' parameter does not exist,return all books owned by the user.
+        If the 'query' parameter does not exist, return all books owned by the user.
         Returns: A Django QuerySet of Book instances that matches the search criteria
         or all books owned by the user if no search criteria are provided.
         """
@@ -93,16 +94,16 @@ class BookDetailView(DetailView):
         if self.request.user.is_authenticated:
             return queryset.filter(user=self.request.user)
         else:
-            raise Http404("You don't have permisssion to view this book")
+            raise Http404("You don't have permission to view this book")
 
 
     def get_object(self, queryset=None):
         """
         Override get_object to handle a case where a book doesn't belong to the user.
         """
-        obj =  super().get_object(queryset=queryset)
+        obj = super().get_object(queryset=queryset)
         if obj.user != self.request.user:
-            raise Http404("You don't have permisssion to view this book")
+            raise Http404("You don't have permission to view this book")
         return obj
 
 
@@ -217,12 +218,13 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         """
         # Set the success message.
         messages.success(request, "Book deleted successfully!")
-        # Continue with the deletion process.S
+        # Continue with the deletion process.
         return super(
             BookDeleteView, self).delete(request, *args, **kwargs)
 
 
 
+# PW reset
 class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
     """
     Extends PasswordResetFromKeyView to add 'uidb36' and 'token'

@@ -5,6 +5,7 @@
 from django import forms
 from djrichtextfield.widgets import RichTextWidget
 from .models import Book, Author, BookAuthor
+from .models import Genre
 
 
 class BookForm(forms.ModelForm):
@@ -127,5 +128,15 @@ class BookForm(forms.ModelForm):
 
         return book
 
-class SearchForm(forms.Form):
-    query = forms.CharField(label='Search', max_length=100)
+
+class BookSearchForm(forms.Form):
+    # A form field for searchinhg books by title & author
+    query = forms.CharField(
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Search by title or author',
+            }
+        )
+    )
