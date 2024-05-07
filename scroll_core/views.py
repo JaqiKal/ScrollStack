@@ -18,12 +18,6 @@ from django.utils import timezone
 from allauth.account.views import PasswordResetFromKeyView
 
 
-
-
-
-
-
-
 # Simple function-based view for the index page
 def index(request):
     """ Render the landing page """
@@ -47,8 +41,8 @@ class BookListView(LoginRequiredMixin, ListView):
         updated books for the current logged-in user.
         """
         context = super().get_context_data(**kwargs)
-
-        context['form'] = BookSearchForm()
+        form = BookSearchForm(self.request.GET or None)
+        context['form'] = form
         recent_activity_timeframe = timezone.now() - timezone.timedelta(days=7)
         context['recent_books'] = Book.objects.filter(
             user=self.request.user,
@@ -66,8 +60,9 @@ class BookListView(LoginRequiredMixin, ListView):
         Returns: A Django QuerySet of Book instances that matches the search criteria
         or all books owned by the user if no search criteria are provided.
         """
-        query = self.request.GET.get('query')
-        if query:
+        form = BookSearchForm(self.request.GET or None)
+        if form.is_valid():
+            query = form.cleaned_data['query']
             return Book.objects.filter(
                 Q(title__icontains=query) |
                 Q(book_authors__author__last_name__icontains=query),

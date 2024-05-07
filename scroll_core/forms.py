@@ -137,7 +137,7 @@ class BookForm(forms.ModelForm):
 class BookSearchForm(forms.Form):
     # A form field for searching books by title & author
     query = forms.CharField(
-        required=False,
+        required=True,
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
@@ -145,3 +145,12 @@ class BookSearchForm(forms.Form):
             }
         )
     )
+
+    def clean_query(self):
+        """
+        Ensure the search query is not empty and strip extra spaces.
+        """
+        query = self.cleaned_data['query'].strip()
+        if not query:
+            raise forms.ValidationError("Search field cannot be empty.")
+        return query
