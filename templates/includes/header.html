@@ -57,7 +57,9 @@
           </li>
           <!-- Statistics for the number of books -->
           <li class="nav-item">
-            <span class="nav-link"><strong>Books in total:</strong> {{ user_book_count }} </span>
+            <a class="nav-link" href="{% url 'book-list' %}">
+              <strong>Books in total:</strong> {{ user_book_count }}
+            </a>
           </li>
 
           {% else %}

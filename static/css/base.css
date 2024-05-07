@@ -355,7 +355,7 @@ main {
 
 .flame-divider {
     width: 100%;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(to right, #991d00 0%, #ff8c00 25%, #ffd700 50%, #ff8c00 75%, #991d00 100%);
     margin: 10px 0;
     background-size: 200% 100%;

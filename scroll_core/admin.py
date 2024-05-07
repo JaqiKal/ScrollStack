@@ -1,12 +1,14 @@
 from django.contrib import admin
-from .models import Genre, Author, Book, BookAuthor, RichTextField
+from .models import Genre, Author, Book, BookAuthor, Profile
 from djrichtextfield.widgets import RichTextWidget
-from .models import Profile
+from djrichtextfield.models import RichTextField
+from .forms import BookForm
 
 
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
+    form = BookForm
     list_display = ('title', 'genre', 'publication_year',
                     'isbn', 'description', 'image')
     list_filter = ("genre",)

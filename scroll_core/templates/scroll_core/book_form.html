@@ -20,6 +20,18 @@
         <br>
         <form class="form p-2" method="post" enctype="multipart/form-data">
             {% csrf_token %}
+            {% if form.instance.image %}
+            <div class="form-group">
+                <!--
+                <label for="current-image">{% trans "Current Cover Image" %}</label>
+                <br>
+                -->
+                <a href="{{ form.instance.image.url }}" target="_blank" style="cursor: pointer;">
+                    <img id="current-image" src="{{ form.instance.image.url }}" width="150" height="225"
+                        alt="{{ form.instance.image_alt }}" />
+                </a>
+            </div>
+            {% endif %}
             {{ form|crispy }}
             <button type="submit" class="btn btn-primary custom-btn-secondary">{% trans "Save" %}</button>
 

@@ -170,6 +170,14 @@ class Book(models.Model):
         self.deleted_at = timezone.now()
         self.save()
 
+    def remove_image(self):
+        """
+        Removes the current image of the book by setting it back to the default value.
+        """
+        self.image = 'https://res.cloudinary.com/dsbcjtatz/image/upload/v1714578907/scroll_core/book_cover_images/default-book-cover_t2lyio.webp'
+        self.save()
+
+        
     def __str__(self):
         return self.title
 

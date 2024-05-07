@@ -337,8 +337,11 @@ xx
 
 ### KNOWN issue 
 
+#### Empty Non-Editable "Currently" Field for Book Cover Image. 
+- When editing a book's details in the form, an empty non-editable input field labeled "Currently" appear next to the "Book Cover Image" field. Despite attempts to remove it using custom Crispy Forms layouts and explicit HTML templates, the field remains visible. This field is likely rendered due to how the Django `ImageField` widget works with Crispy Forms. By default, it tries to provide an indication of the current file path, even if the image is not explicitly displayed.
+
 #### Gitpod IDE
-Three notifications suggest that specific VS Code extensions are either installed or recommended in the workspace but are not listed in the .gitpod.yml file. To address these notifications and ensure consistent synchronization of these extensions across various setups, the extensions should be included under the vscode.extensions section of the .gitpod.yml file.
+- Three notifications suggest that specific VS Code extensions are either installed or recommended in the workspace but are not listed in the .gitpod.yml file. To address these notifications and ensure consistent synchronization of these extensions across various setups, the extensions should be included under the vscode.extensions section of the .gitpod.yml file.
 
 Tutor support has indicated that these notifications can be safely ignored as they merely warn that the three extensions are installed but not synchronized.
 

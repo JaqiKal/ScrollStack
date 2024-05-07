@@ -29,13 +29,16 @@ class BookForm(forms.ModelForm):
         required=True,
         help_text="Enter the author's last name"
     )
+    remove_image = forms.BooleanField(
+        required=False, initial=False, label='Remove Current Cover Image'
+    )
 
     class Meta:
         model = Book
         fields = [
             'title', 'author_first_name', 'author_middle_name',
             'author_last_name', 'genre', 'publication_year', 'isbn',
-            'description', 'image'
+            'description', 'image', 'remove_image'
         ]
         widgets = {
             'description': RichTextWidget(attrs={"rows": 5}),
@@ -46,7 +49,7 @@ class BookForm(forms.ModelForm):
             'isbn': 'ISBN Number',
             'publication_year': 'Publication Year',
             'description': 'Description',
-            'image': 'Book Cover Image',
+            'image': 'Upload New Book Cover',
         }
 
     def clean_isbn(self):
@@ -57,7 +60,7 @@ class BookForm(forms.ModelForm):
         # Check if the ISBN digits are only numeric and 10 or 13 digits long
         if not isbn_digits.isdigit() or len(isbn_digits) not in [10, 13]:
             raise forms.ValidationError(
-                "Enter a valid ISBN number. ISBN should be 10 or 13 digits long."
+                "Enter a valid ISBN number. ISBN should be 10 or 13 digits long incl. a hyphen (xxx-...)."
             )
         return isbn  # Return the original ISBN with hyphens
 
@@ -80,14 +83,12 @@ class BookForm(forms.ModelForm):
                 self.fields['author_last_name'].initial = author.last_name
                 self.initial['author_id'] = author.id
 
+
     def save(self, commit=True):
         """
         Save the form instance and handle the creation or linking
         of the author. Avoid duplicate author entries and ensure author
         details are updated if necessary.
-        amended from :
-
-        -
         """
         # Save the Book instance as usual but do not commit yet
         # if specified so.
@@ -125,12 +126,16 @@ class BookForm(forms.ModelForm):
             if commit:
                 book.save()
                 self.save_m2m()
+        
+        # Remove the book cover image if the checkbox is checked
+        if self.cleaned_data.get('remove_image', False):
+            book.remove_image()
 
         return book
 
 
 class BookSearchForm(forms.Form):
-    # A form field for searchinhg books by title & author
+    # A form field for searching books by title & author
     query = forms.CharField(
         required=False,
         widget=forms.TextInput(
