@@ -5,13 +5,11 @@
 <main class="book-detail">
     <div class="container mt-3">
         <h1>Book Details</h1>
-        <div class="row">
-            <div class="col-12 col-md-8 col-lg-6 mx-auto">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
                 <div class="card border border-danger custom-card-detail">
                     {% if book.image and book.image.url %}
                     <img src="{{ book.image.url }}" alt="{{ book.title }}" class="img-fluid mx-auto custom-detail-img">
-
-
                     {% else %}
                     <img src="{% static 'images/default-book-cover.webp' %}" alt="{{ book.title }}"
                         class="img-fluid mx-auto custom-detail-img">
@@ -26,17 +24,22 @@
                             {% if not forloop.last %}, {% endif %}
                             {% endfor %}
                         </p>
-                        <p class="card-text"><small class="text-muted">
-                                <strong>Genre:</strong> {{ book.genre.name }}</small>
-                        </p>
-                        <p class="card-text">{{ book.description }}</p>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6  text-start">
+                                <small class="text-muted"><strong>Genre:</strong> {{ book.genre.name }}</small>
+                            </div>
+                            <div class="col-12 col-md-6 text-md-end text-start mt-2 mt-md-0">
+                                <small class="text-muted"><strong>ISBN:</strong> {{ book.isbn }}</small>
+                            </div>
+                        </div>
+                        <p class="card-text mt-3">{{ book.description }}</p>
                         <p class="card-text custom-addat">
                             <small class="text-muted"><strong>Added on:</strong>
                                 {{ book.added_at|date:"Y-m-d" }}</small>
                         </p>
-                        <!-- Dropdown menu instead of buttons -->
+                        <!-- Dropdown menu for actions -->
                         <div class="d-flex justify-content-center align-items-center mt-3">
-
                             <div class="dropdown">
                                 <button class="btn btn-secondary custom-btn-secondary dropdown-toggle" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">

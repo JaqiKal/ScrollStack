@@ -48,6 +48,14 @@
               {{ user.username }}</a>
           </li>
 
+          <!-- Toggle on/off button for animation -->
+          <li class="nav-item align-toggle">
+            <label class="toggle">
+              <input type="checkbox" id="animation-toggle">
+              <span class="slider"></span>
+            </label>
+          </li>
+
           {% else %}
           <li class="nav-item custom-head-home">
             <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
@@ -66,9 +74,8 @@
           </li>
           {% endif %}
         </ul>
-        {% if request.user.is_authenticated %}
-        <!-- keeping as placeholder-->
-        {% endif %}
+        <!-- Link the JavaScript file -->
+        <script src="{% static 'js/toggle-animated-line.js' %}"></script>
       </div>
     </div>
   </nav>
