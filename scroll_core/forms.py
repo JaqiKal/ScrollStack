@@ -4,9 +4,9 @@
 
 from django import forms
 from djrichtextfield.widgets import RichTextWidget
-from .models import Book, Author, BookAuthor
-from .models import Genre
-
+from .models import Book, Author, BookAuthor, Genre
+from django.core.exceptions import ValidationError
+import os
 
 
 class AuthorForm(forms.ModelForm):
@@ -26,12 +26,16 @@ class AuthorForm(forms.ModelForm):
         cleaned_data['last_name'] = cleaned_data.get('last_name', '').strip()
         return cleaned_data
 
+
+def validate_image_file_extension(image):
+    ext = os.path.splitext(image.name)[1]  # Get the file extension
+    valid_extensions = ['.jpg', '.jpeg', '.png', '.webp']  # Add allowed formats here
+    if ext.lower() not in valid_extensions:
+        raise ValidationError(
+            'Unsupported file extension. Only jpg, jpeg, png, and webp are allowed.'
+        )
+
 class BookForm(forms.ModelForm):
-    """
-    Form for creating or updating books with author details.
-    Explicitly define author fields if not inheriting directly
-    from an Author model.
-    """
     author_first_name = forms.CharField(
         max_length=100,
         required=False,
@@ -72,6 +76,11 @@ class BookForm(forms.ModelForm):
             'image': 'Upload New Book Cover',
         }
 
+    image = forms.ImageField(
+        validators=[validate_image_file_extension],
+        required=False,
+        help_text="Upload a cover image. Only jpg, jpeg, png, and webp formats are allowed."
+    )
 
     def clean(self):
         """
@@ -85,7 +94,6 @@ class BookForm(forms.ModelForm):
         cleaned_data['author_last_name'] = cleaned_data.get('author_last_name', '').strip()
         cleaned_data['description'] = cleaned_data.get('description', '').strip()
         return cleaned_data
-
 
 
     def clean_isbn(self):
@@ -115,6 +123,17 @@ class BookForm(forms.ModelForm):
                 self.fields['author_middle_name'].initial = author.middle_name
                 self.fields['author_last_name'].initial = author.last_name
                 self.initial['author_id'] = author.id
+
+
+
+def validate_image_file_extension(image):
+    ext = os.path.splitext(image.name)[1]  # Get the file extension
+    valid_extensions = ['.jpg', '.jpeg', '.png', '.webp']  # Add allowed formats here
+    if ext.lower() not in valid_extensions:
+        raise ValidationError(
+            'Unsupported file extension. Only jpg, jpeg, png, and webp are allowed.'
+        )
+
 
 
     def save(self, commit=True):

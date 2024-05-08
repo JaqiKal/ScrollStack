@@ -4,10 +4,21 @@
 
 {% load i18n crispy_forms_tags %}
 
+{% if form.errors %}
+<div class="alert alert-danger">
+    <ul>
+        {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
 
 {% block head_title %}{% trans "Add or Edit book details" %}{% endblock %}
-
 {% block content %}
+
 <div class="container mt-4 left custom-form-container">
     <div class="row">
         <h1 class="visually-hidden">Add/Edit Form</h1>
@@ -16,16 +27,12 @@
             make all necessary changes in the fields below. Once you are satisfied with the updates, click the 'Save'
             button to apply the changes. If you wish to cancel and return to the previous page without making any
             changes, click the 'Cancel' button.{% endblocktrans %}</p>
-
         <br>
+
         <form class="form p-2" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% if form.instance.image %}
             <div class="form-group">
-                <!--
-                <label for="current-image">{% trans "Current Cover Image" %}</label>
-                <br>
-                -->
                 <a href="{{ form.instance.image.url }}" target="_blank" style="cursor: pointer;">
                     <img id="current-image" src="{{ form.instance.image.url }}" width="150" height="225"
                         alt="{{ form.instance.image_alt }}" />

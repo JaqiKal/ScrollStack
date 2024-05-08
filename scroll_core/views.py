@@ -17,7 +17,6 @@ from django.db.models import Q
 from django.utils import timezone
 
 
-
 # Simple function-based view for the index page
 def index(request):
     """ Render the landing page """
@@ -130,6 +129,11 @@ class BookCreateView(LoginRequiredMixin, CreateView):
         # Set the success message.
         messages.success(self.request, "Book added successfully!")
         return response
+    
+    
+    def form_invalid(self, form):
+        messages.error(self.request, "There was an error with your submission.")
+        return super().form_invalid(form)
 
     def get_success_url(self):
         """
@@ -176,6 +180,10 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
         # ensure the form is processed correctly with any additional
         # functionality provided by the parent class.
         return super().form_valid(form)
+        
+    def form_invalid(self, form):
+        messages.error(self.request, "There was an error with your submission.")
+        return super().form_invalid(form)
 
     def get_success_url(self):
         """
