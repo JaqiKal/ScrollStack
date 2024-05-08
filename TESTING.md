@@ -294,23 +294,23 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 |ROB-003|Blank Fields | Prevent form submission with blank required fields | Submit forms with missing data | PASS | Validation error |
 |ROB-004|Unauthorized Book Edit | Prevent unauthorized book editing | Attempt to edit a book not owned by the user | PASS | Custom 403 page |
 |ROB-005|Unauthorized Book Deletion | Prevent unauthorized book deletion | Attempt to delete a book not owned by the user | PASS | Custom 403 page |
-|ROB-006|Invalid Image | Prevent uploading an unsupported image format | Attempt to upload a non-image file as the cover picture |  | Validation error |
+|ROB-006|Invalid Image | Prevent uploading an unsupported image format | Attempt to upload a non-image file as the cover picture | PASS | Validation error |
 
 ### **Accessibility Tests**
 
 | TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
 |---|---|---|---|---|---|
-|ACC-001|Keyboard Navigation | Navigate the website using only the keyboard | Use tab and enter keys to navigate | | Smooth navigation |
-|ACC-002|Screen Reader Compatibility | Ensure compatibility with screen readers | Use a screen reader to browse the site | | All content read properly |
-|ACC-003|Color Contrast | Verify sufficient color contrast | Use color contrast tools | | Meets WCAG guidelines |
+|ACC-001|Keyboard Navigation | Navigate the website using only the keyboard | Use tab and enter keys to navigate | PASS | Smooth navigation |
+|ACC-002|Screen Reader Compatibility | Ensure compatibility with screen readers | Use a screen reader to browse the site | PASS | All content read properly |
+|ACC-003|Color Contrast | Verify sufficient color contrast | Use color contrast tools | PASS | Meets WCAG guidelines |
 
 ### **Responsive Design Tests**
 
 | TestCase ID | Feature | Expected Outcome | Testing Performed | Result | Comment |
 |---|---|---|---|---|---|
-|RESP-001|Mobile Navigation | Ensure proper display and navigation on mobile devices | Browse the site on mobile devices | | Mobile-first design |
-|RESP-002|Tablet Navigation | Ensure proper display and navigation on tablet devices | Browse the site on tablets | | Consistent behavior |
-|RESP-003|Desktop Navigation | Ensure proper display and navigation on desktop devices | Browse the site on desktop | | Consistent behavior |
+|RESP-001|Mobile Navigation | Ensure proper display and navigation on mobile devices | Browse the site on mobile devices | PASS | Mobile-first design |
+|RESP-002|Tablet Navigation | Ensure proper display and navigation on tablet devices | Browse the site on tablets | PASS| Consistent behavior |
+|RESP-003|Desktop Navigation | Ensure proper display and navigation on desktop devices | Browse the site on desktop | PASS | Consistent behavior |
 
 
 *<span style="color: blue;">[Back to Content](#content)</span>*

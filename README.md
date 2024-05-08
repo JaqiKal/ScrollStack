@@ -185,6 +185,7 @@ The competencies developed through this project are intended not just to satisfy
 - [Look](https:www.looka.com)  - For the logo and symbol
 - [Lucidchart](https://www.lucidchart.com) - Used for ERD (entity relationship diagram) 
 - [Markup Validation Service](https://validator.w3.org/) - Used to check code ensuring that my HTML is error-free and adheres to the latest web standards.
+- [NVDA]() - NonVisual Desktop Access is a free and open-source, portable screen reader for Microsoft Windows.
 - [PEP8](https://peps.python.org/pep-0008/)- Style Guide for Python Code.
 - [PostgreSQL](https://www.postgresql.org/) - Is a powerful, open source object-relational database system.
 - [Shields.io](https://shields.io/) - To add badges to the README.

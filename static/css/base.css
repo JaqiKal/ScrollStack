@@ -178,6 +178,7 @@ img.logo {
     display: flex;
     align-items: center;
     padding-left: 16px;
+    margin-bottom: 5px;
 }
 
 .toggle {
