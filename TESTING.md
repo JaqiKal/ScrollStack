@@ -342,6 +342,6 @@ xx
 
 Tutor support has indicated that these notifications can be safely ignored as they merely warn that the three extensions are installed but not synchronized.
 
-![x](/documentation/testing-img/ext-error.webp)
+![x](/documentation/images/testing/ext-error.webp)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*

@@ -399,25 +399,38 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 
 #### Navigation 
 
-![x]()
-
-
 - The navigation bar is consistent across all pages, with slight modifications based on the context of the user's session status (e.g., whether the user is logged in or not). 
-    - For Non-Logged-In Users: Landing Page/Logo, Contact, Register, Login
-    - For Logged-In Users: Landing Page/Logo, My Books, Add Book, Contact, Logout
+    - For non-authenticated users:
+        - Logo/Home: Clicking this take the user back to the landing page.
+        - Sign Up: A form from where one register as new user
+        - Log In: A form for returning user to authenticate and log in.
 
-- Common elements across all pages
-    - Logo/Home: Clicking this should always take the user back to the landing page.
+    ![x](/documentation/images/readme/menu-non-authenticated-lg.webp) 
 
+    ![x](/documentation/images/readme/menu-non-authenticated-sm.webp)
+
+    - For authenticated users:
+        - Logo/My Library/username/Books in total: Clicking this take the user back to the landing page.
+        - Add book: A form where user add a book to the library.
+        - Guide: An instruction page on how to use the ScrollStack
+        - Logout: Exit to non-authenticated landing page.
+        - Users name: An indicator that user is logged in.
+        - Toggle/slider button: To turn the animated line on/off
+        - Books in total: A statistic function, that shows total number of books in the register.
+
+    ![x](/documentation/images/readme/menu-authenticated-lg.webp)
+
+    ![x](/documentation/images/readme/menu-authenticated-sm.webp)
 
 - Dynamic Elements Based on User State
-    - Register/Login: Visible only when the user is not logged in. These should redirect to their respective pages for authentication.
+    - Register/Login: Visible only when the user is not authenticated. These should redirect to their respective pages for authentication.
     - Logout: Visible only when the user is logged in, allowing users to log out of the application.
 
 - Specific to Logged-in Users
-    - My Books: Leads to the book details page where users can view all their books. This should be visible only when the user is logged in.
+    - My Library: Is the authenticated user's landing page and also the view of all books.
     - Add Book: Link to the Add page where users can fill out the form to add a new book. Visible only for logged-in users. 
-
+    - Book cards: with an overview information. The card is clickable and redirects user to the detailed book view.
+    
 - Error Pages: Navigation is simple. Only the Home, Contact are included and depending on user status, Login or Logout options. 
 
 #### Landing Page
@@ -431,7 +444,22 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 The Django templates for SignUp, Login, and Logout have been customized and styled to align with the overall aesthetic of the application.
 - Register allows users to create a new account. After clicking to establish their account, users are redirected to 'Add a book'. 
 - Login in grants users access to their content. If a user doesn't have an account yet, an active link on the Login page allows them to navigate to the Register page.
+
+    - Landing page, Login page, Login Fail example, Login successful, with a message at the top of the page
+
+![x](/documentation/images/readme/login-01.webp) ![x](/documentation/images/readme/login-02.webp) ![x](/documentation/images/readme/login-03.webp) ![x](/documentation/images/readme/login-04.webp)
+
 - Logout process is handled through a simple logout button or link in the navigation menu. When clicked, this button triggers the logout functionality, and then redirects the user to the landing page.
+
+
+
+
+
+- Password reset is handled with start from Login page, where one instead of logging in also access the password reset function.
+
+![x](/documentation/images/readme/pw-reset-01.webp) ![x](/documentation/images/readme/pw-reset-02.webp) 
+
+![x](/documentation/images/readme/pw-reset-03.webp) ![x](/documentation/images/readme/pw-reset-04.webp) 
 
 #### Books List and Details page
 This page serves as the digital equivalent of a user's personal bookshelf or library.
