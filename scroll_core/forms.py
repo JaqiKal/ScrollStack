@@ -51,18 +51,18 @@ class BookForm(forms.ModelForm):
         required=True,
         help_text="Enter the author's last name"
     )
-    remove_image = forms.BooleanField(
-        required=False,
-        initial=False,
-        label='Remove Current Cover Image'
-    )
+   # remove_image = forms.BooleanField(
+   #    required=False,
+   #    initial=False,
+   #    label='Remove Current Cover Image'
+   # )
 
     class Meta:
         model = Book
         fields = [
             'title', 'author_first_name', 'author_middle_name',
             'author_last_name', 'genre', 'publication_year', 'isbn',
-            'description', 'image', 'remove_image'
+            'description', 'image',
         ]
         widgets = {
             'description': RichTextWidget(attrs={"rows": 5}),
