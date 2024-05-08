@@ -15,7 +15,7 @@ from django.urls import reverse_lazy
 from .forms import BookSearchForm
 from django.db.models import Q
 from django.utils import timezone
-from allauth.account.views import PasswordResetFromKeyView
+
 
 
 # Simple function-based view for the index page
@@ -223,34 +223,6 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
         # Continue with the deletion process.
         return super(
             BookDeleteView, self).delete(request, *args, **kwargs)
-
-
-# PW reset
-class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
-    """
-    Extends PasswordResetFromKeyView to add 'uidb36' and 'token'
-    to the context, ensuring they are available in the template.
-    """
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['uidb36'] = self.kwargs.get('uidb36')
-        context['token'] = self.kwargs.get('key')
-        return context
-
-    def form_valid(self, form):
-        """
-        Handles form validation and password reset success.
-        """
-        response = super().form_valid(form)
-        messages.success(self.request, "Password changed successfully!")
-        return redirect('account_reset_password_done')
-
-    def form_invalid(self, form):
-        """
-        Handles form validation failure.
-        """
-        messages.error(self.request, "Password reset failed. Please try again")
-        return super().form_invalid(form)
 
 
 # Error page helpers
