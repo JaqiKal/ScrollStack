@@ -461,7 +461,7 @@ The Django templates for SignUp, Login, and Logout have been customized and styl
 
 ![x](/documentation/images/readme/pw-reset-03.webp) ![x](/documentation/images/readme/pw-reset-04.webp) 
 
-#### Books List and Details page
+#### My Library (Books List) and Details page
 This page serves as the digital equivalent of a user's personal bookshelf or library.
 - Responsive Book Cards: Each book is displayed on a responsive card that adjusts to screen size.
 - CRUD Operations: Options to add, update, and delete books are integrated into each card.
@@ -470,11 +470,7 @@ This page serves as the digital equivalent of a user's personal bookshelf or lib
 
 ![x]()
 
-#### Contact page
-This page offers a straightforward method for users to contact the site owner.
-- Upon submitting feedback, users will receive a confirmation message, acknowledging their input.
 
-![x]()
 
 #### Error page
 The site features error handling for Error 403 (Forbidden Page View), Error 404 (Page Not Found), and Error 500 (Internal Server Error). When one of these errors occurs, a custom message specific to the error is displayed, offering the user an option to navigate back.
@@ -483,12 +479,13 @@ The site features error handling for Error 403 (Forbidden Page View), Error 404 
 
 #### Footer
 
-- Links to social media; Facebook, Youtube and Instagram
-- Hovering over the icons, will change their color respectively to their original color
+![x](/documentation/images/readme/footer.webp)
+
+- Hovering over the icons, will change their size and the pointer changes as well.
+- Links to social media; LinkedIn, Instagram and YouTube
 - Clicking on them, will open the respective site in a new tab
 
-![x]()
-
+<br>
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 

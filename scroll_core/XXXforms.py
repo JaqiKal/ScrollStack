@@ -8,7 +8,7 @@ from .models import Book, Author, BookAuthor, Genre
 from django.core.exceptions import ValidationError
 import os
 
-# Author Form
+
 class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
@@ -27,7 +27,6 @@ class AuthorForm(forms.ModelForm):
         return cleaned_data
 
 
-# Utility Function: Validate Image File Extension
 def validate_image_file_extension(image):
     ext = os.path.splitext(image.name)[1]  # Get the file extension
     valid_extensions = ['.jpg', '.jpeg', '.png', '.webp']  # Add allowed formats here
@@ -36,7 +35,6 @@ def validate_image_file_extension(image):
             'Unsupported file extension. Only jpg, jpeg, png, and webp are allowed.'
         )
 
-# Book Form
 class BookForm(forms.ModelForm):
     author_first_name = forms.CharField(
         max_length=100,
@@ -92,6 +90,7 @@ class BookForm(forms.ModelForm):
         cleaned_data['description'] = cleaned_data.get('description', '').strip()
         return cleaned_data
 
+
     def clean_isbn(self):
         isbn = self.cleaned_data.get('isbn', '').strip()
         # Remove hyphens from ISBN for validation
@@ -103,6 +102,7 @@ class BookForm(forms.ModelForm):
                 "Enter a valid ISBN number. ISBN should be 10 or 13 digits long incl. a hyphen (xxx-...)."
             )
         return isbn  # Return the original ISBN with hyphens
+
 
     def __init__(self, *args, **kwargs):
         """
@@ -119,12 +119,26 @@ class BookForm(forms.ModelForm):
                 self.fields['author_last_name'].initial = author.last_name
                 self.initial['author_id'] = author.id
 
+
+
+def validate_image_file_extension(image):
+    ext = os.path.splitext(image.name)[1]  # Get the file extension
+    valid_extensions = ['.jpg', '.jpeg', '.png', '.webp']  # Add allowed formats here
+    if ext.lower() not in valid_extensions:
+        raise ValidationError(
+            'Unsupported file extension. Only jpg, jpeg, png, and webp are allowed.'
+        )
+
+
+
     def save(self, commit=True):
         """
         Save the form instance and handle the creation or linking
         of the author. Avoid duplicate author entries and ensure author
         details are updated if necessary.
         """
+        # Save the Book instance as usual but do not commit yet
+        # if specified so.
         book = super(BookForm, self).save(commit=False)
 
         # Handle author creation, remove any leading or trailing whitespace
@@ -135,6 +149,7 @@ class BookForm(forms.ModelForm):
         if first_name and last_name:
             # Find existing author or create a new one
             author, created = Author.objects.update_or_create(
+                # Using the initial ID if available
                 id=self.initial.get('author_id'),
                 defaults={
                     'first_name': first_name,
@@ -151,14 +166,14 @@ class BookForm(forms.ModelForm):
             # Check if book-author link already exists to avoid duplicate link
             if not BookAuthor.objects.filter(
                 book=book, author=author
-            ).exists():
+             ).exists():
                 BookAuthor.objects.create(book=book, author=author)
 
         else:
             if commit:
                 book.save()
                 self.save_m2m()
-
+        
         # Remove the book cover image if the checkbox is checked
         if self.cleaned_data.get('remove_image', False):
             book.remove_image()
@@ -166,7 +181,6 @@ class BookForm(forms.ModelForm):
         return book
 
 
-# Book Search Form
 class BookSearchForm(forms.Form):
     """
     A form field for searching books by title & author
