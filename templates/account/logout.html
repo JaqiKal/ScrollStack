@@ -5,7 +5,7 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="container mt-4 custom-container">
+<div class="container col-lg-6 col-md-8 my-4 custom-container">
 
     <h1 class="visually-hidden">This is the Log out Page</h1>
 
@@ -17,7 +17,7 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans 'Log Out' %}</button>
+        <button class="btn btn-signup custom-btn-auth" type="submit">{% trans 'Log Out' %}</button>
         <a href="{% url 'book-list' %}" class="btn btn-secondary custom-btn-auth-secondary">Cancel</a>
     </form>
 </div>
