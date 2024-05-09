@@ -399,83 +399,122 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 
 #### Navigation 
 
-- The navigation bar is consistent across all pages, with slight modifications based on the context of the user's session status (e.g., whether the user is logged in or not). 
-    - For non-authenticated users:
-        - Logo/Home: Clicking this take the user back to the landing page.
-        - Sign Up: A form from where one register as new user
-        - Log In: A form for returning user to authenticate and log in.
+- The navigation bar is consistent across all pages, with slight modifications based on the context of the user's session status (e.g., whether the user is logged in or not).
+    - **For non-authenticated users:**
+        - **Logo/Home**: Clicking this take the user back to the landing page.
+        - **Sign Up**: A form where one can register as a new user.
+        - **Log In**: A form for returning users to authenticate and log in.
 
     ![x](/documentation/images/readme/menu-non-authenticated-lg.webp) 
 
     ![x](/documentation/images/readme/menu-non-authenticated-sm.webp)
 
-    - For authenticated users:
-        - Logo/My Library/username/Books in total: Clicking this take the user back to the landing page.
-        - Add book: A form where user add a book to the library.
-        - Guide: An instruction page on how to use the ScrollStack
-        - Logout: Exit to non-authenticated landing page.
-        - Users name: An indicator that user is logged in.
-        - Toggle/slider button: To turn the animated line on/off
-        - Books in total: A statistic function, that shows total number of books in the register.
+    - **For authenticated users**:
+        - **Logo/My Library/username/Books in total**: Clicking this takes the user back to the landing page.
+        - **Add book**: A form where users can add a book to the library.
+        - **Guide**: An instruction page on how to use ScrollStack.
+        - **Logout**: Exit to the non-authenticated landing page.
+        - **Users badge**: An indicator showing which user is logged in.
+        - **Toggle/slider button**: To turn the animated line on/off
+        - **Books in total**: A statistic function that shows total number of books in the register.
 
     ![x](/documentation/images/readme/menu-authenticated-lg.webp)
 
     ![x](/documentation/images/readme/menu-authenticated-sm.webp)
 
-- Dynamic Elements Based on User State
-    - Register/Login: Visible only when the user is not authenticated. These should redirect to their respective pages for authentication.
-    - Logout: Visible only when the user is logged in, allowing users to log out of the application.
+- **Dynamic Elements Based on User State**
+    - **Register/Login**: Visible only when the user is not authenticated. These should redirect to their respective pages for authentication.
+    - **Logout**: Visible only when the user is logged in, allowing users to log out of the application.
 
-- Specific to Logged-in Users
-    - My Library: Is the authenticated user's landing page and also the view of all books.
-    - Add Book: Link to the Add page where users can fill out the form to add a new book. Visible only for logged-in users. 
-    - Book cards: with an overview information. The card is clickable and redirects user to the detailed book view.
+- **Specific to Logged-in Users**
+    - **My Library**: The authenticated user's landing page and also the view of all books.
+    - **Add Book**: Link to the Add page where users can fill out the form to add a new book. Visible only for logged-in users.
+    - **Book cards**: Overview information on each book, clickable to redirect users to the detailed book view.
     
-- Error Pages: Navigation is simple. Only the Home, Contact are included and depending on user status, Login or Logout options. 
+- **Error Pages**: Navigation is simple, including only Home and Contact, with Login or Logout options depending on user status.
 
 #### Landing Page
 
-![x]()
+The landing page provides a welcoming introduction to **ScrollStack**, a digital bookshelf where users can manage their book collections effortlessly. This page offers non-authenticated users an overview of ScrollStack's key features, inviting them to sign up or log in for a personalized experience.
+
+**Key Features:**
+- **Hero Section**: A welcoming hero section that encourages users to sign up or log in.
+  - **Sign-Up Button**: Directs new users to the registration page.
+  - **Log-In Button**: Allows returning users to log in and access their personalized bookshelf.
+  - **Platform Overview**: Highlights the primary purpose of ScrollStack - managing books securely.
+
+- **Responsive Header**:
+  - For non-authenticated users the logo and navigation links to the Home, Sign-Up, and Log-In pages.
+  - For authenticated users the logo and navigation links to My Library, Add Book, Guide, Logout. Also present is a "user badge", a slider to turn the animated line on/off and a counter of the total amount of registered items.
+
+- **Social Media Links**:
+  - Direct links to LinkedIn, Instagram, and YouTube from the footer.
+
+![x](/documentation/images/readme/landing-non-auth.webp)
+
+
+- **Authenticated User Landing Page**: Displays a total list of registered items.
+    - **Navigation** is supported by pagination controls. 8 items per page.
+    - **Search Button**: Starts the search.
+        - **Reset Button**: Returns to the full list.
+        - **Top Menu**: Clicking on Logo, My Library, user badge, or counter also returns to the full list.
+    - **Activity Button**: Provides information on activity in the last 7 days.
+
+
+![x](/documentation/images/readme/page-01.png) ![x](/documentation/images/readme/page-02.png) ![x](/documentation/images/readme/page-03.png) 
+
+![x](/documentation/images/readme/search.png) 
+
+![x](/documentation/images/readme/recent-btn.png) 
+
+![x](/documentation/images/readme/recent-open.png)
+
+![x](/documentation/images/readme/landing-authenticated.webp)
 
 #### User account pages
 
-![x]()
-
 The Django templates for SignUp, Login, and Logout have been customized and styled to align with the overall aesthetic of the application.
-- Register allows users to create a new account. After clicking to establish their account, users are redirected to 'Add a book'. 
-- Login in grants users access to their content. If a user doesn't have an account yet, an active link on the Login page allows them to navigate to the Register page.
+
+- **Sign-Up**: Allows users to create a new account. After clicking to establish their account, users are redirected to 'Add a book.'
+- **Log-In**: Grants users access to their content. An active link on the Log-In page allows new users to navigate to the Register page.
 
     - Landing page, Login page, Login Fail example, Login successful, with a message at the top of the page
 
 ![x](/documentation/images/readme/login-01.webp) ![x](/documentation/images/readme/login-02.webp) ![x](/documentation/images/readme/login-03.webp) ![x](/documentation/images/readme/login-04.webp)
 
-- Logout process is handled through a simple logout button or link in the navigation menu. When clicked, this button triggers the logout functionality, and then redirects the user to the landing page.
+- **Log-Out**: Handled through a link in the navigation menu for authenticated users. Redirects to the landing page for non-authenticated users.
 
+![x](/documentation/images/readme/logout.webp)  ![x](/documentation/images/readme/logout-success.webp)  
 
-
-
-
-- Password reset is handled with start from Login page, where one instead of logging in also access the password reset function.
+- **Password Reset**: Accessible from the Log-In page.
 
 ![x](/documentation/images/readme/pw-reset-01.webp) ![x](/documentation/images/readme/pw-reset-02.webp) 
 
 ![x](/documentation/images/readme/pw-reset-03.webp) ![x](/documentation/images/readme/pw-reset-04.webp) 
 
 #### My Library (Books List) and Details page
-This page serves as the digital equivalent of a user's personal bookshelf or library.
-- Responsive Book Cards: Each book is displayed on a responsive card that adjusts to screen size.
-- CRUD Operations: Options to add, update, and delete books are integrated into each card.
-- Form Navigation: Adding or updating a book redirects the user to a form page, streamlining list management.
-- Deletion Confirmation: A confirmation pop-up ensures intentional deletions. Confirming deletion redirects the user to the landing page.
+These pages serves as the digital equivalent of a user's personal bookshelf or library.
 
-![x]()
+- **My Library**
+    - **Responsive Book Cards**: Each book is displayed on a responsive card that adjusts to screen size. Eight cards per page.
 
+- **Book Details**
+    - **Actions**: Options to go back to my library list, update, and delete books are integrated into each card.
+    - **Form Navigation**: Adding or updating a book redirects the user to a form page, streamlining list management.
+    - **Deletion Confirmation**: User is redirected to confirmation page to ensure intentional deletions. Confirming deletion redirects the user to the authenticated user landing page.
 
+![x](/documentation/images/readme/eight-cards.webp)
+
+![x](/documentation/images/readme/book-detail-01.webp) ![x](/documentation/images/readme/book-details-02.webp)
+
+![x](/documentation/images/readme/edit.webp)  ![x](/documentation/images/readme/delete-confirm.webp)  
 
 #### Error page
 The site features error handling for Error 403 (Forbidden Page View), Error 404 (Page Not Found), and Error 500 (Internal Server Error). When one of these errors occurs, a custom message specific to the error is displayed, offering the user an option to navigate back.
 
-![x]()
+All error pages share the layout and design; only the title and message differ depending on the error. For simplicity, only one of the pages is shown here.
+
+![x](/documentation/images/readme/error-404.webp)
 
 #### Footer
 
