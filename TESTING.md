@@ -340,6 +340,85 @@ xx
 
 ## UNSOLVED issue 
 
+- While validating the add/edit form, an error message is received, "The src attribute of the <img> tag is empty, which results in an invalid value.".
+    ```text
+    Bad value for attribute src on element img: Must be non-empty.
+    From line 136, column 21; to line 137, column 41
+    <img id="current-image" src="" width="150" height="225" alt="Book cover">
+    ```
+
+Following attempts is made to solve issue, however it failed with 500 error, current site is deployed with this error. This is not fatal in the sense that it will crash the application. However, it indicates a validation issue related to an empty src attribute for an <img> element. This issue could affect the user experience because:
+- An image placeholder or broken image icon will be displayed due to the missing image source.
+- Although an empty image will still show the alternative text (alt attribute), it isn't ideal for a good user experience.
+
+1. The logic in book_form.html is changed to secure that the src attribute is not be empty. The image is in static/image folder.
+
+    ```html
+    {% if form.instance.image %}
+    <div class="form-group">
+        <a href="{{ form.instance.image.url }}" target="_blank" style="cursor: pointer;">
+            <img id="current-image" src="{{ form.instance.image.url }}" width="150" height="225"
+                alt="{{ form.instance.title|default:'Book cover' }}">
+        </a>
+    </div>
+    {% else %}
+    <div class="form-group">
+        <img id="current-image" src="{% static 'images/default-book-cover.webp' %}" width="150" height="225"
+            alt="Default book cover">
+    </div>
+    {% endif %}
+    ````
+2. Adjust the validation logic for the BookForm to ensure that the image field, if missing, is not saved with an empty src.
+
+    ```python
+    class BookForm(forms.ModelForm):
+        # Image Field Validator
+        image = forms.ImageField(
+            validators=[validate_image_file_extension],
+            required=False,
+            help_text="Upload a cover image. Only jpg, jpeg, png, and webp formats are allowed."
+        )
+
+        def save(self, commit=True):
+            """
+            Save the form instance and handle the creation or linking
+            of the author. Avoid duplicate author entries and ensure author
+            details are updated if necessary.
+            """
+            book = super(BookForm, self).save(commit=False)
+
+            # Ensure book image is set or a default one is assigned
+            if not book.image:
+                book.image = 'https://res.cloudinary.com/dsbcjtatz/image/upload/v1714578907/scroll_core/book_cover_images/default-book-cover_t2lyio.webp'
+
+            # Other author and book linking logic...
+
+            if commit:
+                book.save()
+                self.save_m2m()  # Save many-to-many fields
+
+            return book
+    ```
+
+3. Set initial values in the form to ensure that an image is provided for an existing book.
+
+    ```python
+    def __init__(self, *args, **kwargs):
+        super(BookForm, self).__init__(*args, **kwargs)
+        if self.instance.pk:
+            authors = self.instance.get_authors()
+            if authors:
+                author = authors[0]
+                self.fields['author_first_name'].initial = author.first_name
+                self.fields['author_middle_name'].initial = author.middle_name
+                self.fields['author_last_name'].initial = author.last_name
+            # Ensure the image field has an initial value
+            if self.instance.image:
+                self.fields['image'].initial = self.instance.image
+      ```
+
+
+
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
 ### KNOWN issue 
