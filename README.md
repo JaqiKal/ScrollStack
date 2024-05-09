@@ -214,27 +214,36 @@ In this project, a relational database 'PostgreSQL' is employed for its robustne
 
 ### Backend Logic
 
-Placeholder text!
-
-```text
-- Detail the data models used, such as Book, User, Author, and Genre, explaining the relationships between them (e.g., one-to-many from Author to Book).
-- Describe how business logic is implemented in Django views and models, including user authentication, book management (CRUD operations), and permissions for different user roles.
-- If any external APIs or integrations are used (e.g., for user authentication, email services), explain their purposes and how they’re incorporated into the backend.
-```
+The ScrollStack project utilizes models like Book, User, Author, and Genre, with relationships such as one-to-many between Author and Book. Business logic is implemented via Django views for book CRUD operations, user authentication, and role-based permissions. External APIs, like Django AllAuth for user authentication, streamline registration and login processes. The combination of these models and logic ensures a cohesive, secure, and feature-rich book management platform.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
-
 ### Programming Paradigms
 
-Placeholder text!
+The ScrollStack application utilizes various programming paradigms, including:
+- **Object-oriented programming (OOP)**: involves using objects and classes to structure and organize code.
 
-```text
-The application utilizes various programming paradigms including:
-- Object orientated programming
-- Procedural programming
-- Event-driven Programming
-```
+    - The application uses Django models to represent data entities following OOP principles like encapsulation and inheritance.
+    - Models include:
+        - Book Model: Represents individual books with properties such as title, publication year, ISBN, and relationships to other models like Author and Genre.
+        - Genre Model: Represents book genres with attributes like name and description.
+        - Author Model: Represents authors with attributes such as first name, last name, and middle name.
+        - User Model: Customized version of allauth's user model.
+
+- **Procedural programming**:  is based on structured sequences of steps or commands that manipulate data.
+
+    - Function-based views in the application implement procedural programming patterns.
+    - Examples of procedural functions include:
+        - Views (search_books function): Handles search functionality by querying book titles based on user input.
+
+- **Event-driven programming**: is where the flow of the program is determined by events such as user actions.
+
+    - JavaScript event handlers control user interactions in the frontend.
+    - Examples include:
+        - Search Button Click Event: Triggers book search based on the user's input.
+        - Form Submissions: Handle creating or editing book records.
+        - Django Signals: Used to trigger specific actions upon model instance creation/deletion.
+
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -362,12 +371,13 @@ The Entity-Relationship Diagram (ERD) provides a visual representation of the da
         - One from `Author` to `BookAuthor`
     - Each of these is depicted with a crow's foot at the `BookAuthor` end of the connectors.
 
+
 **Permissions and Roles**
 
 The is_superuser field within the User_Django_AllAuth entity indicates whether a user is a superuser. Superusers are granted all permissions across the application without explicitly assigning them. This allows them to perform any operation in the Django admin panel and access all data. Regular users, lacking the is_superuser flag, are restricted to actions within their scope, typically only able to manipulate their own data as defined by the application's permission logic.
 
 
-![ERD](/documentation/images/readme/erd-scroll-stack-transp.webp)
+![ERD](/documentation/images/readme/erd-scroll.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -394,8 +404,8 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ## Features
-
-### Current Features
+<details id="Current Features">
+<summary style="font-size: 1.2em; font-weight: bold;">Current Features</summary>
 
 #### Navigation 
 
@@ -419,14 +429,13 @@ The navigation bar is consistent across all pages, with slight modifications bas
     - Navigation is according to if user is authenticated or not.  
 <br>
 
-    ![x](/documentation/images/readme/menu-non-authenticated-lg.webp) 
+![x](/documentation/images/readme/menu-non-authenticated-lg.webp)
 
-    ![x](/documentation/images/readme/menu-non-authenticated-sm.webp)
+![x](/documentation/images/readme/menu-non-authenticated-sm.webp)
 
+![x](/documentation/images/readme/menu-authenticated-lg.webp)
 
-    ![x](/documentation/images/readme/menu-authenticated-lg.webp)
-
-    ![x](/documentation/images/readme/menu-authenticated-sm.webp)
+![x](/documentation/images/readme/menu-authenticated-sm.webp)
 
 
 #### Landing Page
@@ -524,6 +533,8 @@ All error pages share the layout and design; only the title and message differ d
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
+</details>
+
 ### Future Features
 
 #### Ideas considered but excluded from scope
@@ -620,7 +631,7 @@ Wireframes for the ScrollStack project were created to outline the basic layout 
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
-</details><br>
+</details>
 
 ### Color Scheme
 
