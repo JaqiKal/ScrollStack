@@ -1,11 +1,10 @@
+<!-- templates/account/signup.html -->
 {% extends "base.html" %}
-
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
 {% block content %}
-
 <div class="container text-start col-lg-6 col-md-8 my-4 custom-container">
     <div class="row">
         <h1 class="visually-hidden">This is the Sign up Page</h1>
@@ -15,14 +14,43 @@
         <br>
         <form class="form p-2 signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="mb-3">
+                <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+                {{ form.email }}
+                {{ form.email.errors.as_ul }}
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.username.id_for_label }}">{{ form.username.label }}:</label>
+                {{ form.username }}
+                {{ form.username.errors.as_ul }}
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}:</label>
+                {{ form.password1 }}
+                {{ form.password1.errors.as_ul }}
+                <span class="helptext" id="{{ form.password1.id_for_label }}_helptext">
+                    <ul>
+                        <li>Your password can't be too similar to your other personal information.</li>
+                        <li>Your password must contain at least 8 characters.</li>
+                        <li>Your password can't be a commonly used password.</li>
+                        <li>Your password can't be entirely numeric.</li>
+                    </ul>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}:</label>
+                {{ form.password2 }}
+                {{ form.password2.errors.as_ul }}
+            </div>
+
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans "Sign up" %}
-                &raquo;</button>
+            <button class="btn btn-signup right custom-btn-auth" type="submit">{% trans "Sign up" %} &raquo;</button>
         </form>
     </div>
 </div>
-
 {% endblock content %}
