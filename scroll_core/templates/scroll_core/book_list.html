@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<main class="book-li">
+<div class="book-li">
     <div class="container mt-3 mb-5">
         <h1>My Library!</h1>
         <p id="book-list-p-blurb">Explore your collection, add new finds, or dive back into old favorites. Start by
@@ -43,7 +43,7 @@
 
             <!-- Search Form and Buttons -->
             <form class="row flex-column flex-md-row g-1 g-md-2 justify-content-start align-items-center mb-3"
-                id="book-list-search-form" method="get" action="">
+                id="book-list-search-form" method="get" action="{% url 'book-list' %}">
                 {% csrf_token %}
                 <!-- Hidden field to detect search button click, The hidden field search_button helps differentiate between
                      search and pagination requests. Errors are shown only when search_button is present in the GET request. -->
@@ -158,5 +158,6 @@
                 </nav>
             </div>
         </div>
-</main>
+    </div>
+</div>
 {% endblock %}
