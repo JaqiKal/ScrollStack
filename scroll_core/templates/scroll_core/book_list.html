@@ -50,10 +50,18 @@
                 <input type="hidden" name="search_button" value="true">
                 <!-- Search Input Field with Fixed Width -->
                 <div class="col-12 col-md-4 col-lg-3">
+                    <!-- Visually hidden label for screen readers -->
+                    <label for="{{ form.query.id_for_label }}" class="sr-only">Search by title or author
+                        last-name</label>
+                    <!-- Django form field -->
                     {{ form.query }}
+                    <!-- Display errors if search button was clicked and there are query errors -->
                     {% if request.GET.search_button and form.query.errors %}
-                    <div class="text-danger small mt-2">{{ form.query.errors }}</div>
+                    <div class="text-danger small mt-2">{{ form.query.errors }}
+
+                    </div>
                     {% endif %}
+
                 </div>
 
                 <!-- Spacer -->

@@ -49,8 +49,10 @@
           </li>
 
           <!-- Toggle on/off button for animation -->
+
           <li class="nav-item align-toggle">
-            <label class="toggle">
+            <label class="toggle" alt="Slider to turn on/off animated">
+              <span class="sr-only">Toggle animation on/off</span>
               <input type="checkbox" id="animation-toggle" {% if user.is_authenticated %}checked{% endif %}>
               <span class="slider"></span>
             </label>

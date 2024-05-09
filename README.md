@@ -399,39 +399,35 @@ This setup is made efficient through the use of AJAX<sup>1)</sup>, enabling asyn
 
 #### Navigation 
 
-- The navigation bar is consistent across all pages, with slight modifications based on the context of the user's session status (e.g., whether the user is logged in or not).
-    - **For non-authenticated users:**
-        - **Logo/Home**: Clicking this take the user back to the landing page.
-        - **Sign Up**: A form where one can register as a new user.
-        - **Log In**: A form for returning users to authenticate and log in.
+The navigation bar is consistent across all pages, with slight modifications based on the context of the user's session status (e.g., whether the user is logged in or not).
+  
+- **Specifics for non-authenticated users:**
+    - **Logo/Home**: Clicking this take the user back to the landing page.
+    - **Sign Up/Log In**: Visible only when the user is not authenticated. These should redirect to their respective pages for authentication.
+    
+- **Specifics for authenticated users**:
+    - **Logo/My Library/username/Books in total**: Clicking this takes the user back to the landing page.
+    - **Add book**: A form where users can add a book to the library.
+    - **Guide**: An instruction page on how to use ScrollStack.
+    - **Logout**: Exit to the non-authenticated landing page, visible only when the user is logged in.
+    - **Users badge**: An indicator showing which user is logged in.
+    - **Toggle/slider button**: To turn the animated line on/off
+    - **Books in total**: A statistic function that shows total number of books in the register
+    - **Book cards**: Overview information on each book, clickable to redirect users to the detailed book view.
+   
+- **Error Pages**: 
+    - Navigation is according to if user is authenticated or not.  
+<br>
 
     ![x](/documentation/images/readme/menu-non-authenticated-lg.webp) 
 
     ![x](/documentation/images/readme/menu-non-authenticated-sm.webp)
 
-    - **For authenticated users**:
-        - **Logo/My Library/username/Books in total**: Clicking this takes the user back to the landing page.
-        - **Add book**: A form where users can add a book to the library.
-        - **Guide**: An instruction page on how to use ScrollStack.
-        - **Logout**: Exit to the non-authenticated landing page.
-        - **Users badge**: An indicator showing which user is logged in.
-        - **Toggle/slider button**: To turn the animated line on/off
-        - **Books in total**: A statistic function that shows total number of books in the register.
 
     ![x](/documentation/images/readme/menu-authenticated-lg.webp)
 
     ![x](/documentation/images/readme/menu-authenticated-sm.webp)
 
-- **Dynamic Elements Based on User State**
-    - **Register/Login**: Visible only when the user is not authenticated. These should redirect to their respective pages for authentication.
-    - **Logout**: Visible only when the user is logged in, allowing users to log out of the application.
-
-- **Specific to Logged-in Users**
-    - **My Library**: The authenticated user's landing page and also the view of all books.
-    - **Add Book**: Link to the Add page where users can fill out the form to add a new book. Visible only for logged-in users.
-    - **Book cards**: Overview information on each book, clickable to redirect users to the detailed book view.
-    
-- **Error Pages**: Navigation is simple, including only Home and Contact, with Login or Logout options depending on user status.
 
 #### Landing Page
 
@@ -475,14 +471,15 @@ The landing page provides a welcoming introduction to **ScrollStack**, a digital
 
 The Django templates for SignUp, Login, and Logout have been customized and styled to align with the overall aesthetic of the application.
 
-- **Sign-Up**: Allows users to create a new account. After clicking to establish their account, users are redirected to 'Add a book.'
+- **Sign-Up**: Allows users to create a new account. After clicking to establish their account, users are redirected to authenticated user landing page, i.e the item listing page, called 'My Library'.
+
 - **Log-In**: Grants users access to their content. An active link on the Log-In page allows new users to navigate to the Register page.
 
-    - Landing page, Login page, Login Fail example, Login successful, with a message at the top of the page
+Landing page, Login page, Login Fail example, Login successful, with a message at the top of the page:
 
 ![x](/documentation/images/readme/login-01.webp) ![x](/documentation/images/readme/login-02.webp) ![x](/documentation/images/readme/login-03.webp) ![x](/documentation/images/readme/login-04.webp)
 
-- **Log-Out**: Handled through a link in the navigation menu for authenticated users. Redirects to the landing page for non-authenticated users.
+- **Log-Out**: Handled through a link in the navigation menu for authenticated users. Redirects to the landing page for non-authenticated users with an additional success message at the top.
 
 ![x](/documentation/images/readme/logout.webp)  ![x](/documentation/images/readme/logout-success.webp)  
 
@@ -510,6 +507,7 @@ These pages serves as the digital equivalent of a user's personal bookshelf or l
 ![x](/documentation/images/readme/edit.webp)  ![x](/documentation/images/readme/delete-confirm.webp)  
 
 #### Error page
+
 The site features error handling for Error 403 (Forbidden Page View), Error 404 (Page Not Found), and Error 500 (Internal Server Error). When one of these errors occurs, a custom message specific to the error is displayed, offering the user an option to navigate back.
 
 All error pages share the layout and design; only the title and message differ depending on the error. For simplicity, only one of the pages is shown here.
@@ -518,13 +516,11 @@ All error pages share the layout and design; only the title and message differ d
 
 #### Footer
 
-![x](/documentation/images/readme/footer.webp)
-
 - Hovering over the icons, will change their size and the pointer changes as well.
 - Links to social media; LinkedIn, Instagram and YouTube
 - Clicking on them, will open the respective site in a new tab
 
-<br>
+![x](/documentation/images/readme/footer.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
