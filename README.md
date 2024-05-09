@@ -10,10 +10,10 @@ In a world where space is a premium and the ease of accessing information is par
 Developed with the user in mind, this application aims to enhance the reading experience, making personal libraries accessible at the click of a button, anywhere, anytime. Dive into a world where managing books is no longer a chore but a delightful experience.
 
 
-![ScrollStack Preview](/documentation/readme-img/)
+![ScrollStack Preview](/documentation/images/readme/amiresponsive.webp)
 
 Developer: [JaqiKal](https://github.com/JaqiKal)<br>
-Deployed website: [Link to website](#)<br>
+Deployed website: [Link to website](https://scrollstack-af4b226be9f2.herokuapp.com/)<br>
 
 ---
 
@@ -526,6 +526,19 @@ All error pages share the layout and design; only the title and message differ d
 
 ### Future Features
 
+#### Ideas considered but excluded from scope
+
+Excluded due to time constraint and not critical for MVP.
+
+- US: Upload a Profile Picture
+- US: Update Profile Details
+- US: Manually Test User Registration and Profile Management
+    - *Note*: User reg is kept on scope and tested. 
+- US: Implement Feedback and Issue Reporting Feature
+- US: Filter by Genre
+
+#### Future features 
+
 In no particular order: 
 
 - Implement a recommendation system that suggests books based on the user's reading history, preferences, and ratings. 
@@ -541,7 +554,7 @@ In no particular order:
 
 ### Strategy
 
-The ScrollStack project is envisioned as a digital bookshelf that provides a platform for users to manage their book collections. The strategy behind this project is to leverage Full-Stack development techniques to create a user-friendly, mobile-first MVP (Minimum Viable Product) that meets the basic CRUD (Create, Read, Update, Delete) functionalities for book management. It also incorporates authentication, profile management and responsive design. This strategy is rooted in the Agile methodology to ensure flexibility, iterative development, and user feedback incorporation throughout the project lifecycle.
+The ScrollStack project is envisioned as a digital bookshelf that provides a platform for users to manage their book collections. The strategy behind this project is to leverage Full-Stack development techniques to create a user-friendly, mobile-first MVP (Minimum Viable Product) that meets the basic CRUD (Create, Read, Update, Delete) functionalities for book management. It also incorporates authentication and responsive design. This strategy is rooted in the Agile methodology to ensure flexibility, iterative development, and user feedback incorporation throughout the project lifecycle.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -552,8 +565,10 @@ To achieve our strategy, the project's scope includes:
 - Developing a responsive and accessible front-end design that adheres to UX principles and accessibility guidelines.
 - Implementing CRUD functionality for book management.
 - Ensuring secure user authentication and authorization.
-- Offering searching and filtering capabilities to enhance user interaction.
+- Offering searching and filtering capabilities to enhance user interaction. 
 - Providing a user-friendly profile management interface.
+
+***Note***: Filtering and profile mgmt are excluded from final scope.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -615,32 +630,47 @@ This choice of gradient not only provides a striking backdrop but also supports 
 
 ![Colour palette](/documentation/images/readme/colour-scheme.webp)
 
+Main colours used:
+
+![x](/documentation/images/readme/palette-scrollstack.webp)
+
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Fonts
 
-Roboto sourced from [Google Fonts](https://fonts.google.com/specimen/Roboto?preview.text=The%20ScrollStack%20&query=roboto) is chosen for its readability and professional appearance, suitable for a diverse audience.
+Sourced from Google font.
 
-![font](/documentation/images/readme/roboto-400.webp)
+- Main-font: Open Sans
+
+![x](/documentation/images/readme/font-open-sans.webp)
+
+- Title: Poppins
+
+![x](/documentation/images/readme/font-poppins.webp)
+
+- Handwriting: 'Courgette', cursive;
+
+![x](/documentation/images/readme/font-courgette.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
 ### Imagery
 
-Images on the site includes AI-generated images and those sourced from Wikimedia Commons, selected to enhance the content and provide a visually engaging experience for users.
+Images on the site includes AI-generated images and those sourced from Wikimedia Commons, selected to enhance the content and provide a visually engaging experience for users. Book covers are downloaded from Amazon Books and own material is also used.
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*  
 
 ### Accessibility Features
 
-Accessibility is a priority, achieved through semantic HTML, appropriate use of colors, and responsive design features. These elements ensure the website is accessible to users with various disabilities.
+Accessibility is enhanced through semantic HTML, thoughtful color choices, and responsive design features. These elements aim to make the website accessible to a broad range of users, including those with various disabilities.
 
-  ![x](#IMAGE)
+To improve the accessibility of this project and align with Web Content Accessibility Guidelines (WCAG), we've addressed the "Adjacent links go to the same URL" alert flagged by the WAVE accessibility tool. The following steps have been taken:
 
-    - For more details pls see:
-        - [Wave Web Accessibility Evaulation Tool - AAA.HTML](#)
-        - [Wave Web Accessibility Evaulation Tool - BBB.HTML](#)
-        - [Wave Web Accessibility Evaulation Tool - CCC.HTML](#) 
+Each link now includes a unique aria-label attribute to provide distinct context for screen readers, enhancing navigation for those using assistive technology.
+Supplemented some links with additional context using visually hidden text to offer clearer descriptions without affecting the visual layout.
+For simplicity, only one WAVE tool result is displayed here. None of the pages show any errors or contrast issues, just alerts.
+
+![x](/documentation/images/readme/wave.webp)
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -655,8 +685,6 @@ The website's design is responsive, tested across multiple devices to ensure a c
 This section of the README details all testing activities and documents any bugs encountered during development, along with their resolutions. It ensures transparency and ongoing improvement of the application
 
 Please refer to [TESTING.md](/TESTING.md) for details.
-
-### Documented Bugs and Fixes
 
 *<span style="color: blue;">[Back to Content](#table-of-contents)</span>*   
 
@@ -714,21 +742,19 @@ Important points for before deployment:
    - From the new app choose **Settings**, goto section 'Config Vars' click **Reveal Config Vars**, 
    
     - Config Vars for development of this project:
-        - DATABASE_URL will be added automatically
-        - SECRET_KEY - the django secret key can be generated here.
-        - PORT = 8000
-        - DISABLE_COLLECTSTATIC = 1
-        - CLOUDINARY_URL can be obtained from cloudinary follow the steps on the website to register.
-        - Google API key can be obtained here. Wou have to register with google and create new app to get the API key. Follow the instructions on the website.
-        - Email host password (if any).
-   
-    - **Confidential credentials**
-        - If one needs to use any private credentials, like CREDS.JSON, you should also add them to the Config Variables section. This is a crucial step for maintaining the security and integrity of your application, especially when it interacts with external services or APIs that require authentication. 
-
-    - Config Vars for production:
-        - DATABASE_URL
-        - SECRET_KEY
         - CLOUDINARY_URL
+        - DISABLE_COLLECTSTATIC
+        - DATABASE_URL 
+        - EMAIL_HOST_PASS
+        - EMAIL_HOST_USER
+        - SECRET_KEY 
+ 
+    - Config Vars for production:
+        - CLOUDINARY_URL
+        - DATABASE_URL 
+        - EMAIL_HOST_PASS
+        - EMAIL_HOST_USER
+        - SECRET_KEY 
 
 **=> Go back to your code**
 
@@ -789,12 +815,11 @@ Important points for before deployment:
 2. Create .env file. Place in inside ScrollStack folder. It needs to contain the variables from step 9.
 - Database URL can be obtained from XXX app, add PostgreSQL as an add-on when creating an app.
 - Secret_key - is the django secret key can be generated here.
-- Google API key can be obtained here you will have to register with google and create new app to get the API key. Follow the instructions on the website.
+
 
 ```text
 DATABASE_URL = ...
 SECRET_KEY = ...
-GOOGLE_API_KEY = ...
 DEVELOPMENT = True
 ```
 3. Run command

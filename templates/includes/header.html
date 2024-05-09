@@ -27,24 +27,28 @@
 
           {% if request.user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'book-list' %}active{% endif %}" href="{% url 'book-list' %}">My
+            <a class="nav-link {% if url_name == 'book-list' %}active{% endif %}" href="{% url 'book-list' %}"
+              aria-label="Navigate to My Library page">My
               Library</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'book-create' %}active{% endif %}" href="{% url 'book-create' %}">Add
+            <a class="nav-link {% if url_name == 'book-create' %}active{% endif %}" href="{% url 'book-create' %}"
+              aria-label="Navigate to Add Book page">Add
               Book</a>
           </li>
           <li>
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'guide' %}active{% endif %}" href="{% url 'guide' %}">Guide</a>
+            <a class="nav-link {% if url_name == 'guide' %}active{% endif %}" href="{% url 'guide' %}"
+              aria-label="Navigate to Guide page">Guide</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'account_logout' %}active{% endif %}"
-              href="{% url 'account_logout' %}">Logout</a>
+            <a class="nav-link {% if url_name == 'account_logout' %}active{% endif %}" href="{% url 'account_logout' %}"
+              aria-label="Log out of your account">Logout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link username" href="{% url 'book-list' %}"><i class="fas fa-user"></i>
+            <a class="nav-link username" href="{% url 'book-list' %}" aria-label="Your profile page"><i
+                class="fas fa-user"></i>
               {{ user.username }}</a>
           </li>
 
@@ -59,24 +63,26 @@
           </li>
           <!-- Statistics for the number of books -->
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'book-list' %}">
+            <a class="nav-link" href="{% url 'book-list' %}" aria-label="Total books in your library">
               <strong>Books in total:</strong> {{ user_book_count }}
             </a>
           </li>
 
           {% else %}
           <li class="nav-item custom-head-home">
-            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}"
+              aria-label="Navigate to Home page">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'account_signup' %}active{% endif %}"
-              href="{% url 'account_signup' %}">
+            <a class="nav-link {% if url_name == 'account_signup' %}active{% endif %}" href="{% url 'account_signup' %}"
+              aria-label="Sign up for an account">
               Sign Up <i class="fas fa-sign-in-alt"></i>
             </a>
 
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'account_login' %}active{% endif %}" href="{% url 'account_login' %}">
+            <a class="nav-link {% if url_name == 'account_login' %}active{% endif %}" href="{% url 'account_login' %}"
+              aria-label="Log in to your account">
               Log In <i class="fas fa-user"></i>
             </a>
           </li>
