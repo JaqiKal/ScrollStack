@@ -88,6 +88,16 @@ This procedure was repeated for each authenticated page.
 
 [JShint Validator](https://jshint.com) was used to validate all JS files / content.
 
+- **auto-dismiss-alerts.js**
+
+The error happens because the variable bootstrap is not directly defined in the JavaScript code. The Bootstrap JavaScript components is imported in the base.html file, and it is the parent template for the page that use the alert.
+
+![x](/documentation/images/testing/validates-auto-dismiss-alert.png)
+
+- toggle-animated-line.js
+
+![x](/documentation/images/testing/validate-toggle-animated-line.png)
+
 ### Python
 
 The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate all Python files.

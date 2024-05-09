@@ -3,9 +3,9 @@
 Ever wished your personal library could be as organized and accessible as your favorite bookstore? 
 Welcome to ScrollStack, where your digital bookshelf comes to life, effortlessly organized and accessible from anywhere at any time.
 
-This is a web application designed to transform the way users manage their personal libraries. Tailored for book enthusiasts, students, researchers, minimalists, and anyone in between, it provides a user-friendly and efficient solution for cataloging, organizing, and accessing book collections digitally.
+This is a web application designed to transform the way users manage their personal libraries. Tailored for book enthusiasts, students, minimalists, and anyone in between, it provides a user-friendly and efficient solution for cataloging, organizing, and accessing book collections digitally.
 
-In a world where space is a premium and the ease of accessing information is paramount. The ScrollStack stands out as a digital haven for books. Whether users are tracking their reading habits,decluttering their physical space, or simply organizing their vast collection of literature. This platform caters to their needs. It allows for the addition, editing, categorization, and detailed viewing of each book in their personal collection.
+In a world where space is a premium and the ease of accessing information is paramount. The ScrollStack stands out as a digital haven for books. Whether users are tracking their reading habits, decluttering their physical space, or simply organizing their vast collection of literature. This platform caters to their needs. It allows for the addition, editing, categorization, and detailed viewing of each book in their personal collection.
 
 Developed with the user in mind, this application aims to enhance the reading experience, making personal libraries accessible at the click of a button, anywhere, anytime. Dive into a world where managing books is no longer a chore but a delightful experience.
 
