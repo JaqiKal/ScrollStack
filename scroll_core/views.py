@@ -56,7 +56,7 @@ class BookListView(LoginRequiredMixin, ListView):
         Retrieve a queryset of books based on the presence of a 'query'
         parameter in the GET request. If the 'query' parameter exists,
         filter books by the title that contains this query, constrained to
-        books owned by the current user. If the 'query' parameter does 
+        books owned by the current user. If the 'query' parameter does
         not exist, return all books owned by the user.
         Returns: A Django QuerySet of Book instances that matches the
         search criteria or all books owned by the user if no search
@@ -129,8 +129,7 @@ class BookCreateView(LoginRequiredMixin, CreateView):
         # Set the success message.
         messages.success(self.request, "Book added successfully!")
         return response
-    
-    
+
     def form_invalid(self, form):
         messages.error(self.request, "There was an error with your submission.")
         return super().form_invalid(form)
@@ -180,7 +179,7 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
         # ensure the form is processed correctly with any additional
         # functionality provided by the parent class.
         return super().form_valid(form)
-        
+
     def form_invalid(self, form):
         messages.error(self.request, "There was an error with your submission.")
         return super().form_invalid(form)

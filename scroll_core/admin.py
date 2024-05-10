@@ -5,7 +5,6 @@ from djrichtextfield.models import RichTextField
 from .forms import BookForm
 
 
-
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     form = BookForm
@@ -18,9 +17,11 @@ class BookAdmin(admin.ModelAdmin):
         RichTextField: {'widget': RichTextWidget()},
     }
 
+
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'middle_name', 'last_name')
+
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):

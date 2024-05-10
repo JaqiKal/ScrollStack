@@ -1,4 +1,5 @@
-# Amended from https://djangocentral.com/how-to-create-custom-context-processors-in-django/
+# Amended 
+# from https://djangocentral.com/how-to-create-custom-context-processors-in-django/
 
 from .models import Book
 

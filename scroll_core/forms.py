@@ -1,12 +1,13 @@
 # scroll_core/forms.py
 # Inspired by various sources, please see README
-# Credits&Acknowledgement/Content
+# Credits & Acknowledgement/Content
 
 from django import forms
 from djrichtextfield.widgets import RichTextWidget
 from .models import Book, Author, BookAuthor, Genre
 from django.core.exceptions import ValidationError
 import os
+
 
 # Author Form
 class AuthorForm(forms.ModelForm):
@@ -30,11 +31,13 @@ class AuthorForm(forms.ModelForm):
 # Utility Function: Validate Image File Extension
 def validate_image_file_extension(image):
     ext = os.path.splitext(image.name)[1]  # Get the file extension
-    valid_extensions = ['.jpg', '.jpeg', '.png', '.webp']  # Add allowed formats here
+    valid_extensions = ['.jpg', '.jpeg', '.png', '.webp']
     if ext.lower() not in valid_extensions:
         raise ValidationError(
-            'Unsupported file extension. Only jpg, jpeg, png, and webp are allowed.'
+            'Unsupported file extension.',
+            'Only jpg, jpeg, png, and webp are allowed.'
         )
+
 
 # Book Form
 class BookForm(forms.ModelForm):
@@ -59,10 +62,10 @@ class BookForm(forms.ModelForm):
         fields = [
             'title', 'author_first_name', 'author_middle_name',
             'author_last_name', 'genre', 'publication_year', 'isbn',
-            'description', 'image',
+            'description', 'image'
         ]
         widgets = {
-            'description': RichTextWidget(attrs={"rows": 5}),
+            'description': RichTextWidget(attrs={"rows": 5})
         }
         labels = {
             'title': 'Book Title',
@@ -70,26 +73,37 @@ class BookForm(forms.ModelForm):
             'isbn': 'ISBN Number',
             'publication_year': 'Publication Year',
             'description': 'Description',
-            'image': 'Upload New Book Cover',
+            'image': 'Upload New Book Cover'
         }
 
     image = forms.ImageField(
         validators=[validate_image_file_extension],
         required=False,
-        help_text="Upload a cover image. Only jpg, jpeg, png, and webp formats are allowed."
+        help_text=(
+            "Upload a cover image. Only jpg, jpeg, png, "
+            "and webp formats are allowed."
+        )
     )
 
     def clean(self):
         """
-        Override the clean method to strip leading/trailing spaces 
+        Override the clean method to strip leading/trailing spaces
         from the book title, author fields, and description.
         """
         cleaned_data = super().clean()
         cleaned_data['title'] = cleaned_data.get('title', '').strip()
-        cleaned_data['author_first_name'] = cleaned_data.get('author_first_name', '').strip()
-        cleaned_data['author_middle_name'] = cleaned_data.get('author_middle_name', '').strip()
-        cleaned_data['author_last_name'] = cleaned_data.get('author_last_name', '').strip()
-        cleaned_data['description'] = cleaned_data.get('description', '').strip()
+        cleaned_data['author_first_name'] = cleaned_data.get(
+            'author_first_name', ''
+        ).strip()
+        cleaned_data['author_middle_name'] = cleaned_data.get(
+            'author_middle_name', ''
+        ).strip()
+        cleaned_data['author_last_name'] = cleaned_data.get(
+            'author_last_name', ''
+        ).strip()
+        cleaned_data['description'] = cleaned_data.get(
+            'description', ''
+        ).strip()
         return cleaned_data
 
     def clean_isbn(self):
@@ -100,7 +114,8 @@ class BookForm(forms.ModelForm):
         # Check if the ISBN digits are only numeric and 10 or 13 digits long
         if not isbn_digits.isdigit() or len(isbn_digits) not in [10, 13]:
             raise forms.ValidationError(
-                "Enter a valid ISBN number. ISBN should be 10 or 13 digits long incl. a hyphen (xxx-...)."
+                "Enter a valid ISBN number. ISBN should be 10 or 13 digits "
+                "long including a hyphen (xxx-...)."
             )
         return isbn  # Return the original ISBN with hyphens
 
@@ -176,7 +191,7 @@ class BookSearchForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Search by title or author last-name',
+                'placeholder': 'Search by title or author last-name'
             }
         )
     )
