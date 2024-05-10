@@ -14,10 +14,6 @@ Return back to the [README.md](README.md) file.
     - [Responsiveness](#responsiveness)
 - [Automated Testing](#automated-testing)
 - [Code Validation](#code-validation)
-    - [HTML](#html)
-    - [CSS](#css)
-    - [JavaScript](#javascript)
-    - [Python](#python)
 - [Lighthouse](#lighthouse)
 - [Manual test](#manual-test)
     - [User Stories test](#user-stories-test)
@@ -174,9 +170,15 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 ![x](/documentation/images/testing/pep8.png)
 
+</details>
+
+<br>
+
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-## Lighthouse - Desktop
+## Lighthouse
+
+Lighthouse was measured on Desktop.
 
 ### Landing non authenticated
 
@@ -214,7 +216,7 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 ![x](/documentation/images/testing/lighthous-logout.png)
 
-</details>
+
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
