@@ -18,6 +18,7 @@ Return back to the [README.md](README.md) file.
     - [CSS](#css)
     - [JavaScript](#javascript)
     - [Python](#python)
+- [Lighthouse](#lighthouse)
 - [Manual testing](#manual-testing)
     - [User Stories test](#user-stories-test)
     - [Function Testing](#function-testing)
@@ -46,9 +47,17 @@ Testing was ongoing throughout the entire development. I used the various linter
 
 ### Responsiveness
 
-```text
-T.B.D
-```
+App is fully responsive on breakpoints supported by Bootstrap 5.3.3.
+
+| **Breakpoint** | **Prefix** | **Minimum Width** |
+|----------------|------------|-------------------|
+| Extra Small    | `xs`       | `< 576px`         |
+| Small          | `sm`       | `≥ 576px`         |
+| Medium         | `md`       | `≥ 768px`         |
+| Large          | `lg`       | `≥ 992px`         |
+| Extra Large    | `xl`       | `≥ 1200px`        |
+| Extra Extra Large | `xxl`   | `≥ 1400px`        |
+
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
@@ -80,9 +89,58 @@ This reveals the fully rendered HTML, free of Jinja syntax.
 Copy this HTML and paste it into the validate by input section of the W3C validator.
 This procedure was repeated for each authenticated page.
 
+#### Landing non authenticated
+
+![x](/documentation/images/testing/validate-landing-non-auth.png)
+
+#### Sign Up
+
+![x](/documentation/images/testing/validate-signup.png)
+
+#### Log In
+
+![x](/documentation/images/testing/validate-login.png)
+
+#### Home authenticated
+
+![x](/documentation/images/testing/validate-landing-auth.png)
+
+#### Book Details
+
+![x](/documentation/images/testing/validate-book-details.png)
+
+#### Add / Edit book
+
+Please, see chapter [Unsolved Issues](#unsolved-issue)
+![x](/documentation/images/testing/validate-add-book-error.png)
+
+#### Confirm Delete
+
+![x](/documentation/images/testing/validate-confirm-delete.png)
+
+#### Log Out
+
+![x](/documentation/images/testing/validate-logout.png)
+
+#### Forgot Password
+
+![x](/documentation/images/testing/validate-forgot-pw.png)
+
+#### Change Password
+
+![x](/documentation/images/testing/validate-change-pw.png)
+
+#### Password reset done
+
+![x](/documentation/images/testing/validate-pw-reset-done.png)
+
+
 ### CSS
 
 [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) was used to to validate the CSS file(s).
+
+![x](/documentation/images/testing/validate-css.png)
+![x](/documentation/images/testing/validates-css-warning.png)
 
 ### JavaScript
 
@@ -102,7 +160,47 @@ The error happens because the variable bootstrap is not directly defined in the 
 
 The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate all Python files.
 
+![x](/documentation/images/testing/pep8.png)
+
 *<span style="color: blue;">[Back to Content](#content)</span>*
+
+## Lighthouse - Desktop
+
+### Landing non authenticated
+
+![x](/documentation/images/testing/lighthouse-landing-non-auth.png)
+
+### Sign Up
+
+![x](/documentation/images/testing/lighthouse-signup.png)
+
+### Log In
+
+![x](/documentation/images/testing/lighthouse-login.png)
+
+### Home authenticated
+
+![x](/documentation/images/testing/lighthouse-book-list.png)
+
+![x](/documentation/images/testing/lighthouse-book-list-issues.png)
+
+### Book Details
+
+![x](/documentation/images/testing/lighthouse-book-details.png)
+
+![x](/documentation/images/testing/lighthouse-book-list-issues.png)
+
+### Add / Edit book
+
+![x](/documentation/images/testing/lighthouse-add-edit.png)
+
+### Confirm Delete
+
+![x](/documentation/images/testing/lighthouse-confirm-delete.png)
+
+### Log Out
+
+![x](/documentation/images/testing/lighthous-logout.png)
 
 
 ## Manual Test
@@ -327,20 +425,25 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 ## DEFECTS
 
-### Bug-01
+### Solved Issues
 
-xx
-
-#### Solution-Bug-01
-
-xx
-
+1. [BUG#50: Swedish characters are not accepted in Django Admin Interface when adding names](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=60193635)
+2. [BUG#51: favicon does not display](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=60338451)
+3. [BUG#52: When authenticated (logged in) the body is showing base template.](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=60868592)
+4. [BUG#53: Author is missing from book_form.html](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61223109)
+5. [BUG#54: Author fields not present in the book_form.html](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61223029)
+6. [BUG#55: UnorderedObjectListWarning: Pagination may yield inconsistent results...](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61232158)
+7. [BUG#57: When adding book with long title Data errror:value too long for type character varying(50) is thrown](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61786547)
+8. [BUG#58: '__str__returnedon-string (type NoneType)](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61790424)
+9. [BUG#59: Fixing Role-Based Permissions for Book Editing](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61910824)
+10. [BUG#60: Fix Incorrect Redirection on Custom Error Pages for Authenticated Users](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61934027)
+11. [BUG#61: Change password does not work](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=62030839)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
 ## UNSOLVED issue 
 
-- While validating the add/edit form, an error message is received, "The src attribute of the <img> tag is empty, which results in an invalid value.".
+While validating the add/edit form, an error message is received, "The src attribute of the <img> tag is empty, which results in an invalid value.".
     ```text
     Bad value for attribute src on element img: Must be non-empty.
     From line 136, column 21; to line 137, column 41
