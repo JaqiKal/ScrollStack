@@ -8,5 +8,3 @@ urlpatterns = [
     path('', Index.as_view(), name='home'),  # Root URL of the site
 
 ]
-
-

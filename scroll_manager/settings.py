@@ -1,5 +1,5 @@
 
-# scroll_manager/settings.py 
+# scroll_manager/settings.py
 
 """
 Django settings for scroll_manager project.
@@ -38,21 +38,19 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 
-
 ALLOWED_HOSTS = [
     '8000-jaqikal-scrollstack-5swovgh53o4.ws-eu110.gitpod.io',
-    '.herokuapp.com', # Allows any subdomain of herokuapp.com for Heroku deployments
-    '127.0.0.1',      # Allows localhost by IP
-    '.gitpod.io'      # Allows any subdomain of gitpod.io
+    '.herokuapp.com',
+    '127.0.0.1',
+    '.gitpod.io'
 ]
 
 
-# Application definition 
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -66,7 +64,7 @@ INSTALLED_APPS = [
     'allauth.account',
     # Optional -- requires install using `django-allauth[socialacocunt]`.
     'allauth.socialaccount',
-    
+
     # user app
     'scroll_core',
     'scroll_home',
@@ -109,7 +107,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    
 ]
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
@@ -184,22 +181,33 @@ LOGIN_REDIRECT_URL = '/books/'
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
 
@@ -239,14 +247,10 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(
     BASE_DIR, 'staticfiles')
 
-# outcomented by tutor support
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 # Cloudinary Setup
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-
 
 
 MEDIA_URL = '/media/'
