@@ -6,9 +6,7 @@
 
 {% block content %}
 <div class="container col-lg-6 col-md-8 my-4 custom-container">
-
     <h1 class="visually-hidden">This is the Log out Page</h1>
-
     <h2>{% trans "Log Out" %}</h2>
     <p>{% trans 'Are you sure you want to log out?' %}</p>
     <br>
@@ -20,6 +18,5 @@
         <button class="btn btn-signup custom-btn-auth" type="submit">{% trans 'Log Out' %}</button>
         <a href="{% url 'book-list' %}" class="btn btn-secondary custom-btn-auth-secondary">Cancel</a>
     </form>
-</div>
 </div>
 {% endblock %}
