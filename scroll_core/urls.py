@@ -2,7 +2,8 @@
 
 from django.urls import path, include
 from .views import (index, BookListView, BookDetailView, BookCreateView,
-                    BookUpdateView, BookDeleteView, guide)
+                    BookUpdateView, BookDeleteView, guide,
+                    contact_view)
 
 urlpatterns = [
     path('', index, name='index'),
@@ -20,5 +21,6 @@ urlpatterns = [
         name='book-delete'
     ),
     path('djrichtextfield/', include('djrichtextfield.urls')),
-    path('guide/', guide, name='guide')
+    path('guide/', guide, name='guide'),
+    path('contact/', contact_view, name='contact'),
 ]

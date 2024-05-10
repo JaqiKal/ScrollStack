@@ -1,5 +1,5 @@
 # scroll_core/views.py
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import (
     HttpResponseForbidden,
     HttpResponseNotFound, HttpResponseServerError, Http404
@@ -12,9 +12,10 @@ from django.contrib import messages
 from .models import Book
 from .forms import BookForm
 from django.urls import reverse_lazy
-from .forms import BookSearchForm
+from .forms import BookSearchForm, ContactForm
 from django.db.models import Q
 from django.utils import timezone
+from django.core.mail import send_mail
 
 
 # Simple function-based view for the index page
@@ -267,3 +268,23 @@ def custom_500(request):
 # Help/Guide page
 def guide(request):
     return render(request, 'scroll_core/guide.html')
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            
+            full_message = f"Message from {name} <{email}>:\n\n{message}"
+            send_mail(subject, full_message, 'your-email@example.com', ['recipient@example.com'], fail_silently=False)
+            messages.success(request, 'Your message has been sent successfully.')
+            return redirect('contact')
+        else:
+            messages.error(request, 'There was an error sending your message. Please try again.')
+    else:
+        form = ContactForm()
+    return render(request, 'scroll_core/contact.html', {'form': form})

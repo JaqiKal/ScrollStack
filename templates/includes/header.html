@@ -67,13 +67,20 @@
               <strong>Books in total:</strong> {{ user_book_count }}
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {% if url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}"
+              aria-label="Navigate to Contact page">Contact</a>
+          </li>
 
           {% else %}
           <li class="nav-item custom-head-home">
             <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}"
               aria-label="Navigate to Home page">Home</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link {% if url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}"
+              aria-label="Navigate to Contact page">Contact</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link {% if url_name == 'account_signup' %}active{% endif %}" href="{% url 'account_signup' %}"
               aria-label="Sign up for an account">
