@@ -16,8 +16,7 @@ Return back to the [README.md](README.md) file.
 - [Code Validation](#code-validation)
 - [Lighthouse](#lighthouse)
 - [Manual test](#manual-test)
-    - [User Stories test](#user-stories-test)
-    - [Function Testing](#function-testing)
+    - [Function Test](#function-test)
 - [ISSUES](#issues)
     - [Solved Issues](#solved-issues)
     - [Unsolved issue](#unsolved-issue)
@@ -178,6 +177,11 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 ## Lighthouse
 
+<details id="Lighthouse-desktop">
+<summary style="font-size: 1.2em; font-weight: bold;">Lighthouse Desktop</summary>
+
+<br>
+
 Lighthouse was measured on Desktop.
 
 ### Landing non authenticated
@@ -216,11 +220,17 @@ Lighthouse was measured on Desktop.
 
 ![x](/documentation/images/testing/lighthous-logout.png)
 
+</details>
 
+<br>
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
+
 ## Manual Test
+
+<details id="function-test">
+<summary style="font-size: 1.2em; font-weight: bold;">Function Test</summary>
 
 ### **Normal Functionality Tests (NRM)**
 
@@ -243,7 +253,10 @@ Lighthouse was measured on Desktop.
 
 **Note:** If the project is set up to collect static files in a production-like environment (i.e., DEBUG = False), missing static files might cause warnings or errors that can affect the rendering of the error pages.
 
-  <summary>Local host environment</summary><br>
+
+<details id="simulate-error-in-local-host-environment">
+<summary style="font-size: 1.2em; font-weight: bold;">Simulate Error in local host environment</summary>
+<br>
 
 - Manual steps to simulate error 403 in local host:
 
@@ -278,8 +291,9 @@ Lighthouse was measured on Desktop.
 </details>
 
 
-<details>
-  <summary>Production environment</summary><br>
+<details id="simulate-error-in-production-environment">
+<summary style="font-size: 1.2em; font-weight: bold;">Simulate Error in production environment</summary>
+<br>
 
 - Manual steps to simulate error 403 in production: 
 
@@ -433,6 +447,8 @@ Lighthouse was measured on Desktop.
 |RESP-002|Tablet Navigation | Ensure proper display and navigation on tablet devices | Browse the site on tablets | PASS| Consistent behavior |
 |RESP-003|Desktop Navigation | Ensure proper display and navigation on desktop devices | Browse the site on desktop | PASS | Consistent behavior |
 
+</details>
+<br>
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
