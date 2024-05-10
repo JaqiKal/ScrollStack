@@ -94,6 +94,10 @@ This procedure was repeated for each authenticated page.
 
 ![x](/documentation/images/testing/validate-landing-non-auth.png)
 
+#### Contact form
+
+![x](/documentation/images/testing/validate-contact.png)
+
 #### Sign Up
 
 ![x](/documentation/images/testing/validate-signup.png)
@@ -188,6 +192,10 @@ Lighthouse was measured on Desktop.
 
 ![x](/documentation/images/testing/lighthouse-landing-non-auth.png)
 
+#### Contact form
+
+![x](/documentation/images/testing/lighthouse-contact.png)
+
 ### Sign Up
 
 ![x](/documentation/images/testing/lighthouse-signup.png)
@@ -218,7 +226,7 @@ Lighthouse was measured on Desktop.
 
 ### Log Out
 
-![x](/documentation/images/testing/lighthous-logout.png)
+![x](/documentation/images/testing/lighthouse-logout.png)
 
 </details>
 

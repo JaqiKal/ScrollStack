@@ -414,6 +414,7 @@ The navigation bar is consistent across all pages, with slight modifications bas
 - **Specifics for non-authenticated users:**
     - **Logo/Home**: Clicking this take the user back to the landing page.
     - **Sign Up/Log In**: Visible only when the user is not authenticated. These should redirect to their respective pages for authentication.
+    - **Contact form**: To get in touch with "support" aka app creator.
     
 - **Specifics for authenticated users**:
     - **Logo/My Library/username/Books in total**: Clicking this takes the user back to the landing page.
@@ -423,6 +424,7 @@ The navigation bar is consistent across all pages, with slight modifications bas
     - **Users badge**: An indicator showing which user is logged in.
     - **Toggle/slider button**: To turn the animated line on/off
     - **Books in total**: A statistic function that shows total number of books in the register
+    - **Contact form**: To get in touch with "support" aka app creator.
     - **Book cards**: Overview information on each book, clickable to redirect users to the detailed book view.
    
 - **Error Pages**: 
@@ -446,6 +448,7 @@ The landing page provides a welcoming introduction to **ScrollStack**, a digital
 - **Hero Section**: A welcoming hero section that encourages users to sign up or log in.
   - **Sign-Up Button**: Directs new users to the registration page.
   - **Log-In Button**: Allows returning users to log in and access their personalized bookshelf.
+  - **Contact form**: To get in touch with "support" aka app creator.
   - **Platform Overview**: Highlights the primary purpose of ScrollStack - managing books securely.
 
 - **Responsive Header**:
@@ -515,6 +518,19 @@ These pages serves as the digital equivalent of a user's personal bookshelf or l
 
 ![x](/documentation/images/readme/edit.webp)  ![x](/documentation/images/readme/delete-confirm.webp)  
 
+#### Contact Page
+
+The Contact Page is a late addition to the ScrollStack project. While not featured in the main wireframes or initial designs, it provides users with a way to reach out to the platform administrators or customer support. 
+
+- Key Functionalities
+    - Contact Form: Allows users to submit messages, suggestions, or report issues.
+    - Email Notification: Sends an email to the administrators upon form submission.
+    - Accessible through the "Contact" menu item.
+
+This contact feature aligns with the project's objectives to create a user-friendly platform by offering a communication channel between users and the development team.
+
+![x](/documentation/images/readme/contact.webp)
+
 #### Error page
 
 The site features error handling for Error 403 (Forbidden Page View), Error 404 (Page Not Found), and Error 500 (Internal Server Error). When one of these errors occurs, a custom message specific to the error is displayed, offering the user an option to navigate back.
@@ -552,6 +568,7 @@ Excluded due to time constraint and not critical for MVP.
 
 In no particular order: 
 
+- Implement: About page.
 - Implement a recommendation system that suggests books based on the user's reading history, preferences, and ratings. 
 - Allow users to follow other users, share books on their digital shelves, and comment on/review books. 
 - Create partnerships and APIs to allow users to check the availability of physical copies in local libraries or bookstores, and possibly even reserve or purchase them directly through ScrollStack.
