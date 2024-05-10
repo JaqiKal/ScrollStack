@@ -280,7 +280,7 @@ def contact_view(request):
             message = form.cleaned_data['message']
             
             full_message = f"Message from {name} <{email}>:\n\n{message}"
-            send_mail(subject, full_message, 'jaqika@gmail.com', ['recipient@example.com'], fail_silently=False)
+            send_mail(subject, full_message, 'jaqika@gmail.com', ['jaqika@gmail.com'], fail_silently=False)
             messages.success(request, 'Your message has been sent successfully.')
             return redirect('contact')
         else:
