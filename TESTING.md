@@ -10,7 +10,7 @@ Return back to the [README.md](README.md) file.
 
 - [Testing overview & environment](#testing-overview--environment)
     - [Test environment](#test-environment)
-    - [Browser compatibility](#browser-compatibilty)
+    - [Browser compatibility](#browser-compatibility)
     - [Responsiveness](#responsiveness)
 - [Automated Testing](#automated-testing)
 - [Code Validation](#code-validation)
@@ -19,13 +19,13 @@ Return back to the [README.md](README.md) file.
     - [JavaScript](#javascript)
     - [Python](#python)
 - [Lighthouse](#lighthouse)
-- [Manual testing](#manual-testing)
+- [Manual test](#manual-test)
     - [User Stories test](#user-stories-test)
     - [Function Testing](#function-testing)
-- [DEFECTS](#defects)
+- [ISSUES](#issues)
+    - [Solved Issues](#solved-issues)
     - [Unsolved issue](#unsolved-issue)
     - [Known issue](#known-issue)
-
 
 ---
 ## Testing overview & environment
@@ -89,6 +89,12 @@ This reveals the fully rendered HTML, free of Jinja syntax.
 Copy this HTML and paste it into the validate by input section of the W3C validator.
 This procedure was repeated for each authenticated page.
 
+
+<details id="Validation Images">
+<summary style="font-size: 1.2em; font-weight: bold;">Validation Images</summary>
+
+<br>
+
 #### Landing non authenticated
 
 ![x](/documentation/images/testing/validate-landing-non-auth.png)
@@ -112,6 +118,7 @@ This procedure was repeated for each authenticated page.
 #### Add / Edit book
 
 Please, see chapter [Unsolved Issues](#unsolved-issue)
+
 ![x](/documentation/images/testing/validate-add-book-error.png)
 
 #### Confirm Delete
@@ -135,11 +142,14 @@ Please, see chapter [Unsolved Issues](#unsolved-issue)
 ![x](/documentation/images/testing/validate-pw-reset-done.png)
 
 
+*<span style="color: blue;">[Back to Content](#content)</span>*
+
 ### CSS
 
 [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) was used to to validate the CSS file(s).
 
 ![x](/documentation/images/testing/validate-css.png)
+
 ![x](/documentation/images/testing/validates-css-warning.png)
 
 ### JavaScript
@@ -155,6 +165,8 @@ The error happens because the variable bootstrap is not directly defined in the 
 - toggle-animated-line.js
 
 ![x](/documentation/images/testing/validate-toggle-animated-line.png)
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 ### Python
 
@@ -202,11 +214,11 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 ![x](/documentation/images/testing/lighthous-logout.png)
 
+</details>
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 ## Manual Test
-
-|  Goals | Expected Outcome | Testing Performed | Result |
-| :--- | :--- | :--- | :--- |
 
 ### **Normal Functionality Tests (NRM)**
 
@@ -229,7 +241,6 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 **Note:** If the project is set up to collect static files in a production-like environment (i.e., DEBUG = False), missing static files might cause warnings or errors that can affect the rendering of the error pages.
 
-<details>
   <summary>Local host environment</summary><br>
 
 - Manual steps to simulate error 403 in local host:
@@ -423,7 +434,7 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-## DEFECTS
+## ISSUES
 
 ### Solved Issues
 
@@ -441,7 +452,9 @@ The recommended [CI Python Linter](https://pep8ci.herokuapp.com) was to validate
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-## UNSOLVED issue 
+### UNSOLVED issue 
+
+#### Error msg 'Bad value for attribute src on element img: Must be non-empty'
 
 While validating the add/edit form, an error message is received, "The src attribute of the <img> tag is empty, which results in an invalid value.".
     ```text
@@ -520,14 +533,18 @@ Following attempts is made to solve issue, however it failed with 500 error, cur
                 self.fields['image'].initial = self.instance.image
       ```
 
+#### HTML Tags Visible in the Rendered Site
 
+When editing a book's description in the Django Admin using a rich text field, HTML tags may appear on the rendered site. This behavior occurs because the rich text editor allows admin to format the content with HTML tags, which are then stored in the database. When the data is retrieved and displayed on the website, these tags are visible as plain text if not properly rendered. 
+
+The solution may be to apply 'safe' filter in templates.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
 ### KNOWN issue 
 
 #### Empty Non-Editable "Currently" Field for Book Cover Image. 
-- When editing a book's details in the form, an empty non-editable input field labeled "Currently" appear next to the "Book Cover Image" field. Despite attempts to remove it using custom Crispy Forms layouts and explicit HTML templates, the field remains visible. This field is likely rendered due to how the Django `ImageField` widget works with Crispy Forms. By default, it tries to provide an indication of the current file path, even if the image is not explicitly displayed.
+- When editing a book's details in the form, a non-editable input field labeled 'Currently' appears next to the 'Book Cover Image' field. Despite attempts to remove it using custom Crispy Forms layouts and explicit HTML templates, the field remains visible. This field is likely displayed because of how the Django ImageField widget interacts with Crispy Forms. By default, it aims to show the current file path, even if the image isn't explicitly displayed. However, it does serve a purpose: allowing users to delete the current image by ticking the checkbox and clearing it.
 
 #### Gitpod IDE
 - Three notifications suggest that specific VS Code extensions are either installed or recommended in the workspace but are not listed in the .gitpod.yml file. To address these notifications and ensure consistent synchronization of these extensions across various setups, the extensions should be included under the vscode.extensions section of the .gitpod.yml file.
