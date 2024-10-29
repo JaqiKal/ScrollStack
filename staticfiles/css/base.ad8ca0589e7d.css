@@ -1,0 +1,585 @@
+/* static/css/base.css */
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Noto+Sans:ital,wdth,wght@0,87.5,100..900;1,87.5,100..900&family=Open+Sans&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+
+/* Variables */
+:root {
+    /** Fonts */
+    --main-font: 'Open Sans', sans-serif;
+    --title: 'Poppins', sans-serif;
+    --handwriting: 'Courgette', cursive;
+
+    /** Colors */
+    --clr-background: #3f006a0f;
+    --clr-blue: #0d6efd;
+    --clr-black: #000;
+    --clr-white: #fff;
+    --clr-off-white: #f6f6f6;
+    --clr-lg-grey: #e0dddd;
+    --clr-dark-red: #800000;
+    --clr-beige: #ffdeade6;
+    --clr-orange: #ff9102;
+    ;
+
+    /** Other */
+    --box-shadow: 0 2px 4px #290000;
+
+
+}
+
+
+/* Global Style */
+/* Help in achieving consistent layout across different browsers */
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--main-font);
+    background: #ff9102;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--title);
+    color: var(--clr-dark-red)
+}
+
+
+
+/* This targets all FontAwesome icons */
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+    font-size: 1rem;
+    color: rgb(42, 2, 2);
+
+}
+
+/* Header */
+.custom-navbar {
+    background: var(--clr-orange);
+    background: -moz-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
+    background: -webkit-linear-gradient(top, #F6E84B 0%, #ff9102 0%, #800000 100%);
+    background: linear-gradient(to, bottom, #F6E84B 0%, #ff9102 0%, #800000 100%);
+    box-shadow: 0px 1px 10px rgba(48, 19, 1, 0.8);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+img.logo {
+    margin: 0px;
+    width: 5rem;
+}
+
+.active {
+    border-bottom: 3px solid var(--clr-dark-red);
+    font-weight: 500;
+}
+
+
+.custom-head-home {
+    font-family: var(--handwriting);
+}
+
+
+/* Hamburger icon bars to X */
+/* Copied https://youtu.be/_MrShB9fh7U */
+
+.navbar-toggler {
+    color: var(--clr-dark-red);
+}
+
+.navbar-toggler-icon {
+    background-image: none !important;
+    background-color: var(--clr-dark-red);
+    height: 3px;
+    width: 25px;
+    margin: 10px 0;
+    position: relative;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::before {
+    display: block;
+    background-color: var(--clr-dark-red);
+    height: 3px;
+    content: "";
+    position: relative;
+    top: -7px;
+    transition: all 0.15s ease-out;
+    /*taken down to hide quicker*/
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::after {
+    display: block;
+    background-color: var(--clr-dark-red);
+    height: 3px;
+    content: "";
+    position: relative;
+    top: 4px;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-dark .navbar-toggler-icon,
+.navbar-dark .navbar-toggler-icon::before,
+.navbar-dark .navbar-toggler-icon::after {
+    background-color: var(--bs-gray-100);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    transform: rotate(-90deg) translateX(7px);
+}
+
+.nav-link {
+    font-size: 1.4rem;
+    margin: 0px 16px;
+    font-family: var(--handwriting);
+}
+
+.nav-link:hover {
+    color: rgb(2, 91, 120);
+}
+
+.username {
+    font-family: var(--handwriting);
+}
+
+/* Animated line toggle button */
+.align-toggle {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    margin-bottom: 5px;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    line-height: 24px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--clr-beige);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "Line off";
+    height: 20px;
+    width: 50%;
+    left: 0;
+    bottom: 2px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 24px;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--clr-orange);
+}
+
+input:checked+.slider:before {
+    transform: translateX(30px);
+    content: "Line on";
+}
+
+
+
+/* Main */
+
+main {
+    flex: 1 0 auto;
+}
+
+.custom-p-base {
+    color: var(--clr-dark-red);
+    font-family: var(--main-font);
+    font-size: larger;
+    font-weight: bold;
+}
+
+/* Adjust or add to your existing CSS */
+.hero.jumbotron {
+    background-image: url("/static/images/hero.f80aadf7d0f8.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Full viewport height */
+    height: 100vh;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hero .container {
+    border-radius: 2em;
+    padding: 1em;
+    box-shadow: 1px 1px 32px 7px rgb(93, 3, 3);
+}
+
+.text-center {
+    background-color: var(--clr-beige);
+}
+
+/* Jumbotron style */
+.jumbotron .display-4 {
+    font-weight: bold;
+    font-size: 3rem;
+    font-family: courgette;
+    color: rgba(128, 0, 0, 1);
+}
+
+.jumbotron .lead-a {
+    font-size: 2rem;
+    color: rgba(128, 0, 0, 1);
+}
+
+.jumbotron p.lead-b {
+    font-size: 1.5rem;
+    color: rgba(128, 0, 0, 1);
+    padding: 0;
+}
+
+.btn {
+    margin: 0.5em;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    box-shadow: var(--box-shadow);
+    font-size: large;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s;
+    background: var(--clr-beige);
+    text-decoration: none;
+}
+
+
+.custom-btn-primary {
+    border-color: #007bff;
+    background-color: #007bffb0;
+}
+
+.custom-btn-secondary {
+    border-color: #15d40b;
+    background-color: #77d372;
+}
+
+
+/* Book-list page */
+
+.p-list {
+    margin-bottom: 1.5rem;
+}
+
+/* Removes label from search in book-list */
+#book-list-search-form label[for="id_query"] {
+    display: inline-table;
+}
+
+#book-list-search-form input[type="text"] {
+    background-color: var(--clr-lg-grey);
+    width: 285px;
+    height: 40px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+
+.fixed-btn-width {
+    width: 120px;
+    white-space: nowrap;
+}
+
+
+/* Recent activity card */
+.card.custom-recent-card {
+    margin-top: 0.8rem;
+
+}
+
+.flame-divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #991d00 0%, #ff8c00 25%, #ffd700 50%, #ff8c00 75%, #991d00 100%);
+    margin: 10px 0;
+    background-size: 200% 100%;
+    animation: flame-animation 25s ease-in-out;
+}
+
+.animate {
+    animation: flame-animation 25s ease-in-out infinite;
+}
+
+
+@keyframes flame-animation {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+
+/* Book list & Details */
+
+.card {
+    height: 100%;
+    background: var(--clr-beige);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.card-body {
+    background: var(--clr-off-white);
+}
+
+
+/* Book-detail page */
+
+.book-detail {
+    margin-bottom: 20px;
+}
+
+.custom-detail-img {
+    object-fit: cover;
+    width: 50%;
+    /* This maintains aspect ratio */
+    height: auto;
+    margin-top: 0.5rem;
+
+}
+
+.custom-card-detail {
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+
+/* Book card */
+.card-body {
+    border-radius: 15px;
+
+}
+
+.card-link {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.card-link .card {
+    /* Ensures smooth transitions for hover effects */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+}
+
+.card-link:hover .card,
+.card-link:focus .card {
+    /* Shadow effect for depth */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Slightly enlarges the card */
+    transform: scale(1.05);
+}
+
+
+.card-body ul {
+    /* Removes bullet points from the list */
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-body li {
+    padding: 8px 0;
+    /* Adds a separator line between items */
+    border-bottom: 1px solid #ccc;
+
+}
+
+.card-body li:last-child {
+    /* Removes the bottom border from the last item */
+    border-bottom: none;
+
+}
+
+.custom-list-img {
+    object-fit: cover;
+    width: 100%;
+    /* This maintains aspect ratio */
+    height: auto;
+    margin: 0.5rem 0;
+
+}
+
+
+/* Guide page */
+
+.custom-guide {
+    box-shadow: var(--box-shadow);
+    border: 1px solid #800000;
+    background: var(--clr-beige);
+    border-radius: 15px;
+    margin-top: 1.5rem;
+}
+
+.custom-guide li {
+    padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+
+/* Error page */
+
+#custom-error-btn {
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-color: #15d40b;
+    background-color: #77d372;
+    transition: background-color 0.3s;
+}
+
+
+custom-error-btn:hover {
+    background-color: #15d40b;
+}
+
+/* Footer */
+
+footer {
+    flex-shrink: 0;
+    background: linear-gradient(to bottom, #800000 0%, #ff9102 100%, #F6E84B 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Base styles for the social icons */
+.social-icon {
+    height: 2rem;
+    margin: 2rem;
+    /* Smooth transition for transform and opacity changes */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    /* Slightly transparent by default */
+
+}
+
+/* Hover styles for the social icons */
+.social-icon:hover {
+    transform: scale(1.1);
+    /* Scale up the icon slightly */
+    opacity: 1;
+    /* Full opacity on hover */
+}
+
+/* Signup, Login, Logout page, pw reset, reset done */
+
+.custom-container {
+    background-color: var(--clr-beige);
+    border-radius: 10px;
+    border: 1px solid var(--clr-dark-red);
+    box-shadow: var(--box-shadow);
+    padding-top: 10px;
+}
+
+.custom-btn-auth {
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    border-color: #007bff;
+    background-color: #007bff6b;
+}
+
+.custom-btn-auth-secondary {
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    border-color: #15d40b;
+    background-color: #77d372;
+}
+
+.form {
+    width: 100%;
+    /* Adjust width as needed */
+}
+
+.custom-container {
+    text-align: center;
+    /* Centers text in the container */
+}
+
+.custom-p-reset {
+    background: var(--clr-orange);
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.btn-signup {
+    margin: auto;
+    /* Centers the button within the form */
+    display: block;
+}

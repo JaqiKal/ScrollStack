@@ -14,3 +14,6 @@ env
 venv
 .fullDB.json
 .debug.log
+# Ignore SQLite database file
+*.sqlite3
+db.sqlite3

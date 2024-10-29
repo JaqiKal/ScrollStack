@@ -16,6 +16,7 @@ from pathlib import Path
 if os.path.isfile('env.py'):
     import env
 
+
 # Import database URL handling library after environment variables are set up
 import dj_database_url
 
@@ -35,17 +36,22 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+# Get the secret key from the environment variable
+SECRET_KEY = os.getenv('SECRET_KEY', 'your-default-development-key')
 
+# Raise an error if SECRET_KEY is not set for production
+if SECRET_KEY == 'your-default-development-key' and os.getenv('DEVELOPMENT') is None:
+    raise ValueError("No SECRET_KEY set for the Django application.")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+# SECURITY WARNING: don't run with debug turned on in production! (Set to True for development)
+# DEBUG = True
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = [
-    '8000-jaqikal-scrollstack-5swovgh53o4.ws-eu110.gitpod.io',
-    '.herokuapp.com',
     '127.0.0.1',
+    '.herokuapp.com',
+    'scrollstack-af4b226be9f2.herokuapp.com',
+    '8000-jaqikal-scrollstack-5swovgh53o4.ws-eu110.gitpod.io',
     '.gitpod.io'
 ]
 
@@ -74,8 +80,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'cloudinary',
     'cloudinary_storage',
-    'djrichtextfield'
-]
+    'djrichtextfield']
 
 SITE_ID = 1
 
@@ -107,7 +112,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+
 ]
+
+# Conditionally add `debug_toolbar` only in development
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -150,15 +160,26 @@ WSGI_APPLICATION = 'scroll_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+DATABASE_URL = os.environ.get("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable is not set.")
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(DATABASE_URL)
 }
+
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.gitpod.io",
     "https://*.herokuapp.com",
+    "https://scrollstack-af4b226be9f2.herokuapp.com",
     "http://127.0.0.1:8000"
 ]
+
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -225,17 +246,20 @@ USE_TZ = True
 
 
 # Email backend for development (optional, for testing email features):
-if 'DEVELOPMENT' in os.environ:
+if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'jaqika@example.com'
+    DEFAULT_FROM_EMAIL = 'no-reply@example.com'  # Default fallback email for development
+    EMAIL_FAIL_SILENTLY = False
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER', 'no-reply@example.com')
+    EMAIL_FAIL_SILENTLY = True
+    
 
 
 # Static files (CSS, JavaScript, Images)
@@ -246,6 +270,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(
     BASE_DIR, 'staticfiles')
+
+if DEBUG:
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+else:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 # Cloudinary Setup
@@ -260,3 +290,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+    '127.0.0.1',  # or your local IP for other setups
+]
