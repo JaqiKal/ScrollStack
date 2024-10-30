@@ -69,7 +69,7 @@ class BookForm(forms.ModelForm):
         }
         labels = {
             'title': 'Book Title',
-            'genre': 'Genre',
+            'genre': 'Select genre',
             'isbn': 'ISBN Number',
             'publication_year': 'Publication Year',
             'description': 'Description',

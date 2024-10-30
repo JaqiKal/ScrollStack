@@ -123,7 +123,7 @@ class Book(models.Model):
     genre = models.ForeignKey(
         Genre, on_delete=models.CASCADE,
         related_name='books',
-        help_text='Select the genre of the book'
+        # help_text='Select the genre of the book'
     )
     added_at = models.DateTimeField(
         auto_now_add=True,
