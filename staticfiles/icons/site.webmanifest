@@ -1,0 +1,25 @@
+{
+    "name": "ScrollStack",
+    "short_name": "ScrollStack",
+    "icons": [
+        {
+            "src": "/static/icons/linkedin-square-icon-46.webp",
+            "sizes": "46x46",
+            "type": "image/webp"
+        },
+        {
+            "src": "/static/icons/instagram-square-icon-46.webp",
+            "sizes": "46x46",
+            "type": "image/webp"
+        },
+        {
+            "src": "/static/icons/youtube-icon-46.webp",
+            "sizes": "46x46",
+            "type": "image/webp"
+        }
+
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

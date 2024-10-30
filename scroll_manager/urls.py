@@ -23,13 +23,6 @@ urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
    ]
 
-
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
-
 # Setting custom error handlers
 handler403 = 'scroll_core.views.custom_403'
 handler404 = 'scroll_core.views.custom_404'

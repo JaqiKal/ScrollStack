@@ -44,8 +44,10 @@ if SECRET_KEY == 'your-default-development-key' and os.getenv('DEVELOPMENT') is 
     raise ValueError("No SECRET_KEY set for the Django application.")
 
 # SECURITY WARNING: don't run with debug turned on in production! (Set to True for development)
-# DEBUG = True
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+# Set DEBUG based on environment
+DEBUG = os.getenv('DEBUG', 'False') == 'True'  # True for dev, False for prod
+
+
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -114,10 +116,6 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 
 ]
-
-# Conditionally add `debug_toolbar` only in development
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
-
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -261,9 +259,9 @@ else:
     EMAIL_FAIL_SILENTLY = True
     
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -271,12 +269,8 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(
     BASE_DIR, 'staticfiles')
 
-if DEBUG:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-else:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
+# Use Whitenoise for handling static files in production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Cloudinary Setup
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
