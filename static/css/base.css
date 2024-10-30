@@ -530,7 +530,7 @@ footer {
 
 /* Hover styles for the social icons */
 .social-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     /* Scale up the icon slightly */
     opacity: 1;
     /* Full opacity on hover */
