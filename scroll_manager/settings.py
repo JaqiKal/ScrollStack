@@ -51,7 +51,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'  # True for dev, False for prod
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '.herokuapp.com',
-    'scrollstack-af4b226be9f2.herokuapp.com/',
+    'scrollstack-af4b226be9f2.herokuapp.com',
     '8000-jaqikal-scrollstack-5swovgh53o4.ws-eu110.gitpod.io',
     '.gitpod.io'
 ]
@@ -289,7 +289,7 @@ INTERNAL_IPS = [
 ]
 
 # Production logging configuration
-import os
+
 import logging
 import logging.config
 
@@ -304,16 +304,15 @@ if not DEBUG:
             },
         },
         'handlers': {
-            'file': {
+            'console': {
                 'level': 'ERROR',
-                'class': 'logging.FileHandler',
-                'filename': os.path.join(BASE_DIR, 'error.log'),
+                'class': 'logging.StreamHandler',
                 'formatter': 'verbose',
             },
         },
         'loggers': {
             'django': {
-                'handlers': ['file'],
+                'handlers': ['console'],
                 'level': 'ERROR',
                 'propagate': True,
             },
