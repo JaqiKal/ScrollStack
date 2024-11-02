@@ -243,6 +243,10 @@ USE_TZ = True
 
 
 # Email backend for development (optional, for testing email features):
+# EMAIL_FAIL_SILENTLY:
+# - In Development: Set to False to catch and troubleshoot email issues.
+# - In Production: Set to True to prevent email errors from affecting user experience;
+#   consider logging errors for monitoring.
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'no-reply@example.com'  # Default fallback email for development
