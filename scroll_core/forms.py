@@ -94,7 +94,7 @@ class BookForm(forms.ModelForm):
             }),
             'isbn': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': "Enter the ISBN number of the book 10 or 13 digits and a hyphen (format: nnnnnnnnnn/nnn-n)",
+                'placeholder': "Enter the ISBN number of the book 10 or 13 digits",
                 'title': "Please enter the ISBN no."
             }),
             # TODO: Add a custom widget for the description field
