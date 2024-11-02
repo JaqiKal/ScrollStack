@@ -97,6 +97,7 @@ class BookForm(forms.ModelForm):
                 'placeholder': "Enter the ISBN number of the book 10 or 13 digits and a hyphen (format: nnnnnnnnnn/nnn-n)",
                 'title': "Please enter the ISBN no."
             }),
+            # TODO: Add a custom widget for the description field
             'description': RichTextWidget(attrs={
                 'rows': 5,
                 'class': 'form-control',
@@ -113,6 +114,7 @@ class BookForm(forms.ModelForm):
             'image': 'Upload New Book Cover'
         }
 
+    # TODO: Add a custom clean method for the Image field
     image = forms.ImageField(
         validators=[validate_image_file_extension],
         required=False,
