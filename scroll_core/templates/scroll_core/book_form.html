@@ -1,36 +1,28 @@
 <!-- scroll_core/templates/scroll_core/book_form.html - adding and editing  -->
 
-{% extends 'base.html' %}
-
-{% load i18n crispy_forms_tags %}
-
-{% if form.errors %}
+{% extends 'base.html' %} {% load i18n crispy_forms_tags %} {% if form.errors %}
 <div class="alert alert-danger">
-    <ul>
-        {% for field, errors in form.errors.items %}
-        {% for error in errors %}
-        <li>{{ error }}</li>
-        {% endfor %}
-        {% endfor %}
-    </ul>
+  <ul>
+    {% for field, errors in form.errors.items %} {% for error in errors %}
+    <li>{{ error }}</li>
+    {% endfor %} {% endfor %}
+  </ul>
 </div>
-{% endif %}
-
-{% block head_title %}{% trans "Add or Edit book details" %}{% endblock %}
-{% block content %}
+{% endif %} {% block head_title %}{% trans "Add or Edit book details" %}{% endblock %} {% block content %}
 
 <div class="container mt-4 left custom-form-container">
-    <div class="row">
-        <h1 class="visually-hidden">Add/Edit Form</h1>
-        <h2>{% trans "Add or Edit book details" %}</h2>
-        <p>{% blocktrans %}This page allows you to either add a book or update the details of your selected book. Please
-            make all necessary changes in the fields below. Once you are satisfied with the updates, click the 'Save'
-            button to apply the changes. If you wish to cancel and return to the previous page without making any
-            changes, click the 'Cancel' button.{% endblocktrans %}</p>
-        <br>
+  <div class="row">
+    <h1 class="visually-hidden">Add/Edit Form</h1>
+    <h2>{% trans "Add or Edit book details" %}</h2>
+    <p>
+      {% blocktrans %}This page allows you to either add a book or update the details of your selected book. Please make all necessary changes in the fields below. Once you are satisfied with the updates, click the 'Save' button to apply the changes.
+      If you wish to cancel and return to the previous page without making any changes, click the 'Cancel' button.{% endblocktrans %}
+    </p>
+    <br />
 
-        <form class="form p-2" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+    <form class="form p-2" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- TODO decide how to fix broken image, perhaps remove?
             {% if form.instance.image %}
             <div class="form-group">
                 <a href="{{ form.instance.image.url }}" target="_blank" style="cursor: pointer;">
@@ -39,21 +31,20 @@
                 </a>
             </div>
             {% endif %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-primary custom-btn-secondary">{% trans "Save" %}</button>
+            -->
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-primary custom-btn-secondary">{% trans "Save" %}</button>
 
-            <!-- Conditionally render the Cancel button URL based on the presence of an object. If the object exists
+      <!-- Conditionally render the Cancel button URL based on the presence of an object. If the object exists
                 (e.g., during edit), the button redirects to the book-detail page of the object. If no object is present
                 (e.g., during creation), the button redirects to the book-list page. 
             -->
-            {% if object %}
-            <a href="{% url 'book-detail' pk=object.pk %}"
-                class="btn btn-secondary custom-btn-primary">{% trans "Cancel" %}</a>
-            {% else %}
-            <a href="{% url 'book-list' %}" class="btn btn-secondary custom-btn-primary">{% trans "Cancel" %}</a>
-            {% endif %}
-
-        </form>
-    </div>
+      {% if object %}
+      <a href="{% url 'book-detail' pk=object.pk %}" class="btn btn-secondary custom-btn-primary">{% trans "Cancel" %}</a>
+      {% else %}
+      <a href="{% url 'book-list' %}" class="btn btn-secondary custom-btn-primary">{% trans "Cancel" %}</a>
+      {% endif %}
+    </form>
+  </div>
 </div>
 {% endblock %}
