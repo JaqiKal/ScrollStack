@@ -209,16 +209,24 @@ class ContactForm(forms.Form):
     name = forms.CharField(
         max_length=100,
         required=True,
-        widget=forms.TextInput(attrs={'class': 'form-control'}))
+        label='Name',  # Custom label
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter your name'}))
     email = forms.EmailField(
         required=True,
-        widget=forms.EmailInput(attrs={'class': 'form-control'}))
+        label='e-mail',  # Custom label
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter your e-mail address'}))
     subject = forms.CharField(
         max_length=200,
         required=True,
-        widget=forms.TextInput(attrs={'class': 'form-control'}))
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter the subject'}))
     message = forms.CharField(
+        required=True,
         widget=forms.Textarea(attrs={
-            'class': 'form-control', 'rows': 5}
-        ),
-        required=True)
+            'class': 'form-control', 'rows': 5,
+            'placeholder': 'Enter your message'}))

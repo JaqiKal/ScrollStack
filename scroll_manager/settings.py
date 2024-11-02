@@ -261,6 +261,8 @@ else:
     DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER', 'no-reply@example.com')
     EMAIL_FAIL_SILENTLY = True
     
+CONTACT_EMAIL = os.getenv('CONTACT_EMAIL', 'default@example.com')
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

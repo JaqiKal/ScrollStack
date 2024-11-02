@@ -16,6 +16,7 @@ from .forms import BookSearchForm, ContactForm
 from django.db.models import Q
 from django.utils import timezone
 from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Simple function-based view for the index page
@@ -290,7 +291,13 @@ def contact_view(request):
             message = form.cleaned_data['message']
             
             full_message = f"Message from {name} <{email}>:\n\n{message}"
-            send_mail(subject, full_message, 'jaqika@gmail.com', ['jaqika@gmail.com'], fail_silently=False)
+            send_mail(
+                subject,
+                full_message,
+                settings.CONTACT_EMAIL,  # From email
+                [settings.CONTACT_EMAIL],  # To email (as a list)
+                fail_silently=False
+            )
             messages.success(request, 'Your message has been sent successfully.')
             return redirect('contact')
         else:
