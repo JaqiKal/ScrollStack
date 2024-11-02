@@ -44,17 +44,29 @@ class BookForm(forms.ModelForm):
     author_first_name = forms.CharField(
         max_length=100,
         required=False,
-        help_text="Enter the author's first name"
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': "Enter the author's first name",
+            'title': "Please enter the author's first name"
+        })
     )
     author_middle_name = forms.CharField(
         max_length=100,
         required=False,
-        help_text="Optional: enter the author's middle name or initial"
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': "Optional: enter the author's middle name or initial",
+            'title': "Optional: Please enter the author's middle name or initial"
+        })
     )
     author_last_name = forms.CharField(
         max_length=100,
         required=True,
-        help_text="Enter the author's last name"
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': "Enter the author's last name",
+            'title': "Please enter the author's last name"
+        })
     )
 
     class Meta:
@@ -65,7 +77,32 @@ class BookForm(forms.ModelForm):
             'description', 'image'
         ]
         widgets = {
-            'description': RichTextWidget(attrs={"rows": 5})
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter the title of the book',
+                'title': "Please enter the title of the book"
+            }),
+            'genre': forms.Select(attrs={
+                'class': 'form-control',
+                'placeholder': 'Select a genre',
+                'title': "Please select a genre from the list"
+            }),
+            'publication_year': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter the publication year',
+                'title': "Please enter the publication year"
+            }),
+            'isbn': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': "Enter the ISBN number of the book 10 or 13 digits and a hyphen (format: nnnnnnnnnn/nnn-n)",
+                'title': "Please enter the ISBN no."
+            }),
+            'description': RichTextWidget(attrs={
+                'rows': 5,
+                'class': 'form-control',
+                'placeholder': 'Enter a brief description of the book',
+                'title': "Please enter a brief description of the book"
+            })
         }
         labels = {
             'title': 'Book Title',

@@ -20,11 +20,9 @@ class Genre(models.Model):
     name = models.CharField(
         max_length=100,
         verbose_name='Genre Name',
-        help_text='Enter the name of the genre'
     )
     description = models.TextField(
         verbose_name='Description',
-        help_text='Enter a description for this genre'
     )
 
     def __str__(self):
@@ -48,13 +46,11 @@ class Author(models.Model):
         max_length=100,
         validators=[name_validator],
         verbose_name='First Name',
-        help_text='Enter the author\'s first name'
     )
     middle_name = models.CharField(
         max_length=100,
         validators=[name_validator],
         verbose_name='Middle Name',
-        help_text='Optional: Enter the author\'s middle name or initial',
         blank=True,
         null=True
     )
@@ -62,7 +58,6 @@ class Author(models.Model):
         max_length=100,
         validators=[name_validator],
         verbose_name='Last Name',
-        help_text='Enter the author\'s last name',
         blank=False  # Not optional
     )
 
@@ -81,9 +76,7 @@ class Book(models.Model):
     title = models.CharField(
         max_length=255,
         verbose_name='Book Title',
-        help_text='Enter the title of the book'
     )
-
     class Meta:
         ordering = ['title']  # Orders by title alphabetically by default
 
@@ -100,7 +93,6 @@ class Book(models.Model):
             MinValueValidator(1000)
         ],
         verbose_name='Publication Year',
-        help_text='Enter the year the book was published',
         null=True,
         blank=True
     )
@@ -113,17 +105,14 @@ class Book(models.Model):
         unique=True,
         validators=[isbn_validator],
         verbose_name='ISBN',
-        help_text='Enter the ISBN no. of the book, 10 or 13 digits & hyphens'
     )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
         related_name='books',
-        help_text='Select the owner of the book'
     )
     genre = models.ForeignKey(
         Genre, on_delete=models.CASCADE,
         related_name='books',
-        # help_text='Select the genre of the book'
     )
     added_at = models.DateTimeField(
         auto_now_add=True,
@@ -142,7 +131,6 @@ class Book(models.Model):
     )
     description = RichTextField(
         verbose_name='Description',
-        help_text='Enter a brief description of the book',
         blank=True
     )
     image = CloudinaryField(
@@ -210,13 +198,11 @@ class Book(models.Model):
 class BookAuthor(models.Model):
     book = models.ForeignKey(
         Book, on_delete=models.CASCADE,
-        related_name='book_authors',
-        help_text='Select the book associated with an author'
+        related_name='book_authors'
     )
     author = models.ForeignKey(
         Author, on_delete=models.CASCADE,
-        related_name='book_authors',
-        help_text='Select the author associated with a book'
+        related_name='book_authors'
     )
 
 
