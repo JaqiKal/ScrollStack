@@ -475,6 +475,8 @@ Lighthouse was measured on Desktop.
 9. [BUG#59: Fixing Role-Based Permissions for Book Editing](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61910824)
 10. [BUG#60: Fix Incorrect Redirection on Custom Error Pages for Authenticated Users](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=61934027)
 11. [BUG#61: Change password does not work](https://github.com/users/JaqiKal/projects/10/views/1?pane=issue&itemId=62030839)
+12. [BUG#64: 500 error in production](https://github.com/JaqiKal/ScrollStack/issues/64)
+13. [BUG#65: Use of contact form results in 500 error](https://github.com/JaqiKal/ScrollStack/issues/65)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
